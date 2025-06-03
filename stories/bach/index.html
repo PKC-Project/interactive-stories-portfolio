@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.S. Bach: Master of Harmony</title>
+    <link rel="stylesheet" href="style.css"> <!-- Will use Bach-specific or generic story style -->
+</head>
+<body>
+    <div id="storybook-container-bach">
+
+        <!-- Page 1: The Baroque Master -->
+        <div id="page1-bach" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-bach">The Baroque Virtuoso</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-bach">
+                    <svg id="svg-page1-bach-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Bach at organ, Baroque ornamentation -->
+                        <rect width="150" height="110" fill="#FDF5E6"/> <!-- Cream -->
+                        <rect x="10" y="20" width="20" height="70" fill="#654321" class="clickable-svg-element organ-pipe" data-note="C3"/>
+                        <rect x="35" y="15" width="20" height="80" fill="#785A3E" class="clickable-svg-element organ-pipe" data-note="G3"/>
+                        <rect x="60" y="25" width="20" height="60" fill="#654321" class="clickable-svg-element organ-pipe" data-note="C4"/>
+                        <rect x="85" y="10" width="20" height="90" fill="#785A3E" class="clickable-svg-element organ-pipe" data-note="E4"/>
+                        <rect x="110" y="20" width="20" height="70" fill="#654321" class="clickable-svg-element organ-pipe" data-note="G4"/>
+                        <rect x="40" y="70" width="70" height="15" fill="#A0522D"/> <!-- Keyboard -->
+                        <text x="75" y="105" font-size="7px" text-anchor="middle">Click the Organ Pipes!</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1-bach" class="story-text">
+                        Johann Sebastian Bach (1685-1750) stands as a titan of the Baroque era. A devout Lutheran, his life was dedicated to composing for the church and court, serving as an organist, Kapellmeister, and teacher. His technical mastery and profound spirituality infused every note he wrote.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-bach">Masterworks →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Masterworks & Polyphony -->
+        <div id="page2-bach" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-bach">Woven Melodies</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-bach">
+                    <svg id="svg-page2-bach-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Abstract polyphony, interwoven lines -->
+                        <rect width="150" height="110" fill="#ECECEC"/>
+                        <path d="M10 30 C 40 10, 70 50, 90 30 S 140 60, 140 80" stroke="#3498db" stroke-width="2.5" fill="none" class="clickable-svg-element" data-info="Counterpoint: Weaving independent melodies together."/>
+                        <path d="M10 80 C 40 100, 70 60, 90 80 S 140 50, 140 30" stroke="#e74c3c" stroke-width="2.5" fill="none" class="clickable-svg-element" data-info="Fugue: A complex form where a theme is imitated by different voices."/>
+                        <path d="M75 10 C 60 55, 90 55, 75 100" stroke="#2ecc71" stroke-width="2" fill="none" stroke-dasharray="3,3" class="clickable-svg-element" data-info="Bach's music is known for its intricate architecture."/>
+                    </svg>
+                </div>
+                <div id="info-popup-bach-p2" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page2-bach" class="story-text">
+                        Bach's vast output includes monumental works like the Brandenburg Concertos, The Well-Tempered Clavier, and the Mass in B Minor. He was an unparalleled master of counterpoint and fugue, weaving intricate melodic lines into harmonious tapestries of breathtaking complexity and beauty.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-bach">← Virtuoso</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-bach">Enduring Influence →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Rediscovery & Legacy -->
+        <div id="page3-bach" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-bach">A Timeless Architect</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-bach">
+                    <svg id="svg-page3-bach-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Abstract "BACH" motif, eternal flame/light -->
+                        <rect width="150" height="110" fill="#333344"/> <!-- Deep, contemplative blue/grey -->
+                        <text x="75" y="60" font-family="serif" font-size="24" fill="#D4AF37" text-anchor="middle" class="clickable-svg-element" data-info="The BACH motif (Bb-A-C-B natural) is a musical signature used by Bach and others.">B A C H</text>
+                        <path d="M75 70 Q75 85 65 95 L85 95 Q75 85 75 70 Z" fill="orange" opacity="0.8"/> <!-- Flame base -->
+                        <path d="M75 55 Q70 70 68 80 L82 80 Q80 70 75 55 Z" fill="yellow" opacity="0.9"/> <!-- Flame middle -->
+                         <path d="M75 45 Q72 55 73 65 L77 65 Q78 55 75 45 Z" fill="white" opacity="1"/> <!-- Flame tip -->
+                    </svg>
+                </div>
+                <div id="info-popup-bach-p3" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page3-bach" class="story-text">
+                        Though his music was somewhat neglected after his death, a 19th-century revival led by Mendelssohn cemented Bach's place as a cornerstone of Western music. His works are revered for their intellectual depth, technical brilliance, and profound spiritual expression, influencing countless composers.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-bach">← Masterworks</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-bach">Restart Bach's Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

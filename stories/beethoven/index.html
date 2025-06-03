@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beethoven: A Musical Odyssey</title>
+    <link rel="stylesheet" href="style.css"> <!-- Will use a Beethoven-specific or generic story style -->
+</head>
+<body>
+    <div id="storybook-container-beethoven">
+
+        <!-- Page 1: Early Genius -->
+        <div id="page1-beethoven" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-beethoven">Bonn & Early Vienna</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-beethoven">
+                    <svg id="svg-page1-beethoven-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Young Beethoven at piano, determined -->
+                        <rect width="150" height="110" fill="#F5F5DC"/>
+                        <rect x="10" y="50" width="130" height="30" fill="#654321" rx="2"/> <!-- Piano body -->
+                        <rect x="15" y="55" width="120" height="10" fill="ivory"/> <!-- Keys -->
+                        <path d="M70 45 C65 30 75 15 80 30 C85 45 75 50 70 45 Z" fill="#4A4A4A"/> <!-- Beethoven's head/hair -->
+                        <rect x="72" y="48" width="6" height="15" fill="#A0522D"/> <!-- Body -->
+                        <text x="75" y="100" font-size="8px" text-anchor="middle">Click keys for a note!</text>
+                        <!-- Clickable keys -->
+                        <rect class="clickable-svg-element piano-key" data-note="C4" x="20" y="55" width="10" height="10" fill="transparent"/>
+                        <rect class="clickable-svg-element piano-key" data-note="E4" x="40" y="55" width="10" height="10" fill="transparent"/>
+                        <rect class="clickable-svg-element piano-key" data-note="G4" x="60" y="55" width="10" height="10" fill="transparent"/>
+                    </svg>
+                </div>
+                <div id="info-popup-beethoven" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-beethoven" class="story-text">
+                        Born in Bonn, Germany, in 1770, Ludwig van Beethoven displayed immense musical talent from a young age. He moved to Vienna, the musical capital of Europe, to study with Haydn and quickly gained fame as a virtuoso pianist and a bold, innovative composer, building upon the Classical traditions.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-beethoven">Heroic Struggles →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Heroic Period & Deafness -->
+        <div id="page2-beethoven" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-beethoven">The Heroic Spirit</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-beethoven">
+                    <svg id="svg-page2-beethoven-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Dramatic SVG - stormy, forceful piano, sound/silence -->
+                        <rect width="150" height="110" fill="#2c3e50"/> <!-- Stormy blue/grey -->
+                        <path d="M10 80 Q 40 20, 75 50 T 140 70" stroke="#ecf0f1" stroke-width="3" fill="none" opacity="0.7"/> <!-- Sound wave -->
+                        <path d="M20 90 Q 50 40, 85 70 T 130 80" stroke="#bdc3c7" stroke-width="2" fill="none" opacity="0.5"/>
+                        <circle cx="120" cy="30" r="15" fill="#f39c12" class="clickable-svg-element" data-info="Despite growing deafness, Beethoven composed his most powerful works." id="deafness-symbol"/> <!-- Sun/Hope -->
+                        <text x="75" y="100" font-size="8px" text-anchor="middle" fill="white">Click the 'sun' symbol.</text>
+                    </svg>
+                </div>
+                <div id="info-popup-beethoven-p2" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page2-beethoven" class="story-text">
+                        Beethoven's "Heroic" period saw the creation of revolutionary works like his Third and Fifth Symphonies. This era was also marked by a profound personal crisis: his increasing deafness. Yet, with immense willpower, he continued to compose music of unprecedented power and emotional depth.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-beethoven">← Early Years</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-beethoven">Transcendent Legacy →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Late Period & Legacy -->
+        <div id="page3-beethoven" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-beethoven">A Timeless Titan</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-beethoven">
+                    <svg id="svg-page3-beethoven-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Abstract, spiritual, Ode to Joy hint -->
+                        <rect width="150" height="110" fill="#1a1a2e"/> <!-- Deep night blue -->
+                        <path d="M20,90 C50,20 100,20 130,90" fill="none" stroke="url(#odeToJoyGradient)" stroke-width="5" />
+                        <defs>
+                           <linearGradient id="odeToJoyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                             <stop offset="0%" stop-color="#FFD700"/>
+                             <stop offset="100%" stop-color="#FFA500"/>
+                           </linearGradient>
+                        </defs>
+                        <text x="75" y="55" fill="white" font-size="10px" text-anchor="middle" class="clickable-svg-element" data-info="His 9th Symphony's 'Ode to Joy' is a universal anthem of hope.">Ode to Joy (Hint)</text>
+                    </svg>
+                </div>
+                <div id="info-popup-beethoven-p3" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page3-beethoven" class="story-text">
+                        In his late period, Beethoven pushed musical boundaries further with profound string quartets and the monumental Ninth Symphony. His music bridged the Classical and Romantic eras, and his influence on subsequent generations of composers is immeasurable. He remains a titan of Western music.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-beethoven">← Heroic Period</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-beethoven">Restart Beethoven's Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

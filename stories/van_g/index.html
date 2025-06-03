@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story of Vincent van Gogh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container">
+        <!-- Page 1: Early Life & Struggles -->
+        <div id="page1" class="page">
+            <header class="page-header">
+                <h2 id="page1-title">Van Gogh: The Early Years</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1">
+                    <svg id="svg-page1-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- Placeholder: LLM will generate SVG content here -->
+                        <!-- Example: Simple representation of "The Potato Eaters" mood -->
+                        <rect width="150" height="110" fill="#70543E" /> 
+                        <circle cx="75" cy="30" r="10" fill="#F5DEB3" opacity="0.7" /> <!-- Dim light -->
+                        <rect x="30" y="60" width="20" height="30" fill="#5C4033" />
+                        <rect x="60" y="55" width="30" height="35" fill="#50392C" />
+                        <rect x="100" y="60" width="20" height="30" fill="#5C4033" />
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1" class="story-text">
+                        Vincent van Gogh was born in Groot Zundert, Netherlands, in 1853. His early life was marked by a search for purpose, leading him through various vocations including art dealing and missionary work. These experiences, often filled with emotional intensity and a deep empathy for the working class, profoundly shaped his worldview before he fully dedicated himself to becoming an artist around 1880. His early works were characterized by somber tones and depicted peasant life.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="next-page1">Next →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Arles & Peak Creativity -->
+        <div id="page2" class="page">
+            <header class="page-header">
+                <h2 id="page2-title">Arles: Sunflowers & Starry Nights</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2">
+                    <svg id="svg-page2-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- Placeholder: LLM will generate SVG content here, initially Sunflowers -->
+                        <rect width="150" height="110" fill="#FFD700" /> <!-- Yellow for Sunflowers -->
+                        <circle cx="75" cy="55" r="20" fill="#A0522D" /> <!-- Sunflower center -->
+                        <text x="75" y="60" text-anchor="middle" font-size="10" fill="#5C4033">Sunflowers</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                     <button class="style-toggle-button" id="toggle-art-style">Evoke Starry Night</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2" class="story-text">
+                        In 1888, Van Gogh moved to Arles in the South of France, seeking brilliant light and color. This period was one of immense creativity and artistic development, where he produced some of his most iconic masterpieces, including the vibrant "Sunflowers" series and the swirling, celestial "Starry Night." His unique style, characterized by bold colors and expressive, impasto brushwork, began to fully emerge, though his life remained tumultuous.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2">← Previous</button>
+                <button class="nav-button" id="next-page2">Next →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Legacy & Impact -->
+        <div id="page3" class="page">
+            <header class="page-header">
+                <h2 id="page3-title">Legacy and Enduring Impact</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3">
+                    <svg id="svg-page3-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- Placeholder: LLM will generate SVG content here -->
+                        <!-- Example: Simplified "Wheatfield with Cypresses" feel -->
+                        <rect width="150" height="70" y="40" fill="#F0E68C" /> <!-- Wheatfield -->
+                        <rect width="150" height="40" y="0" fill="#87CEEB" /> <!-- Sky -->
+                        <path d="M40 100 L45 40 L50 100 Z" fill="#006400" /> <!-- Cypress tree -->
+                        <path d="M100 100 L105 30 L110 100 Z" fill="#004000" />
+                    </svg>
+                </div>
+                 <div class="text-area">
+                    <p id="text-page3" class="story-text">
+                        Tragically, Vincent van Gogh's life was cut short in 1890. During his lifetime, he achieved little commercial success or recognition. However, his profound emotional honesty, innovative use of color, and dynamic brushwork would posthumously earn him a place as one of an most influential figures in the history of Western art. His work continues to inspire and move millions around the globe.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3">← Previous</button>
+                <button class="nav-button" id="restart-story">Restart Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

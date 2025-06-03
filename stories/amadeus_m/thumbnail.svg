@@ -1,0 +1,16 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#E6E6FA" /> <!-- Lavender background -->
+    <!-- G-Clef (simplified) -->
+    <path d="M 45,75
+             A 15,15 0 0 1 45,45
+             A 15,15 0 0 1 60,30
+             A 15,15 0 0 0 45,15
+             L 45,80
+             M 35,52 L 55,52"
+          stroke="#333333" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Music Notes -->
+    <circle cx="70" cy="35" r="4" fill="#333333" />
+    <line x1="74" y1="35" x2="74" y2="15" stroke="#333333" stroke-width="2" />
+    <circle cx="80" cy="50" r="4" fill="#333333" />
+    <line x1="84" y1="50" x2="84" y2="30" stroke="#333333" stroke-width="2" />
+</svg>

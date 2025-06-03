@@ -1,0 +1,165 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Example for Leonardo */
+    display: flex;
+    justify-content: center; /* Center the storybook-container horizontally */
+    align-items: center;    /* Center the storybook-container vertically if it's shorter than viewport */
+    min-height: 100vh;
+    background-color: #f5f5dc; /* Beige / Parchment */
+    color: #4b3832;
+    line-height: 1.7;
+    padding: 20px; /* Add some padding to body */
+}
+
+/* Storybook Container - This holds all pages */
+#storybook-container-leonardo, /* Or your generic story container ID/class */
+#storybook-container-beethoven,
+#storybook-container-frida 
+/* Add other story container IDs here or use a common class like .storybook-card */ {
+    width: 90vw;
+    max-width: 700px; /* Max width of the card */
+    /* Height is determined by content or a max-height if you want to constrain it */
+    /* max-height: 90vh; */ /* If you use this, the .page might need to scroll internally */
+    background-color: #fff8dc; /* Cornsilk */
+    border: 2px solid #804A00;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    position: relative; /* For absolute positioning of pages during transitions */
+    overflow: hidden; /* Crucial for page transitions and rounded corners */
+}
+
+/* Page Styling */
+.page {
+    /* When not current, they are absolute for transitions */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Take full height of the positioned parent for transitions */
+    
+    padding: 20px; /* Padding inside the page */
+    
+    display: none; /* Hidden by default, JS will show current page */
+    flex-direction: column; /* Stack header, content, footer vertically */
+    align-items: center;    /* Center direct children (header, content, footer) horizontally */
+    text-align: center;     /* Default text align for content within children */
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateX(100%); /* Start off-screen for slide-in */
+    /* overflow-y: auto; -- Let the content area scroll if needed */
+}
+
+.page.current-page {
+    display: flex; /* CRITICAL: Use flex when visible to enable flex properties */
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+    z-index: 1;
+    position: relative; /* Takes up space in the document flow, allowing parent to size to it */
+    /* height: auto; -- Allow height to be determined by content */
+    min-height: 450px; /* Or whatever min-height your container has */
+}
+
+/* Transition classes */
+.page.slide-out-left { transform: translateX(-100%); z-index: 0;}
+.page.slide-out-right { transform: translateX(100%); z-index: 0;}
+
+.page-header {
+    width: 100%;
+    max-width: 600px; /* Constrain header width */
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.page-header h2 {
+    font-size: 1.9em;
+    /* ... other h2 styles ... */
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+
+.page-content {
+    flex-grow: 1; /* Allows this section to take up available vertical space */
+    width: 100%;
+    max-width: 600px; /* Constrain content width for readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center SVG and text-area within page-content */
+    justify-content: center; /* Vertically center content IF page-content has extra space */
+                            /* Use flex-start if you prefer content aligned to top */
+    padding-bottom: 20px;
+    overflow-y: auto; /* If content within page-content overflows, it will scroll */
+    /* min-height: 0; /* Important for flex children that scroll */
+}
+
+.svg-area {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+    display: flex; /* Center SVG within its area */
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-area svg {
+    max-width: 100%;
+    max-height: 280px;
+    height: auto;
+    border: 1px solid #D2B48C;
+    border-radius: 4px;
+}
+
+.text-area {
+    width: 100%;
+    /* max-width: 550px; -- Already constrained by .page-content max-width */
+    margin: 0 auto; /* Center if it's narrower than .page-content */
+}
+
+.story-text {
+    font-size: 1.05em;
+    text-align: justify; /* Or left, if preferred */
+    margin-bottom: 20px;
+}
+
+.page-footer {
+    width: 100%;
+    max-width: 600px; /* Constrain footer width */
+    margin-top: auto; /* Pushes footer to the bottom of the .page flex column */
+    padding-top: 20px;
+    border-top: 1px solid #f0e6d2;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+/* ... rest of your button, popup, animation styles ... */
+.nav-button {
+    padding: 12px 22px; margin: 5px 10px; font-size: 1em; color: #fffaf0;
+    background-color: #704214; border: none;
+    border-radius: 6px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #503010; }
+.hub-return-button { background-color: #8A6642; }
+.hub-return-button:hover { background-color: #704214; }
+
+.info-popup {
+    position: fixed; background-color: rgba(50,30,20,0.9); color: #FFF8DC;
+    padding: 10px 14px; border-radius: 6px; font-size: 0.9em; max-width: 220px;
+    text-align: left; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; z-index: 100; border: 1px solid #A0522D;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); font-family: 'Palatino Linotype', serif;
+}
+.clickable-svg-element { cursor: pointer; transition: filter 0.2s ease; }
+.clickable-svg-element:hover { filter: brightness(1.1) drop-shadow(0 0 2px rgba(0,0,0,0.3)); }
+
+.text-fade-in { animation: fadeInStoryTextLeonardo 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextLeonardo {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

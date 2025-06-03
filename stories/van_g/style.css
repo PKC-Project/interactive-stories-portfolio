@@ -1,0 +1,163 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e0e0; /* Light grey background for the page */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Storybook Container */
+#storybook-container {
+    width: 90vw; /* Responsive width */
+    max-width: 600px; /* Max width for larger screens */
+    height: 80vh; /* Responsive height */
+    max-height: 500px; /* Max height */
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    position: relative; /* For absolute positioning of pages */
+    overflow: hidden; /* To contain pages and transitions */
+    display: flex; /* Using flex to help center content if needed later */
+    flex-direction: column; /* Although pages are absolute, this can be useful */
+}
+
+/* Page Styling */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Simple fade transition */
+    background-color: #fff; /* Each page has its own background if needed */
+}
+
+.page.current-page {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1; /* Ensure current page is on top */
+}
+
+.page-header {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.page-header h2 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.page-content {
+    flex-grow: 1; /* Allow content to take available space */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start, SVG above text */
+    overflow-y: auto; /* Scroll if content overflows vertically */
+    padding: 0 10px; /* Some padding for content within the page */
+}
+
+.svg-area {
+    width: 100%;
+    max-width: 320px; /* Max width for SVG */
+    height: auto; /* Maintain aspect ratio */
+    min-height: 200px; /* Minimum height */
+    margin-bottom: 15px;
+    /* border: 1px dashed #bdc3c7; */ /* Optional: for visualizing SVG area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure SVG scales nicely */
+.svg-area svg {
+    max-width: 100%;
+    max-height: 220px; /* Max height for the SVG art itself */
+    height: auto;
+}
+
+
+.controls-area {
+    margin-bottom: 10px;
+}
+
+.style-toggle-button {
+    padding: 8px 12px;
+    background-color: #9b59b6; /* Purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.style-toggle-button:hover {
+    background-color: #8e44ad;
+}
+
+.text-area {
+    width: 100%;
+    max-width: 450px; /* Control text width for readability */
+    margin: 0 auto; /* Center text area */
+}
+
+.story-text {
+    font-size: 1em;
+    color: #34495e;
+    text-align: justify; /* Justify for a book-like feel */
+    margin-bottom: 15px;
+}
+
+.page-footer {
+    width: 100%;
+    margin-top: auto; /* Push footer to the bottom */
+    padding-top: 15px; /* Space above footer buttons */
+    border-top: 1px solid #ecf0f1; /* Subtle separator */
+}
+
+.nav-button {
+    padding: 10px 18px;
+    margin: 0 8px;
+    font-size: 0.95em;
+    color: white;
+    background-color: #3498db; /* Blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.nav-button:hover {
+    background-color: #2980b9;
+}
+
+#restart-story {
+    background-color: #e74c3c; /* Red for restart */
+}
+
+#restart-story:hover {
+    background-color: #c0392b;
+}

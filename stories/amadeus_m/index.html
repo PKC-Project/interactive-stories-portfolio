@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Genius of Mozart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container">
+        <!-- Page 1: Child Prodigy -->
+        <div id="page1" class="page">
+            <header class="page-header">
+                <h2 id="page1-title">Mozart: The Child Prodigy</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1">
+                    <svg id="svg-page1-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- Placeholder: Young Mozart at a clavier -->
+                        <rect x="20" y="40" width="110" height="40" fill="#8B4513" rx="3"/> <!-- Clavier body -->
+                        <rect x="25" y="45" width="100" height="10" fill="ivory"/> <!-- Keys -->
+                        <line x1="25" y1="50" x2="125" y2="50" stroke="#333" stroke-width="0.5"/>
+                        <circle cx="75" cy="25" r="12" fill="#FFEBCD"/> <!-- Head -->
+                        <rect x="70" y="37" width="10" height="20" fill="#ADD8E6"/> <!-- Body -->
+                        <path d="M65 50 C 60 55, 55 50, 50 55" stroke="#333" stroke-width="1" fill="none"/> <!-- Simple arm -->
+                        <path d="M85 50 C 90 55, 95 50, 100 55" stroke="#333" stroke-width="1" fill="none"/> <!-- Simple arm -->
+                        <text x="75" y="100" text-anchor="middle" font-size="8px" fill="#555">Click the Clavier!</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1" class="story-text">
+                        Wolfgang Amadeus Mozart, born in Salzburg in 1756, was a child of astonishing musical talent. Composing from the age of five and performing for European royalty, his early life was a whirlwind of tours, showcasing his prodigious abilities on the keyboard and violin. His early compositions already hinted at the genius to come.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="next-page1">Vienna Awaits →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Vienna & Operatic Success -->
+        <div id="page2" class="page">
+            <header class="page-header">
+                <h2 id="page2-title">Vienna: Operas & Symphonies</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2">
+                    <svg id="svg-page2-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- Placeholder: Opera stage / grand piano feel -->
+                        <rect width="150" height="110" fill="#5C4033" /> <!-- Dark stage background -->
+                        <ellipse cx="75" cy="100" rx="70" ry="20" fill="#800000" /> <!-- Stage front -->
+                        <path d="M30 90 Q75 20 120 90" stroke="#DAA520" stroke-width="3" fill="none" stroke-dasharray="5,5" id="curtain-path"/> <!-- Curtain -->
+                        <circle cx="40" cy="30" r="3" fill="white" class="music-note"/>
+                        <circle cx="60" cy="40" r="2" fill="white" class="music-note"/>
+                        <circle cx="90" cy="25" r="3.5" fill="white" class="music-note"/>
+                        <circle cx="110" cy="45" r="2.5" fill="white" class="music-note"/>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2" class="story-text">
+                        In Vienna, Mozart reached the zenith of his powers. He composed a breathtaking array of masterpieces, including his great operas like
+                        <span class="opera-link" data-opera="figaro">"The Marriage of Figaro,"</span>
+                        <span class="opera-link" data-opera="giovanni">"Don Giovanni,"</span> and
+                        <span class="opera-link" data-opera="magicflute">"The Magic Flute."</span>
+                        His symphonies and concertos from this period redefined classical forms.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2">← Early Years</button>
+                <button class="nav-button" id="next-page2">His Legacy →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Legacy & Genius -->
+        <div id="page3" class="page">
+            <header class="page-header">
+                <h2 id="page3-title">An Enduring Legacy</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3">
+                     <svg id="svg-page3-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- Placeholder: Quill, manuscript, abstract legacy -->
+                        <rect width="150" height="110" fill="#F5F5DC" /> <!-- Parchment -->
+                        <path d="M30 90 L120 20 L115 15 L25 85 Z" fill="#777" /> <!-- Quill body -->
+                        <path d="M120 20 Q130 25 125 30 L115 15 Z" fill="#333" /> <!-- Quill tip -->
+                        <line x1="40" y1="40" x2="110" y2="40" stroke="#888" stroke-width="1"/>
+                        <line x1="40" y1="50" x2="110" y2="50" stroke="#888" stroke-width="1"/>
+                        <line x1="40" y1="60" x2="110" y2="60" stroke="#888" stroke-width="1"/>
+                        <text x="75" y="80" text-anchor="middle" font-family="cursive" font-size="12px" fill="#444">W.A.M.</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3" class="story-text">
+                        Mozart died young in 1791, leaving his monumental Requiem unfinished. Though his life was short, his prolific output of over 600 works across every genre cemented his status as one of history's most brilliant and influential composers. His music continues to be celebrated for its beauty, complexity, and profound emotional depth.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3">← Vienna Period</button>
+                <button class="nav-button" id="restart-story">Restart Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

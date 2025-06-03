@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frida Kahlo: A Story in Color</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-frida"> <!-- Unique container ID if needed, or use global styles -->
+
+        <!-- Page 1: Self & Resilience -->
+        <div id="page1-frida" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-frida">The Unflinching Gaze</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-frida">
+                    <svg id="svg-page1-frida-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM to generate: Simplified self-portrait SVG -->
+                        <rect width="150" height="110" fill="#FDF5E6"/>
+                        <path d="M 50,50 Q 75,35 100,50 L 95,55 Q 75,42 55,55 Z" fill="#4A3B31" id="frida-eyebrows"/> <!-- Eyebrows -->
+                        <ellipse cx="75" cy="65" rx="30" ry="35" fill="#FFEBCD" /> <!-- Face -->
+                        <circle cx="65" cy="60" r="4" fill="#5C3317" /> <circle cx="85" cy="60" r="4" fill="#5C3317" /> <!-- Eyes -->
+                        <path d="M70 75 Q75 80 80 75" stroke="#800000" stroke-width="1.5" fill="none" /> <!-- Mouth -->
+                        <ellipse cx="75" cy="25" rx="8" ry="12" fill="#FF69B4" class="clickable-svg-element" data-info="Her iconic flower crowns often represented beauty and life." /> <!-- Flower 1 -->
+                        <ellipse cx="60" cy="22" rx="6" ry="10" fill="#FF1493" class="clickable-svg-element" data-info="Flowers symbolized her connection to Mexican identity and nature."/> <!-- Flower 2 -->
+                        <ellipse cx="90" cy="22" rx="6" ry="10" fill="#FF1493" class="clickable-svg-element" data-info="Her adornments were a powerful statement of self."/> <!-- Flower 3 -->
+                    </svg>
+                </div>
+                <div id="info-popup-frida" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-frida" class="story-text">
+                        Frida Kahlo, born in Mexico City in 1907, transformed a life marked by physical suffering into profoundly personal and iconic art. Her numerous self-portraits are unflinching explorations of identity, pain, and resilience, adorned with vibrant symbols of Mexican culture and nature.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-frida">Her Symbols →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Symbolism & Nature -->
+        <div id="page2-frida" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-frida">A World of Symbols</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-frida">
+                    <svg id="svg-page2-frida-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM to generate: SVG with nature & symbols (monkey, parrot, thorns) -->
+                        <rect width="150" height="110" fill="#90EE90" /> <!-- Lush green background -->
+                        <circle cx="30" cy="30" r="15" fill="#8B4513" class="clickable-svg-element" data-info="Monkeys in her art often represented tenderness or sometimes her alter egos."/> <!-- Monkey head -->
+                        <path d="M100 20 L120 40 L100 60 Z" fill="#008000" class="clickable-svg-element" data-info="Parrots symbolized companionship and exotic beauty."/> <!-- Parrot wing -->
+                        <path d="M75 50 L70 70 L80 70 Z" fill="#FF0000" class="clickable-svg-element" data-info="The heart, often exposed or wounded, symbolized her deep emotional and physical pain."/> <!-- Simple Heart -->
+                        <line x1="60" y1="80" x2="90" y2="80" stroke="#5C3317" stroke-width="3" class="clickable-svg-element" data-info="Thorns often represented suffering and entrapment."/> <!-- Thorn line -->
+                         <text x="75" y="100" font-size="8px" text-anchor="middle">Click symbols for info!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-frida-p2" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page2-frida" class="story-text">
+                        Frida's paintings are a rich tapestry of symbolism. Animals like monkeys and parrots were her companions, while elements like thorns, hearts, and traditional attire wove complex narratives about her body, her heritage, and her tumultuous relationship with Diego Rivera. Nature itself was a powerful, recurring motif.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-frida">← Self</button>
+                 <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-frida">Her Legacy →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Enduring Icon -->
+        <div id="page3-frida" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-frida">An Unforgettable Icon</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-frida">
+                    <svg id="svg-page3-frida-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM to generate: Abstract SVG for legacy - bold colors, strong lines -->
+                        <rect width="150" height="110" fill="#FF1493" /> <!-- Deep Pink -->
+                        <path d="M10 10 L75 100 L140 10 Z" stroke="#FFD700" stroke-width="5" fill="none" /> <!-- Gold triangle -->
+                        <circle cx="75" cy="55" r="20" fill="#00BFFF" opacity="0.7"/> <!-- Blue circle -->
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-frida" class="story-text">
+                        Frida Kahlo's uncompromising vision and raw honesty made her a global icon. Her art continues to resonate, celebrating Mexican identity, female strength, and the beauty found even in suffering. She remains an inspiration for artists and individuals who dare to live and create authentically.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-frida">← Symbols</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-frida">Restart Frida's Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

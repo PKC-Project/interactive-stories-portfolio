@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardo da Vinci: The Universal Genius</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-leonardo">
+
+        <!-- Page 1: The Renaissance Polymath -->
+        <div id="page1-leonardo" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-leonardo">The Universal Mind</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-leonardo">
+                    <svg id="svg-page1-leonardo-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Da Vinci sketch style, Vitruvian Man hint -->
+                        <rect width="150" height="110" fill="#FAF0E6"/> <!-- Linen -->
+                        <circle cx="75" cy="55" r="45" stroke="#8B4513" stroke-width="0.5" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M75,20 L75,90 M40,55 L110,55" stroke="#A0522D" stroke-width="0.5"/> <!-- Cross lines -->
+                        <text x="10" y="20" font-family="cursive" font-size="7px" fill="#5D4037" class="clickable-svg-element" data-info="Leonardo filled thousands of pages with notes and drawings.">Notebook Sketch</text>
+                        <path class="clickable-svg-element" data-info="His anatomical studies were centuries ahead of their time." d="M70 40 L72 35 L78 35 L80 40 L78 45 L72 45 Z" fill="#D2B48C" stroke="#8B4513" stroke-width="0.5"/> <!-- Simple head shape -->
+                    </svg>
+                </div>
+                <div id="info-popup-leonardo" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-leonardo" class="story-text">
+                        Leonardo da Vinci (1452-1519) was the quintessential Renaissance man. His genius spanned painting, sculpture, architecture, music, science, mathematics, engineering, invention, anatomy, geology, cartography, botany, and writing. His insatiable curiosity drove him to explore the world and its workings with unparalleled depth.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-leonardo">Masterpieces →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Masterpieces & Innovations -->
+        <div id="page2-leonardo" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-leonardo">Art and Invention</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-leonardo">
+                    <svg id="svg-page2-leonardo-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Mona Lisa hint, invention sketch -->
+                        <rect width="150" height="110" fill="#E6E6FA"/>
+                        <!-- Mona Lisa Hint -->
+                        <path class="clickable-svg-element" data-info="The Mona Lisa's enigmatic smile is one of art's greatest mysteries." d="M30 30 C 40 20, 60 20, 70 30 C 75 50, 65 70, 50 75 Q 35 70, 25 50 C 20 40, 25 30, 30 30 Z" fill="#FFEBCD" stroke="#5D4037" stroke-width="0.5"/>
+                        <path class="clickable-svg-element" data-info="The Mona Lisa's enigmatic smile is one of art's greatest mysteries." d="M40 55 Q50 60 60 55" stroke="#4A3B31" stroke-width="1" fill="none"/> <!-- Smile -->
+                        <!-- Invention Sketch Hint (Flying Machine) -->
+                        <path class="clickable-svg-element" data-info="Leonardo designed numerous flying machines, far ahead of his time." d="M90 30 L140 50 L90 70 L100 50 Z" fill="none" stroke="#607D8B" stroke-width="1.5"/>
+                        <line x1="100" y1="50" x2="120" y2="40" stroke="#607D8B" stroke-width="1"/>
+                        <line x1="100" y1="50" x2="120" y2="60" stroke="#607D8B" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div id="info-popup-leonardo-p2" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page2-leonardo" class="story-text">
+                        His artistic masterpieces, including the "Mona Lisa" and "The Last Supper," are renowned for their psychological depth and technical mastery. Beyond art, Leonardo's notebooks reveal visionary inventions like flying machines, armored vehicles, and diving suits, centuries before their time.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-leonardo">← Polymath</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-leonardo">Enduring Genius →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: The Enduring Genius -->
+        <div id="page3-leonardo" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-leonardo">A Legacy Unbound</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-leonardo">
+                    <svg id="svg-page3-leonardo-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Abstract - eye, gear, paintbrush -->
+                        <rect width="150" height="110" fill="#B0C4DE"/> <!-- Light Steel Blue -->
+                        <!-- Eye -->
+                        <ellipse cx="50" cy="55" rx="25" ry="15" fill="white" stroke="#333" stroke-width="1"/>
+                        <circle cx="50" cy="55" r="8" fill="#204A87"/>
+                        <!-- Gear -->
+                        <circle cx="100" cy="40" r="15" fill="none" stroke="#777" stroke-width="3" stroke-dasharray="5,3"/>
+                        <circle cx="100" cy="40" r="5" fill="#777"/>
+                        <!-- Paintbrush -->
+                        <path d="M80 70 L120 90 L115 95 L75 75 Z" fill="#8B4513"/>
+                        <path d="M120 90 L125 85 L130 90 L120 100 Z" fill="#4A4A4A"/>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-leonardo" class="story-text">
+                        Leonardo da Vinci died in France in 1519, leaving behind a legacy of unparalleled genius. His fusion of art and science, his relentless pursuit of knowledge, and his visionary ideas continue to inspire awe and shape our understanding of human potential. His notebooks remain a testament to one of history's most extraordinary minds.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-leonardo">← Masterpieces</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-leonardo">Restart Leonardo's Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

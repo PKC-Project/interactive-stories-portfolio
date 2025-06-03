@@ -1,0 +1,195 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top to see start of card if it's tall */
+    min-height: 100vh;
+    background-color: #fdf6e3; /* Creamy background */
+    color: #4a3b31; /* Dark brown text */
+    line-height: 1.7;
+    padding: 20px; /* Add some padding to body so card isn't flush with viewport edges */
+}
+
+/* Storybook Container - More Flexible Height */
+#storybook-container, /* For main hub */
+#storybook-container-frida /* For Frida's story (or use a common class) */
+{
+    width: 90vw;
+    max-width: 700px; /* Slightly wider for more content */
+    /* REMOVE fixed height, use min-height or let content define it */
+    min-height: 400px; /* Minimum height */
+    max-height: 90vh; /* Max height relative to viewport, allows scrolling of body if card is huge */
+    background-color: #fffaf0; /* Floral white */
+    border: 2px solid #8B4513; /* SaddleBrown border */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative; /* For absolute positioning of pages */
+    overflow: hidden; /* Crucial for page transitions and rounded corners */
+    display: flex; /* Use flex to manage internal structure if needed */
+    flex-direction: column; /* Stack header, content, footer if they were direct children */
+}
+
+/* Page Styling */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Pages take full height of the container */
+    padding: 20px 25px 25px 25px; /* Consistent padding */
+    display: flex;
+    flex-direction: column; /* Stack header, content, footer within a page */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateX(100%); /* Start off-screen for slide-in */
+    overflow-y: auto; /* Allow individual pages to scroll if their content is too tall */
+}
+
+.page.current-page {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%); /* Slide in */
+    z-index: 1;
+}
+
+.page.slide-out-left {
+    transform: translateX(-100%);
+    z-index: 0;
+}
+
+.page.slide-out-right {
+    transform: translateX(100%);
+    z-index: 0;
+}
+
+.page-header {
+    width: 100%;
+    margin-bottom: 15px; /* Space below header */
+    flex-shrink: 0; /* Header should not shrink */
+}
+
+.page-header h2 {
+    font-size: 1.8em; /* Adjust as needed */
+    color: #800000; /* Maroon for Frida, or make it generic */
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 1px solid #D2B48C;
+    padding-bottom: 8px;
+    display: inline-block;
+    margin-top: 0; /* Remove default h2 margin */
+}
+
+.page-content {
+    flex-grow: 1; /* Allow content to take available vertical space */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center SVG and text area horizontally */
+    justify-content: flex-start; /* Align items to the start */
+    /* overflow-y: auto; -- MOVED to .page for whole page scroll */
+    padding-bottom: 15px; /* Space before footer */
+}
+
+.svg-area {
+    width: 100%;
+    max-width: 320px; /* Control max SVG size */
+    /* min-height: 200px; -- Let SVG define its height or use aspect ratio */
+    margin-bottom: 20px; /* Space below SVG */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-area svg {
+    max-width: 100%;
+    max-height: 250px; /* Increased max height for SVG art */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+}
+
+.text-area {
+    width: 100%;
+    max-width: 500px; /* Control text width */
+    margin: 0 auto; /* Center text area */
+}
+
+.story-text {
+    font-size: 1em; /* Adjust for readability */
+    color: #4a3b31;
+    text-align: justify;
+    margin-bottom: 20px; /* Space below text */
+}
+
+.page-footer {
+    width: 100%;
+    margin-top: auto; /* Push footer to the bottom of the page's flex container */
+    padding-top: 15px;
+    border-top: 1px solid #f0eada;
+    flex-shrink: 0; /* Footer should not shrink */
+}
+
+.nav-button {
+    padding: 10px 18px;
+    margin: 5px 8px; /* Add vertical margin too */
+    font-size: 0.95em;
+    color: white;
+    background-color: #D2691E; /* Chocolate for Frida's buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-family: 'Georgia', serif;
+}
+
+.nav-button:hover {
+    background-color: #A0522D;
+}
+
+.hub-return-button {
+    background-color: #CD853F;
+}
+.hub-return-button:hover {
+    background-color: #A0522D;
+}
+
+.info-popup {
+    position: fixed; /* Fixed position relative to viewport for simplicity, or absolute to SVG parent */
+    background-color: rgba(40, 40, 40, 0.85);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    max-width: 180px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+    border: 1px solid #555;
+}
+
+.clickable-svg-element {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+.clickable-svg-element:hover {
+    opacity: 0.7;
+}
+
+.text-fade-in {
+    animation: fadeInStoryText 0.8s ease-out forwards;
+}
+@keyframes fadeInStoryText {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

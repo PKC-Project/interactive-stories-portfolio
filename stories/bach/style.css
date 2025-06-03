@@ -1,0 +1,75 @@
+/* Base styles - Apply the flexible layout from Beethoven/Frida stories */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Garamond', 'Hoefler Text', 'Times New Roman', serif; /* More Baroque/Classical */
+    display: flex; justify-content: center; align-items: flex-start;
+    min-height: 100vh; background-color: #FAF0E6; /* Linen */
+    color: #4A3B31; /* Dark Sepia */
+    line-height: 1.7; padding: 20px;
+}
+
+#storybook-container-bach { /* Or your common story container class */
+    width: 90vw; max-width: 700px;
+    min-height: 480px; /* Ensure enough vertical space */
+    background-color: #FDF5E6; /* Old Lace */
+    border: 2px solid #5D4037; /* Dark Brown */
+    border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; min-height: 100%;
+    padding: 25px 30px 30px 30px; display: none; /* JS handles display:flex for .current-page */
+    flex-direction: column; align-items: center; text-align: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transform: translateX(100%);
+    overflow-y: auto;
+}
+.page.current-page { display: flex; opacity: 1; visibility: visible; transform: translateX(0%); z-index: 1; position: relative; }
+.page:not(.current-page) { position: absolute; }
+.page.slide-out-left { transform: translateX(-100%); z-index: 0;}
+.page.slide-out-right { transform: translateX(100%); z-index: 0;}
+
+.page-header { width: 100%; max-width: 600px; margin-bottom: 20px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 2em; color: #6A0DAD; /* Deep Purple - Regal for Bach */
+    border-bottom: 1px solid #B8860B; /* DarkGoldenRod */
+    padding-bottom: 10px; display: inline-block; margin-top:0;
+    font-variant: small-caps; /* Baroque touch */
+}
+
+.page-content { flex-grow: 1; width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-bottom: 20px; }
+.svg-area { width: 100%; max-width: 340px; min-height: 220px; margin-bottom: 25px; display: flex; justify-content: center; align-items: center; }
+.svg-area svg { max-width: 100%; max-height: 260px; height: auto; border: 1px solid #D2B48C; border-radius: 3px; background-color: #fffaf0; /* Light background for SVGs */}
+
+.text-area { width: 100%; max-width: 540px; margin: 0 auto; }
+.story-text { font-size: 1.05em; color: #4A3B31; text-align: justify; margin-bottom: 25px; }
+
+.page-footer { width: 100%; max-width: 600px; margin-top: auto; padding-top: 20px; border-top: 1px solid #EAE0D6; flex-shrink: 0; }
+.nav-button {
+    padding: 12px 22px; margin: 5px 10px; font-size: 1em; color: #FDF5E6; /* Old Lace text */
+    background-color: #800000; /* Maroon for Bach */ border: none;
+    border-radius: 4px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+    font-variant: small-caps;
+}
+.nav-button:hover { background-color: #660000; }
+.hub-return-button { background-color: #A0522D; } /* Sienna */
+.hub-return-button:hover { background-color: #803600; }
+
+.info-popup { /* Same as before, or customize */
+    position: fixed; background-color: rgba(20,20,20,0.9); color: #E0D8C0;
+    padding: 10px 14px; border-radius: 4px; font-size: 0.9em; max-width: 230px;
+    text-align: left; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; z-index: 100; border: 1px solid #504030;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.clickable-svg-element { cursor: pointer; transition: filter 0.15s ease-out; }
+.clickable-svg-element:hover { filter: drop-shadow(0 0 3px gold); } /* More distinct hover for Bach */
+
+.text-fade-in { animation: fadeInStoryTextBach 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextBach {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
