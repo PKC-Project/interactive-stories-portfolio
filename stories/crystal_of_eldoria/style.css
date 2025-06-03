@@ -1,0 +1,319 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Luminari', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the card vertically for shorter cards */
+    min-height: 100vh;
+    background-color: #3A2F2F; /* Darker, more mysterious overall background */
+    color: #EAE0D5;
+    line-height: 1.7;
+    padding: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234A3B31' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Subtle dark pattern */
+}
+
+/* Storybook Container */
+#storybook-container-eldoria {
+    width: 95vw;
+    max-width: 800px; /* Wider for more content */
+    min-height: 550px; /* Ensure enough vertical space */
+    max-height: 95vh;
+    background-color: #D7C6B5; /* Aged parchment / light tan */
+    border: 4px solid #4A3B31; /* Darker, thicker wood-like border */
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Click to Start Overlay */
+#click-to-start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 30, 20, 0.9); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* On top of everything */
+    text-align: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#start-audio-button {
+    padding: 15px 30px;
+    font-size: 1.3em;
+    color: #FDF5E6;
+    background-color: #6A0DAD; /* Regal Purple */
+    border: 2px solid #4B0082; /* Indigo */
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cinzel Decorative', serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+#start-audio-button:hover {
+    background-color: #800080; /* Purple */
+    transform: scale(1.05);
+}
+#start-audio-button:active {
+    transform: scale(0.98);
+}
+
+
+/* Page Styling */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 30px 30px 30px;
+    display: flex; /* Changed to none initially, JS will set to flex */
+    display: none; /* Initially hidden, JS will show the first page after overlay */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: scale(0.95) translateY(15px);
+    overflow-y: auto;
+}
+
+.page.current-page {
+    display: flex; /* Show current page */
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0px);
+    z-index: 10;
+}
+
+.page.slide-out-left { transform: translateX(-100%) scale(0.95); opacity: 0; z-index: 1; }
+.page.slide-out-right { transform: translateX(100%) scale(0.95); opacity: 0; z-index: 1; }
+
+.page-header {
+    width: 100%;
+    margin-bottom: 15px; /* Reduced margin */
+    flex-shrink: 0;
+}
+
+.page-header h2 {
+    font-size: 2.2em; /* Larger titles */
+    color: #5D3A1A; /* Darker, richer brown */
+    font-family: 'Cinzel Decorative', 'Luminari', serif;
+    text-shadow: 1px 1px 1px rgba(200,180,160,0.5);
+    border-bottom: 2px solid #8C7853; /* More prominent border */
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-top: 0;
+}
+
+.page-content {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content towards top */
+    padding-bottom: 20px; /* Space before footer */
+}
+
+.svg-area {
+    width: 100%;
+    max-width: 420px; /* Increased SVG area */
+    min-height: 280px; /* Increased min height */
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.svg-area svg {
+    max-width: 100%;
+    max-height: 280px; /* SVG art max height */
+    height: auto;
+}
+
+.text-area {
+    width: 100%;
+    max-width: 600px; /* Wider text area */
+    margin: 0 auto 10px auto; /* Reduced bottom margin */
+}
+
+.story-text {
+    font-size: 1.1em; /* Slightly larger text */
+    color: #4A3B31;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+#riddle-answer {
+    padding: 12px; /* Larger padding */
+    margin: 15px 0;
+    border: 2px solid #8C7853; /* Themed border */
+    border-radius: 5px;
+    width: 90%;
+    max-width: 350px;
+    font-family: inherit;
+    font-size: 1em;
+    background-color: #FDF5E6;
+    color: #4A3B31;
+}
+#riddle-answer::placeholder {
+    color: #A0A0A0;
+}
+
+.action-button,
+.choice-button {
+    padding: 12px 25px; /* Larger buttons */
+    margin: 8px;
+    font-size: 1.05em;
+    color: #FDF5E6;
+    background-color: #7A3B00; /* Deep Brown/Russet */
+    border: 1px solid #4A2B00;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.action-button:hover,
+.choice-button:hover {
+    background-color: #9C4A00; /* Lighter brown on hover */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.choices-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-footer {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #D2B48C;
+    flex-shrink: 0;
+}
+
+.nav-button {
+    padding: 12px 22px;
+    margin: 5px 10px;
+    font-size: 1em;
+    color: #FDF5E6;
+    background-color: #5C4033;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.nav-button:hover {
+    background-color: #4A3B31;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+.nav-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Styles for Rune Game (Scene 2B.1) */
+#rune-choices-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+.clickable-rune { /* These are the SVGs for runes to be clicked */
+    width: 50px; /* Larger clickable runes */
+    height: 50px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.clickable-rune:hover {
+    border-color: #FFD700; /* Gold hover */
+    transform: scale(1.1);
+}
+.clickable-rune.selected-rune {
+    border-color: #FF4500; /* OrangeRed selected */
+    box-shadow: 0 0 10px #FF4500;
+}
+
+.rune-slot { /* These are the rects within the main SVG where runes are "placed" */
+    fill: #8A795D;
+    stroke: #4A3B31;
+    stroke-width: 1.5;
+    rx: 3;
+    cursor: pointer; /* Clickable to place selected rune */
+    transition: fill 0.2s ease;
+}
+.rune-slot:hover {
+    fill: #A0907D; /* Lighter on hover */
+}
+.rune-slot.filled-runeA { fill: crimson !important; } /* Visual feedback for placed rune */
+.rune-slot.filled-runeB { fill: royalblue !important; }
+.rune-slot.filled-runeC { fill: forestgreen !important; }
+
+
+.game-feedback {
+    margin-top: 10px;
+    font-size: 1em; /* Larger feedback text */
+    color: #7A3B00; /* Russet */
+    min-height: 1.5em;
+    font-weight: bold;
+}
+
+/* Glowing effects (can be applied by JS or CSS classes) */
+.glowing-eye { animation: pulseGlowEldoria 2s infinite alternate; }
+@keyframes pulseGlowEldoria {
+    from { r: 5px; filter: drop-shadow(0 0 3px lime) drop-shadow(0 0 6px lime); }
+    to   { r: 5.5px; filter: drop-shadow(0 0 6px lime) drop-shadow(0 0 12px lime); }
+}
+.glowing-crystal, .pulsing-crystal { animation: pulseCrystalEldoria 2.5s infinite alternate ease-in-out; }
+@keyframes pulseCrystalEldoria {
+    0%   { opacity: 0.6; filter: drop-shadow(0 0 8px cyan) drop-shadow(0 0 15px cyan); transform: scale(1); }
+    50%  { opacity: 1.0; filter: drop-shadow(0 0 15px cyan) drop-shadow(0 0 30px cyan); transform: scale(1.1); }
+    100% { opacity: 0.6; filter: drop-shadow(0 0 8px cyan) drop-shadow(0 0 15px cyan); transform: scale(1); }
+}
+
+.info-popup { /* Same as before, ensure it's styled */
+    position: fixed; background-color: rgba(30,25,20,0.9); color: #FDF5E6;
+    padding: 8px 12px; border-radius: 4px; font-size: 0.85em; max-width: 200px;
+    text-align: left; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; z-index: 1000; border: 1px solid #70543E;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.text-fade-in { animation: fadeInStoryTextEldoria 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextEldoria {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+/* Import fantasy fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&display=swap');
+/* Luminari is often a system font, ensure fallbacks */

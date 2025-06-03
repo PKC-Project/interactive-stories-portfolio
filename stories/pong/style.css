@@ -1,0 +1,113 @@
+/* Basic Reset & Body Styling (can be shared or specific) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body { /* Assuming this story is viewed standalone or styles are scoped */
+    font-family: 'Press Start 2P', 'Courier New', Courier, monospace; /* Pixel font */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #111; /* Dark background for arcade feel */
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Import Pixel Font (Optional - place in main CSS or here if specific) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#storybook-container-pong {
+    width: 95vw;
+    max-width: 800px; /* Wider for game board */
+    min-height: 500px;
+    max-height: 90vh;
+    background-color: #0a0a0a; /* Very dark grey */
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 15px rgba(50,50,50,0.5); /* Greenish glow + inset shadow */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(100%); /* Slide up from bottom */
+    overflow-y: auto;
+    background-color: #0a0a0a;
+}
+.page.current-page { opacity: 1; visibility: visible; transform: translateY(0%); z-index: 1; }
+.page.slide-out-up { transform: translateY(-100%); z-index: 0;}
+.page.slide-out-down { transform: translateY(100%); z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.8em; color: #0f0; /* Green text */
+    text-shadow: 0 0 5px #0f0;
+    padding-bottom: 8px; display: inline-block; margin-top:0;
+    border-bottom: 2px dashed #0a0;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 320px; min-height: 200px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
+.svg-area svg { max-width: 100%; max-height: 200px; height: auto; }
+
+.text-area { width: 100%; max-width: 600px; margin: 0 auto 20px auto; }
+.story-text { font-size: 0.9em; color: #ccc; text-align: center; line-height: 1.8; }
+
+.game-info {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+#score-display {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #0f0;
+}
+#game-instructions {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.game-board-container {
+    border: 2px solid #555;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    margin-bottom: 20px;
+    background-color: black; /* Ensure SVG background is black if SVG rect isn't 100% */
+}
+#pong-game-board {
+    display: block; /* Removes extra space below SVG */
+}
+
+.winner-message-style {
+    font-size: 1.5em;
+    color: #FFD700; /* Gold for winner */
+    text-shadow: 0 0 8px #FFD700;
+    margin-top: 10px;
+    min-height: 2em; /* Reserve space */
+}
+
+
+.page-footer { width: 100%; margin-top: auto; padding-top: 15px; border-top: 1px solid #222; flex-shrink: 0; }
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: #000;
+    background-color: #0f0; /* Green buttons */ border: 2px solid #0c0;
+    border-radius: 0px; /* Pixelated feel */ cursor: pointer;
+    text-shadow: 1px 1px 0px #090;
+    box-shadow: 2px 2px 0px #070;
+    transition: background-color 0.1s ease, transform 0.1s ease;
+}
+.nav-button:hover { background-color: #0c0; }
+.nav-button:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0px #070; }
+
+.hub-return-button { background-color: #ddd; color: #333; text-shadow: none; box-shadow: 2px 2px 0px #aaa; border-color: #ccc; }
+.hub-return-button:hover { background-color: #ccc; }

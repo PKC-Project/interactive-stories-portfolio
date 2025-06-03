@@ -1,0 +1,118 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #000; /* Black background for space feel */
+    color: #0f0; /* Green text for retro feel */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#storybook-container-invaders {
+    width: 95vw;
+    max-width: 700px; /* Can be a bit narrower than PONG */
+    min-height: 500px;
+    max-height: 90vh;
+    background-color: #080808; 
+    border: 3px solid #222;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(30,30,30,0.4); /* Cyan glow */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.8); /* Zoom in transition */
+    overflow-y: auto;
+    background-color: #080808;
+}
+.page.current-page { opacity: 1; visibility: visible; transform: scale(1); z-index: 1; }
+.page.slide-out-up { transform: scale(0.8) translateY(-100%); z-index: 0;} /* Example different transition */
+.page.slide-out-down { transform: scale(0.8) translateY(100%); z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.7em; color: #0f0; /* Green */
+    text-shadow: 0 0 6px #0f0;
+    padding-bottom: 8px; display: inline-block; margin-top:0;
+    border-bottom: 2px dotted #090;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 300px; min-height: 200px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
+.svg-area svg { max-width: 100%; max-height: 200px; height: auto; }
+
+.text-area { width: 100%; max-width: 550px; margin: 0 auto 20px auto; }
+.story-text { font-size: 0.85em; color: #bbb; text-align: center; line-height: 1.8; }
+
+.game-info-invaders {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    width: 400px; /* Match game board width */
+    display: flex;
+    justify-content: space-between;
+}
+#score-display-invaders, #lives-display-invaders {
+    font-size: 1.1em;
+    color: #0f0;
+}
+#game-instructions-invaders {
+    font-size: 0.75em;
+    color: #999;
+    text-align: center;
+    width: 100%; /* Span across game info area */
+    margin-top: 5px;
+}
+
+.game-board-container-invaders {
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    margin-bottom: 10px;
+    background-color: black;
+    width: 400px; /* Fixed width for game board */
+    height: 300px; /* Fixed height */
+}
+#invaders-game-board {
+    display: block;
+}
+
+.game-message-style {
+    font-size: 1.4em;
+    color: #FFFF00; /* Yellow for game messages */
+    text-shadow: 0 0 8px #FFFF00;
+    margin-top: 10px;
+    min-height: 1.5em;
+}
+
+.page-footer { width: 100%; margin-top: auto; padding-top: 15px; border-top: 1px solid #181818; flex-shrink: 0; }
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: #000;
+    background-color: #0f0; border: 2px solid #0c0;
+    border-radius: 0px; cursor: pointer;
+    text-shadow: 1px 1px 0px #090;
+    box-shadow: 2px 2px 0px #070;
+    transition: background-color 0.1s ease, transform 0.1s ease;
+}
+.nav-button:hover { background-color: #0c0; }
+.nav-button:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0px #070; }
+
+.hub-return-button { background-color: #555; color: #fff; text-shadow: none; box-shadow: 2px 2px 0px #333; border-color: #444; }
+.hub-return-button:hover { background-color: #444; }

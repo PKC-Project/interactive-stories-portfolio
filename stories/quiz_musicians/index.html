@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composer's Conundrum - A Musician's Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <header id="quiz-header">
+            <h1>Composer's Conundrum</h1>
+            <div id="score-area">Score: <span id="score">0</span></div>
+        </header>
+
+        <main id="question-area">
+            <p id="question-number">Question X of Y</p>
+            <div id="media-display-area">
+                <!-- Button to play audio hint will be injected here by JS -->
+                <p id="media-placeholder-text">Listen to the musical clue!</p>
+            </div>
+            <p id="question-text">Question text will appear here.</p>
+            <div id="answer-options">
+                <!-- Answer buttons will be generated here by JS -->
+            </div>
+            <button id="next-question-btn" class="quiz-nav-button" style="display: none;">Next Question</button>
+        </main>
+
+        <section id="feedback-area" style="display: none;">
+            <p id="feedback-text"></p>
+        </section>
+
+        <section id="results-area" style="display: none;">
+            <h2>Quiz Complete!</h2>
+            <p>Your final score is: <span id="final-score">0</span> out of <span id="total-questions">0</span>.</p>
+            <p id="result-message"></p>
+            <button id="restart-quiz-btn" class="quiz-nav-button">Play Again</button>
+            <button id="back-to-hub-btn" class="quiz-nav-button">Back to Gallery</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

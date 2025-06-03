@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crystal of Eldoria - An Interactive Tale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-eldoria">
+        <div id="click-to-start-overlay"> <!-- Overlay to initiate audio context -->
+            <button id="start-audio-button">Click to Begin Your Adventure!</button>
+        </div>
+
+        <!-- === CHAPTER 1: THE CALL TO ADVENTURE === -->
+        <div id="scene1_1" class="page"> <!-- Initial page will be hidden until overlay is clicked -->
+            <header class="page-header">
+                <h2 id="title-scene1_1">The Shadowed Village</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene1_1">
+                    <svg id="svg-art-scene1_1" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#A0A0A0" />
+                        <rect x="20" y="70" width="35" height="45" fill="#6B5B4B" /> <rect x="25" y="60" width="25" height="10" fill="#4A3B3C" />
+                        <rect x="80" y="60" width="40" height="55" fill="#7D6B5A" /> <rect x="85" y="50" width="30" height="10" fill="#4A3B3C" />
+                        <circle cx="100" cy="75" r="10" fill="#FFEBCD" /> <rect x="96" y="85" width="8" height="22" fill="#8B4513" />
+                        <rect x="140" y="75" width="35" height="40" fill="#604E41" /> <rect x="145" y="65" width="25" height="10" fill="#4A3B3C" />
+                        <path d="M0 120 Q 100 100, 200 120 L200 140 L0 140 Z" fill="rgba(0,0,0,0.35)" id="shadow-effect"/>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene1_1" class="story-text">
+                        The village of Oakhaven lies under a creeping gloom. Sunlight seems to dim daily, crops wither, and a chilling silence replaces laughter. Elder Maeve, her face etched with worry, speaks of an ancient legend: the Crystal of Eldoria, hidden deep within the Whispering Woods, is the only hope to restore light and life.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-accept-quest">Accept the Quest</button>
+            </footer>
+        </div>
+
+        <div id="scene1_2" class="page">
+            <header class="page-header"> <h2 id="title-scene1_2">The Path Diverges</h2> </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene1_2">
+                    <svg id="svg-art-scene1_2" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#D2B48C" />
+                        <path d="M100 135 L100 90 Q90 75 65 60 L35 25" stroke="#5C4033" stroke-width="12" fill="none" />
+                        <path d="M100 135 L100 90 Q110 75 135 60 L165 25" stroke="#708238" stroke-width="12" fill="none" />
+                        <text x="50" y="20" font-size="10px" text-anchor="middle" fill="#333">Dark Thicket</text>
+                        <text x="150" y="20" font-size="10px" text-anchor="middle" fill="#333">Sunken Shrine</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene1_2" class="story-text">
+                        Elder Maeve hands you a worn map. "The Whispering Woods are treacherous," she warns. "The path soon splits. One leads through the Dark Thicket – quicker, but filled with unknown perils. The other, the Sunken Shrine Path, is longer, yet whispers say ancient guidance can be found there."
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-dark-thicket">Brave the Dark Thicket</button>
+                <button class="nav-button" id="btn-shrine-path">Seek the Sunken Shrine</button>
+            </footer>
+        </div>
+
+        <!-- === CHAPTER 2 === -->
+        <div id="scene2A_1" class="page"> <!-- Riddle -->
+            <header class="page-header"> <h2 id="title-scene2A_1">The Tree Spirit's Riddle</h2> </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene2A_1">
+                    <svg id="svg-art-scene2A_1" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#2F4F4F" />
+                        <path d="M90 130 C 70 100, 60 60, 85 25 L100 15 L115 25 C140 60, 130 100, 110 130 Z" fill="#5C3317" />
+                        <circle cx="88" cy="45" r="5" fill="lime" class="glowing-eye" />
+                        <circle cx="112" cy="45" r="5" fill="lime" class="glowing-eye" />
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene2A_1" class="story-text">
+                        A colossal, ancient tree spirit, its bark like furrowed stone and eyes like embers, blocks your way. "To pass through my domain," its voice rumbles, "you must answer this: I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?"
+                    </p>
+                    <input type="text" id="riddle-answer" placeholder="Your answer...">
+                    <button id="btn-submit-riddle" class="action-button">Submit Answer</button>
+                </div>
+            </main>
+            <footer class="page-footer"></footer>
+        </div>
+
+        <div id="scene2A_2" class="page"> <!-- Riddle Success -->
+            <header class="page-header"> <h2 id="title-scene2A_2">The Spirit's Boon</h2> </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene2A_2">
+                     <svg id="svg-art-scene2A_2" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#385438" />
+                        <path d="M90 130 C 70 100, 60 60, 85 25 L100 15 L115 25 C140 60, 130 100, 110 130 Z" fill="#6B4226" />
+                        <circle cx="88" cy="45" r="4" fill="#90EE90" /> <circle cx="112" cy="45" r="4" fill="#90EE90" />
+                        <path d="M0 135 L200 135 L100 70 Z" fill="rgba(255,255,150,0.35)" />
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene2A_2" class="story-text">
+                        "A Map," you answer. The Tree Spirit's ember eyes soften. "Indeed. Your mind is as sharp as your purpose is true. I shall clear a part of the path for you." It gifts you a 'Charm of Swiftness,' its wood warm to the touch.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-continue-swiftness">Continue Deeper</button>
+            </footer>
+        </div>
+
+        <div id="scene2A_3" class="page"> <!-- Riddle Failure -->
+            <header class="page-header"> <h2 id="title-scene2A_3">Lost in Shadows</h2> </header>
+            <main class="page-content">
+                 <div class="svg-area" id="svg-area-scene2A_3">
+                    <svg id="svg-art-scene2A_3" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#1A2A1A" />
+                        <path d="M90 130 C 70 100, 60 60, 85 25 L100 15 L115 25 C140 60, 130 100, 110 130 Z" fill="#4A3B31" />
+                        <circle cx="88" cy="45" r="5" fill="#FF4500" /> <circle cx="112" cy="45" r="5" fill="#FF4500" />
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene2A_3" class="story-text">
+                        Your answer doesn't satisfy the ancient spirit. "Perhaps wisdom will find you on a longer road," it rumbles, and the path before you seems to twist into deeper, more confusing shadows. You press on, but time feels heavy.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-press-onward-lost">Press Onward</button>
+            </footer>
+        </div>
+
+        <div id="scene2B_1" class="page"> <!-- Rune Game -->
+            <header class="page-header"> <h2 id="title-scene2B_1">The Altar of Runes</h2> </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene2B_1">
+                    <svg id="svg-art-scene2B_1" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#BCB88A" />
+                        <rect x="70" y="60" width="60" height="35" fill="#A0A0A0" id="altar-pedestal" rx="3"/>
+                        <!-- Slots on pedestal (for click-to-place) -->
+                        <rect class="rune-slot" id="slot1" data-expected-rune="runeC_shape" x="75" y="65" width="15" height="15" fill="#777" stroke="#555" />
+                        <rect class="rune-slot" id="slot2" data-expected-rune="runeA_shape" x="92.5" y="65" width="15" height="15" fill="#777" stroke="#555" />
+                        <rect class="rune-slot" id="slot3" data-expected-rune="runeB_shape" x="110" y="65" width="15" height="15" fill="#777" stroke="#555" />
+                    </svg>
+                </div>
+                <div id="rune-choices-container">
+                    <!-- Clickable Runes (JS will make these based on SVG definitions below or new ones) -->
+                    <svg class="clickable-rune" id="runeA_shape" data-rune-id="runeA_shape" width="40" height="40" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="crimson" /></svg>
+                    <svg class="clickable-rune" id="runeB_shape" data-rune-id="runeB_shape" width="40" height="40" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" fill="royalblue" /></svg>
+                    <svg class="clickable-rune" id="runeC_shape" data-rune-id="runeC_shape" width="40" height="40" viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="forestgreen" /></svg>
+                </div>
+                <div id="rune-game-feedback" class="game-feedback">Select a rune, then click an empty slot. Order: Triangle, Circle, Square.</div>
+                <div class="text-area">
+                    <p id="text-scene2B_1" class="story-text">
+                        You discover a moss-covered, sunken shrine. A central altar hums with faint energy, three empty slots upon its surface. Nearby, three distinct rune stones lie. To gain the shrine's blessing, you must place them in the correct sequence.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                 <button class="nav-button" id="btn-reset-runes">Reset Runes</button>
+            </footer>
+        </div>
+
+        <div id="scene2B_2" class="page"> <!-- Rune Success -->
+             <header class="page-header"><h2 id="title-scene2B_2">The Shrine's Blessing</h2></header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene2B_2">
+                     <svg id="svg-art-scene2B_2" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#D4AF37" />
+                        <rect x="70" y="60" width="60" height="35" fill="#C0C0C0" rx="3"/>
+                        <polygon points="75,67.5 85,87.5 65,87.5" fill="forestgreen" opacity="0.9"/> <!-- Triangle in slot 1 -->
+                        <circle cx="110" cy="77.5" r="8" fill="crimson" opacity="0.9"/> <!-- Circle in slot 2 -->
+                        <rect x="127.5" y="67.5" width="15" height="20" fill="royalblue" opacity="0.9"/> <!-- Square in slot 3 -->
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene2B_2" class="story-text">
+                        As the final rune clicks into place, the altar pulses with a warm light. Ancient symbols on the stones glow in unison. You feel a surge of clarity and are gifted a 'Medallion of Insight,' its surface cool and smooth.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-continue-insight">To the Crystal's Chamber</button>
+            </footer>
+        </div>
+
+        <div id="scene2B_3" class="page"> <!-- Rune Failure -->
+            <header class="page-header"><h2 id="title-scene2B_3">A Faint Whisper</h2></header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene2B_3">
+                    <svg id="svg-art-scene2B_3" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#A9A9A9" />
+                        <rect x="70" y="60" width="60" height="35" fill="#808080" rx="3"/>
+                        <text x="100" y="77.5" font-size="10px" text-anchor="middle" fill="#555">The stones remain inert...</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene2B_3" class="story-text">
+                        You try different combinations, but the runes offer no response. The shrine remains dim. As you turn to leave, a faint, echoing whisper brushes past your ear: "Shadows feed on doubt..."
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-proceed-cautiously">Proceed Cautiously</button>
+            </footer>
+        </div>
+
+        <!-- === CHAPTER 3 === -->
+        <div id="scene3_1" class="page"> <!-- Guardian -->
+            <header class="page-header"> <h2 id="title-scene3_1">Guardian of Eldoria</h2> </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-scene3_1">
+                     <svg id="svg-art-scene3_1" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#1A1A1A"/>
+                        <circle cx="100" cy="45" r="20" fill="cyan" id="crystal-eldoria" class="glowing-crystal"/>
+                        <path d="M80 130 C 70 100, 75 80, 90 70 L100 60 L110 70 C125 80, 130 100, 120 130 Z" fill="#404040" id="guardian-figure"/>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-scene3_1_intro" class="story-text">
+                        You reach a vast cavern. In its center, atop a pedestal, pulses the Crystal of Eldoria, its light pushing back the oppressive darkness. Between you and it stands a formidable Guardian, its form shifting like smoke.
+                    </p>
+                    <p id="text-scene3_1_challenge" class="story-text">
+                        "You seek the Light of Eldoria?" it hisses. "Many have tried. None have been worthy."
+                    </p>
+                    <div id="choices-scene3_1" class="choices-container">
+                        <!-- JS will populate choices here -->
+                    </div>
+                </div>
+            </main>
+            <footer class="page-footer"></footer>
+        </div>
+
+        <div id="scene_good_ending" class="page">
+            <header class="page-header"> <h2 id="title-good-ending">Light Restored!</h2></header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-good-ending">
+                    <svg id="svg-art-good-ending" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#FFFFE0" />
+                        <circle cx="100" cy="70" r="30" fill="aqua" class="pulsing-crystal"/>
+                         <text x="100" y="125" text-anchor="middle" font-size="12px" fill="#333">Oakhaven is Saved!</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-good-ending" class="story-text">
+                        You successfully navigated the Guardian's challenge! With the Crystal of Eldoria in hand, you return to Oakhaven. Its pure light banishes the encroaching shadows, restoring warmth and life to your home. You are hailed as the Hero of Eldoria!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-play-again-good">Play Again?</button>
+            </footer>
+        </div>
+
+        <div id="scene_bad_ending" class="page">
+            <header class="page-header"><h2 id="title-bad-ending">Shadows Deepen</h2></header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-bad-ending">
+                     <svg id="svg-art-bad-ending" width="400" height="280" viewBox="0 0 200 140">
+                        <rect width="200" height="140" fill="#333333" />
+                        <circle cx="100" cy="70" r="15" fill="#4682B4" opacity="0.5"/>
+                        <text x="100" y="125" text-anchor="middle" font-size="12px" fill="#777">Hope dwindles...</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-bad-ending" class="story-text">
+                        Alas, the Guardian proved too formidable, or your chosen path left you unprepared. The Crystal's light dims further, and the shadows over Oakhaven deepen. Though you braved the Whispering Woods, despair begins to settle over your village.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="btn-play-again-bad">Try Again?</button>
+            </footer>
+        </div>
+
+    </div> <!-- End of storybook-container-eldoria -->
+    <script src="script.js"></script>
+</body>
+</html>
