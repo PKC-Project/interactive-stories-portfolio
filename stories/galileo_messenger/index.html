@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galileo's Starry Messenger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-galileo">
+
+        <!-- Page 1: The New Eye on the Cosmos -->
+        <div id="page1-galileo" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-galileo">A New Eye on the Cosmos</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-galileo">
+                    <svg id="svg-page1-galileo-art" width="300" height="220" viewBox="0 0 150 110">
+                        <rect width="150" height="110" fill="#191970"/> <!-- Night sky -->
+                        
+                        <!-- Celestial Objects to be Focused - START BLURRY & DIM -->
+                        <g id="celestial-view">
+                            <circle id="star1" cx="130" cy="20" r="5" fill="white" opacity="0.2" style="filter: blur(2px); transition: filter 0.3s ease, opacity 0.3s ease;"/> 
+                            <circle id="star2" cx="120" cy="30" r="3" fill="white" opacity="0.15" style="filter: blur(2px); transition: filter 0.3s ease, opacity 0.3s ease;"/> 
+                            <circle id="planet-like" cx="100" cy="25" r="7" fill="#F0E68C" opacity="0.3" style="filter: blur(2px); transition: filter 0.3s ease, opacity 0.3s ease;"/>
+                        </g>
+                        
+                        <!-- Galileo and Telescope (should remain clear) -->
+                        <rect x="30" y="70" width="10" height="20" fill="#A0522D"/> <!-- Galileo body -->
+                        <circle cx="35" cy="65" r="7" fill="#FFEBCD"/> <!-- Head -->
+                        <rect x="40" y="60" width="50" height="8" fill="#808080" transform="rotate(-20 40 60)" id="telescope-tube"/> <!-- Telescope -->
+                        
+                        <text id="focus-feedback-text" x="75" y="15" fill="yellow" font-size="8px" text-anchor="middle" visibility="hidden">Focused!</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="focus-in-btn" class="game-button">Focus In (+)</button>
+                    <button id="focus-out-btn" class="game-button">Focus Out (-)</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1-galileo" class="story-text">
+                        Galileo Galilei (1564-1642), an Italian astronomer, physicist, and engineer, dramatically improved the telescope. Turning this new instrument to the heavens, he made observations that would forever change our place in the universe. Try focusing his telescope!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-galileo">Lunar Sights →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Lunar Landscapes & Jupiter's Moons -->
+        <div id="page2-galileo" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-galileo">Moons & Mountains</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-galileo">
+                    <svg id="svg-page2-galileo-art" width="300" height="220" viewBox="0 0 150 110">
+                        <rect width="70" height="110" fill="#333"/> 
+                        <circle cx="35" cy="55" r="30" fill="#D3D3D3"/>
+                        <circle cx="25" cy="45" r="5" fill="#A9A9A9"/> <circle cx="45" cy="65" r="8" fill="#A9A9A9"/> <circle cx="30" cy="70" r="3" fill="#A9A9A9"/>
+                        
+                        <rect x="75" width="75" height="110" fill="#191970"/> 
+                        <circle cx="112.5" cy="55" r="20" fill="#E4D8B3"/> 
+                        <circle id="jmoon1" cx="112.5" cy="25" r="3" fill="white" class="jupiter-moon"/>
+                        <circle id="jmoon2" cx="112.5" cy="35" r="2.5" fill="white" class="jupiter-moon"/>
+                        <circle id="jmoon3" cx="112.5" cy="75" r="3.5" fill="white" class="jupiter-moon"/>
+                        <circle id="jmoon4" cx="112.5" cy="85" r="2" fill="white" class="jupiter-moon"/>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-galileo" class="story-text">
+                        Galileo observed that the Moon was not a perfect sphere, but had mountains and craters. He also discovered four moons orbiting Jupiter, challenging the idea that all celestial bodies revolved around Earth. Drag the names to the correct moons (conceptual)!
+                    </p>
+                    <div id="moon-names-container">
+                        <span class="draggable-moon" draggable="true" id="io">Io</span>
+                        <span class="draggable-moon" draggable="true" id="europa">Europa</span>
+                        <span class="draggable-moon" draggable="true" id="ganymede">Ganymede</span>
+                        <span class="draggable-moon" draggable="true" id="callisto">Callisto</span>
+                    </div>
+                    <div id="moon-drop-targets">
+                        <div class="drop-target" data-moon-id="jmoon1"></div>
+                        <div class="drop-target" data-moon-id="jmoon2"></div>
+                        <div class="drop-target" data-moon-id="jmoon3"></div>
+                        <div class="drop-target" data-moon-id="jmoon4"></div>
+                    </div>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-galileo">← Telescope</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-galileo">New Cosmos →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Challenging Old Beliefs -->
+        <div id="page3-galileo" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-galileo">A Changing Universe</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-galileo">
+                    <svg id="svg-page3-galileo-art" width="300" height="220" viewBox="0 0 150 110">
+                        <rect width="150" height="110" fill="#E0F2F7"/>
+                        <circle cx="35" cy="55" r="10" fill="#3498DB" id="earth-ptolemaic"/> <text x="35" y="59" font-size="5" text-anchor="middle">E</text>
+                        <circle cx="35" cy="55" r="20" stroke="#7F8C8D" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="35" cy="55" r="30" stroke="#7F8C8D" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="55" cy="55" r="3" fill="#F1C40F"/> 
+                        <text x="35" y="90" font-size="7" text-anchor="middle">Geocentric</text>
+
+                        <circle cx="115" cy="55" r="10" fill="#F1C40F" id="sun-copernican"/> <text x="115" y="59" font-size="5" text-anchor="middle">S</text>
+                        <circle cx="115" cy="55" r="20" stroke="#7F8C8D" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="115" cy="55" r="30" stroke="#7F8C8D" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="95" cy="55" r="3" fill="#3498DB"/> 
+                        <text x="115" y="90" font-size="7" text-anchor="middle">Heliocentric</text>
+                        <text x="75" y="105" font-size="8px" text-anchor="middle">Click a model!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-galileo-p3" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page3-galileo" class="story-text">
+                        Galileo's observations provided strong evidence for the Copernican heliocentric model (Sun-centered), challenging the long-held Ptolemaic geocentric model (Earth-centered). This marked a pivotal moment in the Scientific Revolution, shifting humanity's view of its place in the cosmos.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-galileo">← Discoveries</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-galileo">Restart Galileo's Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

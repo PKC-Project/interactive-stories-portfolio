@@ -1,0 +1,220 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Kristen ITC', 'Bradley Hand ITC', cursive; /* Example: Thematic font for Anansi */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center the card if viewport is taller */
+    min-height: 100vh;
+    background-color: #FFF8DC; /* Example: Cornsilk, warm background for Anansi story */
+    color: #5D4037; /* Example: Brown text for Anansi story */
+    padding: 20px; /* Padding around the card */
+    margin: 0;
+}
+
+/* Storybook Container - Use a specific ID per story or a common class */
+#storybook-container-anansi {
+    width: 90vw;
+    max-width: 700px; /* Max width of the story "book" */
+    height: 90vh;     /* Try to use most of the viewport height */
+    max-height: 600px;/* But cap it to prevent excessive height on large screens */
+    min-height: 500px;/* Ensure it's not too squished on small content pages */
+    
+    background-color: #F5DEB3; /* Example: Wheat, can be themed per story */
+    border: 3px solid #D2691E; /* Example: Chocolate border, can be themed */
+    border-radius: 20px; /* More rounded for a playful feel */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative; /* For absolute positioning of pages */
+    overflow: hidden;   /* Crucial for page transitions and rounded corners of the container */
+    
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Page Styling */
+.page {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; /* Pages take full height of their container */
+    
+    padding: 20px 25px; /* Overall padding for the page content (header, content, footer) */
+    
+    display: flex; 
+    flex-direction: column; /* Stack header, page-content, footer vertically */
+    align-items: center; /* Center children horizontally */
+    text-align: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.9); /* Start scaled down for a pop-in effect */
+    
+    overflow-y: auto; /* KEY: The entire page becomes scrollable if its content overflows */
+}
+
+.page.current-page { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: scale(1); 
+    z-index: 1; 
+}
+
+/* Classes for slide/scale transitions (JS will add/remove these) */
+.page.slide-out-left { 
+    transform: scale(0.9) translateX(-100%); 
+    z-index: 0; 
+}
+.page.slide-out-right { 
+    transform: scale(0.9) translateX(100%); 
+    z-index: 0; 
+}
+
+
+.page-header { 
+    width: 100%; 
+    margin-bottom: 15px; 
+    flex-shrink: 0; /* Header should not shrink */
+}
+.page-header h2 {
+    font-size: 1.9em; 
+    color: #8B4513; /* Example: SaddleBrown for Anansi */
+    font-family: inherit; /* Use body's playful font */
+    border-bottom: 2px dashed #CD853F; /* Example: Peru dash */
+    padding-bottom: 8px; 
+    display: inline-block; 
+    margin-top:0; /* Reset default h2 margin */
+}
+
+.page-content { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Center SVG and text area */
+    justify-content: flex-start; /* Align content to the top */
+    /* flex-grow: 1; -- REMOVED. Let natural height dictate. Page will scroll. */
+    padding-bottom: 20px; /* Space before footer if content is short */
+}
+
+.svg-area { 
+    width: 100%; 
+    max-width: 320px; 
+    margin-bottom: 15px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-shrink: 0; 
+}
+.svg-area svg { 
+    max-width: 100%; 
+    max-height: 240px; 
+    height: auto; 
+    border-radius: 4px; 
+    /* border: 1px solid #CD853F; -- Optional border for SVG */
+}
+
+.controls-area { 
+    margin-bottom: 10px; 
+    flex-shrink: 0;
+}
+.game-button {
+    padding: 10px 18px; 
+    margin: 0 5px; 
+    background-color: #FFA500; /* Example: Orange for Anansi */
+    color: #4A3B31; 
+    border: 1px solid #D2691E; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    font-size: 1em; 
+    font-weight: bold;
+}
+.game-button:hover { background-color: #FF8C00; }
+
+
+.text-area { 
+    width: 100%; 
+    max-width: 90%; /* Allow text to use good width */
+    margin: 0 auto 15px auto; /* Center and provide bottom margin */
+}
+.story-text { 
+    font-size: 1.05em; 
+    color: #5D4037; /* Example color for Anansi */
+    text-align: justify; 
+    margin-bottom: 10px; 
+}
+
+.page-footer { 
+    width: 100%; 
+    padding: 10px 0; /* Padding for footer content */
+    border-top: 1px dashed #CD853F; /* Example: Peru dash */
+    flex-shrink: 0; /* Footer should not shrink */
+    margin-top: 15px; /* Ensure some space above if content is very short */
+    /* background-color: #F5DEB3; -- Not strictly needed if page scrolls correctly */
+}
+.nav-button {
+    padding: 10px 18px; 
+    margin: 5px; 
+    font-size: 0.95em; 
+    color: white;
+    background-color: #8B4513; /* Example: SaddleBrown for Anansi */ 
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #A0522D; }
+
+.hub-return-button { 
+    background-color: #CD853F; /* Example: Peru */
+    color: white;
+}
+.hub-return-button:hover { background-color: #D2691E; }
+
+
+.info-popup {
+    position: absolute; /* Relative to nearest positioned ancestor (SVG area if positioned) or page */
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+    /* JS will position this near the element or mouse */
+}
+.clickable-svg-element { 
+    cursor: pointer; 
+}
+.clickable-svg-element:hover { 
+    filter: brightness(1.1); /* Simple hover effect */
+}
+
+/* Wisdom Spark Animation for Anansi Page 3 */
+.wisdom-spark {
+    position: absolute; 
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0; 
+    /* JS will set background-color and handle animation */
+}
+/* @keyframes scatterAndFade can be kept if you use CSS for this, 
+   but the JS version provides more dynamic positioning */
+
+
+.text-fade-in { 
+    animation: fadeInStoryTextAnansi 0.8s ease-out forwards; 
+}
+@keyframes fadeInStoryTextAnansi {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

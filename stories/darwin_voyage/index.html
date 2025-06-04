@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darwin's Voyage of Discovery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-darwin">
+
+        <!-- Page 1: Setting Sail & Early Observations -->
+        <div id="page1-darwin" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-darwin">The Beagle Sets Sail</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-darwin">
+                    <svg id="svg-page1-darwin-art" width="350" height="240" viewBox="0 0 175 120">
+                        <!-- LLM: HMS Beagle ship, map of South America/Galapagos with clickable points -->
+                        <rect width="175" height="120" fill="#A9D6E5" /> <!-- Sea blue -->
+                        <!-- Simplified South America -->
+                        <path d="M70 110 Q30 80 50 50 Q60 20 90 25 Q115 30 100 60 Q120 90 90 115 Z" fill="#8FBC8F" stroke="#556B2F" stroke-width="1"/>
+                        <!-- Clickable points on map -->
+                        <circle class="map-point clickable-svg-element" data-info="Brazil: Darwin marveled at the lush rainforests and diverse insect life." cx="95" cy="80" r="4" fill="red"/>
+                        <circle class="map-point clickable-svg-element" data-info="Patagonia: He discovered fossils of giant extinct mammals, puzzling him." cx="70" cy="100" r="4" fill="red"/>
+                        <circle class="map-point clickable-svg-element" data-info="Galapagos Islands: Unique species on each island, especially finches, sparked key ideas." cx="35" cy="55" r="4" fill="yellow" stroke="black" stroke-width="0.5"/>
+                        <!-- HMS Beagle -->
+                        <path d="M120 70 L115 90 L155 90 L150 70 Z" fill="#8B4513"/> <!-- Hull -->
+                        <line x1="135" y1="70" x2="135" y2="40" stroke="#A0522D" stroke-width="3"/> <!-- Mast -->
+                        <path d="M135 50 L150 55 L135 60 Z" fill="white"/> <!-- Sail -->
+                        <text x="75" y="15" font-size="7px" text-anchor="middle" fill="#003366">Click the red/yellow dots!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-darwin-p1" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-darwin" class="story-text">
+                        In 1831, a young naturalist named Charles Darwin embarked on a five-year voyage aboard the HMS Beagle. This journey around the world, particularly his stops in South America and the Galapagos Islands, would provide him with a wealth of observations that challenged existing views on life.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-darwin">Galapagos Finches →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: The Galapagos Finches & Adaptation -->
+        <div id="page2-darwin" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-darwin">Island Wonders: The Finches</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-darwin">
+                    <svg id="svg-page2-darwin-art" width="350" height="240" viewBox="0 0 175 120">
+                        <!-- LLM: Different finch heads with distinct beaks, different food types -->
+                        <rect width="175" height="120" fill="#E0F2F1"/> <!-- Light teal background -->
+                        <!-- Finch Beaks (Simplified) - These are the clickable items -->
+                        <g class="finch-beak clickable-svg-element" data-beaktype="seed-eater" transform="translate(20 20)">
+                            <path d="M0 10 L15 5 L15 15 Z" fill="#A0522D"/> <circle cx="18" cy="10" r="3" fill="#4A4A4A"/>
+                            <text x="7.5" y="30" font-size="6px" text-anchor="middle">Thick Beak</text>
+                        </g>
+                        <g class="finch-beak clickable-svg-element" data-beaktype="insect-eater" transform="translate(70 20)">
+                            <path d="M0 10 L20 8 L20 12 Z" fill="#A0522D"/> <circle cx="23" cy="10" r="3" fill="#4A4A4A"/>
+                            <text x="10" y="30" font-size="6px" text-anchor="middle">Slender Beak</text>
+                        </g>
+                        <g class="finch-beak clickable-svg-element" data-beaktype="cactus-eater" transform="translate(120 20)">
+                            <path d="M0 10 L18 2 L18 18 Q 10 10 0 10 Z" fill="#A0522D"/> <circle cx="21" cy="10" r="3" fill="#4A4A4A"/>
+                            <text x="9" y="30" font-size="6px" text-anchor="middle">Pointed Beak</text>
+                        </g>
+                        <!-- Food Types (Simplified) - These are the drop targets -->
+                        <g class="food-type" data-foodtype="seed-eater" transform="translate(20 70)">
+                            <ellipse cx="10" cy="10" rx="8" ry="5" fill="#D2B48C"/> <text x="10" y="25" font-size="6px" text-anchor="middle">Hard Seeds</text>
+                        </g>
+                        <g class="food-type" data-foodtype="insect-eater" transform="translate(70 70)">
+                            <rect x="5" y="5" width="3" height="10" fill="#6B8E23"/> <text x="10" y="25" font-size="6px" text-anchor="middle">Insects</text>
+                        </g>
+                        <g class="food-type" data-foodtype="cactus-eater" transform="translate(120 70)">
+                            <path d="M5 15 L10 0 L15 15 Z" fill="#228B22"/> <text x="10" y="25" font-size="6px" text-anchor="middle">Cactus</text>
+                        </g>
+                        <text id="match-feedback" x="87.5" y="110" font-size="7px" text-anchor="middle" fill="green"></text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-darwin" class="story-text">
+                        In the Galapagos Islands, Darwin observed finches with strikingly different beak shapes. He realized these variations were adaptations to the specific food sources available on each island. Click a beak, then click the food it's best suited for!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-darwin">← Setting Sail</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-darwin">The Theory →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: The Theory Takes Shape & Legacy -->
+        <div id="page3-darwin" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-darwin">A Revolutionary Idea</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-darwin">
+                    <svg id="svg-page3-darwin-art" width="300" height="240" viewBox="0 0 150 120">
+                        <!-- LLM: Animated "Tree of Life" branching out -->
+                        <rect width="150" height="120" fill="#F0FFF0" /> <!-- Honeydew background -->
+                        <line id="trunk" x1="75" y1="110" x2="75" y2="80" stroke="#8B4513" stroke-width="4"/>
+                        <!-- Branches will be added by JS -->
+                        <g id="branches-container"></g>
+                        <text x="75" y="15" font-size="7px" text-anchor="middle">Click "Evolve"!</text>
+                    </svg>
+                </div>
+                 <div class="controls-area">
+                    <button id="evolve-btn" class="game-button">Evolve Tree</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-darwin" class="story-text">
+                        Darwin's observations led him to formulate his groundbreaking theory of evolution by natural selection. This idea, that species change over time due to inherited variations and differential survival, revolutionized biology and our understanding of life on Earth. His work, "On the Origin of Species," remains a cornerstone of science.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-darwin">← Galapagos</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-darwin">Restart Darwin's Voyage</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

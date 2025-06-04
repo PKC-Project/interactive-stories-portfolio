@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Spaghetti Aglio e Olio - Interactive Recipe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="recipe-container">
+
+        <!-- Page 1: Ingredients & Prep -->
+        <div id="page1-recipe" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title">Ingredients & Preparation</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1">
+                    <svg id="svg-ingredients" width="300" height="180" viewBox="0 0 150 90">
+                        <!-- LLM: SVGs for spaghetti, garlic, olive oil, parsley, chili flakes -->
+                        <rect id="item-spaghetti" class="ingredient-svg" data-ingredient="spaghetti" x="10" y="10" width="30" height="70" fill="#F0E68C" rx="2"/>
+                        <text x="25" y="85" font-size="6" text-anchor="middle">Spaghetti</text>
+                        <ellipse id="item-garlic" class="ingredient-svg" data-ingredient="garlic" cx="60" cy="25" rx="10" ry="12" fill="#F5F5DC"/>
+                        <text x="60" y="42" font-size="6" text-anchor="middle">Garlic</text>
+                        <rect id="item-oil" class="ingredient-svg" data-ingredient="oil" x="85" y="10" width="20" height="35" fill="#OLIVEDRAB" rx="3"/>
+                        <text x="95" y="50" font-size="6" text-anchor="middle">Olive Oil</text>
+                        <path id="item-parsley" class="ingredient-svg" data-ingredient="parsley" d="M120 15 Q125 5 130 15 Q140 20 130 25 L125 35 L120 25 Q110 20 120 15 Z" fill="green"/>
+                        <text x="125" y="42" font-size="6" text-anchor="middle">Parsley</text>
+                        <ellipse id="item-chili" class="ingredient-svg" data-ingredient="chili" cx="125" cy="65" rx="8" ry="4" fill="red" transform="rotate(-20 125 65)"/>
+                        <text x="125" y="78" font-size="6" text-anchor="middle">Chili</text>
+                    </svg>
+                </div>
+                <div class="text-area ingredients-list">
+                    <h3>Ingredients:</h3>
+                    <ul id="ingredient-checklist">
+                        <li data-ingredient="spaghetti"><input type="checkbox" id="check-spaghetti" disabled> Spaghetti (200g)</li>
+                        <li data-ingredient="garlic"><input type="checkbox" id="check-garlic" disabled> Garlic (4-6 cloves)</li>
+                        <li data-ingredient="oil"><input type="checkbox" id="check-oil" disabled> Olive Oil (1/4 cup)</li>
+                        <li data-ingredient="chili"><input type="checkbox" id="check-chili" disabled> Red Chili Flakes (1/2 tsp, or to taste)</li>
+                        <li data-ingredient="parsley"><input type="checkbox" id="check-parsley" disabled> Fresh Parsley (1/4 cup, chopped)</li>
+                        <li><input type="checkbox" id="check-salt" checked disabled> Salt (to taste)</li>
+                        <li><input type="checkbox" id="check-water" checked disabled> Pasta Water (reserved)</li>
+                    </ul>
+                    <p class="tip">Tip: Click the ingredient images above to "gather" them!</p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-recipe">Start Cooking →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Cooking Steps -->
+        <div id="page2-recipe" class="page">
+            <header class="page-header">
+                <h2 id="page2-title">Let's Cook!</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2">
+                    <svg id="svg-cooking-process" width="300" height="180" viewBox="0 0 150 90">
+                        <!-- LLM: Animated SVG of pot boiling, pan sautéing -->
+                        <rect width="150" height="90" fill="#EFEFEF"/>
+                        <!-- Pot for pasta -->
+                        <rect x="10" y="30" width="60" height="50" fill="#B0C4DE"/>
+                        <ellipse cx="40" cy="30" rx="30" ry="5" fill="#C0D0E0"/>
+                        <g id="boiling-bubbles"></g> <!-- JS adds bubbles -->
+                        <!-- Pan for sauce -->
+                        <ellipse cx="110" cy="70" rx="35" ry="15" fill="#A9A9A9"/>
+                        <rect x="135" y="65" width="10" height="5" fill="#696969"/> <!-- Handle -->
+                        <g id="sizzling-garlic"></g> <!-- JS adds garlic bits -->
+                    </svg>
+                </div>
+                <div class="text-area cooking-steps">
+                    <h3 id="step-title">Step 1: Boil Pasta</h3>
+                    <p id="step-instruction">Bring a large pot of salted water to a rolling boil. Add spaghetti and cook according to package directions until al dente (usually 8-10 minutes).</p>
+                    <div id="step-progress-bar-container"><div id="step-progress-bar"></div></div>
+                </div>
+                <div class="controls-area">
+                    <button id="prev-step-btn" class="game-button" disabled>← Prev Step</button>
+                    <button id="next-step-btn" class="game-button">Next Step →</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-recipe">← Ingredients</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-recipe">Plating →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Plating & Enjoy! -->
+        <div id="page3-recipe" class="page">
+            <header class="page-header">
+                <h2 id="page3-title">Plate & Enjoy!</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3">
+                    <svg id="svg-final-dish" width="300" height="180" viewBox="0 0 150 90">
+                        <!-- LLM: SVG of a beautifully plated Aglio e Olio -->
+                        <ellipse cx="75" cy="60" rx="60" ry="25" fill="#FFFACD"/> <!-- Plate -->
+                        <path d="M40 50 C 50 30, 90 30, 110 50 C 100 70, 80 40, 70 65 C 60 40, 50 70, 40 50 Z" fill="none" stroke="#F0E68C" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+                        <path d="M45 55 C 55 35, 95 35, 105 55 C 95 75, 75 45, 65 70 C 55 45, 45 75, 45 55 Z" fill="none" stroke="#F0E68C" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+                        <circle cx="60" cy="50" r="1.5" fill="red" opacity="0.7"/> <circle cx="75" cy="45" r="1" fill="red" opacity="0.7"/> <circle cx="90" cy="55" r="1.5" fill="red" opacity="0.7"/> <!-- Chili -->
+                        <path d="M50 40 L53 37 L55 40" stroke="green" stroke-width="1" fill="none"/> <path d="M95 42 L98 39 L100 42" stroke="green" stroke-width="1" fill="none"/> <!-- Parsley -->
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-recipe" class="story-text">
+                        Drain the pasta, reserving about a cup of pasta water. Add the spaghetti to the pan with the garlic and oil. Toss well, adding a splash of pasta water to create a light sauce. Stir in fresh parsley. Serve immediately, perhaps with extra chili flakes and a sprinkle of Parmesan (optional). Buon Appetito!
+                    </p>
+                    <button id="recipe-tip-btn" class="game-button">Show a Tip!</button>
+                    <p id="tip-display" style="font-style: italic; margin-top:10px;"></p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-recipe">← Cooking</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-recipe">Restart Recipe</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

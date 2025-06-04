@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anansi and the Pot of Wisdom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-anansi">
+
+        <!-- Page 1: Anansi's Clever Plan -->
+        <div id="page1-anansi" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-anansi">Anansi's Great Idea</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-anansi">
+                    <svg id="svg-page1-anansi-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Anansi, Pot of Wisdom, vibrant background -->
+                        <rect width="150" height="110" fill="#FFD700"/> <!-- Vibrant yellow -->
+                        <path d="M10 10 H140 V100 H10 Z" fill="url(#kentePattern)" />
+                        <defs>
+                            <pattern id="kentePattern" patternUnits="userSpaceOnUse" width="20" height="20">
+                                <rect width="20" height="20" fill="#FFA500"/>
+                                <path d="M0 0 L10 10 L0 20 Z" fill="#008000"/>
+                                <path d="M10 0 L20 10 L10 20 Z" fill="#FF0000"/>
+                            </pattern>
+                        </defs>
+                        <!-- Anansi -->
+                        <circle id="anansi-body-p1" cx="40" cy="70" r="15" fill="#3A3A3A" class="clickable-svg-element"/>
+                        <circle cx="40" cy="58" r="7" fill="#2A2A2A"/> <!-- Head -->
+                        <!-- Pot -->
+                        <ellipse cx="110" cy="70" rx="25" ry="20" fill="#CD853F" stroke="#8B4513" stroke-width="2"/>
+                        <text x="110" y="73" font-size="7" fill="white" text-anchor="middle">Wisdom</text>
+                        <text id="anansi-thought" x="40" y="40" font-size="8px" fill="#111" text-anchor="middle" visibility="hidden">All MINE!</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1-anansi" class="story-text">
+                        Anansi the spider, a famous trickster from West African and Caribbean folklore, was clever, oh so clever! One day, he decided he wanted all the wisdom in the world just for himself. "I'll gather it in a great pot!" he schemed.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-anansi">The Climb →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: The Climb and Ntikuma's Wisdom -->
+        <div id="page2-anansi" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-anansi">A Tricky Climb</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-anansi">
+                    <svg id="svg-page2-anansi-art" width="300" height="240" viewBox="0 0 150 120">
+                        <!-- LLM: Anansi struggling to climb tree with pot on front. Ntikuma below. -->
+                        <rect width="150" height="120" fill="#90EE90"/> <!-- Green background -->
+                        <rect x="65" y="10" width="20" height="110" fill="#8B4513"/> <!-- Tree trunk -->
+                        <!-- Anansi with pot on front (initial state) -->
+                        <g id="anansi-climbing-front">
+                            <ellipse cx="60" cy="70" rx="20" ry="15" fill="#CD853F" stroke="#8B4513" stroke-width="1.5"/> <!-- Pot -->
+                            <circle cx="60" cy="50" r="12" fill="#3A3A3A"/> <!-- Anansi body behind pot -->
+                            <text x="60" y="73" font-size="6px" fill="white" text-anchor="middle">Wisdom</text>
+                        </g>
+                        <!-- Anansi with pot on back (after interaction) -->
+                        <g id="anansi-climbing-back" visibility="hidden">
+                             <circle cx="80" cy="50" r="12" fill="#3A3A3A"/> <!-- Anansi body in front -->
+                             <ellipse cx="80" cy="70" rx="20" ry="15" fill="#CD853F" stroke="#8B4513" stroke-width="1.5"/> <!-- Pot on back -->
+                             <text x="80" y="73" font-size="6px" fill="white" text-anchor="middle">Wisdom</text>
+                        </g>
+                        <!-- Ntikuma (son) -->
+                        <circle cx="40" cy="100" r="7" fill="#5A5A5A"/>
+                        <text x="40" y="115" font-size="6px" text-anchor="middle">Ntikuma</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="try-ntikuma-idea" class="game-button">Try Ntikuma's Idea!</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-anansi" class="story-text">
+                        Anansi tied the heavy pot of wisdom to his belly and tried to climb the tallest tree. But with the pot in front, he couldn't grip the trunk! His little son, Ntikuma, watching below, said, "Father, why don't you tie the pot to your back?"
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-anansi">← The Plan</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-anansi">Wisdom for All →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Wisdom Scattered for All -->
+        <div id="page3-anansi" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-anansi">Wisdom Shared</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-anansi">
+                    <svg id="svg-page3-anansi-art" width="300" height="240" viewBox="0 0 150 120">
+                        <!-- LLM: Anansi at top, pot breaking, wisdom sparks scattering -->
+                        <rect width="150" height="120" fill="#ADD8E6"/> <!-- Sky -->
+                        <rect x="65" y="0" width="20" height="80" fill="#8B4513"/> <!-- Top of Tree trunk -->
+                        <circle cx="75" cy="20" r="10" fill="#3A3A3A"/> <!-- Anansi at top -->
+                        <!-- Broken Pot -->
+                        <path d="M60 70 Q75 85 90 70 L 85 75 L75 90 L65 75 Z" fill="#CD853F" opacity="0.8"/>
+                        <!-- Wisdom Sparks Container -->
+                        <g id="wisdom-sparks-container"></g>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-anansi" class="story-text">
+                        Anansi tried Ntikuma's idea, and it worked! He easily climbed the tree. But at the very top, perhaps in his excitement or because wisdom is not meant to be hoarded, the pot slipped, crashed to the ground, and broke! All the wisdom scattered like shining sparks to every corner of the world, for everyone to share.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-anansi">← The Climb</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-anansi">Restart Anansi's Tale</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

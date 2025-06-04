@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día de Muertos: A Celebration of Life</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-diademuertos">
+
+        <!-- Page 1: The Ofrenda (Altar) -->
+        <div id="page1-diademuertos" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-diademuertos">The Ofrenda: Welcoming Spirits</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-diademuertos">
+                    <svg id="svg-page1-diademuertos-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Vibrant Ofrenda SVG with candles, marigolds, sugar skulls -->
+                        <rect width="150" height="110" fill="#F9E79F"/> <!-- Warm background -->
+                        <rect x="30" y="50" width="90" height="50" fill="#8B4513"/> <!-- Altar structure -->
+                        <circle cx="50" cy="45" r="5" fill="#FFD700" class="clickable-svg-element" data-info-es="Velas guían a los espíritus." data-info-en="Candles guide the spirits."/> <!-- Candle 1 -->
+                         <circle cx="100" cy="45" r="5" fill="#FFD700" class="clickable-svg-element" data-info-es="Velas guían a los espíritus." data-info-en="Candles guide the spirits."/> <!-- Candle 2 -->
+                        <ellipse cx="75" cy="48" rx="10" ry="5" fill="#E67E22" class="clickable-svg-element" data-info-es="Cempasúchil atrae a los espíritus." data-info-en="Marigolds attract spirits."/> <!-- Marigold hint -->
+                        <circle cx="75" cy="65" r="8" fill="#FFFFFF" stroke="#333" stroke-width="1" class="clickable-svg-element" data-info-es="Calaveras de azúcar simbolizan a los difuntos." data-info-en="Sugar skulls symbolize the departed."/> <!-- Sugar skull -->
+                        <text x="75" y="105" font-size="7px" text-anchor="middle">¡Haz clic en los elementos!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-diademuertos-p1" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-diademuertos" class="story-text">
+                         <span class="lang es current">El Día de Muertos es una celebración vibrante en México. En su corazón está la <span class="term" data-term-es="ofrenda" data-term-en="ofrenda (altar)">ofrenda</span>, un altar bellamente decorado para dar la bienvenida a los espíritus de los seres queridos que regresan.</span>
+                         <span class="lang en">Día de Muertos is a vibrant celebration in Mexico. At its heart is the <span class="term" data-term-es="ofrenda" data-term-en="ofrenda (altar)">ofrenda</span>, a beautifully decorated altar to welcome the spirits of loved ones returning.</span>
+                    </p>
+                     <p class="story-text">
+                         <span class="lang es current">Las <span class="term" data-term-es="velas" data-term-en="candles">velas</span> iluminan el camino a casa, las <span class="term" data-term-es="cempasúchil" data-term-en="marigolds">flores de cempasúchil</span> con su color y aroma brillantes guían a los espíritus, y las <span class="term" data-term-es="calaveras de azúcar" data-term-en="sugar skulls">calaveras de azúcar</span> son dulces recordatorios de la vida y la muerte.</span>
+                         <span class="lang en"> <span class="term" data-term-es="velas" data-term-en="candles">Candles</span> light the way home, bright <span class="term" data-term-es="cempasúchil" data-term-en="marigolds">marigolds</span> with their vibrant color and scent guide the spirits, and <span class="term" data-term-es="calaveras de azúcar" data-term-en="sugar skulls">sugar skulls</span> are sweet reminders of life and death.</span>
+                    </p>
+                    <button class="language-toggle-button">Read in English</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-diademuertos">Celebrating Life →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Remembering Loved Ones -->
+        <div id="page2-diademuertos" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-diademuertos">Joyful Remembrance</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-diademuertos">
+                    <svg id="svg-page2-diademuertos-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Stylized Calacas (skeletons) in joyful scenes -->
+                        <rect width="150" height="110" fill="#A9CCE3"/> <!-- Sky blue -->
+                         <rect x="0" y="80" width="150" height="30" fill="#82E0AA"/> <!-- Ground green -->
+                        <path d="M30 80 L30 50 L40 40 L50 50 L50 80 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/> <!-- Calaca body -->
+                        <circle cx="40" cy="45" r="5" fill="#FFFFFF" stroke="#333" stroke-width="1"/> <!-- Calaca head -->
+                         <path d="M100 80 L100 60 L110 50 L120 60 L120 80 Z" fill="#FFFFFF" stroke="#333" stroke-width="1"/> <!-- Calaca body 2 -->
+                        <circle cx="110" cy="55" r="5" fill="#FFFFFF" stroke="#333" stroke-width="1"/> <!-- Calaca head 2 -->
+                         <circle cx="80" cy="70" r="4" fill="#FFD700" class="clickable-svg-element" data-info-es="Música y baile animan a los espíritus." data-info-en="Music and dance cheer the spirits."/> <!-- Musical note symbol -->
+                          <circle cx="130" cy="65" r="4" fill="#FFD700" class="clickable-svg-element" data-info-es="Compartir historias es clave." data-info-en="Sharing stories is key."/> <!-- Book symbol -->
+                    </svg>
+                </div>
+                <div id="info-popup-diademuertos-p2" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page2-diademuertos" class="story-text">
+                        <span class="lang es current">Lejos de ser sombrío, el Día de Muertos es una celebración. Familias y amigos se reúnen para recordar y compartir historias sobre los difuntos, a menudo con música, baile y comida.</span>
+                         <span class="lang en">Far from being somber, Día de Muertos is a celebration. Families and friends gather to remember and share stories about the departed, often with music, dance, and food.</span>
+                    </p>
+                     <p class="story-text">
+                         <span class="lang es current">Las <span class="term" data-term-es="calacas" data-term-en="calacas (skeletons)">calacas</span> y <span class="term" data-term-es="calaveras" data-term-en="calaveras (skulls)">calaveras</span> (esqueletos y cráneos) a menudo se representan de manera alegre, recordándonos que la muerte es parte del ciclo de la vida.</span>
+                         <span class="lang en"> <span class="term" data-term-es="calacas" data-term-en="calacas (skeletons)">Calacas</span> and <span class="term" data-term-es="calaveras" data-term-en="calaveras (skulls)">calaveras</span> (skeletons and skulls) are often depicted joyfully, reminding us that death is part of life's cycle.</span>
+                    </p>
+                     <button class="language-toggle-button">Read in English</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-diademuertos">← The Ofrenda</button>
+                 <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-diademuertos">The Cycle →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: The Cycle Continues -->
+        <div id="page3-diademuertos" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-diademuertos">Life, Death, and Memory</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-diademuertos">
+                    <svg id="svg-page3-diademuertos-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Path from graveyard to sun, marigolds -->
+                         <rect width="150" height="110" fill="#4682B4"/> <!-- Steel blue background -->
+                         <rect y="80" width="150" height="30" fill="#8B4513"/> <!-- Earth -->
+                         <path d="M 75 110 L 75 80" stroke="#8B4513" stroke-width="2"/> <!-- Path up -->
+                         <circle cx="75" cy="20" r="15" fill="#FFD700"/> <!-- Sun -->
+                         <ellipse cx="60" cy="90" rx="5" ry="8" fill="#FF8C00" class="marigold-petal"/> <!-- Marigold hint -->
+                         <ellipse cx="90" cy="90" rx="5" ry="8" fill="#FF8C00" class="marigold-petal"/> <!-- Marigold hint -->
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-diademuertos" class="story-text">
+                        <span class="lang es current">Día de Muertos es un recordatorio de que la muerte no es un final, sino una continuación. Mientras recordemos a nuestros seres queridos, siguen vivos en nuestro corazón. Es una celebración de la vida, la muerte y los lazos que perduran.</span>
+                         <span class="lang en">Día de Muertos is a reminder that death is not an end, but a continuation. As long as we remember our loved ones, they live on in our hearts. It is a celebration of life, death, and the bonds that endure.</span>
+                    </p>
+                     <button class="language-toggle-button">Read in English</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-diademuertos">← Remembrance</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-diademuertos">Restart Día de Muertos</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

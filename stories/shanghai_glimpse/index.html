@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Glimpse of Shanghai (上海掠影)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-shanghai">
+
+        <!-- Page 1: The Bund - Historic Waterfront -->
+        <div id="page1-shanghai" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-shanghai">The Bund (外滩 - Wàitān)</h2>
+                <p class="page-subtitle">Shanghai's Historic Waterfront</p>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-shanghai">
+                    <svg id="svg-page1-shanghai-art" width="350" height="220" viewBox="0 0 175 110">
+                        <!-- LLM: Stylized SVG of the Bund skyline (colonial architecture) -->
+                        <rect width="175" height="110" fill="#B0E0E6"/> <!-- Pale sky/water -->
+                        <rect y="70" width="175" height="40" fill="#778899"/> <!-- River/Road -->
+                        <rect id="bund-building1" class="clickable-svg-element" data-info="HSBC Building: A grand neoclassical landmark." x="20" y="30" width="30" height="40" fill="#D2B48C"/>
+                        <rect id="bund-building2" class="clickable-svg-element" data-info="Customs House: Famous for its clock tower, 'Big Ching'." x="60" y="20" width="25" height="50" fill="#BC8F8F"/>
+                        <rect id="bund-building3" class="clickable-svg-element" data-info="Peace Hotel: Art Deco icon with its green roof." x="95" y="35" width="40" height="35" fill="#CD853F"/>
+                        <text x="87.5" y="100" font-size="6px" text-anchor="middle">Click buildings for info!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-shanghai-p1" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-shanghai" class="story-text">
+                        Welcome to Shanghai (上海 - Shànghǎi)! Our journey begins at The Bund (外滩 - Wàitān), a mile-long stretch of waterfront showcasing grand colonial-era buildings. It's a testament to Shanghai's history as a global trading hub. Many Shanghainese people enjoy a <span class="term" title="Stroll or walk">散步 (sànbù)</span> here.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-shanghai">To Pudong's Future →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Pudong - Modern Marvels -->
+        <div id="page2-shanghai" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-shanghai">Pudong (浦东)</h2>
+                <p class="page-subtitle">Skyscrapers and Modernity</p>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-shanghai">
+                    <svg id="svg-page2-shanghai-art" width="350" height="220" viewBox="0 0 175 110">
+                        <!-- LLM: Stylized SVG of Pudong skyline (Oriental Pearl, Jin Mao, SWFC) -->
+                        <rect width="175" height="110" fill="#1E90FF"/> <!-- Bright blue sky -->
+                        <rect y="80" width="175" height="30" fill="#4682B4"/> <!-- Huangpu River -->
+                        <!-- Oriental Pearl -->
+                        <line x1="40" y1="80" x2="40" y2="10" stroke="#A9A9A9" stroke-width="3"/>
+                        <circle cx="40" cy="25" r="10" fill="#FF69B4" class="pudong-landmark" data-info="Oriental Pearl Tower (东方明珠塔 - Dōngfāng Míngzhūtǎ)"/>
+                        <circle cx="40" cy="50" r="12" fill="#FFB6C1" class="pudong-landmark" data-info="Oriental Pearl Tower"/>
+                        <!-- Jin Mao Tower -->
+                        <polygon points="70,80 75,20 80,20 85,80" fill="#DAA520" class="pudong-landmark" data-info="Jin Mao Tower (金茂大厦 - Jīnmào Dàshà)"/>
+                        <!-- SWFC (Bottle Opener) -->
+                        <polygon points="110,80 105,15 125,15 120,80" fill="#C0C0C0" class="pudong-landmark" data-info="Shanghai WFC (环球金融中心 - Huánqiú Jīnróng Zhōngxīn)"/>
+                        <rect x="110" y="15" width="10" height="10" fill="#1E90FF"/> <!-- Opener hole -->
+                        <g id="twinkling-lights"></g> <!-- JS adds lights -->
+                    </svg>
+                </div>
+                <div id="info-popup-shanghai-p2" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page2-shanghai" class="story-text">
+                        Across the Huangpu River lies Pudong (浦东 - Pǔdōng), Shanghai's futuristic financial district. Its skyline is dominated by iconic skyscrapers like the Oriental Pearl Tower, Jin Mao Tower, and the Shanghai World Financial Center. It's truly <span class="term" title="Very beautiful/pretty">很漂亮 (hěn piàoliang)</span>!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-shanghai">← The Bund</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-shanghai">Gardens & Flavors →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Yu Garden & Flavors -->
+        <div id="page3-shanghai" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-shanghai">Yu Garden (豫园 - Yùyuán) & Flavors</h2>
+                <p class="page-subtitle">Tradition and Taste</p>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-shanghai">
+                    <svg id="svg-page3-shanghai-art" width="350" height="220" viewBox="0 0 175 110">
+                        <!-- LLM: SVG of Yu Garden (pagoda, pond, bridge) & food items -->
+                        <rect width="175" height="110" fill="#E0FFE0"/> <!-- Light green garden feel -->
+                        <!-- Pagoda -->
+                        <polygon points="30,80 30,50 20,50 50,20 80,50 70,50 70,80" fill="#CD5C5C" class="clickable-svg-element" data-info="Yu Garden is a classical Chinese garden with beautiful pavilions."/>
+                        <!-- Pond -->
+                        <ellipse cx="100" cy="90" rx="40" ry="15" fill="#ADD8E6"/>
+                        <!-- Food items -->
+                        <g id="food-xiaolongbao" class="clickable-svg-element" transform="translate(40 90)" data-info="小笼包 (xiǎolóngbāo) - Delicious soup dumplings!">
+                            <circle cx="0" cy="0" r="8" fill="#F5DEB3"/>
+                            <path d="M0 -8 L-2 -10 L0 -12 L2 -10 Z" fill="#D2B48C"/>
+                        </g>
+                        <g id="food-tanghulu" class="clickable-svg-element" transform="translate(130 40)" data-info="糖葫芦 (tánghúlu) - Candied fruit skewers, a popular snack.">
+                             <line x1="0" y1="0" x2="0" y2="20" stroke="#8B4513" stroke-width="1"/>
+                             <circle cx="0" cy="3" r="4" fill="red"/> <circle cx="0" cy="10" r="4" fill="red"/> <circle cx="0" cy="17" r="4" fill="red"/>
+                        </g>
+                    </svg>
+                </div>
+                <div id="info-popup-shanghai-p3" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page3-shanghai" class="story-text">
+                        Escape the bustle at Yu Garden (豫园 - Yùyuán), a classical Ming Dynasty garden. Nearby, you can find delicious local snacks like <span class="term" title="Soup dumplings">小笼包 (xiǎolóngbāo)</span> and <span class="term" title="Candied fruit skewers">糖葫芦 (tánghúlu)</span>. <span class="term" title="Very tasty!">很好吃 (hěn hǎochī)</span>!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-shanghai">← Pudong</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-shanghai">Restart Shanghai Glimpse</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

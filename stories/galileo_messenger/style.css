@@ -1,0 +1,206 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    display: flex;
+    justify-content: center; /* Center the storybook horizontally */
+    align-items: center;    /* Center the storybook vertically */
+    min-height: 100vh;      /* Make body at least full viewport height */
+    background-color: #1a2833; /* Deep night sky blue */
+    color: #e0e0e0;
+    padding: 20px; /* Add some padding so card isn't flush with viewport edges */
+    margin: 0;
+}
+
+#storybook-container-galileo {
+    width: 90vw;
+    max-width: 750px;
+    height: 90vh; /* Use viewport height, but allow it to be less if content is smaller */
+    max-height: 600px; /* Absolute max height to prevent it from getting too tall on large screens */
+    min-height: 450px; /* Ensure a reasonable minimum height */
+    
+    background-color: #001f3f;
+    border: 2px solid #4A6B82;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative; /* For absolute positioning of pages */
+    overflow: hidden;   /* Crucial for page transitions and rounded corners */
+    
+    display: flex; /* Use flexbox for the container itself */
+    flex-direction: column; /* To stack pages if they weren't absolute, but mainly for structure */
+}
+
+/* Page Styling */
+.page {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; /* Pages take full height of the container */
+    
+    padding: 20px 25px 15px 25px; /* Reduced bottom padding to help footer visibility */
+    
+    display: flex; /* Use flexbox for page internal layout */
+    flex-direction: column; /* Stack header, content, footer vertically */
+    align-items: center; /* Center content horizontally by default */
+    text-align: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.95);
+    overflow-y: auto; /* THIS IS KEY: Makes individual pages scrollable if their content overflows */
+}
+
+.page.current-page { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: scale(1); 
+    z-index: 1; 
+}
+
+.page:not(.current-page).slide-out-left { transform: translateX(-100%) scale(0.95); z-index: 0;}
+.page:not(.current-page).slide-out-right { transform: translateX(100%) scale(0.95); z-index: 0;}
+/* Keep the scale transform for non-current pages if you want the zoom out effect on exit */
+
+
+.page-header { 
+    width: 100%; 
+    margin-bottom: 15px; 
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+.page-header h2 {
+    font-size: 1.8em; /* Adjusted for better fit */
+    color: #FFD700; 
+    font-family: 'Trajan Pro', 'Palatino Linotype', serif;
+    border-bottom: 1px solid #B0A090; 
+    padding-bottom: 8px; 
+    display: inline-block; 
+    margin-top:0;
+}
+
+.page-content { 
+    flex-grow: 1; /* Allows this section to take up available space */
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Center SVG and text area */
+    justify-content: flex-start; /* Align content to the top of this flexible area */
+    /* overflow-y: auto; -- REMOVED, .page handles scrolling now */
+    padding-bottom: 10px; /* Space before footer starts */
+}
+
+.svg-area { 
+    width: 100%; 
+    max-width: 330px; /* Slightly adjusted */
+    /* min-height: 200px; -- Let content define height */
+    margin-bottom: 15px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-shrink: 0; /* Prevent SVG area from shrinking too much */
+}
+.svg-area svg { 
+    max-width: 100%; 
+    max-height: 220px; /* Adjusted max SVG height */
+    height: auto; 
+    border-radius: 4px; 
+}
+
+.controls-area { 
+    margin-bottom: 10px; /* Reduced margin */
+    flex-shrink: 0;
+}
+.game-button {
+    padding: 6px 10px; /* Slightly smaller buttons */
+    margin: 0 5px; 
+    background-color: #C0C0C0; 
+    color: #001f3f; 
+    border: 1px solid #808080; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.game-button:hover { background-color: #A9A9A9; }
+
+.text-area { 
+    width: 100%; 
+    max-width: 90%; /* Allow text to use more width if available */
+    margin: 0 auto 10px auto; /* Added bottom margin */
+}
+.story-text { 
+    font-size: 0.95em; /* Slightly smaller for more text */
+    color: #d0d0d0; 
+    text-align: justify; 
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.page-footer { 
+    width: 100%; 
+    margin-top: auto; /* Pushes footer to the bottom of the flex container (.page) */
+    padding-top: 10px; /* Reduced padding */
+    border-top: 1px solid #4A6B82; 
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    background-color: #001f3f; /* Match page background to avoid seeing through during scroll */
+    position: sticky; /* Attempt to make footer sticky if page scrolls */
+    bottom: 0;      /* Stick to bottom of .page */
+    z-index: 2; /* Ensure it's above other page content if overlapping */
+}
+.nav-button {
+    padding: 8px 15px; /* Slightly smaller */
+    margin: 5px; 
+    font-size: 0.9em; 
+    color: #001f3f;
+    background-color: #FFD700; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.2s ease-in-out;
+    font-weight: bold;
+}
+.nav-button:hover { background-color: #FFC700; }
+.hub-return-button { background-color: #B0A090; color: #001f3f;}
+.hub-return-button:hover { background-color: #9E8C7C; }
+
+.info-popup { /* ... (keep as is or adjust if needed) ... */
+    position: fixed; background-color: rgba(200,200,220,0.9); color: #001f3f;
+    padding: 8px 12px; border-radius: 5px; font-size: 0.9em; max-width: 220px;
+    text-align: left; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; z-index: 100; border: 1px solid #4A6B82;
+}
+.clickable-svg-element { cursor: pointer; transition: filter 0.2s ease; }
+.clickable-svg-element:hover { filter: drop-shadow(0 0 3px #FFD700); }
+
+/* Drag and Drop Styles for Page 2 */
+#moon-names-container { margin-top: 5px; margin-bottom: 5px; flex-shrink: 0;}
+.draggable-moon {
+    display: inline-block; padding: 3px 6px; margin: 3px;
+    background-color: #B0A090; color: #001f3f;
+    border: 1px solid #808080; border-radius: 4px; cursor: grab; font-size: 0.8em;
+}
+.draggable-moon:active { cursor: grabbing; }
+
+#moon-drop-targets {
+    display: flex; justify-content: space-around; align-items: center;
+    width: 100%; max-width: 250px; /* Adjusted */
+    margin: 5px auto; padding: 3px; flex-shrink: 0;
+}
+.drop-target {
+    width: 45px; height: 25px; /* Adjusted */
+    border: 1px dashed #808080; /* Thinner dash */
+    border-radius: 4px; display: flex; justify-content: center; align-items: center;
+    font-size: 0.7em; color: #808080; margin: 0 1px;
+}
+.drop-target.over { border-style: solid; border-color: #FFD700; background-color: rgba(255,215,0,0.1); }
+.drop-target.dropped { background-color: #FFD700; color: #001f3f; border-color: #DAA520; font-weight: bold; }
+
+.text-fade-in { animation: fadeInStoryTextGalileo 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextGalileo {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

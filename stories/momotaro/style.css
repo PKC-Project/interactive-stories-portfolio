@@ -1,0 +1,85 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; /* Japanese-friendly fonts */
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #FAF0E6; /* Linen */
+    color: #4A4A4A; padding: 20px;
+}
+
+#storybook-container-momotaro {
+    width: 90vw; max-width: 700px; height: 90vh; max-height: 600px; min-height: 500px;
+    background-color: #FFFFF0; /* Ivory */
+    border: 2px solid #8B4513; /* SaddleBrown */
+    border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(50px); /* Start slightly down for upward fade-in */
+    overflow-y: auto; /* Page content scrolls if too long */
+}
+.page.current-page { opacity: 1; visibility: visible; transform: translateY(0px); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: translateX(-100%) translateY(50px); opacity: 0; z-index: 0;} /* Adjust exit */
+.page:not(.current-page).slide-out-right { transform: translateX(100%) translateY(50px); opacity: 0; z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.8em; color: #5D4037; /* Brown */
+    font-family: 'Yuji Syuku', 'Noto Serif JP', serif; /* Calligraphic font */
+    border-bottom: 1px solid #D2B48C; padding-bottom: 8px; display: inline-block; margin-top:0;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 320px; min-height: 200px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;}
+.svg-area svg { max-width: 100%; max-height: 220px; height: auto; border: 1px solid #E0E0E0; border-radius: 5px; }
+
+.text-area { width: 100%; max-width: 90%; margin: 0 auto 10px auto; }
+.story-text { font-size: 1em; color: #4A4A4A; text-align: left; margin-bottom: 10px; line-height: 1.7; }
+
+.lang { display: none; }
+.lang.current { display: inline; }
+.term { font-weight: bold; color: #C0392B; /* Reddish for terms */ } /* Simple term styling */
+
+.language-toggle-button {
+    padding: 6px 12px; font-size: 0.8em; background-color: #A0522D; /* Sienna */
+    color: white; border: none; border-radius: 4px; cursor: pointer;
+    margin-top: 8px; transition: background-color 0.2s ease;
+}
+.language-toggle-button:hover { background-color: #8B4513; }
+
+.page-footer { width: 100%; padding: 10px 0; border-top: 1px solid #D2B48C; flex-shrink: 0; margin-top: auto; background-color: #FFFFF0;}
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: white;
+    background-color: #8B4513; /* SaddleBrown */ border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #A0522D; }
+.hub-return-button { background-color: #CD853F; }
+.hub-return-button:hover { background-color: #D2691E; }
+
+/* Animations */
+#clickable-peach { animation: bob 3s ease-in-out infinite alternate; }
+@keyframes bob {
+    0% { transform: translateY(0px) rotate(-1deg); }
+    100% { transform: translateY(5px) rotate(1deg); }
+}
+
+.animal-companion { cursor: pointer; transition: transform 0.2s ease; }
+.animal-companion:hover { transform: scale(1.1); }
+
+.oni { cursor: pointer; transition: opacity 0.3s ease, transform 0.2s ease; }
+.oni:hover { filter: brightness(0.8); }
+.oni.defeated { opacity: 0.3; transform: scale(0.8) rotate(15deg); pointer-events: none; }
+
+.text-fade-in { animation: fadeInStoryTextMomo 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextMomo {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

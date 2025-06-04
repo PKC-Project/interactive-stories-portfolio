@@ -1,0 +1,282 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif; /* Example: Thematic font */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center the card if viewport is taller */
+    min-height: 100vh;
+    background-color: #f4d3b0; /* Example: Thematic background for Día de Muertos */
+    color: #5a2e00; /* Example: Thematic text color */
+    padding: 20px; /* Padding around the card */
+    margin: 0;
+}
+
+/* Storybook Container - This ID should be unique per story if styles differ greatly,
+   or use a common class and then ID for specific overrides.
+   Example for Día de Muertos: #storybook-container-diademuertos */
+#storybook-container-diademuertos,
+#storybook-container-galileo, /* Add other story container IDs here or use a common class */
+#storybook-container-darwin,
+#storybook-container-beethoven,
+#storybook-container-frida { /* Generic class for common story container styles could be better */
+    width: 90vw;
+    max-width: 700px; /* Max width of the story "book" */
+    height: 90vh;     /* Try to use most of the viewport height */
+    max-height: 650px;/* But cap it to prevent excessive height on large screens */
+    min-height: 500px;/* Ensure it's not too squished on small content pages */
+    
+    background-color: #fff8dc; /* Example: Cornsilk, can be themed per story */
+    border: 3px solid #E67E22; /* Example: Carrot Orange, can be themed */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative; /* For absolute positioning of pages */
+    overflow: hidden;   /* Crucial for page transitions and rounded corners of the container */
+    
+    display: flex; 
+    flex-direction: column; /* Helps if you add global header/footer to container */
+}
+
+/* Page Styling */
+.page {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; /* Pages take full height of their container */
+    
+    padding: 20px 25px; /* Overall padding for the page content (header, content, footer) */
+    
+    display: flex; 
+    flex-direction: column; /* Stack header, page-content, footer vertically */
+    align-items: center; /* Center children horizontally */
+    text-align: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateX(100%); /* Initial position for slide-in transition */
+    /* overflow-y: auto; -- REMOVED from here, .page-content will handle scrolling */
+}
+
+.page.current-page { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translateX(0%); 
+    z-index: 1; /* Ensure current page is on top */
+}
+
+/* Classes for slide transitions (JS will add/remove these) */
+.page.slide-out-left { 
+    transform: translateX(-100%); 
+    z-index: 0; /* Send it behind during transition */
+}
+.page.slide-out-right { 
+    transform: translateX(100%); 
+    z-index: 0; /* Send it behind during transition */
+}
+
+
+.page-header { 
+    width: 100%; 
+    margin-bottom: 15px; 
+    flex-shrink: 0; /* Header should not shrink */
+}
+.page-header h2 {
+    font-size: 1.8em; 
+    color: #D35400; /* Example: Pumpkin */
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 1px solid #F39C12; /* Example: Orange */
+    padding-bottom: 8px; 
+    display: inline-block; 
+    margin-top: 0; /* Reset default h2 margin */
+}
+
+.page-content { 
+    flex-grow: 1; /* KEY: Allows this section to take up available vertical space */
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Center SVG and text area horizontally */
+    justify-content: flex-start; /* Align content to the top of this flexible area */
+    overflow-y: auto; /* KEY: Makes THIS SECTION scrollable if its content overflows */
+    padding-bottom: 15px; /* Space before footer, visible when scrolling */
+}
+
+.svg-area { 
+    width: 100%; 
+    max-width: 350px; 
+    margin-bottom: 15px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-shrink: 0; /* Prevent SVG area from shrinking if text is very long */
+}
+.svg-area svg { 
+    max-width: 100%; 
+    max-height: 240px; /* Max height for the SVG art itself */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #F5B041; /* Example border */
+    border-radius: 4px; 
+}
+
+.controls-area { /* For buttons like "Focus In", "Evolve Tree" */
+    margin-bottom: 10px; 
+    flex-shrink: 0;
+}
+.game-button {
+    padding: 8px 15px; 
+    margin: 0 5px; 
+    background-color: #F1C40F; /* Example: Sunflower */
+    color: #5a2e00; 
+    border: 1px solid #E67E22; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.game-button:hover { background-color: #E67E22; }
+
+
+.text-area { 
+    width: 100%; 
+    max-width: 90%; /* Allow text to use good width */
+    margin: 0 auto 15px auto; /* Center and provide bottom margin */
+}
+.story-text { 
+    font-size: 1em; 
+    color: #5a2e00; /* Example color */
+    text-align: justify; 
+    margin-bottom: 10px; /* Space between paragraphs if multiple */
+}
+
+/* For multilingual story like Día de Muertos */
+.term {
+    font-weight: bold;
+    color: #D35400; 
+    cursor: pointer;
+    text-decoration: underline dotted;
+    display: inline-block; 
+    margin: 0; 
+    padding: 0 2px; 
+}
+.term:hover { color: #E67E22; }
+
+.language-toggle-button {
+    padding: 8px 15px; font-size: 0.85em; background-color: #F39C12; 
+    color: white; border: none; border-radius: 4px; cursor: pointer;
+    margin-top: 10px; transition: background-color 0.2s ease;
+}
+.language-toggle-button:hover { background-color: #E67E22; }
+
+.lang { display: none; }
+.lang.current { display: inline; }
+/* End multilingual styles */
+
+
+.page-footer { 
+    width: 100%; 
+    /* margin-top: auto; -- This is implicitly handled by .page-content flex-grow */
+    padding: 15px 0 10px 0; /* Padding for footer content */
+    border-top: 1px solid #F5B041; /* Example border */
+    flex-shrink: 0; /* Footer should not shrink */
+    background-color: #fff8dc; /* Match page background to avoid seeing through content if page is short */
+    z-index: 2; /* Ensure it's above other page content elements if any overlap concern */
+}
+.nav-button {
+    padding: 10px 18px; 
+    margin: 5px; 
+    font-size: 0.95em; 
+    color: white;
+    background-color: #E67E22; /* Example: Carrot */ 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.2s ease-in-out;
+    font-weight: bold;
+}
+.nav-button:hover { background-color: #D35400; }
+
+.hub-return-button { 
+    background-color: #F1C40F; /* Example: Sunflower */
+    color: #5a2e00;
+}
+.hub-return-button:hover { background-color: #F39C12; }
+
+
+.info-popup {
+    position: fixed; /* Fixed to viewport can be easier for mouse-relative popups */
+    background-color: rgba(50, 50, 50, 0.88); 
+    color: white;
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    font-size: 0.85em; 
+    max-width: 200px;
+    text-align: left; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* So it doesn't block other clicks */
+    z-index: 100; /* Ensure it's on top */
+    border: 1px solid #666;
+}
+
+.clickable-svg-element { 
+    cursor: pointer; 
+    transition: opacity 0.2s ease; /* Or filter, or other effect */
+}
+.clickable-svg-element:hover { 
+    opacity: 0.7; /* Example hover effect */
+}
+
+/* Example specific animation - can be themed per story */
+.marigold-petal { /* For Día de Muertos */
+    animation: subtleGlow 2s ease-in-out infinite;
+}
+@keyframes subtleGlow {
+    0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; }
+}
+
+/* Tree of Life Animation for Darwin */
+#branches-container line {
+    stroke: #38761D; 
+    stroke-width: 2.5; 
+    stroke-linecap: round;
+}
+
+
+.text-fade-in { 
+    animation: fadeInStoryText 0.8s ease-out forwards; 
+}
+@keyframes fadeInStoryText { /* Generic fade-in, can be themed */
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+/* Drag and Drop Styles for Galileo Page 2 (Example) */
+#moon-names-container { margin-top: 5px; margin-bottom: 5px; flex-shrink: 0;}
+.draggable-moon {
+    display: inline-block; padding: 3px 6px; margin: 3px;
+    background-color: #B0A090; color: #001f3f; /* Colors from Galileo theme */
+    border: 1px solid #808080; border-radius: 4px; cursor: grab; font-size: 0.8em;
+}
+.draggable-moon:active { cursor: grabbing; }
+
+#moon-drop-targets {
+    display: flex; justify-content: space-around; align-items: center;
+    width: 100%; max-width: 250px;
+    margin: 10px auto; padding: 3px; flex-shrink: 0;
+}
+.drop-target {
+    width: 45px; height: 25px;
+    border: 1px dashed #808080;
+    border-radius: 4px; display: flex; justify-content: center; align-items: center;
+    font-size: 0.7em; color: #808080; margin: 0 1px;
+    background-color: rgba(255,255,255,0.1); /* Slight background for drop area */
+}
+.drop-target.over { border-style: solid; border-color: #FFD700; background-color: rgba(255,215,0,0.1); }
+.drop-target.dropped { background-color: #FFD700; color: #001f3f; border-color: #DAA520; font-weight: bold; }
+/* End Drag and Drop Styles */

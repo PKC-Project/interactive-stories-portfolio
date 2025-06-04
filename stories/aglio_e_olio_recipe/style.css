@@ -1,0 +1,101 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #F5F5DC; /* Beige */
+    color: #5D4037; /* Brown */ padding: 20px;
+}
+
+#recipe-container { /* Common class for story containers */
+    width: 90vw; max-width: 750px; height: 90vh; max-height: 650px; min-height: 520px;
+    background-color: #FFF8E1; /* Light Cream */
+    border: 3px solid #A1887F; /* Brown Grey */
+    border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.98) translateY(20px); /* Start slightly down and small */
+    overflow-y: auto; /* Page content scrolls */
+}
+.page.current-page { opacity: 1; visibility: visible; transform: scale(1) translateY(0); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: translateX(-100%) scale(0.98); opacity:0; z-index: 0;}
+.page:not(.current-page).slide-out-right { transform: translateX(100%) scale(0.98); opacity:0; z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 2em; color: #D32F2F; /* Muted Red */
+    font-family: 'Lobster', cursive; /* More decorative for recipe */
+    padding-bottom: 8px; display: inline-block; margin-top:0;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 300px; min-height: 180px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; background-color: #fffdf6; border-radius: 5px; padding:5px; border: 1px solid #E0E0E0;}
+.svg-area svg { max-width: 100%; max-height: 100%; height: auto; } /* Allow SVG to fill area */
+.ingredient-svg { cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; }
+.ingredient-svg:hover { transform: scale(1.1); }
+.ingredient-svg.gathered { opacity: 0.4; filter: grayscale(50%); }
+
+
+.text-area { width: 100%; max-width: 95%; margin: 0 auto 10px auto; }
+.story-text, .cooking-steps p, .ingredients-list p { font-size: 1em; color: #4E342E; text-align: left; margin-bottom: 10px; line-height: 1.6; }
+.ingredients-list h3, .cooking-steps h3 { color: #795548; margin-bottom: 10px; text-align: center; }
+.ingredients-list ul { list-style: none; padding: 0; text-align: left; max-width: 300px; margin: auto;}
+.ingredients-list li { margin-bottom: 5px; font-size: 0.95em; }
+.ingredients-list input[type="checkbox"] { margin-right: 8px; }
+.ingredients-list .tip { font-size: 0.85em; color: #8D6E63; text-align: center; margin-top:10px;}
+
+#step-progress-bar-container {
+    width: 80%; max-width: 300px; height: 20px; background-color: #E0E0E0;
+    border-radius: 10px; overflow: hidden; margin: 15px auto;
+}
+#step-progress-bar {
+    width: 0%; height: 100%; background-color: #4CAF50; /* Green */
+    border-radius: 10px; transition: width 0.5s ease-in-out;
+}
+
+
+.controls-area { margin-bottom: 10px; flex-shrink: 0;}
+.game-button { /* For next/prev step, tip button */
+    padding: 10px 18px; margin: 0 5px; background-color: #FF9800; /* Orange */
+    color: white; border: none; border-radius: 5px; cursor: pointer;
+    font-size: 0.95em; font-weight: bold;
+}
+.game-button:hover { background-color: #F57C00; }
+.game-button:disabled { background-color: #BDBDBD; cursor: not-allowed; }
+
+
+.page-footer { width: 100%; padding: 10px 0; border-top: 1px solid #D7CCC8; flex-shrink: 0; margin-top: auto; background-color: #FFF8E1;}
+.nav-button {
+    padding: 10px 18px; margin: 5px; font-size: 0.95em; color: white;
+    background-color: #795548; /* Brown */ border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #5D4037; }
+.hub-return-button { background-color: #A1887F; }
+.hub-return-button:hover { background-color: #8D6E63; }
+
+/* Animation for boiling bubbles and sizzling garlic */
+.bubble, .sizzle-dot {
+    position: absolute; /* Will be positioned by JS within SVG */
+    border-radius: 50%;
+    opacity: 0.7;
+}
+.bubble { background-color: #ADD8E6; animation: rise 1s infinite ease-in-out alternate; }
+.sizzle-dot { background-color: #F0E68C; animation: sizzle 0.3s infinite ease-in-out alternate; }
+
+@keyframes rise {
+    from { transform: translateY(0px) scale(0.8); opacity: 0.7; }
+    to   { transform: translateY(-20px) scale(1.2); opacity: 0.3; }
+}
+@keyframes sizzle {
+    from { transform: scale(0.8); opacity: 0.6; }
+    to   { transform: scale(1.1); opacity: 0.9; }
+}

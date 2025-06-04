@@ -1,0 +1,110 @@
+body {
+    font-family: "Comic Sans MS", "Chalkboard SE", sans-serif; /* Simpsons-like font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #70D1FE; /* Simpsons sky blue */
+    margin: 0;
+    padding: 20px;
+}
+
+#gag-container {
+    background-color: #FED85F; /* Simpsons yellow */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 90vw;
+    max-width: 500px; /* Control overall width */
+
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; /* Ensure enough space for SVG and button */
+    max-height: 90vh;
+    overflow-y: auto; /* If content ever gets too tall */
+}
+
+header h1 {
+    color: #D2691E; /* Simpsons couch brown */
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px #FFF;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center SVG and button */
+}
+
+#svg-canvas-container {
+    width: 100%;
+    max-width: 400px; /* Max width of SVG area */
+    margin-bottom: 20px;
+    border: 3px solid #8B4513; /* Dark brown frame */
+    background-color: #FFDB58; /* Match SVG wall for seamlessness */
+    border-radius: 5px;
+    overflow: hidden; /* Clip any overflowing SVG elements */
+}
+
+#couch-gag-svg-area {
+    display: block; /* Remove extra space below SVG */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+#controls {
+    margin-bottom: 15px;
+}
+
+#new-gag-button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #FF0000; /* Red button */
+    border: 2px solid #A52A2A; /* Darker red */
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 1px 1px #000;
+    transition: background-color 0.2s ease;
+}
+
+#new-gag-button:hover {
+    background-color: #CC0000;
+}
+#new-gag-button:active {
+    transform: translateY(1px);
+}
+
+
+#gag-description {
+    min-height: 2em; /* Space for description */
+    margin-top: 10px;
+    color: #4A3B31;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.story-footer {
+    width: 100%;
+    padding-top: 15px;
+    margin-top: auto; /* Push to bottom */
+    border-top: 2px dashed #D2691E;
+    flex-shrink: 0;
+}
+
+.nav-button { /* Copied from a previous story, adjust as needed */
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: white;
+    background-color: #8B4513; border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #A0522D; }
+
+/* Character styles (will be added by JS) */
+.simpson-char {
+    transition: transform 0.5s ease-out; /* For movement */
+}

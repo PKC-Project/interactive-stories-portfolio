@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tale of Momotarō (桃太郎)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-momotaro">
+
+        <!-- Page 1: The Miraculous Birth -->
+        <div id="page1-momotaro" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-momotaro">
+                    <span class="lang en current">The Giant Peach</span>
+                    <span class="lang ja">大きな桃 (Ōkina Momo)</span>
+                </h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-momotaro">
+                    <svg id="svg-page1-momo" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Old couple, river, giant peach. Peach ID: clickable-peach -->
+                        <rect width="150" height="110" fill="#AADDFF"/> <!-- River/Sky -->
+                        <path d="M0 80 Q 75 70 150 80 L 150 110 L 0 110 Z" fill="#90EE90"/> <!-- Grassy bank -->
+                        <ellipse id="clickable-peach" cx="75" cy="60" rx="30" ry="25" fill="#FFB6C1" style="cursor:pointer;"/>
+                        <text id="peach-text" x="75" y="63" font-size="8" text-anchor="middle" fill="#D2691E" visibility="hidden">!</text>
+                        <text x="20" y="100" font-size="7">お爺さん</text> <text x="120" y="100" font-size="7">お婆さん</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1-momo" class="story-text">
+                        <span class="lang en current">Once upon a time, an old man (<span class="term">ojīsan</span>) and an old woman (<span class="term">obāsan</span>) lived by a river. One day, the old woman found a giant peach (<span class="term">momo</span>) floating by! Click the peach!</span>
+                        <span class="lang ja">昔々、ある所にお爺さんとお婆さんが川のそばに住んでいました。ある日、お婆さんは川で大きな桃を見つけました。桃をクリックしてください！</span>
+                    </p>
+                    <button class="language-toggle-button">日本語で読む</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-momo">To Adventure →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Gathering Companions -->
+        <div id="page2-momotaro" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-momo">
+                    <span class="lang en current">Brave Companions</span>
+                    <span class="lang ja">勇敢な仲間たち (Yūkan na Nakama-tachi)</span>
+                </h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-momo">
+                    <svg id="svg-page2-momo" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Momotaro, Dog (Inu), Monkey (Saru), Pheasant (Kiji) -->
+                        <rect width="150" height="110" fill="#98FB98"/> <!-- Pale Green Field -->
+                        <circle cx="25" cy="70" r="10" fill="#CD853F" id="dog-group" class="animal-companion" data-name-en="Dog" data-name-ja="犬 (Inu)"/>
+                        <circle cx="75" cy="40" r="10" fill="#A0522D" id="monkey-group" class="animal-companion" data-name-en="Monkey" data-name-ja="猿 (Saru)"/>
+                        <ellipse cx="125" cy="70" rx="12" ry="8" fill="#FF6347" id="pheasant-group" class="animal-companion" data-name-en="Pheasant" data-name-ja="雉 (Kiji)"/>
+                        <circle cx="75" cy="80" r="15" fill="#FFDAB9"/> <!-- Momotaro -->
+                        <text id="animal-name-display" x="75" y="105" font-size="8px" text-anchor="middle"></text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-momo" class="story-text">
+                        <span class="lang en current">Momotarō grew into a strong boy. He decided to go to Onigashima (Ogre Island). On his way, he met a <span class="term">Inu</span> (dog), a <span class="term">Saru</span> (monkey), and a <span class="term">Kiji</span> (pheasant), who became his loyal companions. Click them!</span>
+                        <span class="lang ja">桃太郎は強い男の子に育ちました。鬼ヶ島へ行くことにしました。途中、犬、猿、雉に出会い、忠実な仲間になりました。クリックしてみて！</span>
+                    </p>
+                    <button class="language-toggle-button">日本語で読む</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-momo">← The Peach</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-momo">To Ogre Island →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Onigashima (Ogre Island) -->
+        <div id="page3-momotaro" class="page">
+            <header class="page-header">
+                 <h2 id="page3-title-momo">
+                    <span class="lang en current">Battle on Ogre Island</span>
+                    <span class="lang ja">鬼ヶ島の戦い (Onigashima no Tatakai)</span>
+                </h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-momo">
+                    <svg id="svg-page3-momo" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Momotaro & companions vs. Oni (ogres) -->
+                        <rect width="150" height="110" fill="#708090"/> <!-- Slate Gray - Ogre Island -->
+                        <circle cx="40" cy="70" r="15" fill="#FFDAB9" id="momotaro-hero"/> <!-- Momotaro -->
+                        <rect x="80" y="50" width="20" height="30" fill="#DC143C" class="oni" id="oni1"/> <!-- Oni 1 -->
+                        <rect x="110" y="60" width="20" height="30" fill="#C71585" class="oni" id="oni2"/> <!-- Oni 2 -->
+                        <text id="battle-action-text" x="75" y="20" font-size="8px" fill="white" text-anchor="middle"></text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-momo" class="story-text">
+                        <span class="lang en current">With his brave friends, Momotarō reached Onigashima and fought the fearsome <span class="term">Oni</span> (ogres). Together, they defeated the ogres and returned home with treasure and peace for the land. Click the ogres!</span>
+                        <span class="lang ja">勇敢な仲間たちと共に、桃太郎は鬼ヶ島に着き、恐ろしい鬼と戦いました。力を合わせ、鬼を倒し、宝物と平和を村へ持ち帰りました。鬼をクリック！</span>
+                    </p>
+                    <button class="language-toggle-button">日本語で読む</button>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-momo">← Companions</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-momo">Restart Momotarō's Tale</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

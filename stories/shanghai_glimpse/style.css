@@ -1,0 +1,93 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'SimSun', sans-serif; /* Chinese-friendly fonts */
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #f0f2f5; /* Light neutral grey */
+    color: #333; padding: 20px;
+}
+
+#storybook-container-shanghai {
+    width: 90vw; max-width: 750px; height: 90vh; max-height: 650px; min-height: 500px;
+    background-color: #ffffff; /* White background for the card */
+    border: 2px solid #D32F2F; /* Chinese Red border */
+    border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.95) translateY(15px); /* Slightly different entry */
+    overflow-y: auto; /* Page content scrolls */
+}
+.page.current-page { opacity: 1; visibility: visible; transform: scale(1) translateY(0); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: translateX(-100%) scale(0.95); opacity:0; z-index: 0;}
+.page:not(.current-page).slide-out-right { transform: translateX(100%) scale(0.95); opacity:0; z-index: 0;}
+
+.page-header { width: 100%; margin-bottom: 10px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.9em; color: #B71C1C; /* Darker Red */
+    font-family: 'KaiTi', 'STKaiti', serif; /* Chinese calligraphic style font if available */
+    padding-bottom: 8px; display: inline-block; margin-top:0;
+}
+.page-subtitle {
+    font-size: 0.9em;
+    color: #757575;
+    margin-top: -5px;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 380px; min-height: 200px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;}
+.svg-area svg { max-width: 100%; max-height: 220px; height: auto; border: 1px solid #E0E0E0; border-radius: 5px; }
+
+.text-area { width: 100%; max-width: 90%; margin: 0 auto 10px auto; }
+.story-text { font-size: 1em; color: #424242; text-align: justify; margin-bottom: 10px; line-height: 1.7; }
+
+.term {
+    font-weight: bold;
+    color: #D32F2F; /* Red for terms */
+    cursor: help; /* Indicate it's hoverable/clickable for info */
+}
+.term:hover {
+    text-decoration: underline dotted;
+}
+
+.page-footer { width: 100%; padding: 10px 0; border-top: 1px solid #EEEEEE; flex-shrink: 0; margin-top: auto; background-color: #ffffff;}
+.nav-button {
+    padding: 10px 18px; margin: 5px; font-size: 0.95em; color: white;
+    background-color: #C62828; /* Red */ border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #B71C1C; }
+.hub-return-button { background-color: #757575; } /* Grey */
+.hub-return-button:hover { background-color: #616161; }
+
+.info-popup {
+    position: fixed; background-color: rgba(0,0,0,0.8); color: white;
+    padding: 8px 12px; border-radius: 5px; font-size: 0.9em; max-width: 220px;
+    text-align: left; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; z-index: 100;
+}
+.clickable-svg-element { cursor: pointer; transition: filter 0.2s ease; }
+.clickable-svg-element:hover { filter: drop-shadow(0 0 5px gold); } /* Gold glow */
+
+/* Animation for Pudong lights */
+.pudong-light {
+    animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+.pudong-light:nth-child(odd) { animation-delay: 0.5s; }
+
+@keyframes twinkle {
+    0% { opacity: 0.3; r: 1; } /* Small and dim */
+    100% { opacity: 1; r: 2; } /* Larger and bright */
+}
+
+.text-fade-in { animation: fadeInStoryTextShanghai 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextShanghai {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

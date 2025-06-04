@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marie Curie's Radiant Discovery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-curie">
+
+        <!-- Page 1: The Spark of Inquiry -->
+        <div id="page1-curie" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-curie">The Spark of Inquiry</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-curie">
+                    <svg id="svg-page1-curie-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM Task: SVG of simple lab, pitchblende ore. -->
+                        <rect width="150" height="110" fill="#D3D3D3" /> <!-- Lab background -->
+                        <rect x="20" y="70" width="50" height="20" fill="#A9A9A9" /> <!-- Table -->
+                        <path id="pitchblende-sample" class="clickable-svg-element" data-info="Pitchblende: A radioactive, uranium-rich ore." d="M30 60 L35 50 L45 50 L50 60 Z" fill="#404040" />
+                        <rect id="ore-sample1" class="clickable-svg-element" data-info="Just a rock!" x="60" y="55" width="15" height="15" fill="#8B4513" />
+                        <rect id="ore-sample2" class="clickable-svg-element" data-info="Also a rock!" x="85" y="52" width="20" height="18" fill="#708090" />
+                        <text x="20" y="20" font-size="7px" fill="#333">Becquerel's Discovery: Uranium Rays</text>
+                        <path d="M75 25 L75 45 M70 30 L75 25 L80 30" stroke="#FFD700" stroke-width="1" opacity="0.7" /> <!-- Rays -->
+                        <text id="page1-instruction" x="75" y="100" font-size="8px" text-anchor="middle">Click the Pitchblende Ore!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-curie-p1" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-curie" class="story-text">
+                        In 1896, Henri Becquerel discovered mysterious rays emanating from uranium. Intrigued, Polish physicist Marie Skłodowska Curie decided to investigate these "uranium rays" further for her doctoral thesis, suspecting other substances might also be radioactive. Her primary source material was pitchblende.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-curie" disabled>Next →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: The Laborious Process -->
+        <div id="page2-curie" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-curie">The Laborious Process</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-curie">
+                    <svg id="svg-page2-curie-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM Task: Animated SVG of chemical separation / Geiger counter -->
+                        <rect width="150" height="110" fill="#F0E68C" />
+                        <!-- Beakers -->
+                        <rect x="20" y="40" width="20" height="40" fill="#ADD8E6" />
+                        <rect x="20" y="50" width="20" height="30" fill="#87CEEB" id="beaker1-liquid"/>
+                        <rect x="65" y="40" width="20" height="40" fill="#ADD8E6" />
+                        <rect x="65" y="50" width="20" height="30" fill="#AFEEEE" id="beaker2-liquid"/>
+                        <rect x="110" y="40" width="20" height="40" fill="#ADD8E6" />
+                        <rect x="110" y="50" width="20" height="30" fill="#E0FFFF" id="beaker3-liquid"/>
+                        <!-- Progress Bar -->
+                        <rect x="25" y="90" width="100" height="10" fill="#ccc" stroke="grey" stroke-width="1"/>
+                        <rect id="progress-bar-curie" x="25" y="90" width="0" height="10" fill="#7FFF00"/>
+                        <text id="page2-instruction" x="75" y="20" font-size="8px" text-anchor="middle">Click to Process Ore!</text>
+                    </svg>
+                </div>
+                <button id="process-ore-button" class="action-button-story">Process Ore Batch</button>
+                <div class="text-area">
+                    <p id="text-page2-curie" class="story-text">
+                        Marie, joined by her husband Pierre, embarked on the monumental task of isolating the radioactive elements from tons of pitchblende. It was grueling work in a basic laboratory, involving countless chemical separations. Their perseverance was extraordinary. Each click simulates processing a batch!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-curie">← Inquiry</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-curie" disabled>Next →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Discovery & Legacy -->
+        <div id="page3-curie" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-curie">Radiant Discoveries</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-curie">
+                    <svg id="svg-page3-curie-art" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM Task: SVG of glowing Radium/Polonium symbols, Nobel medals -->
+                        <rect width="150" height="110" fill="#FFFACD" />
+                        <circle cx="40" cy="40" r="15" fill="#7FFF00" opacity="0.6" id="radium-glow"/>
+                        <text x="40" y="43" text-anchor="middle" font-size="10px" font-weight="bold">Ra</text>
+                        <circle cx="110" cy="40" r="15" fill="#AFEEEE" opacity="0.6" id="polonium-glow"/>
+                        <text x="110" y="43" text-anchor="middle" font-size="10px" font-weight="bold">Po</text>
+                        <!-- Nobel Medal Placeholder -->
+                        <circle cx="75" cy="80" r="12" fill="gold" stroke="#DAA520" stroke-width="1.5"/>
+                        <text x="75" y="83" text-anchor="middle" font-size="6px">NOBEL</text>
+                    </svg>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-curie" class="story-text">
+                        Their tireless efforts led to the discovery of two new elements: Polonium (named after Marie's homeland) and Radium. Marie Curie became the first woman to win a Nobel Prize, and later the only person to win Nobel Prizes in two different scientific fields (Physics and Chemistry). Her work laid the foundation for nuclear physics and cancer treatments.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-curie">← The Process</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-curie">Restart Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
