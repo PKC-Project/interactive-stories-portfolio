@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecule Builders: Chemical Bonds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-molecules">
+
+        <!-- Page 1: Meet the Atoms -->
+        <div id="page1-molecules" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-molecules">Meet the Atoms!</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-molecules">
+                    <svg id="atoms-svg-p1" width="300" height="150" viewBox="0 0 150 75">
+                        <!-- LLM: SVGs for H, O, C atoms. Class: clickable-atom, data-atom, data-info -->
+                        <g id="atom-h" class="clickable-atom" data-atom="H" data-info="Hydrogen (H): Usually forms 1 bond. Likes to share!">
+                            <circle cx="30" cy="37.5" r="10" fill="#E0E0E0"/> <text x="30" y="40.5" font-size="8" text-anchor="middle">H</text>
+                        </g>
+                        <g id="atom-o" class="clickable-atom" data-atom="O" data-info="Oxygen (O): Usually forms 2 bonds. Very sociable!">
+                            <circle cx="75" cy="37.5" r="15" fill="#FF6B6B"/> <text x="75" y="40.5" font-size="8" text-anchor="middle">O</text>
+                        </g>
+                        <g id="atom-c" class="clickable-atom" data-atom="C" data-info="Carbon (C): Usually forms 4 bonds. The backbone of many molecules!">
+                            <circle cx="120" cy="37.5" r="13" fill="#505050"/> <text x="120" y="40.5" font-size="8" text-anchor="middle" fill="white">C</text>
+                        </g>
+                        <text x="75" y="65" font-size="7px" text-anchor="middle">Click an atom to learn more!</text>
+                    </svg>
+                </div>
+                <div id="info-popup-molecules-p1" class="info-popup"></div>
+                <div class="text-area">
+                    <p id="text-page1-molecules" class="story-text">
+                        Everything around us is made of tiny building blocks called <span class="term">atoms</span>! Different atoms like to connect, or <span class="term">bond</span>, with each other to form <span class="term">molecules</span>. Let's meet some common ones.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-molecules">Build Water →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Building Water (H₂O) -->
+        <div id="page2-molecules" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-molecules">Building Water (H₂O)</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-molecules">
+                    <svg id="water-builder-svg" width="300" height="180" viewBox="0 0 150 90">
+                        <!-- LLM: Separate H & O atoms, then JS animates to H2O molecule -->
+                        <rect width="150" height="90" fill="#E1F5FE" opacity="0.5"/>
+                        <g id="h1-water" transform="translate(30 30)"><circle r="10" fill="#E0E0E0"/><text y="3" font-size="8" text-anchor="middle">H</text></g>
+                        <g id="h2-water" transform="translate(120 30)"><circle r="10" fill="#E0E0E0"/><text y="3" font-size="8" text-anchor="middle">H</text></g>
+                        <g id="o-water" transform="translate(75 60)"><circle r="15" fill="#FF6B6B"/><text y="3" font-size="8" text-anchor="middle">O</text></g>
+                        <line id="bond1-water" x1="0" y1="0" x2="0" y2="0" stroke="#505050" stroke-width="2" visibility="hidden"/>
+                        <line id="bond2-water" x1="0" y1="0" x2="0" y2="0" stroke="#505050" stroke-width="2" visibility="hidden"/>
+                        <text id="water-formula-text" x="75" y="15" font-size="10px" fill="#0077CC" text-anchor="middle" visibility="hidden">H₂O</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="combine-water-btn" class="game-button">Combine for Water!</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-molecules" class="story-text">
+                        Water is essential for life! A water molecule (H₂O) is made of one <span class="term">Oxygen</span> atom bonded to two <span class="term">Hydrogen</span> atoms. Let's try to build it!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-molecules">← Atoms</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-molecules">Build CO₂ →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Building Carbon Dioxide (CO₂) -->
+        <div id="page3-molecules" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-molecules">Building Carbon Dioxide (CO₂)</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-molecules">
+                     <svg id="co2-builder-svg" width="300" height="180" viewBox="0 0 150 90">
+                        <rect width="150" height="90" fill="#E8F5E9" opacity="0.5"/>
+                        <g id="c-co2" transform="translate(75 45)"><circle r="13" fill="#505050"/><text y="3" font-size="8" text-anchor="middle" fill="white">C</text></g>
+                        <g id="o1-co2" transform="translate(30 45)"><circle r="15" fill="#FF6B6B"/><text y="3" font-size="8" text-anchor="middle">O</text></g>
+                        <g id="o2-co2" transform="translate(120 45)"><circle r="15" fill="#FF6B6B"/><text y="3" font-size="8" text-anchor="middle">O</text></g>
+                        <line id="bond1-co2" x1="0" y1="0" x2="0" y2="0" stroke="#505050" stroke-width="2" visibility="hidden"/>
+                        <line id="bond2-co2" x1="0" y1="0" x2="0" y2="0" stroke="#505050" stroke-width="2" visibility="hidden"/>
+                        <!-- Optional: Double bonds for CO2 (harder for LLM to generate as distinct lines) -->
+                        <!-- <line id="bond3-co2" x1="0" y1="0" x2="0" y2="0" stroke="#505050" stroke-width="2" visibility="hidden"/> -->
+                        <!-- <line id="bond4-co2" x1="0" y1="0" x2="0" y2="0" stroke="#505050" stroke-width="2" visibility="hidden"/> -->
+                        <text id="co2-formula-text" x="75" y="15" font-size="10px" fill="#38761D" text-anchor="middle" visibility="hidden">CO₂</text>
+                    </svg>
+                </div>
+                 <div class="controls-area">
+                    <button id="combine-co2-btn" class="game-button">Combine for CO₂!</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-molecules" class="story-text">
+                        Carbon Dioxide (CO₂) is a gas important for plants and our atmosphere. It has one <span class="term">Carbon</span> atom bonded to two <span class="term">Oxygen</span> atoms. Let's build it!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-molecules">← Water</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-molecules">Restart Molecule Builder</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

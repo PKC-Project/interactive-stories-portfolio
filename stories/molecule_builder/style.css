@@ -1,0 +1,97 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #e3f2fd; /* Light blue background */
+    color: #1e3a56; /* Dark blue text */ padding: 20px;
+}
+
+#storybook-container-molecules {
+    width: 90vw; max-width: 700px; height: 90vh; max-height: 600px; min-height: 500px;
+    background-color: #ffffff; 
+    border: 2px solid #90caf9; /* Medium blue border */
+    border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.95); 
+    overflow-y: auto; /* Page content scrolls */
+}
+.page.current-page { opacity: 1; visibility: visible; transform: scale(1); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: translateX(-100%) scale(0.95); opacity:0; z-index: 0;}
+.page:not(.current-page).slide-out-right { transform: translateX(100%) scale(0.95); opacity:0; z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.9em; color: #1565c0; /* Darker Blue */
+    font-family: 'Arial Black', Gadget, sans-serif;
+    border-bottom: 1px solid #64b5f6; padding-bottom: 8px; display: inline-block; margin-top:0;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 300px; min-height: 150px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;}
+.svg-area svg { max-width: 100%; max-height: 100%; height: auto; border: 1px solid #bbdefb; border-radius: 4px; }
+
+.clickable-atom { cursor: pointer; transition: transform 0.2s ease; }
+.clickable-atom:hover { transform: scale(1.1); filter: drop-shadow(0 0 3px #64b5f6); }
+
+/* Atom and bond animation styles */
+#atoms-svg-p1 g, #water-builder-svg g, #co2-builder-svg g {
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Elastic transition */
+}
+#water-builder-svg line, #co2-builder-svg line {
+    transition: opacity 0.5s ease-in 0.5s, stroke-dashoffset 0.5s ease-in 0.5s; /* Delay bond appearance */
+    stroke-dasharray: 50; /* For drawing animation */
+    stroke-dashoffset: 50;
+}
+#water-builder-svg line.visible, #co2-builder-svg line.visible {
+    visibility: visible !important; /* Override initial hidden */
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+
+.controls-area { margin-bottom: 10px; flex-shrink: 0; width: 80%; max-width: 300px;}
+.game-button { /* For Combine buttons */
+    padding: 10px 18px; margin: 10px 5px 0 5px; background-color: #42a5f5; /* Blue */
+    color: white; border: none; border-radius: 5px; cursor: pointer;
+    font-size: 1em; font-weight: bold;
+}
+.game-button:hover { background-color: #1e88e5; }
+.game-button:disabled { background-color: #90a4ae; cursor: not-allowed;}
+
+
+.text-area { width: 100%; max-width: 90%; margin: 0 auto 10px auto; }
+.story-text { font-size: 1em; color: #1e3a56; text-align: justify; margin-bottom: 10px; line-height: 1.6; }
+.term { font-weight: bold; color: #1565c0; }
+
+.page-footer { width: 100%; padding: 10px 0; border-top: 1px solid #bbdefb; flex-shrink: 0; margin-top: auto; background-color: #ffffff;}
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: white;
+    background-color: #1e88e5; /* Darker blue */ border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #1565c0; }
+.hub-return-button { background-color: #90caf9; color: #1e3a56;}
+.hub-return-button:hover { background-color: #64b5f6; }
+
+.info-popup {
+    position: fixed; background-color: rgba(30,58,86,0.9); color: white;
+    padding: 8px 12px; border-radius: 5px; font-size: 0.85em; max-width: 220px;
+    text-align: left; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; z-index: 100; border: 1px solid #64b5f6;
+}
+
+.text-fade-in { animation: fadeInStoryTextMolecules 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextMolecules {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

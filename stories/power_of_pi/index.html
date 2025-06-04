@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Power of Pi (π): Circles Unraveled</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-pi">
+
+        <!-- Page 1: Meet the Circle -->
+        <div id="page1-pi" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-pi">Meet the Circle: Radius & Diameter</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-pi">
+                    <svg id="circle-diagram-svg" width="250" height="150" viewBox="0 0 125 75">
+                        <!-- LLM: SVG of circle, center, radius, diameter lines. JS will update. -->
+                        <circle id="main-circle-p1" cx="62.5" cy="37.5" r="30" fill="rgba(0,121,107,0.1)" stroke="#00796B" stroke-width="1.5"/>
+                        <circle id="center-dot-p1" cx="62.5" cy="37.5" r="1.5" fill="#004D40"/>
+                        <line id="radius-line-p1" x1="62.5" y1="37.5" x2="92.5" y2="37.5" stroke="#D32F2F" stroke-width="1"/>
+                        <line id="diameter-line-p1" x1="32.5" y1="37.5" x2="92.5" y2="37.5" stroke="#1976D2" stroke-width="1" visibility="hidden"/>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <label for="radius-slider">Adjust Radius:</label>
+                    <input type="range" id="radius-slider" min="10" max="35" value="30">
+                    <p>Radius (r): <span id="radius-value">30</span> | Diameter (d): <span id="diameter-value">60</span></p>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1-pi" class="story-text">
+                        A circle is a perfectly round shape. The <span class="term">radius (r)</span> is the distance from its center to any point on its edge. The <span class="term">diameter (d)</span> is the distance across the circle, passing through the center. Notice that d = 2r!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-pi">Unrolling Pi →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Unrolling the Circumference -->
+        <div id="page2-pi" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-pi">Unrolling the Circumference: Discovering π</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-pi">
+                    <svg id="unroll-svg" width="350" height="150" viewBox="0 0 175 75">
+                        <!-- LLM: Initial circle, then JS animates to unrolled line & diameter lines -->
+                        <rect width="175" height="75" fill="#E0F7FA" opacity="0.5"/> <!-- Background -->
+                        <circle id="unroll-circle" cx="30" cy="37.5" r="20" fill="none" stroke="#00796B" stroke-width="1.5"/>
+                        <line id="unroll-line" x1="0" y1="0" x2="0" y2="0" stroke="#D32F2F" stroke-width="2" visibility="hidden"/>
+                        <g id="diameter-markers-p2" visibility="hidden"></g>
+                        <text id="pi-reveal-text" x="87.5" y="65" font-size="7px" text-anchor="middle" fill="#004D40"></text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="unroll-btn" class="game-button">Unroll Circumference</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-pi" class="story-text">
+                        The <span class="term">circumference (C)</span> is the distance around the circle. If we could "unroll" it, how long would it be compared to its diameter? Let's find out! This special ratio is called Pi (π).
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-pi">← The Circle</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-pi">Area Revealed →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Pi in Action - Area -->
+        <div id="page3-pi" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-pi">Pi in Action: The Area of a Circle</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-pi">
+                    <svg id="area-svg" width="300" height="200" viewBox="0 0 150 100">
+                        <!-- LLM: Circle made of wedges, then JS animates to parallelogram -->
+                        <rect width="150" height="100" fill="#E0F7FA" opacity="0.3"/>
+                        <g id="circle-wedges" transform="translate(75 50)">
+                            <!-- JS will populate this with wedge paths -->
+                        </g>
+                        <g id="rearranged-wedges" transform="translate(10 10)" visibility="hidden">
+                            <!-- JS will move wedges here -->
+                        </g>
+                        <text id="area-formula-text" x="75" y="90" font-size="7px" text-anchor="middle" fill="#004D40"></text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="rearrange-btn" class="game-button">Rearrange Wedges</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-pi" class="story-text">
+                        Pi also helps us find the <span class="term">area (A)</span> of a circle! Imagine cutting a circle into many tiny wedges and rearranging them. They form a shape like a parallelogram (almost a rectangle) with base πr and height r. So, Area = π × r × r = πr²!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-pi">← Unrolling Pi</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-pi">Restart Pi Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

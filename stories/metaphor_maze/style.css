@@ -1,0 +1,126 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #E8EAF6; /* Lavender Blue background */
+    color: #3D5AFE; /* Indigo text */ padding: 20px;
+}
+
+#storybook-container-metaphors {
+    width: 90vw; max-width: 700px; height: 90vh; max-height: 600px; min-height: 500px;
+    background-color: #FFFFFF; 
+    border: 2px solid #C5CAE9; /* Indigo 100 */
+    border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transform: perspective(1000px) rotateY(90deg); 
+    transform-origin: left center;
+    overflow-y: auto; 
+}
+.page.current-page { opacity: 1; visibility: visible; transform: perspective(1000px) rotateY(0deg); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: perspective(1000px) rotateY(-90deg); transform-origin: right center; opacity:0; z-index: 0;}
+.page:not(.current-page).slide-out-right { transform: perspective(1000px) rotateY(90deg); transform-origin: left center; opacity:0; z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.8em; color: #303F9F; 
+    font-family: 'Georgia', serif;
+    border-bottom: 1px solid #7986CB; padding-bottom: 8px; display: inline-block; margin-top:0;
+}
+
+.page-content { 
+    flex-grow: 1; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; /* Center content more */ 
+    padding-bottom: 15px; 
+    overflow-y: auto; /* Make this section scrollable if its content overflows */
+}
+.svg-area { 
+    width: 100%; 
+    max-width: 300px; 
+    height: 200px; /* Fixed height for SVGs */ 
+    margin-bottom: 15px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-shrink: 0; 
+    background-color: #f9f9fc; 
+    border-radius: 8px; 
+    border: 1px solid #E8EAF6;
+}
+.svg-area svg { max-width: 100%; max-height: 100%; }
+
+.controls-area { margin-bottom: 10px; flex-shrink: 0; width: 80%; max-width: 350px;}
+.controls-area label { font-size: 0.9em; margin-right: 10px; color: #3F51B5;}
+.controls-area input[type="range"] { width: 70%; vertical-align: middle;}
+.controls-area p { font-size: 0.9em; margin-top: 5px; color: #303F9F;}
+
+.action-button { 
+    padding: 10px 20px; margin: 10px 5px 0 5px; background-color: #5C6BC0; 
+    color: white; border: none; border-radius: 5px; 
+    cursor: pointer; font-size: 1em; font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.action-button:hover { background-color: #3F51B5; }
+.action-button:disabled { background-color: #9FA8DA; cursor: not-allowed;}
+
+
+.text-area { width: 100%; max-width: 90%; margin: 10px auto 10px auto; }
+.story-text { font-size: 1em; color: #3D5AFE; text-align: center; margin-bottom: 10px; line-height: 1.6; min-height: 3em;}
+.term { font-weight: bold; color: #303F9F; } 
+
+.page-footer { 
+    width: 100%; 
+    padding: 10px 0; 
+    border-top: 1px solid #C5CAE9; 
+    flex-shrink: 0; 
+    margin-top: auto; /* Pushes footer to bottom of .page flex container */
+    background-color: #FFFFFF; /* Ensure footer has background if page content is short */
+}
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: white;
+    background-color: #3F51B5; border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #303F9F; }
+.hub-return-button { background-color: #7986CB; color: white;}
+.hub-return-button:hover { background-color: #5C6BC0; }
+
+/* SVG Animation specific styles */
+#svg-metaphor-p1 .clash-shape1, #svg-metaphor-p1 .clash-shape2 {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out; /* Added cubic-bezier for bounce */
+}
+#svg-metaphor-p2 #hour-hand, #svg-metaphor-p2 #minute-hand {
+    transform-origin: 40px 50px; /* Set transform origin to center of clock for hands */
+    transition: transform 0.3s linear;
+}
+#svg-metaphor-p2 #coins-group circle {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-out; /* Bounce out */
+}
+#svg-metaphor-p3 #journey-path {
+    stroke-dasharray: 500; /* A large enough value for the path length */
+    stroke-dashoffset: 500; /* Start with path hidden */
+    transition: stroke-dashoffset 2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother drawing */
+}
+#svg-metaphor-p3 #traveler {
+    /* JS will handle animation */
+}
+
+
+.text-fade-in { animation: fadeInStoryTextMetaphor 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextMetaphor {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

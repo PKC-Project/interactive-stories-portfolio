@@ -1,0 +1,95 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #EAEAEA; /* Light grey, neutral */
+    color: #333; padding: 20px;
+}
+
+#storybook-container-gravity {
+    width: 90vw; max-width: 750px; height: 90vh; max-height: 650px; min-height: 520px;
+    background-color: #FDF5E6; /* Old paper / parchment */
+    border: 2px solid #8B4513; /* Brown */
+    border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(20px); /* Start slightly down */
+    overflow-y: auto; /* Page content scrolls */
+}
+.page.current-page { opacity: 1; visibility: visible; transform: translateY(0); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: translateX(-100%) translateY(20px); opacity:0; z-index: 0;}
+.page:not(.current-page).slide-out-right { transform: translateX(100%) translateY(20px); opacity:0; z-index: 0;}
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.9em; color: #5D4037; /* Dark Brown */
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 1px solid #A1887F; padding-bottom: 8px; display: inline-block; margin-top:0;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 350px; min-height: 200px; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;}
+.svg-area svg { max-width: 100%; max-height: 100%; height: auto; border: 1px solid #D7CCC8; border-radius: 4px; }
+
+.controls-area { margin-bottom: 10px; flex-shrink: 0; width: 90%; max-width: 400px; font-size: 0.9em;}
+.controls-area p { margin-top: 8px; }
+.gravity-controls div { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; max-width: 250px; margin-left:auto; margin-right:auto;}
+.param-btn, .game-button {
+    padding: 6px 10px; margin: 0 3px; background-color: #A1887F; /* Brown Grey */
+    color: white; border: 1px solid #795548; border-radius: 4px; cursor: pointer;
+    font-size: 0.9em;
+}
+.param-btn:hover, .game-button:hover { background-color: #8D6E63; }
+.game-button { background-color: #00796B; border-color: #004D40; } /* Teal for main action */
+.game-button:hover { background-color: #00695C; }
+.game-button:disabled { background-color: #B0BEC5; cursor: not-allowed;}
+
+
+.text-area { width: 100%; max-width: 90%; margin: 0 auto 10px auto; }
+.story-text { font-size: 1em; color: #4E342E; text-align: justify; margin-bottom: 10px; line-height: 1.6; }
+.term { font-weight: bold; color: #00796B; }
+
+.page-footer { width: 100%; padding: 10px 0; border-top: 1px solid #D7CCC8; flex-shrink: 0; margin-top: auto; background-color: #FDF5E6;}
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: white;
+    background-color: #795548; /* Brown */ border: none;
+    border-radius: 5px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #5D4037; }
+.hub-return-button { background-color: #A1887F; color: white;}
+.hub-return-button:hover { background-color: #8D6E63; }
+
+/* Animation for apple fall */
+#falling-apple.fall {
+    animation: fall-animation 1s ease-in forwards;
+}
+@keyframes fall-animation {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(45px); } /* Adjust based on SVG coordinates */
+}
+
+/* Cannonball path animation */
+#cannonball-path {
+    stroke-dasharray: 500; /* A large enough value */
+    stroke-dashoffset: 500; /* Start with path hidden */
+    transition: stroke-dashoffset 1.5s ease-out;
+}
+#cannonball-path.fire {
+    stroke-dashoffset: 0;
+}
+
+.text-fade-in { animation: fadeInStoryTextGravity 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextGravity {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+

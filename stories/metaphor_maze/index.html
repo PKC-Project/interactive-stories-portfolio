@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metaphor Maze: Unveiling Hidden Meanings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-metaphors">
+
+        <!-- Page 1: Argument is War -->
+        <div id="page1-metaphor" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-metaphor">Metaphor: "Argument is War"</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-metaphor">
+                    <svg id="svg-metaphor-p1" width="300" height="200" viewBox="0 0 150 100">
+                        <rect width="150" height="100" fill="#F0F4F8"/>
+                        <g id="literal-p1">
+                            <polygon points="30,30 50,70 10,70" fill="#FF6B6B" class="clash-shape1"/> 
+                            <polygon points="120,30 100,70 140,70" fill="#4A90E2" class="clash-shape2"/> 
+                            <line x1="55" y1="50" x2="95" y2="50" stroke="#333" stroke-width="3" stroke-dasharray="5,3"/>
+                        </g>
+                        <text id="metaphor-p1-text" x="75" y="90" font-size="7px" text-anchor="middle"></text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="explore-btn-p1" class="action-button">Explore this Metaphor</button>
+                </div>
+                <div class="text-area">
+                    <p id="explanation-p1" class="story-text">
+                        We often talk about arguments using the language of war: "He <em>attacked</em> my points," "I <em>defended</em> my position," "She <em>shot down</em> my theory." Why is that?
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-metaphor">Next Metaphor →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Time is Money -->
+        <div id="page2-metaphor" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-metaphor">Metaphor: "Time is Money"</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-metaphor">
+                    <svg id="svg-metaphor-p2" width="300" height="200" viewBox="0 0 150 100">
+                        <rect width="150" height="100" fill="#F0F4F8"/>
+                        <circle cx="40" cy="50" r="25" fill="white" stroke="#555" stroke-width="2"/> 
+                        <line id="hour-hand" x1="40" y1="50" x2="40" y2="30" stroke="black" stroke-width="2.5" style="transform-origin: 40px 50px;"/>
+                        <line id="minute-hand" x1="40" y1="50" x2="55" y2="50" stroke="black" stroke-width="1.5" style="transform-origin: 40px 50px;"/>
+                        <g id="coins-group">
+                            <circle cx="100" cy="40" r="8" fill="gold" stroke="darkgoldenrod" stroke-width="1"/>
+                            <circle cx="110" cy="55" r="10" fill="gold" stroke="darkgoldenrod" stroke-width="1"/>
+                            <circle cx="95" cy="65" r="6" fill="gold" stroke="darkgoldenrod" stroke-width="1"/>
+                        </g>
+                        <text id="time-spent-text" x="75" y="15" font-size="8px" text-anchor="middle">Time: 0% Spent</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <label for="time-slider">Spend Time:</label>
+                    <input type="range" id="time-slider" min="0" max="100" value="0" step="10">
+                </div>
+                <div class="text-area">
+                    <p id="explanation-p2" class="story-text">
+                        We say "Don't <em>waste</em> my time," "I've <em>invested</em> a lot of time," or "That <em>cost</em> me an hour." This treats time like a valuable resource, much like money.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-metaphor">← Previous</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-metaphor">Next Metaphor →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Life is a Journey -->
+        <div id="page3-metaphor" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-metaphor">Metaphor: "Life is a Journey"</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-metaphor">
+                     <svg id="svg-metaphor-p3" width="300" height="200" viewBox="0 0 150 100">
+                        <rect width="150" height="100" fill="#F0F4F8" opacity="0.3"/>
+                        <path id="journey-path" d="M10 80 C 30 80, 40 40, 75 40 S 120 0, 140 20" stroke="#A0522D" stroke-width="5" fill="none" stroke-linecap="round"/>
+                        <circle id="traveler" cx="10" cy="80" r="5" fill="blue"/> 
+                        <text x="75" y="90" font-size="7px" text-anchor="middle">Click 'Start Journey'</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="journey-btn-p3" class="action-button">Start Journey</button>
+                </div>
+                <div class="text-area">
+                    <p id="explanation-p3" class="story-text">
+                        We talk about <em>goals</em> as destinations, <em>making progress</em>, facing <em>obstacles</em>, and finding our <em>path</em> in life. This frames life itself as a journey with a beginning, a middle, and an end.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-metaphor">← Previous</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-metaphors">Restart Metaphors</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

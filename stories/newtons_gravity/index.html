@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dance of Gravity: Newton's Discovery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-gravity">
+
+        <!-- Page 1: The Falling Apple & Universal Force -->
+        <div id="page1-gravity" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-gravity">The Apple & The Idea</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-gravity">
+                    <svg id="newton-apple-svg" width="300" height="220" viewBox="0 0 150 110">
+                        <!-- LLM: Newton, tree, apple. Apple ID: falling-apple. Force arrow ID: gravity-arrow-p1 -->
+                        <rect width="150" height="110" fill="#E0FFE0" /> <!-- Light green grass/sky -->
+                        <rect x="60" y="20" width="30" height="70" fill="#8B4513" /> <!-- Tree Trunk -->
+                        <ellipse cx="75" cy="25" rx="40" ry="20" fill="#228B22" /> <!-- Tree Leaves -->
+                        <circle id="falling-apple" cx="85" cy="35" r="7" fill="red" style="cursor:pointer;"/>
+                        <path id="gravity-arrow-p1" d="M 85 45 L 85 65 M 82 60 L 85 65 L 88 60" stroke="blue" stroke-width="1.5" fill="none" visibility="hidden"/>
+                        <!-- Newton (very simplified) -->
+                        <circle cx="40" cy="80" r="8" fill="#FFEBCD"/> <rect x="35" y="88" width="10" height="15" fill="#555"/>
+                        <text x="75" y="105" font-size="6px" text-anchor="middle">Click the apple or button!</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="release-apple-btn" class="game-button">Release Apple</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1-gravity" class="story-text">
+                        Legend says Isaac Newton conceived his theory of gravitation after seeing an apple fall from a tree. He wondered: if gravity pulls an apple down, could the same force keep the Moon in orbit around the Earth?
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-gravity">Mass & Distance →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Gravity Between Two Masses -->
+        <div id="page2-gravity" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-gravity">Mass, Distance & Force</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-gravity">
+                    <svg id="masses-gravity-svg" width="300" height="180" viewBox="0 0 150 90">
+                        <!-- LLM: Two spheres (mass1, mass2), force arrow (gravity-arrow-p2) -->
+                        <rect width="150" height="90" fill="#F0F8FF" /> <!-- Light background -->
+                        <circle id="mass1-p2" cx="40" cy="45" r="15" fill="#4A90E2"/>
+                        <circle id="mass2-p2" cx="110" cy="45" r="10" fill="#F5A623"/>
+                        <line id="gravity-arrow-p2" x1="55" y1="45" x2="95" y2="45" stroke="#D0021B" stroke-width="2"/>
+                        <!-- Arrowheads for the force line -->
+                        <path d="M60 42 L55 45 L60 48" stroke="#D0021B" stroke-width="1.5" fill="none"/>
+                        <path d="M90 42 L95 45 L90 48" stroke="#D0021B" stroke-width="1.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="controls-area gravity-controls">
+                    <div>
+                        Mass 1: <button id="m1-decrease" class="param-btn">-</button> <span id="m1-value">15</span> <button id="m1-increase" class="param-btn">+</button>
+                    </div>
+                    <div>
+                        Mass 2: <button id="m2-decrease" class="param-btn">-</button> <span id="m2-value">10</span> <button id="m2-increase" class="param-btn">+</button>
+                    </div>
+                    <div>
+                        Distance: <button id="dist-decrease" class="param-btn">-</button> <span id="dist-value">70</span> <button id="dist-increase" class="param-btn">+</button>
+                    </div>
+                    <p>Force Strength: <span id="force-value">Medium</span></p>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2-gravity" class="story-text">
+                        Newton realized that the gravitational force between two objects depends on their <span class="term">masses</span> (more mass, more force) and the <span class="term">distance</span> between them (more distance, less force, by an inverse square law!). Try adjusting them!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-gravity">← The Apple</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-gravity">To Orbit! →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Orbital Mechanics - Newton's Cannonball -->
+        <div id="page3-gravity" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-gravity">Orbiting the Earth</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-gravity">
+                    <svg id="cannon-orbit-svg" width="300" height="220" viewBox="-10 -10 170 130"> <!-- Adjusted viewBox for orbit -->
+                        <!-- LLM: Earth, cannon on mountain, cannonball path (cannonball-path) -->
+                        <rect x="-10" y="-10" width="170" height="130" fill="#000020" /> <!-- Space -->
+                        <circle cx="75" cy="55" r="30" fill="#4682B4" id="earth-p3"/> <!-- Earth -->
+                        <path d="M75 25 L70 15 L80 15 Z" fill="#A0522D"/> <!-- Mountain -->
+                        <rect x="72" y="10" width="6" height="10" fill="#555" id="cannon-p3"/> <!-- Cannon -->
+                        <path id="cannonball-path" d="" stroke="yellow" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+                        <circle id="cannonball" cx="75" cy="10" r="2" fill="orange" visibility="hidden"/>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <label for="power-slider">Launch Power:</label>
+                    <input type="range" id="power-slider" min="1" max="4" value="1" step="1">
+                    <button id="launch-cannon-btn" class="game-button">Launch Cannon!</button>
+                    <p>Status: <span id="launch-status">Ready</span></p>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3-gravity" class="story-text">
+                        Newton imagined firing a cannonball from a tall mountain. With enough horizontal speed, it would fall towards Earth but continuously miss it, achieving an <span class="term">orbit</span>! This is how moons and planets stay in their paths. Try different launch powers!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-gravity">← Mass & Force</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-gravity">Restart Gravity Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

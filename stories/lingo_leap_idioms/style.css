@@ -1,0 +1,105 @@
+/* Basic Reset & Body Styling */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; /* Playful font */
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background-color: #F0F8FF; /* AliceBlue */
+    color: #333; padding: 20px;
+}
+
+#storybook-container-idioms {
+    width: 90vw; max-width: 650px; height: 90vh; max-height: 550px; min-height: 480px;
+    background-color: #FFFACD; /* LemonChiffon */
+    border: 3px dashed #FFB6C1; /* LightPink */
+    border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+
+.page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    padding: 20px 25px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: rotateY(90deg); /* Start rotated for a flip effect */
+    overflow-y: auto; /* Page content scrolls */
+}
+.page.current-page { opacity: 1; visibility: visible; transform: rotateY(0deg); z-index: 1; }
+.page:not(.current-page).slide-out-left { transform: rotateY(-90deg) translateX(-50%); opacity:0; z-index: 0;} /* Flip out left */
+.page:not(.current-page).slide-out-right { transform: rotateY(90deg) translateX(50%); opacity:0; z-index: 0;} /* Flip out right */
+
+
+.page-header { width: 100%; margin-bottom: 15px; flex-shrink: 0; }
+.page-header h2 {
+    font-size: 1.7em; color: #FF6347; /* Tomato */
+    font-family: inherit;
+    padding-bottom: 8px; display: inline-block; margin-top:0;
+    text-shadow: 1px 1px #FFF;
+}
+
+.page-content { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; /* Center content more */ padding-bottom: 15px; }
+.svg-area { width: 100%; max-width: 300px; height: 200px; /* Fixed height for SVGs */ margin-bottom: 15px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; background-color: #fff; border-radius: 8px; border: 1px solid #eee;}
+.svg-area svg { max-width: 100%; max-height: 100%; }
+
+.controls-area { margin-bottom: 10px; flex-shrink: 0;}
+.action-button, .game-button { /* Common class for action buttons */
+    padding: 10px 20px; margin: 10px 5px 0 5px; background-color: #4682B4; /* SteelBlue */
+    color: white; border: none; border-radius: 25px; /* Pill shape */
+    cursor: pointer; font-size: 1em; font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.action-button:hover, .game-button:hover { background-color: #5A9BD8; }
+.action-button:disabled, .game-button:disabled { background-color: #B0C4DE; cursor: not-allowed;}
+
+
+.text-area { width: 100%; max-width: 90%; margin: 0 auto 10px auto; }
+.story-text { font-size: 1em; color: #4A4A4A; text-align: center; margin-bottom: 10px; line-height: 1.6; min-height: 3em;}
+
+.page-footer { width: 100%; padding: 10px 0; border-top: 2px dashed #FFB6C1; flex-shrink: 0; margin-top: auto; background-color: #FFFACD;}
+.nav-button {
+    padding: 8px 15px; margin: 5px; font-size: 0.9em; color: white;
+    background-color: #FF69B4; /* HotPink */ border: none;
+    border-radius: 20px; cursor: pointer; transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover { background-color: #FF1493; }
+.hub-return-button { background-color: #FFA07A; } /* LightSalmon */
+.hub-return-button:hover { background-color: #FA8072; }
+
+/* SVG Animation specific styles */
+#literal-p1, #figurative-p1, #literal-p3, #figurative-p3 {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.sparkle { animation: sparkle-anim 1s infinite alternate; }
+@keyframes sparkle-anim { 0% { opacity: 0.5; } 100% { opacity: 1; stroke: yellow; } }
+
+/* Spill the Beans Animation */
+.spilled-bean {
+    fill: #A0522D; /* Bean color */
+    animation: fall-and-fade 1s ease-out forwards;
+    transform-origin: center;
+}
+.spilled-letter {
+    font-size: 12px;
+    fill: #333;
+    font-weight: bold;
+    animation: fall-and-fade-letter 1.2s ease-out forwards;
+    opacity: 0;
+    text-anchor: middle;
+}
+
+@keyframes fall-and-fade {
+    0% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rdeg)deg); opacity: 0; }
+}
+@keyframes fall-and-fade-letter {
+    0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rdeg)deg); opacity: 0; }
+}
+
+.text-fade-in { animation: fadeInStoryTextIdioms 0.8s ease-out forwards; }
+@keyframes fadeInStoryTextIdioms {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}

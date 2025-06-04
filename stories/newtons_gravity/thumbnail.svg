@@ -1,0 +1,10 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#E8F5E9" /> <!-- Light Green background -->
+    <!-- Apple -->
+    <circle cx="40" cy="60" r="15" fill="#FF3B30" /> <!-- Red Apple -->
+    <path d="M40 45 Q 42 40 45 42" stroke="#8B4513" stroke-width="2" fill="none"/> <!-- Stem -->
+    <!-- Orbit hint -->
+    <ellipse cx="65" cy="35" rx="25" ry="10" stroke="#007AFF" stroke-width="2" fill="none" transform="rotate(-30 65 35)"/>
+    <circle cx="75" cy="28" r="4" fill="#4A90E2"/> <!-- Small planet/moon -->
+    <text x="50" y="90" font-family="Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">Newton's Gravity</text>
+</svg>

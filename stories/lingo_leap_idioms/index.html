@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoLeap: Exploring English Idioms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-idioms">
+
+        <!-- Page 1: Break a Leg! -->
+        <div id="page1-idiom" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title-idiom">Idiom: "Break a leg!"</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1-idiom">
+                    <svg id="svg-idiom-p1" width="300" height="200" viewBox="0 0 150 100">
+                        <!-- Initial State: Literal depiction (LLM to generate) -->
+                        <g id="literal-p1">
+                            <rect width="150" height="100" fill="#F0F0F0"/>
+                            <line x1="70" y1="80" x2="70" y2="30" stroke="brown" stroke-width="8"/> <!-- Leg -->
+                            <line x1="70" y1="55" x2="85" y2="45" stroke="red" stroke-width="3" stroke-dasharray="3,2"/> <!-- Crack -->
+                            <text x="75" y="20" font-size="10" text-anchor="middle">Ouch?!</text>
+                        </g>
+                        <!-- Figurative State: Hidden initially (LLM to generate) -->
+                        <g id="figurative-p1" visibility="hidden">
+                            <rect width="150" height="100" fill="#ADD8E6"/>
+                            <rect x="40" y="70" width="70" height="20" fill="#8B4513"/> <!-- Stage -->
+                            <circle cx="75" cy="50" r="10" fill="yellow"/> <!-- Performer -->
+                            <text x="75" y="25" font-size="10" text-anchor="middle">Applause!</text>
+                            <path d="M20 30 L25 25 L30 30" stroke="gold" stroke-width="2" class="sparkle"/>
+                            <path d="M120 30 L125 25 L130 30" stroke="gold" stroke-width="2" class="sparkle"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="reveal-btn-p1" class="action-button">Reveal Meaning!</button>
+                </div>
+                <div class="text-area">
+                    <p id="explanation-p1" class="story-text">
+                        What does it mean when someone tells you to "Break a leg!"? It sounds painful!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1-idiom">Next Idiom →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Spill the Beans -->
+        <div id="page2-idiom" class="page">
+            <header class="page-header">
+                <h2 id="page2-title-idiom">Idiom: "Spill the beans"</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2-idiom">
+                    <svg id="svg-idiom-p2" width="300" height="200" viewBox="0 0 150 100">
+                        <!-- LLM: Can of beans, some spilling. Clickable can. -->
+                        <rect width="150" height="100" fill="#F0F0F0"/>
+                        <ellipse id="bean-can" cx="75" cy="60" rx="20" ry="30" fill="silver" stroke="grey" stroke-width="1" style="cursor:pointer;"/>
+                        <text x="75" y="63" font-size="8" fill="black" text-anchor="middle">BEANS</text>
+                        <g id="spilled-content"></g> <!-- JS adds beans and "SECRET" text here -->
+                    </svg>
+                </div>
+                 <div class="controls-area">
+                    <p id="instruction-p2">Click the can to see what happens!</p>
+                </div>
+                <div class="text-area">
+                    <p id="explanation-p2" class="story-text">
+                        If you "spill the beans," are you making a mess with your dinner?
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2-idiom">← Previous</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2-idiom">Next Idiom →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Piece of Cake -->
+        <div id="page3-idiom" class="page">
+            <header class="page-header">
+                <h2 id="page3-title-idiom">Idiom: "A piece of cake"</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3-idiom">
+                    <svg id="svg-idiom-p3" width="300" height="200" viewBox="0 0 150 100">
+                        <!-- LLM: Difficult task (mountain) morphs to cake slice -->
+                        <rect width="150" height="100" fill="#F0F0F0"/>
+                        <g id="literal-p3"> <!-- Difficult task: Mountain -->
+                            <polygon points="30,90 75,20 120,90" fill="grey"/>
+                            <text x="75" y="60" font-size="10" text-anchor="middle">HARD!</text>
+                        </g>
+                        <g id="figurative-p3" visibility="hidden"> <!-- Easy task: Cake -->
+                            <path d="M40 70 L75 40 L110 70 L75 80 Z" fill="#FFDAB9"/> <!-- Cake slice -->
+                            <path d="M75 40 L75 80" stroke="#D2691E" stroke-width="1"/>
+                            <ellipse cx="75" cy="38" rx="5" ry="3" fill="red"/> <!-- Cherry -->
+                            <text x="75" y="25" font-size="10" text-anchor="middle">EASY!</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="reveal-btn-p3" class="action-button">What does it mean?</button>
+                </div>
+                <div class="text-area">
+                    <p id="explanation-p3" class="story-text">
+                        When something is described as "a piece of cake," what does that imply about the task?
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3-idiom">← Previous</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-idioms">Restart Idioms</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

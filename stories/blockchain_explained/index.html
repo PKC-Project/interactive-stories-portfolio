@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Blockchain: The Trust Chain</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-blockchain">
+
+        <!-- Page 1: Transactions & Blocks -->
+        <div id="page1-blockchain" class="page current-page">
+            <header class="page-header">
+                <h2 id="page1-title">The Digital Ledger: Transactions & Blocks</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page1">
+                    <svg id="svg-page1-art" width="350" height="220" viewBox="0 0 175 110">
+                        <rect width="175" height="110" fill="#F4F6F6"/>
+                        <g id="transactions-pool">
+                            <rect class="transaction" x="10" y="10" width="40" height="15" rx="2" fill="#ABEBC6"><title>Tx1: Alice pays Bob</title></rect>
+                            <rect class="transaction" x="10" y="30" width="40" height="15" rx="2" fill="#AED6F1"><title>Tx2: Charlie buys item</title></rect>
+                            <rect class="transaction" x="10" y="50" width="40" height="15" rx="2" fill="#FAD7A0"><title>Tx3: Dana sends data</title></rect>
+                        </g>
+                        <rect id="block1-svg" x="80" y="20" width="70" height="70" rx="5" fill="#E8E8E8" stroke="#B0B0B0" stroke-width="1"/>
+                        <text id="block1-text" x="115" y="58" font-size="8px" text-anchor="middle" fill="#777">Empty Block</text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="add-to-block-btn" class="action-button">Add Transactions to Block</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page1" class="story-text">
+                        Imagine a digital notebook where every action or exchange is a <span class="term">transaction</span>. Many transactions are bundled into a <span class="term">block</span>, like a page in this notebook.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page1">Chaining Blocks →</button>
+            </footer>
+        </div>
+
+        <!-- Page 2: Chaining with Hashes -->
+        <div id="page2-blockchain" class="page">
+            <header class="page-header">
+                <h2 id="page2-title">The Unbreakable Link: Hashes</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page2">
+                    <svg id="svg-page2-art" width="350" height="220" viewBox="0 0 175 110">
+                        <rect width="175" height="110" fill="#F4F6F6"/>
+                        <!-- Block 1 (Sealed) -->
+                        <g id="block1-sealed-p2" transform="translate(10 30)">
+                            <rect width="50" height="50" rx="3" fill="#D5F5E3" stroke="#58D68D" stroke-width="1"/>
+                            <text x="25" y="20" font-size="6px" text-anchor="middle">Block 1</text>
+                            <text id="hash1-display-p2" x="25" y="35" font-size="5px" fill="#27AE60" text-anchor="middle">Hash: A1B2</text>
+                        </g>
+                        <!-- Hashing Machine -->
+                        <rect id="hashing-machine" x="70" y="40" width="30" height="30" fill="#FADBD8" stroke="#E74C3C" stroke-width="1"/>
+                        <text x="85" y="58" font-size="6px" text-anchor="middle">Hash</text>
+                        <!-- Block 2 (New) -->
+                        <g id="block2-new-p2" transform="translate(115 30)">
+                            <rect width="50" height="50" rx="3" fill="#EBF5FB" stroke="#5DADE2" stroke-width="1"/>
+                            <text x="25" y="20" font-size="6px" text-anchor="middle">Block 2</text>
+                            <text id="prev-hash-in-block2" x="25" y="30" font-size="4px" fill="#2980B9" text-anchor="middle">(Prev: ???)</text>
+                            <text id="hash2-display-p2" x="25" y="40" font-size="5px" fill="#27AE60" text-anchor="middle">Hash: ???</text>
+                        </g>
+                        <path id="chain-link-p2" d="" stroke="#7F8C8D" stroke-width="3" fill="none" stroke-dasharray="50" stroke-dashoffset="50"/>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="generate-hash-btn" class="action-button">Generate Hash & Link</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page2" class="story-text">
+                        Each block gets a unique digital fingerprint, a <span class="term">hash</span>, from its content. Crucially, a new block includes the hash of the *previous* block. This creates a secure <span class="term">chain</span>!
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page2">← Blocks</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="next-page2">Shared & Secure →</button>
+            </footer>
+        </div>
+
+        <!-- Page 3: Decentralization & Immutability -->
+        <div id="page3-blockchain" class="page">
+            <header class="page-header">
+                <h2 id="page3-title">Shared & Secure: Decentralization</h2>
+            </header>
+            <main class="page-content">
+                <div class="svg-area" id="svg-area-page3">
+                    <svg id="svg-page3-art" width="350" height="240" viewBox="0 0 175 120">
+                        <rect width="175" height="120" fill="#F4F6F6"/>
+                        <g id="network-nodes">
+                            <!-- JS will add node SVGs -->
+                        </g>
+                        <g id="blockchain-in-network" transform="translate(60 10) scale(0.3)">
+                             <!-- A small version of the chain for distribution animation -->
+                            <rect class="net-block" x="0" y="0" width="50" height="50" fill="#D5F5E3"/>
+                            <line x1="50" y1="25" x2="60" y2="25" stroke="#777" stroke-width="2"/>
+                            <rect class="net-block" x="60" y="0" width="50" height="50" fill="#EBF5FB"/>
+                        </g>
+                        <text id="tamper-feedback" x="87.5" y="110" font-size="7px" text-anchor="middle" fill="red"></text>
+                    </svg>
+                </div>
+                <div class="controls-area">
+                    <button id="distribute-block-btn" class="action-button">Add & Distribute New Block</button>
+                    <button id="tamper-block-btn" class="action-button">Attempt to Tamper Block 1</button>
+                </div>
+                <div class="text-area">
+                    <p id="text-page3" class="story-text">
+                        The blockchain isn't stored in one place but is copied across many computers (<span class="term">decentralization</span>). If a hacker tries to change an old block on one copy, its hash breaks the chain. Other computers easily spot the fake! This makes it <span class="term">immutable</span>.
+                    </p>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <button class="nav-button" id="prev-page3">← Hashes</button>
+                <button class="nav-button hub-return-button">Gallery</button>
+                <button class="nav-button" id="restart-story-blockchain">Restart Blockchain Story</button>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
