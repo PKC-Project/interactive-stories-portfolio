@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The L2 Journey: Unlocking SLA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-sla">
+        <div id="click-to-start-overlay-sla">
+            <button id="start-audio-button-sla">Begin Your L2 Journey!</button>
+        </div>
+
+        <header class="course-header">
+            <h1>LLT3190: Second Language Acquisition</h1>
+            <p class="course-subtitle">Explore how we learn new languages.</p>
+        </header>
+
+        <main class="course-main-content">
+            <div class="course-map-area">
+                <svg id="course-map-svg" width="600" height="400" viewBox="0 0 300 200">
+                    <!-- Background / Base Map -->
+                    <rect x="0" y="0" width="300" height="200" fill="#F8F8F8" />
+
+                    <!-- Path -->
+                    <path d="M 50,170 C 50,140 80,130 100,130 S 150,110 170,110 C 190,110 220,120 250,100 S 280,50 250,30 C 220,10 180,20 150,30 S 100,50 70,50 C 40,50 20,70 20,100 S 40,150 50,170 Z"
+                          fill="none" stroke="#B0C4DE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <!-- Module 0: Welcome -->
+                    <circle id="module0" class="module-node" cx="50" cy="170" r="15" fill="#3498DB" data-module-id="module0">
+                        <title>Welcome to the L2 Journey</title>
+                    </circle>
+                    <text x="50" y="175" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Welcome</text>
+
+                    <!-- Module 1: What is SLA? -->
+                    <circle id="module1" class="module-node" cx="100" cy="130" r="15" fill="#2ECC71" data-module-id="module1">
+                        <title>What is SLA?</title>
+                    </circle>
+                    <text x="100" y="135" text-anchor="middle" font-size="7" fill="white" pointer-events="none">What is SLA?</text>
+
+                    <!-- Module 2: Errors & L1 Influence -->
+                    <circle id="module2" class="module-node" cx="170" cy="110" r="15" fill="#E67E22" data-module-id="module2">
+                        <title>Errors & L1 Influence</title>
+                    </circle>
+                    <text x="170" y="115" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Errors</text>
+
+                    <!-- Module 3: Innate Language -->
+                    <circle id="module3" class="module-node" cx="250" cy="100" r="15" fill="#9B59B6" data-module-id="module3">
+                        <title>Innate Language</title>
+                    </circle>
+                    <text x="250" y="105" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Innate</text>
+
+                    <!-- Module 4: The Learner's System (Interlanguage) -->
+                    <circle id="module4" class="module-node" cx="250" cy="30" r="15" fill="#E74C3C" data-module-id="module4">
+                        <title>The Learner's System (Interlanguage)</title>
+                    </circle>
+                    <text x="250" y="35" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Interlanguage</text>
+
+                    <!-- Module 5: How We Develop (Processability) -->
+                    <circle id="module5" class="module-node" cx="150" cy="30" r="15" fill="#1ABC9C" data-module-id="module5">
+                        <title>How We Develop (Processability)</title>
+                    </circle>
+                    <text x="150" y="35" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Develop</text>
+
+                    <!-- Module 6: The Social Side (Input & Interaction) -->
+                    <circle id="module6" class="module-node" cx="70" cy="50" r="15" fill="#F1C40F" data-module-id="module6">
+                        <title>The Social Side (Input & Interaction)</title>
+                    </circle>
+                    <text x="70" y="55" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Social</text>
+
+                    <!-- Module 7: Who We Are (Individual Differences) -->
+                    <circle id="module7" class="module-node" cx="20" cy="100" r="15" fill="#34495E" data-module-id="module7">
+                        <title>Who We Are (Individual Differences)</title>
+                    </circle>
+                    <text x="20" y="105" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Individual</text>
+
+                    <!-- Module 8: Teaching & Learning -->
+                    <circle id="module8" class="module-node" cx="50" cy="50" r="15" fill="#8E44AD" data-module-id="module8">
+                        <title>Teaching & Learning</title>
+                    </circle>
+                    <text x="50" y="55" text-anchor="middle" font-size="7" fill="white" pointer-events="none">Teaching</text>
+                </svg>
+            </div>
+
+            <div class="dynamic-content-panel">
+                <div id="module-content-intro" class="module-content current-content">
+                    <h3>Welcome to The L2 Journey!</h3>
+                    <p>This study unit explores the fascinating world of Second Language Acquisition (SLA). Click on any milestone on the map to explore different theories and factors influencing how we learn new languages.</p>
+                    <button class="action-button" id="start-exploration-btn">Start Exploration</button>
+                </div>
+
+                <div id="module-content-module0" class="module-content">
+                    <h3>Welcome to the L2 Journey</h3>
+                    <p>Second Language Acquisition (SLA) is the scientific study of how individuals learn a language other than their native one. It explores the processes, factors, and outcomes involved in this complex cognitive and social endeavor.</p>
+                    <div class="quiz-area" id="quiz-area-module0">
+                        <h4>Quick Quiz:</h4>
+                        <p>SLA primarily studies:</p>
+                        <button class="quiz-option" data-answer="How children learn their first language.">How children learn their first language.</button>
+                        <button class="quiz-option" data-answer="How individuals learn a language after their native one.">How individuals learn a language after their native one.</button>
+                        <button class="quiz-option" data-answer="How to teach languages effectively.">How to teach languages effectively.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module0"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module1" class="module-content">
+                    <h3>What is SLA?</h3>
+                    <p>SLA investigates the processes by which people acquire a second language (L2) in various contexts. It examines the cognitive mechanisms, linguistic stages, and external influences involved, aiming to understand how learners build competence in a new language system.</p>
+                    <div class="quiz-area" id="quiz-area-module1">
+                        <h4>Quick Quiz:</h4>
+                        <p>SLA is only about learning grammar. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module1"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module2" class="module-content">
+                    <h3>Errors & L1 Influence</h3>
+                    <p>The Contrastive Analysis Hypothesis (CAH) suggested that learners' first language (L1) heavily influences their second language (L2) learning, leading to predictable errors. Error Analysis later showed that many errors are developmental, not just L1 transfer, but L1 still plays a significant role.</p>
+                    <div class="quiz-area" id="quiz-area-module2">
+                        <h4>Quick Quiz:</h4>
+                        <p>Errors in L2 learning are always due to interference from the first language. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module2"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module3" class="module-content">
+                    <h3>Innate Language (Innatist Approach)</h3>
+                    <p>The Innatist approach, championed by Noam Chomsky, proposes that humans are born with an innate Universal Grammar (UG) that guides language acquisition. This perspective suggests that children don't just learn language from input, but activate pre-wired principles and parameters. The Critical Period Hypothesis (CPH) suggests there's an optimal window for L1 acquisition.</p>
+                    <div class="quiz-area" id="quiz-area-module3">
+                        <h4>Quick Quiz:</h4>
+                        <p>The Critical Period Hypothesis suggests that:</p>
+                        <button class="quiz-option" data-answer="Learning a language is always easy.">Learning a language is always easy.</button>
+                        <button class="quiz-option" data-answer="There's an optimal time window for language acquisition.">There's an optimal time window for language acquisition.</button>
+                        <button class="quiz-option" data-answer="Only children can learn a second language.">Only children can learn a second language.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module3"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module4" class="module-content">
+                    <h3>The Learner's System (Interlanguage)</h3>
+                    <p>Interlanguage refers to the unique linguistic system that a second language learner develops. It's systematic and dynamic, constantly evolving as the learner progresses, and contains elements from both the L1 and L2, as well as features unique to the interlanguage itself. It's not just a collection of errors.</p>
+                    <div class="quiz-area" id="quiz-area-module4">
+                        <h4>Quick Quiz:</h4>
+                        <p>Interlanguage is a random collection of errors. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module4"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module5" class="module-content">
+                    <h3>How We Develop (Processability & Sequences)</h3>
+                    <p>Research shows that learners often acquire grammatical features in predictable developmental sequences, regardless of their L1. Theories like Processability Theory attempt to explain these sequences based on cognitive processing abilities, suggesting that learners can only acquire what they are cognitively ready to process.</p>
+                    <div class="quiz-area" id="quiz-area-module5">
+                        <h4>Quick Quiz:</h4>
+                        <p>Learners acquire all grammar rules in the same order. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module5"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module6" class="module-content">
+                    <h3>The Social Side (Input & Interaction)</h3>
+                    <p>Input (the language learners are exposed to) and interaction (communication with others) are crucial for SLA. Theories like Krashen's Input Hypothesis emphasize comprehensible input, while the Interaction Hypothesis highlights the role of negotiation for meaning in communication.</p>
+                    <div class="quiz-area" id="quiz-area-module6">
+                        <h4>Quick Quiz:</h4>
+                        <p>Simply hearing a lot of L2 input is enough for acquisition. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module6"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module7" class="module-content">
+                    <h3>Who We Are (Individual Differences)</h3>
+                    <p>Learners are not all the same! Factors like age, motivation, attitudes towards the L2 and its speakers, personality traits, learning styles, and aptitude all play a significant role in how and how successfully individuals acquire a second language.</p>
+                    <div class="quiz-area" id="quiz-area-module7">
+                        <h4>Quick Quiz:</h4>
+                        <p>Motivation is the only factor influencing L2 success. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module7"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module8" class="module-content">
+                    <h3>Teaching & Learning</h3>
+                    <p>Understanding SLA theories provides valuable insights for language teaching. Effective pedagogy often aligns with how learners naturally acquire language, focusing on creating optimal conditions for input, interaction, and the development of interlanguage. It's about bridging theory and practice.</p>
+                    <div class="quiz-area" id="quiz-area-module8">
+                        <h4>Quick Quiz:</h4>
+                        <p>SLA theories have no practical implications for language teaching. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module8"></div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="course-footer">
+            <button class="nav-button" id="reset-course-btn">Reset Course</button>
+            <button class="nav-button hub-return-button">Gallery</button>
+        </footer>
+    </div>
+    <div id="info-popup-sla" class="info-popup"></div> <!-- Global popup for clickable terms -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="mindGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#D1E8FF" stop-opacity="0.3" />
+        </radialGradient>
+    </defs>
+    <rect width="100" height="100" fill="#2c3e50" /> <!-- Deep blue background -->
+
+    <!-- Stylized Head Silhouette -->
+    <path d="M 50,95 C 20,95 10,75 25,45 S 40,5 50,5 C 60,5 75,15 75,45 S 80,95 50,95 Z" fill="#1A2533" />
+    <circle cx="50" cy="50" r="35" fill="url(#mindGlow)" />
+
+    <!-- Blooming Flower (L2) -->
+    <path d="M50,55 C 40,45 40,35 50,30 C 60,35 60,45 50,55 Z" fill="#e74c3c" /> <!-- Red petal -->
+    <path d="M50,55 C 60,65 70,65 75,50 C 70,55 60,55 50,55 Z" fill="#f1c40f" /> <!-- Yellow petal -->
+    <path d="M50,55 C 40,65 30,65 25,50 C 30,55 40,55 50,55 Z" fill="#3498db" /> <!-- Blue petal -->
+    <circle cx="50" cy="55" r="5" fill="#f9f9f9"/> <!-- Center -->
+
+    <!-- "Watering" with language characters -->
+    <text x="15" y="30" font-family="Georgia" font-size="14" fill="#95a5a6" transform="rotate(-30 15 30)">A</text>
+    <text x="85" y="35" font-family="Arial" font-size="14" fill="#95a5a6" transform="rotate(30 85 35)">语</text> <!-- Chinese character for language -->
+    <text x="20" y="80" font-family="Times New Roman" font-size="14" fill="#95a5a6" transform="rotate(15 20 80)">α</text> <!-- Greek alpha -->
+</svg>

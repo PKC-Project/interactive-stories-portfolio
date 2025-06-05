@@ -1,0 +1,166 @@
+/* style.css for Melody Maker (V2 with color themes) */
+
+:root {
+    --bg-color: #111827;
+    --grid-bg: #1F2937;
+    --cell-off-bg: #4B5563;
+    --playhead-color: rgba(239, 68, 68, 0.7); /* A vibrant red */
+    --text-color: #d1d5db;
+    --header-color: #F9FAFB;
+    --button-bg: #374151;
+    --button-hover-bg: #4B5563;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    
+    /* --- THEME COLORS --- */
+    /* Sine Wave Theme (Default) */
+    --cell-on-bg-sine: #34d399; /* Bright, glowing green */
+    --cell-shadow-sine: #34d399;
+
+    /* Square Wave Theme */
+    --cell-on-bg-square: #f59e0b; /* Bright, glowing amber */
+    --cell-shadow-square: #f59e0b;
+    
+    font-family: 'Roboto Mono', monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.sequencer-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--grid-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.project-header h1 {
+    color: var(--header-color);
+    margin-bottom: 0.5rem;
+}
+
+.grid-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+#playhead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% / 8); 
+    height: 100%;
+    background-color: var(--playhead-color);
+    border-radius: 4px;
+    opacity: 0;
+    transition: left 0.05s linear;
+    pointer-events: none;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    border: 2px solid var(--button-bg);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.grid-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--cell-off-bg);
+    cursor: pointer;
+    border: 1px solid #1f2937;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.grid-cell:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* --- THEME-BASED CELL STYLING --- */
+.sequencer-container[data-instrument="sine"] .cell-on {
+    background-color: var(--cell-on-bg-sine);
+    box-shadow: 0 0 15px var(--cell-shadow-sine);
+}
+
+.sequencer-container[data-instrument="square"] .cell-on {
+    background-color: var(--cell-on-bg-square);
+    box-shadow: 0 0 15px var(--cell-shadow-square);
+}
+
+.grid-cell.cell-on {
+    transform: scale(1.05);
+}
+
+.grid-cell.playing {
+    filter: brightness(1.5);
+    transform: scale(1.1);
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.control-button {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.control-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#tempo-slider {
+    cursor: pointer;
+}
+
+.project-footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.project-footer a {
+    color: #9ca3af;
+}

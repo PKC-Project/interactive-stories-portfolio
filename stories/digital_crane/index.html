@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Crane | An Interactive Origami Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a serene, elegant look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="main-container">
+
+        <!-- Header Section -->
+        <header class="project-header">
+            <h1>The Digital Crane</h1>
+            <p id="subtitle">An interactive journey into the art of origami.</p>
+        </header>
+
+        <!-- The main stage for the SVG animation -->
+        <div id="origami-stage">
+            <div id="svg-container">
+                <!-- The Origami SVG will be dynamically inserted here by script.js -->
+            </div>
+        </div>
+
+        <!-- The area for step-by-step instructions -->
+        <div id="instructions-container">
+            <p id="instruction-text">A single sheet, a world of possibility. Let us begin the journey of the crane.</p>
+        </div>
+
+        <!-- The main user controls -->
+        <nav id="controls">
+            <!-- The "Begin" button, will be replaced by fold controls -->
+            <button id="btn-begin" class="control-button">Begin</button>
+
+            <!-- Folding controls, initially hidden -->
+            <button id="btn-prev" class="control-button hidden">Previous Fold</button>
+            <button id="btn-next" class="control-button hidden">Next Fold</button>
+            
+            <!-- Final action button, initially hidden -->
+            <button id="btn-finalize" class="control-button hidden">Set it Free</button>
+            
+            <!-- Restart button, initially hidden -->
+            <button id="btn-restart" class="control-button hidden">Create Another</button>
+        </nav>
+
+    </main>
+    
+    <footer class="project-footer">
+        <p>A <a href="https://pkc-project.github.io/interactive-stories-portfolio/" target="_blank">PKC Project</a> demonstrating procedural media synthesis.</p>
+    </footer>
+
+    <!-- The JavaScript file that will bring the origami to life -->
+    <script src="script.js"></script>
+</body>
+</html>

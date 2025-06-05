@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Algorithmic Easel | A PKC Generative Art Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- The Left Panel for User Controls -->
+        <aside class="controls-panel">
+            <header class="project-header">
+                <h1>The Algorithmic Easel</h1>
+                <p>Collaborate with an AI to create unique art. Set the rules, then press Generate.</p>
+            </header>
+
+            <div class="control-group">
+                <label for="style-select">Painting Style</label>
+                <select id="style-select" class="control-select">
+                    <option value="chaotic-strokes">Chaotic Strokes</option>
+                    <option value="geometric-fields">Geometric Fields</option>
+                    <option value="flowing-curves">Flowing Curves</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="palette-select">Color Palette</label>
+                <select id="palette-select" class="control-select"></select>
+            </div>
+
+            <div class="control-group">
+                <label for="density-slider">Density (<span id="density-value">50</span>)</label>
+                <input type="range" id="density-slider" min="10" max="200" value="50">
+            </div>
+
+            <button id="generate-btn" class="action-button primary">Generate</button>
+            
+            <div class="secondary-actions">
+                <button id="save-btn" class="action-button">Save to Gallery</button>
+                <button id="download-btn" class="action-button">Download SVG</button>
+            </div>
+        </aside>
+
+        <!-- The Right Panel for the Art Canvas -->
+        <main class="easel-container">
+            <div id="svg-canvas">
+                <!-- Generative SVG art will appear here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- The Bottom Panel for the Saved Gallery -->
+    <footer class="gallery-container">
+        <h2>Your Gallery</h2>
+        <div id="gallery-grid">
+            <!-- Saved thumbnails will appear here -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

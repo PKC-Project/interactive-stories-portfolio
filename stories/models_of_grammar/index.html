@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Models of Grammar: A Linguistic Journey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-grammar">
+        <div id="click-to-start-overlay-grammar">
+            <button id="start-audio-button-grammar">Begin Your Grammatical Journey!</button>
+        </div>
+
+        <header class="course-header">
+            <h1>LIN2022: Models of Grammar</h1>
+            <p class="course-subtitle">Unraveling the structures that shape language.</p>
+        </header>
+
+        <main class="course-main-content">
+            <div class="course-map-area">
+                <svg id="course-map-svg" width="600" height="400" viewBox="0 0 300 200">
+                    <!-- Background / Base Map -->
+                    <rect x="0" y="0" width="300" height="200" fill="#F8F8F8" />
+
+                    <!-- Module 1: Syntax -->
+                    <line x1="150" y1="100" x2="250" y2="50" stroke="#555" stroke-width="1"/>
+                    <circle id="module1" class="module-node" cx="250" cy="50" r="18" fill="#2ECC71" data-module-id="module1">
+                        <title>Syntax: General Discussion</title>
+                    </circle>
+                    <text x="250" y="55" text-anchor="middle" font-size="8" fill="white" pointer-events="none">Syntax</text>
+
+                    <!-- Module 2: LFG -->
+                    <line x1="250" y1="50" x2="270" y2="100" stroke="#555" stroke-width="1"/>
+                    <circle id="module2" class="module-node" cx="270" cy="100" r="18" fill="#E67E22" data-module-id="module2">
+                        <title>Lexical Functional Grammar (LFG)</title>
+                    </circle>
+                    <text x="270" y="105" text-anchor="middle" font-size="8" fill="white" pointer-events="none">LFG</text>
+
+                    <!-- Module 3: Morphology -->
+                    <line x1="150" y1="100" x2="250" y2="150" stroke="#555" stroke-width="1"/>
+                    <circle id="module3" class="module-node" cx="250" cy="150" r="18" fill="#9B59B6" data-module-id="module3">
+                        <title>Morphology</title>
+                    </circle>
+                    <text x="250" y="155" text-anchor="middle" font-size="8" fill="white" pointer-events="none">Morphology</text>
+
+                    <!-- Module 4: Optimality Theory (OT) -->
+                    <line x1="150" y1="100" x2="50" y2="150" stroke="#555" stroke-width="1"/>
+                    <circle id="module4" class="module-node" cx="50" cy="150" r="18" fill="#E74C3C" data-module-id="module4">
+                        <title>Optimality Theory (OT)</title>
+                    </circle>
+                    <text x="50" y="155" text-anchor="middle" font-size="8" fill="white" pointer-events="none">OT</text>
+
+                    <!-- Module 5: Dependency Grammar (DG) -->
+                    <line x1="150" y1="100" x2="30" y2="100" stroke="#555" stroke-width="1"/>
+                    <circle id="module5" class="module-node" cx="30" cy="100" r="18" fill="#1ABC9C" data-module-id="module5">
+                        <title>Dependency Grammar</title>
+                    </circle>
+                    <text x="30" y="105" text-anchor="middle" font-size="8" fill="white" pointer-events="none">DG</text>
+
+                    <!-- Module 6: Construction Grammar (CxG) -->
+                    <line x1="150" y1="100" x2="50" y2="50" stroke="#555" stroke-width="1"/>
+                    <circle id="module6" class="module-node" cx="50" cy="50" r="18" fill="#F1C40F" data-module-id="module6">
+                        <title>Construction Grammar</title>
+                    </circle>
+                    <text x="50" y="55" text-anchor="middle" font-size="8" fill="white" pointer-events="none">CxG</text>
+
+                    <!-- Module 7: Principles & Parameters (P&P) -->
+                    <line x1="50" y1="50" x2="100" y2="20" stroke="#555" stroke-width="1"/>
+                    <circle id="module7" class="module-node" cx="100" cy="20" r="18" fill="#34495E" data-module-id="module7">
+                        <title>Principles & Parameters</title>
+                    </circle>
+                    <text x="100" y="25" text-anchor="middle" font-size="8" fill="white" pointer-events="none">P&P</text>
+
+                    <!-- Central Node: Module 0 (Introduction) -->
+                    <circle id="module0" class="module-node" cx="150" cy="100" r="22" fill="#3498DB" data-module-id="module0">
+                        <title>Introduction: Theories and Models</title>
+                    </circle>
+                    <text x="150" y="105" text-anchor="middle" font-size="9" fill="white" pointer-events="none">Intro</text>
+                </svg>
+            </div>
+
+            <div class="dynamic-content-panel">
+                <div id="module-content-intro" class="module-content current-content">
+                    <h3>Welcome to Models of Grammar!</h3>
+                    <p>This study unit delves into the fascinating world of linguistic models. Click on any module on the map to explore different theories and approaches to grammar.</p>
+                    <button class="action-button" id="start-exploration-btn">Start Exploration</button>
+                </div>
+
+                <div id="module-content-module0" class="module-content">
+                    <h3>Introduction: Theories and Models</h3>
+                    <p>What exactly is a "model of grammar"? It's a formal system designed to describe and explain the structure of language. These models aim to capture how language works, from the smallest units to complex sentences, often with different theoretical assumptions and goals.</p>
+                    <div class="quiz-area" id="quiz-area-module0">
+                        <h4>Quick Quiz:</h4>
+                        <p>A model of grammar primarily aims to:</p>
+                        <button class="quiz-option" data-answer="Describe and explain language structure.">Describe and explain language structure.</button>
+                        <button class="quiz-option" data-answer="Teach you how to speak correctly.">Teach you how to speak correctly.</button>
+                        <button class="quiz-option" data-answer="Translate languages automatically.">Translate languages automatically.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module0"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module1" class="module-content">
+                    <h3>Syntax: General Discussion</h3>
+                    <p>Syntax is the study of how words combine to form phrases, clauses, and sentences. It's about the rules governing sentence structure. Different models of grammar propose various ways to represent these rules, often using tree diagrams or dependency relations.</p>
+                    <div class="quiz-area" id="quiz-area-module1">
+                        <h4>Quick Quiz:</h4>
+                        <p>Syntax primarily deals with:</p>
+                        <button class="quiz-option" data-answer="Word meanings.">Word meanings.</button>
+                        <button class="quiz-option" data-answer="Sentence structure.">Sentence structure.</button>
+                        <button class="quiz-option" data-answer="Sound patterns.">Sound patterns.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module1"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module2" class="module-content">
+                    <h3>Lexical Functional Grammar (LFG)</h3>
+                    <p>LFG is a non-transformational theory of grammar that emphasizes the parallel representation of different levels of linguistic structure. It proposes two main structures: <span class="clickable-term" data-term-info="C-structure (Constituent Structure): Represents the hierarchical organization of words and phrases, similar to a phrase-structure tree.">c-structure</span> (syntactic categories) and <span class="clickable-term" data-term-info="F-structure (Functional Structure): Represents grammatical relations (subject, object) and semantic roles, independent of word order.">f-structure</span> (grammatical functions). These are linked by lexical entries.</p>
+                    <div class="quiz-area" id="quiz-area-module2">
+                        <h4>Quick Quiz:</h4>
+                        <p>In LFG, which structure represents grammatical relations like Subject/Object?</p>
+                        <button class="quiz-option" data-answer="C-structure">C-structure</button>
+                        <button class="quiz-option" data-answer="F-structure">F-structure</button>
+                        <button class="quiz-option" data-answer="P-structure">P-structure</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module2"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module3" class="module-content">
+                    <h3>Morphology</h3>
+                    <p>Morphology is the study of word structure and how words are formed from smaller units called morphemes. Different grammatical models account for morphological processes (like inflection and derivation) in various ways, either within the lexicon or through separate morphological components.</p>
+                    <div class="quiz-area" id="quiz-area-module3">
+                        <h4>Quick Quiz:</h4>
+                        <p>The smallest meaningful unit in a language is called a:</p>
+                        <button class="quiz-option" data-answer="Phoneme">Phoneme</button>
+                        <button class="quiz-option" data-answer="Morpheme">Morpheme</button>
+                        <button class="quiz-option" data-answer="Lexeme">Lexeme</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module3"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module4" class="module-content">
+                    <h3>Optimality Theory (OT)</h3>
+                    <p>Optimality Theory (OT) is a constraint-based approach to grammar, particularly prominent in phonology. It proposes that observed linguistic forms arise from the optimal satisfaction of a set of universal, violable, and ranked constraints. The "best" output is the one that violates high-ranked constraints least.</p>
+                    <div class="quiz-area" id="quiz-area-module4">
+                        <h4>Quick Quiz:</h4>
+                        <p>In OT, constraints are:</p>
+                        <button class="quiz-option" data-answer="Strictly inviolable.">Strictly inviolable.</button>
+                        <button class="quiz-option" data-answer="Violable and ranked.">Violable and ranked.</button>
+                        <button class="quiz-option" data-answer="Only apply to syntax.">Only apply to syntax.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module4"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module5" class="module-content">
+                    <h3>Dependency Grammar (DG)</h3>
+                    <p>Dependency Grammar (DG) is a grammatical framework that focuses on direct relationships between words, where one word (the head) governs or "depends" on another (the dependent). Unlike phrase-structure grammars, it does not rely on phrase nodes, instead building structures based on direct word-to-word links.</p>
+                    <div class="quiz-area" id="quiz-area-module5">
+                        <h4>Quick Quiz:</h4>
+                        <p>Dependency Grammar primarily focuses on:</p>
+                        <button class="quiz-option" data-answer="Phrase structure.">Phrase structure.</button>
+                        <button class="quiz-option" data-answer="Word-to-word relationships.">Word-to-word relationships.</button>
+                        <button class="quiz-option" data-answer="Sound patterns.">Sound patterns.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module5"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module6" class="module-content">
+                    <h3>Construction Grammar (CxG)</h3>
+                    <p>Construction Grammar (CxG) views grammatical constructions (e.g., "the X-er the Y-er" or "S V O") as the basic units of language. These constructions are form-meaning pairings, ranging from words to complex sentence patterns, and are learned directly from linguistic experience.</p>
+                    <div class="quiz-area" id="quiz-area-module6">
+                        <h4>Quick Quiz:</h4>
+                        <p>CxG considers the basic unit of grammar to be:</p>
+                        <button class="quiz-option" data-answer="Individual words.">Individual words.</button>
+                        <button class="quiz-option" data-answer="Universal principles.">Universal principles.</button>
+                        <button class="quiz-option" data-answer="Form-meaning pairings (constructions).">Form-meaning pairings (constructions).</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module6"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module7" class="module-content">
+                    <h3>Principles & Parameters (P&P)</h3>
+                    <p>Principles and Parameters (P&P) is a generative framework, often associated with Noam Chomsky. It proposes that Universal Grammar consists of innate, universal principles common to all languages, along with a set of parameters that can be set differently for each language (e.g., the "pro-drop" parameter determining if subjects can be dropped).</p>
+                    <div class="quiz-area" id="quiz-area-module7">
+                        <h4>Quick Quiz:</h4>
+                        <p>The "pro-drop" parameter in P&P determines if a language:</p>
+                        <button class="quiz-option" data-answer="Allows subjects to be dropped.">Allows subjects to be dropped.</button>
+                        <button class="quiz-option" data-answer="Has prepositions.">Has prepositions.</button>
+                        <button class="quiz-option" data-answer="Uses prefixes or suffixes.">Uses prefixes or suffixes.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module7"></div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="course-footer">
+            <button class="nav-button" id="reset-course-btn">Reset Course</button>
+            <button class="nav-button hub-return-button">Gallery</button>
+        </footer>
+    </div>
+    <div id="info-popup-grammar" class="info-popup"></div> <!-- Global popup for clickable terms -->
+    <script src="script.js"></script>
+</body>
+</html>

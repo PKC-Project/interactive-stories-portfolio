@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigating Lingua Francas - Course Intro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="storybook-container-lf">
+        <div id="click-to-start-overlay-lf">
+            <button id="start-audio-button-lf">Begin Your Linguistic Journey!</button>
+        </div>
+
+        <header class="course-header">
+            <h1>LLT2161: Lingua Francas</h1>
+            <p class="course-subtitle">Explore the languages that connect our world.</p>
+        </header>
+
+        <main class="course-main-content">
+            <div class="course-map-area">
+                <svg id="course-map-svg" width="600" height="400" viewBox="0 0 300 200">
+                    <!-- Background / Base Map -->
+                    <rect x="0" y="0" width="300" height="200" fill="#F0F8FF" />
+
+                    <!-- Module 1: What are LFs? -->
+                    <line x1="150" y1="100" x2="220" y2="50" stroke="#555" stroke-width="1"/>
+                    <circle id="module1" class="module-node" cx="220" cy="50" r="18" fill="#2ECC71" data-module-id="module1">
+                        <title>What are Lingua Francas?</title>
+                    </circle>
+                    <text x="220" y="55" text-anchor="middle" font-size="8" fill="white" pointer-events="none">What is LF?</text>
+
+                    <!-- Module 2: Historical LFs -->
+                    <line x1="150" y1="100" x2="250" y2="100" stroke="#555" stroke-width="1"/>
+                    <circle id="module2" class="module-node" cx="250" cy="100" r="18" fill="#E67E22" data-module-id="module2">
+                        <title>Historical LFs</title>
+                    </circle>
+                    <text x="250" y="105" text-anchor="middle" font-size="8" fill="white" pointer-events="none">History</text>
+
+                    <!-- Module 3: Modern LFs -->
+                    <line x1="150" y1="100" x2="220" y2="150" stroke="#555" stroke-width="1"/>
+                    <circle id="module3" class="module-node" cx="220" cy="150" r="18" fill="#9B59B6" data-module-id="module3">
+                        <title>Modern LFs</title>
+                    </circle>
+                    <text x="220" y="155" text-anchor="middle" font-size="8" fill="white" pointer-events="none">Modern</text>
+
+                    <!-- Module 4: LFs & Colonialism -->
+                    <line x1="150" y1="100" x2="80" y2="150" stroke="#555" stroke-width="1"/>
+                    <circle id="module4" class="module-node" cx="80" cy="150" r="18" fill="#E74C3C" data-module-id="module4">
+                        <title>LFs & Colonialism</title>
+                    </circle>
+                    <text x="80" y="155" text-anchor="middle" font-size="8" fill="white" pointer-events="none">Colonialism</text>
+
+                    <!-- Module 5: Ecologies of LFs -->
+                    <line x1="150" y1="100" x2="50" y2="100" stroke="#555" stroke-width="1"/>
+                    <circle id="module5" class="module-node" cx="50" cy="100" r="18" fill="#1ABC9C" data-module-id="module5">
+                        <title>Ecologies of LFs</title>
+                    </circle>
+                    <text x="50" y="105" text-anchor="middle" font-size="8" fill="white" pointer-events="none">Ecologies</text>
+
+                    <!-- Module 6: LFs in Digital Age -->
+                    <line x1="150" y1="100" x2="80" y2="50" stroke="#555" stroke-width="1"/>
+                    <circle id="module6" class="module-node" cx="80" cy="50" r="18" fill="#F1C40F" data-module-id="module6">
+                        <title>LFs in Digital Age</title>
+                    </circle>
+                    <text x="80" y="55" text-anchor="middle" font-size="8" fill="white" pointer-events="none">Digital Age</text>
+
+                    <!-- Central Node: Module 0 (Introduction) -->
+                    <circle id="module0" class="module-node current-module" cx="150" cy="100" r="25" fill="#3498DB" data-module-id="module0">
+                        <title>Introduction</title>
+                    </circle>
+                    <text x="150" y="105" text-anchor="middle" font-size="10" fill="white" pointer-events="none">Intro</text>
+                </svg>
+            </div>
+
+            <div class="dynamic-content-panel">
+                <div id="module-content-intro" class="module-content current-content">
+                    <h3>Welcome to Lingua Francas!</h3>
+                    <p>Click on any module on the map to explore the course topics. Let's begin with the Introduction.</p>
+                    <button class="action-button" id="start-exploration-btn">Start Exploration</button>
+                </div>
+
+                <div id="module-content-module0" class="module-content">
+                    <h3>Introduction & Mapping</h3>
+                    <p>This study unit explores the fascinating world of Lingua Francas. We'll map out the course structure and key themes you'll encounter.</p>
+                    <p>A Lingua Franca is a language systematically used to make communication possible between people not sharing a first or mother tongue.</p>
+                </div>
+
+                <div id="module-content-module1" class="module-content">
+                    <h3>What are Lingua Francas?</h3>
+                    <p>A Lingua Franca (LF) is a language used as a common means of communication between people who speak different native languages. It's a bridge language.</p>
+                    <input type="text" id="lf-example-input" placeholder="Can you think of an example? (e.g., English)">
+                    <button class="action-button" id="btn-check-lf-example">Submit Example</button>
+                    <div class="quiz-area">
+                        <h4>Quick Quiz:</h4>
+                        <p>Which of these best defines a Lingua Franca?</p>
+                        <button class="quiz-option" data-answer="A language spoken by everyone.">A language spoken by everyone.</button>
+                        <button class="quiz-option" data-answer="A language used for communication between speakers of different native languages.">A language used for communication between speakers of different native languages.</button>
+                        <button class="quiz-option" data-answer="A very old language.">A very old language.</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module1"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module2" class="module-content">
+                    <h3>Historical Perspectives on LFs</h3>
+                    <p>Throughout history, many languages have served as lingua francas, often tied to empires, trade routes, and cultural exchange. Think of <span class="clickable-term" data-term-info="Latin: The lingua franca of the Roman Empire, later used for scholarship and the Catholic Church across Europe.">Latin</span>, <span class="clickable-term" data-term-info="Aramaic: A Semitic language that served as a lingua franca in the ancient Near East.">Aramaic</span>, or <span class="clickable-term" data-term-info="Swahili: A Bantu language that became a lingua franca for trade along the East African coast.">Swahili</span>.</p>
+                    <div class="quiz-area">
+                        <h4>Quick Quiz:</h4>
+                        <p>Which ancient empire's lingua franca was Latin?</p>
+                        <button class="quiz-option" data-answer="Greek Empire">Greek Empire</button>
+                        <button class="quiz-option" data-answer="Roman Empire">Roman Empire</button>
+                        <button class="quiz-option" data-answer="Egyptian Empire">Egyptian Empire</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module2"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module3" class="module-content">
+                    <h3>LFs in the Modern World</h3>
+                    <p>Today, <span class="clickable-term" data-term-info="English: The most widely recognized global lingua franca, used in business, science, and international relations.">English</span> is often considered the dominant global lingua franca. However, many other languages serve as regional LFs, such as <span class="clickable-term" data-term-info="Mandarin Chinese: A lingua franca within China and among Chinese diaspora.">Mandarin Chinese</span>, <span class="clickable-term" data-term-info="Arabic: A lingua franca in the Arab world and for Islamic scholarship.">Arabic</span>, and <span class="clickable-term" data-term-info="Spanish: A lingua franca in Latin America and parts of the US.">Spanish</span>.</p>
+                    <div class="quiz-area">
+                        <h4>Quick Quiz:</h4>
+                        <p>True or False: English is the *only* lingua franca in the modern world.</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module3"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module4" class="module-content">
+                    <h3>LFs and Colonialism</h3>
+                    <p>The spread of many lingua francas is deeply intertwined with historical power dynamics, including <span class="clickable-term" data-term-info="Colonialism: The policy or practice of acquiring full or partial political control over another country, occupying it with settlers, and exploiting it economically.">colonialism</span>. Languages of colonizers often became LFs in colonized regions, leading to complex linguistic legacies and debates about <span class="clickable-term" data-term-info="Decolonizing education: Efforts to challenge and dismantle colonial influences in educational systems, including language policies.">decolonizing education</span>.</p>
+                    <div class="quiz-area">
+                        <h4>Quick Quiz:</h4>
+                        <p>LFs always spread peacefully through mutual agreement. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module4"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module5" class="module-content">
+                    <h3>The Ecologies of LFs</h3>
+                    <p>Lingua francas exist within complex <span class="clickable-term" data-term-info="Language ecology: The study of the relationships between languages and their environment, including other languages, speakers, and social contexts.">language ecologies</span>. Their presence can influence <span class="clickable-term" data-term-info="Multilingualism: The ability of an individual speaker or a community of speakers to communicate effectively in more than two languages.">multilingualism</span>, language shift, and language maintenance. Understanding these ecologies helps us grasp the full impact of LFs.</p>
+                    <div class="quiz-area">
+                        <h4>Quick Quiz:</h4>
+                        <p>A lingua franca exists in isolation from other languages in a community. True or False?</p>
+                        <button class="quiz-option" data-answer="True">True</button>
+                        <button class="quiz-option" data-answer="False">False</button>
+                        <div class="quiz-feedback" id="quiz-feedback-module5"></div>
+                    </div>
+                </div>
+
+                <div id="module-content-module6" class="module-content">
+                    <h3>LFs in the Digital Age</h3>
+                    <p>Our digital age, with instant translation tools and the rise of Artificial Intelligence, is profoundly changing the landscape of lingua francas. Are LLMs themselves becoming a new form of "digital lingua franca," facilitating communication across diverse human languages and even between different AI systems?</p>
+                    <input type="text" id="digital-lf-input" placeholder="What do YOU think about digital LFs?">
+                </div>
+            </div>
+        </main>
+
+        <footer class="course-footer">
+            <button class="nav-button" id="reset-course-btn">Reset Course</button>
+        </footer>
+    </div>
+    <div id="info-popup-lf" class="info-popup"></div> <!-- Global popup for clickable terms -->
+    <script src="script.js"></script>
+</body>
+</html>
