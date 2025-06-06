@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- BARISTA'S NOTE: The UTF-8 fix is here. This is the standard way to declare the character set. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Myth Maker's Compendium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container" data-style="parchment">
+        
+        <div id="myth-form-container">
+            <header class="project-header">
+                <h1>The Myth Maker's Compendium</h1>
+                <p>You provide the heroes and villains, we'll weave the tale. Fill out the fields below to create your own unique myth.</p>
+            </header>
+
+            <form id="myth-form">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="hero">The Hero's Name</label>
+                        <input type="text" id="hero" name="hero" placeholder="e.g., Lyra, Jax" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="homeland">The Homeland</label>
+                        <input type="text" id="homeland" name="homeland" placeholder="e.g., the Sunken City" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="skill">A Special Skill</label>
+                        <input type="text" id="skill" name="skill" placeholder="e.g., speaking to animals" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="treasure">The Coveted Treasure</label>
+                        <input type="text" id="treasure" name="treasure" placeholder="e.g., the Starlight Compass" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="beast">The Fearsome Beast</label>
+                        <input type="text" id="beast" name="beast" placeholder="e.g., the Gorgon of the Wastes" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="mentor">The Wise Mentor</label>
+                        <input type="text" id="mentor" name="mentor" placeholder="e.g., Old Man Tiber" required>
+                    </div>
+                </div>
+                
+                <div class="form-field style-selector">
+                    <label for="visual-style">Choose a Visual Style</label>
+                    <select id="visual-style" name="visualStyle">
+                        <option value="parchment">Classic Parchment</option>
+                        <option value="celestial">Celestial Night</option>
+                        <option value="shadow">Shadow & Ember</option>
+                    </select>
+                </div>
+
+                <button type="submit">Weave the Myth</button>
+            </form>
+        </div>
+
+        <div id="story-container" class="hidden">
+            <div class="story-content">
+                <h2 id="story-title"></h2>
+                <div id="story-illustration"></div>
+                <p id="story-text"></p>
+            </div>
+            <div class="story-controls">
+                <button id="prev-button">Previous</button>
+                <button id="next-button">Next</button>
+                <button id="restart-button" class="hidden">Start Over</button>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer class="app-footer">
+        <p>A PKC Project demonstrating personalized narrative generation.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

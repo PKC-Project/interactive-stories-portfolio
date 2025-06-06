@@ -1,0 +1,45 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Endless Dungeon: Shadow of the Minotaur"
+    PKC Project - Capturing the new, more dangerous theme
+    -->
+    
+    <defs>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Background of dark stone -->
+    <rect width="400" height="225" fill="#333" />
+    <rect width="400" height="225" fill="url(#noise-texture)" />
+
+    <!-- Dungeon Corridor -->
+    <g fill="#555">
+        <!-- Main Corridor Floor -->
+        <path d="M 150 0 L 150 225 H 250 L 250 0 Z" />
+        <!-- Side corridor -->
+        <rect x="250" y="80" width="150" height="60" />
+    </g>
+
+    <!-- Player and Exit -->
+    <g font-family="'Courier New', Courier, monospace" font-weight="bold" font-size="28">
+        <!-- The Player -->
+        <text id="player" x="200" y="200" fill="#ffd700" text-anchor="middle">@</text>
+
+        <!-- The Exit, with a subtle glow -->
+        <g filter="url(#glow)">
+            <text id="exit" x="200" y="40" fill="#00bfff" text-anchor="middle">></text>
+        </g>
+    </g>
+
+    <!-- The Minotaur, looming from a side passage -->
+    <g filter="url(#glow)">
+         <text id="minotaur" x="320" y="110" font-family="'Courier New', Courier, monospace" font-weight="bold" 
+               font-size="36" fill="#e63946" text-anchor="middle">M</text>
+    </g>
+</svg>

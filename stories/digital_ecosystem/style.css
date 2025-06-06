@@ -1,0 +1,85 @@
+/* style.css for The Digital Ecosystem */
+
+:root {
+    --bg-color: #0d1b2a;
+    --text-color: #e0e1dd;
+    --header-color: #ffffff;
+    --pond-color: #1b263b;
+    --border-color: #415a77;
+    --button-bg: #415a77;
+    --button-hover-bg: #778da9;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 600px; /* Match the new canvas width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.project-header h1 {
+    color: var(--header-color);
+    margin-bottom: 0.5rem;
+}
+
+#pond-canvas {
+    background-color: var(--pond-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: crosshair;
+    width: 100%; /* Make it responsive */
+    height: auto;
+}
+
+/* Barista's Note: Styling for our new control buttons. */
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--header-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.app-footer {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--border-color);
+}

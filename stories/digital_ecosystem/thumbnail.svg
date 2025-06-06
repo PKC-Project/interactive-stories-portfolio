@@ -1,0 +1,44 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Digital Ecosystem"
+    PKC Project - Style based on prior works
+    -->
+
+    <!-- Background (the dark pond) -->
+    <rect width="400" height="225" fill="#1b263b"/>
+
+    <!-- A subtle glow to create focus, like looking through a microscope -->
+    <defs>
+        <radialGradient id="pond-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#415a77" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#1b263b" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+    <rect width="400" height="225" fill="url(#pond-glow)"/>
+
+    <!-- The Agents, telling the story of the food chain -->
+    <g id="agents">
+        <!-- A predator (red) chasing a critter (blue) -->
+        <circle cx="140" cy="110" r="12" fill="#d00000" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+        <circle cx="190" cy="120" r="8" fill="#3a86ff" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+
+        <!-- The critter is chasing a cluster of algae (green) -->
+        <circle cx="230" cy="105" r="5" fill="#52b788"/>
+        <circle cx="245" cy="118" r="5" fill="#52b788"/>
+        <circle cx="225" cy="130" r="5" fill="#52b788"/>
+        
+        <!-- Background population to make the pond feel alive -->
+        <circle cx="80" cy="60" r="7" fill="#3a86ff" opacity="0.5"/>
+        <circle cx="300" cy="70" r="4" fill="#52b788" opacity="0.7"/>
+        <circle cx="320" cy="160" r="4" fill="#52b788" opacity="0.7"/>
+        <circle cx="100" cy="180" r="6" fill="#3a86ff" opacity="0.5"/>
+    </g>
+
+    <!-- The user's interaction metaphor: the crosshair cursor -->
+    <g id="user-interaction-hint" transform="translate(300, 80)">
+        <line x1="-15" y1="0" x2="15" y2="0" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="-15" x2="0" y2="15" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+        <!-- A hint of green, showing what the cursor creates -->
+        <circle cx="0" cy="0" r="3" fill="#52b788" opacity="0.9"/>
+    </g>
+</svg>

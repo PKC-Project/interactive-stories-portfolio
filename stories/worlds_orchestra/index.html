@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Barista's Note: Added a description for better SEO and sharing -->
+    <meta name="description" content="An interactive data sonification project that turns global temperature anomalies into a musical orchestra.">
+    
+    <!-- Barista's Note: A placeholder for a future favicon -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+
+    <title>The World's Orchestra | A Climate Data Sonification</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="app-container">
+        <header class="project-header">
+            <h1>The World's Orchestra</h1>
+            <p>Listen to our changing climate. Press and drag the timeline to hear the orchestra.</p>
+        </header>
+        
+        <div id="map-container">
+            <!-- 
+                Barista's Note: The SVG structure is great. The viewBox is essential for correct scaling.
+                The paths have clear IDs and names, which is perfect for the script.
+            -->
+            <svg id="world-map" viewBox="0 0 1000 515" xmlns="http://www.w3.org/2000/svg" aria-label="World map with interactive continents">
+                <path id="af" name="Africa" d="M495,263.4l-3.3,10.1l-5,11.2l-3,10.5l0.1,13.2l5.7,11.4l5.1,10.1l7.3,8l5,4.7l6.8,4.2l6.8,3.2 l6.7,2.1l7.3,1l7.5,0.4l7.1-0.2l7-1.1l5.4-1.3l5-1.7l5.2-2.3l4.6-2.5l3.8-3.4l2.5-3.8l0.9-4.8l-1.3-4.7l-2.4-5.2l-2.7-4 l-2.8-4.7l-2.7-5l-4.1-8.2l-4-9.3l-3-6.5l-3.2-9.4l-2.8-9.1l-1.8-6.2l-3.6-11.4l-4.2-11.7l-4.7-9.5l-4-7l-5.6-7.8 l-4.5-5.3l-4.8-5l-4.3-4.1l-5.7-4.4l-4.6-3.1l-4.8-2.6l-5.5-2.5l-4.9-1.9l-4.7-1.4l-5.5-1.4l-4.8-0.9l-5.3-0.9l-4-0.1 l-4.3,0.8l-4,1l-4,1.4l-4.4,2.3l-4,2.9l-4.5,4.2L495,263.4z"/>
+                <path id="au" name="Australia" d="M839.2,347.8l-0.5,12.2l-1.6,8.9l-0.3,7l3,5.4l5.8,5.4l7.8,4.8l7,3.5l11.6,4l12.7,3 l12.5,1.2l12.5-0.1l11.7-2l10-2.2l4.6-2l-0.3-4.9l-2-4.5l-3.3-3.6l-5.6-3.8l-5.6-2.8l-7.3-2.3l-8-2l-8-1.5l-8.5-1.1 l-8-0.8l-8-0.8l-7.5-0.5l-7.5-0.1l-7.7,0.5l-7.4,0.6l-7,1.4l-5.6,1.4l-5.6,2.1L839.2,347.8z"/>
+                <path id="sa" name="South America" d="M370.4,279.7l-0.9,7.5l-1,7.2l-1.3,6.2l-1,7.1l-0.4,7.6l1.2,7.3l2,7.1 l2.8,7.3l3.6,7l3.6,5.8l3.4,5.4l3.7,5.1l4,4.1l4,4.2l4.4,3.5l4,2.6l4.6,2l4,1.5l4,1.2l8.8,1.4l8.3,0.4l8.3-0.2l8.3-1.4 l8.3-1.6l8.2-2.1l7.5-3.4l6.2-3.8l4-2.8l2.9-2.6l2.9-3.2l2.2-3.1l1-2.9l0.1-3.6l-1.6-3.7l-2.4-4.5l-3.1-4.8l-4-5 l-4.1-5l-4.5-5.2l-4.5-4.8l-5.3-4.5l-5.4-4.3l-5.4-3.7l-5.8-3l-6.2-2.4l-6.8-1.9l-7.1-1l-6.7-0.7l-6.5-0.2l-5.8,0.2 l-5.1,1.1l-4,1.5L370.4,279.7z"/>
+                <path id="as" name="Asia" d="M718,89.5l9.2-1.3l8.8-1l12.3,0.4l11.5,1.3l11.6,3l11,3.2l11,4.2l9.7,3.6l9.3,4.2l8,4.1 l8,4.4l7.2,4.8l7.6,5.6l6.8,6.2l6.2,6.4l4.9,7.1l4.8,8l2.9,7.7l1.3,7l-0.5,8.1l-2.3,7.5l-4.8,7.3l-6,6.3l-7,5.5l-8.3,4.8 l-9.2,3.4l-9.2,2.8l-10,1.9l-9.6,1l-9.6,0.2l-8.3-0.4l-7.8-1.2l-8.8-2l-7.3-2l-7-2l-7.1-2l-6.8-2.2l-6.5-2.2l-6.6-2.5 l-6-2.5l-5.8-2.9l-5.1-3.1l-4.5-3.4l-4.1-3.6l-4.5-5.1l-4.1-5.1l-3.5-5.3l-3.5-6.2l-3.6-7.3l-3-6.5l-3-7.5l-2.2-7.1 l-1-6.5l0.1-6.8l1.4-6.4l2.8-6l4.4-5.3l5.3-4.5l6-3.5l6.7-3l7-2.1l7.8-1.5l8.5-0.7L718,89.5z M628,212.4l-4,2.1l-4.5,2.9 l-4.2,3l-4.4,4.2l-4.1,4.7l-4.5,6l-3.8,6.4l-3.8,7.8l-2.9,8.5l-1.9,8.3l-0.5,8.8l0.9,8.8l2.2,8.8l4.4,8.5l5.6,8.2l7,7.1 l8.1,6.5l8.8,5l9,3.5l9.9,2.5l10.2,1.2l9.9,0.3l10.3-0.5l9.7-2l9.1-3l8.1-4l7.5-5.3l6-5.8l4.9-6.3l4.3-7.5l2.6-7.5l1.6-8 l-0.2-8l-1.4-8.1l-3.6-7.8l-5-7l-6-6.1l-7.6-5.4l-8.4-4.2l-8.3-3.2l-9.3-2.1l-9.3-1.4l-9.5-0.6l-9.1-0.2l-4.9,0.4l-4.9,0.8 l-4.5,1.4l-4.6,2.1L628,212.4z"/>
+                <path id="eu" name="Europe" d="M485.3,165l-0.8,5.8l-1.3,5.4l-2,5.5l-2.2,5.2l-2.5,4.9l-3,4.9l-3,4.5l-3.5,4.3 l-3.6,3.6l-3.6,3.6l-4.4,3l-4,2.2l-4,2.1l-4,1.9l-4.4,1.4l-4.8,1.2l-4.2,0.5l-4.6,0.3l-4,0.1l-4.1-0.1l-4.1-0.5l-4-0.8 l-3.6-1.1l-3.6-1.9l-3.2-2l-3.3-2.7l-2.8-2.9l-2-2.8l-1.6-3.2l-0.8-3.4l0.1-3.6l0.8-3.7l1.8-3.6l2.8-3.7l3.8-3.4l4.2-3.1 l5.2-2.5l5.5-2.1l6.1-1.3l6.5-1l6.8-0.2l6.8,0.2l7,0.8l6.7,1.5l6,2.3l5.8,2.7L485.3,165z"/>
+                <path id="na" name="North America" d="M112.9,203.8l10.4-1.1l11.4-0.1l12,0.8l12.8,1.3l12.7,2.1l13.1,3.3l12.7,4.3 l12.5,5.1l12,6l11.6,6.7l10.3,7l9.7,7.8l8.3,8l7.7,8.3l6,8l4.9,8.4l3.1,8.1l1.6,8.2l-0.4,8.8l-2.3,8.6l-4.6,8l-6,7l-7.7,6.3 l-8.6,5.3l-9.6,4l-10,3l-10.7,2l-11.4,1l-11.2,0.3l-11.7-0.4l-11-1.3l-11.1-2.4l-10.3-3.6l-9.7-4.8l-8.6-5.8l-7.3-6.8 l-6.2-7.5l-4.8-8.1l-3.4-8.8l-1.6-8.8l0.4-8.8l2-8.9l4.1-8.9l6.1-8.5l7.9-7.4l9.5-6.2l10.5-5l11.5-3.6l12.3-2.4l12.8-1.5 l12.9-0.8l12.6-0.3l12.3,0.3l11.5,0.8l10.5,1.5L259,103.4l8.3,3l7.3,3.4l6.5,4.3l5.2,4.7l4,5.1l2.5,5.8l0.9,6.1l-0.5,6.5 l-2.1,6.8l-4,6.7l-5.6,6.3l-6.8,5.4l-8,4.5l-9.2,3.3l-9.6,2.3l-10.3,1.3l-10.8,0.4l-10.8-0.3l-10.5-1l-10-2l-9.2-2.7l-8.1-3.6 l-7.2-4.5l-5.6-5.4l-4.3-6.2l-2.8-6.8l-1.3-7.2l0.2-7.4l1.6-7.4l3.2-7l5-6.5l6.5-5.6l7.8-4.4l8.6-3.2l9.4-2.1l9.8-1.1 l9.7-0.5l9.7-0.1L112.9,203.8z"/>
+            </svg>
+        </div>
+        
+        <div id="timeline-container">
+            <input type="range" id="year-slider" min="1980" max="2022" value="1980" aria-label="Year Selection Timeline">
+            <div id="year-display">1980</div>
+        </div>
+    </main>
+    
+    <div id="tooltip" class="hidden"></div>
+    
+    <!-- Barista's Note: Changed to a semantic <footer> element for better page structure. -->
+    <footer class="app-footer">
+        <p>A <a href="https://pkc-project.github.io/interactive-stories-portfolio/" target="_blank" rel="noopener noreferrer">PKC Project</a>. Inspired by data from <a href="https://data.giss.nasa.gov/gistemp/" target="_blank" rel="noopener noreferrer">NASA GISTEMP</a>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

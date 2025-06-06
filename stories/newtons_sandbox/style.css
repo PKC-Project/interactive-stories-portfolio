@@ -1,0 +1,111 @@
+/* style.css for Newton's Sandbox */
+
+:root {
+    --bg-color: #0d1b2a;
+    --text-color: #e0e1dd;
+    --panel-bg: #1b263b;
+    --border-color: #415a77;
+    --header-color: #ffffff;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#simulation-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#universe-canvas {
+    background-color: #000;
+    cursor: crosshair;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#controls-panel {
+    width: 300px;
+    flex-shrink: 0;
+    background-color: var(--panel-bg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#controls-panel header {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+#controls-panel h1 {
+    color: var(--header-color);
+    margin-bottom: 0.5rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.control-group label {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="range"], input[type="checkbox"] {
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--border-color);
+    color: var(--header-color);
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #778da9;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 800px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        overflow: auto;
+    }
+    #controls-panel {
+        width: 100%;
+        height: auto;
+        order: -1; /* Put controls on top */
+    }
+    #simulation-container {
+        height: 60vh;
+    }
+}

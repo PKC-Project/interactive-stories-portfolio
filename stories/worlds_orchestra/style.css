@@ -1,0 +1,148 @@
+/* style.css for The World's Orchestra */
+
+:root {
+    --bg-color: #0d1b2a;
+    --text-color: #e0e1dd;
+    --header-color: #ffffff;
+    --border-color: #415a77;
+    --map-default-fill: #778da9;
+    --map-stroke-color: var(--bg-color); /* #0d1b2a */
+    /* Barista's Note: A new variable for a brighter, more visible stroke on the map */
+    --map-stroke-highlight: #e0e1dd;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- General Layout & Typography --- */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    overflow: hidden;
+    /* Barista's Note: Prevents annoying text selection while dragging the slider */
+    user-select: none;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.project-header h1 {
+    color: var(--header-color);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+}
+
+.project-header p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    font-weight: 300;
+    max-width: 60ch; /* Improves readability */
+}
+
+/* --- Map & Timeline --- */
+
+#map-container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+#world-map {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+}
+
+#world-map path {
+    /* Barista's Note: The key fix for visual clarity! A brighter, thicker stroke. */
+    stroke: var(--map-stroke-highlight);
+    stroke-width: 1; /* Thinner but brighter is often cleaner */
+    stroke-linejoin: round;
+    transition: fill 0.1s linear;
+    /* Barista's Note: Makes it obvious the map is interactive */
+    cursor: pointer; 
+}
+
+#world-map path:hover {
+    filter: brightness(1.2);
+}
+
+#timeline-container {
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+#year-slider {
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+/* Barista's Note: Improved accessibility for keyboard navigation */
+#year-slider:focus-visible {
+    outline: 2px solid var(--map-stroke-highlight);
+    outline-offset: 4px;
+}
+
+#year-display {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--header-color);
+}
+
+/* --- Tooltip & Footer --- */
+
+#tooltip {
+    position: absolute;
+    background-color: rgba(13, 27, 42, 0.9);
+    border: 1px solid var(--border-color);
+    color: var(--header-color);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    pointer-events: none;
+    transform: translate(-50%, -120%);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+#tooltip.hidden {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+}
+
+.app-footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: var(--border-color);
+}
+.app-footer a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.app-footer a:hover {
+    text-decoration: underline;
+}

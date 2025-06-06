@@ -1,0 +1,45 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The World's Orchestra"
+    PKC Project - Based on the style of "The Algorithmic Easel"
+    -->
+
+    <!-- Background (using the project's dark blue theme) -->
+    <rect width="400" height="225" fill="#0d1b2a"/>
+
+    <!-- Define the gradient and clip path for the globe -->
+    <defs>
+        <!-- The blue-to-red gradient represents the climate data -->
+        <radialGradient id="climate-gradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+            <stop offset="0%" stop-color="#f94144" stop-opacity="0.8"/> <!-- Hot Red -->
+            <stop offset="100%" stop-color="#4cc9f0" stop-opacity="0.9"/> <!-- Cool Blue -->
+        </radialGradient>
+        
+        <!-- This will clip the continents to the globe's circular shape -->
+        <clipPath id="globe-clip">
+            <circle cx="200" cy="112.5" r="80"/>
+        </clipPath>
+    </defs>
+
+    <!-- The Globe (the central metaphor, replacing the canvas) -->
+    <circle cx="200" cy="112.5" r="80" fill="url(#climate-gradient)" />
+    <circle cx="200" cy="112.5" r="80" fill="none" stroke="#e0e1dd" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <!-- Stylized Continents (the "art" on our globe canvas) -->
+    <g clip-path="url(#globe-clip)" fill="#e0e1dd" opacity="0.9">
+        <!-- Simplified shapes for recognizability at a small size -->
+        <!-- Americas -->
+        <path d="M 165 80 C 180 100, 160 130, 175 155 L 180 150 C 170 125, 190 100, 175 80 Z" />
+        <!-- Afro-Eurasia -->
+        <path d="M 200 75 C 250 70, 260 110, 250 150 C 230 160, 190 140, 200 90 Z" />
+        <!-- Australia -->
+        <path d="M 255 145 C 265 145, 268 155, 258 158 Z" />
+    </g>
+
+    <!-- Sound Waves (the "orchestra" element, replacing the paintbrush) -->
+    <g stroke="#ffffff" stroke-width="2" fill="none">
+        <path d="M 100 112.5 A 100 100 0 0 1 300 112.5" stroke-opacity="0.6"/>
+        <path d="M 80 112.5 A 120 120 0 0 1 320 112.5" stroke-opacity="0.4"/>
+        <path d="M 60 112.5 A 140 140 0 0 1 340 112.5" stroke-opacity="0.2"/>
+    </g>
+</svg>

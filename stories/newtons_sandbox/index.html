@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton's Sandbox: An Orbital Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="simulation-container">
+        <canvas id="universe-canvas"></canvas>
+        
+        <!-- Barista's Note: A launch vector line will be drawn on the canvas by JS -->
+    </div>
+
+    <div id="controls-panel">
+        <header>
+            <h1>Newton's Sandbox</h1>
+            <p>Click and drag on the canvas to launch a new celestial body. The longer you drag, the faster it goes.</p>
+        </header>
+        
+        <div class="control-group">
+            <label for="mass-slider">Mass: <span id="mass-value">100</span></label>
+            <input type="range" id="mass-slider" min="10" max="5000" value="100" step="10">
+        </div>
+        
+        <div class="control-group">
+            <label for="static-checkbox">Make Static (a Star)</label>
+            <input type="checkbox" id="static-checkbox">
+        </div>
+
+        <div class="control-group">
+            <label for="trails-checkbox">Show Orbital Trails</label>
+            <input type="checkbox" id="trails-checkbox" checked>
+        </div>
+        
+        <div class="control-group">
+            <button id="reset-button">Reset Universe</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

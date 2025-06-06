@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Anatomy of a Computer: The Living Blueprint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="parallax-background"></div>
+
+    <header class="page-header">
+        <h1>The Living Blueprint</h1>
+        <p>A machine is more than its parts. It's a symphony. Scroll to channel power and awaken the system, component by component.</p>
+    </header>
+
+    <main id="scrolly-container">
+        
+        <div id="scrolly-graphic">
+            <svg id="motherboard-svg" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Decorative background traces -->
+                <g id="bg-traces">
+                    <path d="M 0 50 L 50 50 L 50 200 L 140 200 M 0 150 L 65 150 M 350 20 L 400 20 M 350 550 L 270 550 L 270 450 L 330 450" />
+                    <path d="M 145 100 H 250 V 190 M 260 250 V 370 H 200" />
+                </g>
+
+                <!-- Main Board -->
+                <rect width="400" height="600" fill="#0c2036" rx="10" />
+
+                <!-- Group for CPU -->
+                <g id="part-cpu" class="part" data-sound="cpu">
+                    <defs>
+                        <radialGradient id="cpu-glow">
+                            <stop offset="0%" stop-color="var(--part-active-color)" stop-opacity="0.5" />
+                            <stop offset="100%" stop-color="var(--part-active-color)" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+                    <circle class="power-pulse" cx="200" cy="250" r="100" fill="url(#cpu-glow)"/>
+                    <rect x="150" y="200" width="100" height="100" fill="#457b9d" rx="5" class="part-body"/>
+                    <text x="200" y="255" class="part-label">CPU</text>
+                    <path class="connector-line" id="line-cpu-ram" d="M 150 220 C 100 220, 100 180, 130 170"/>
+                    <path class="connector-line" id="line-cpu-gpu" d="M 180 300 C 180 350, 150 370, 130 380"/>
+                </g>
+
+                <!-- Group for RAM -->
+                <g id="part-ram" class="part" data-sound="ram">
+                    <rect x="75" y="50" width="30" height="120" fill="#457b9d" rx="3" class="part-body"/>
+                    <rect x="115" y="50" width="30" height="120" fill="#457b9d" rx="3" class="part-body"/>
+                    <rect class="ram-fill" x="78" y="53" width="24" height="0" fill="var(--part-active-color)" rx="2"/>
+                    <rect class="ram-fill" x="118" y="53" width="24" height="0" fill="var(--part-active-color)" rx="2"/>
+                    <text x="105" y="40" class="part-label">RAM</text>
+                </g>
+
+                <!-- Group for GPU -->
+                <g id="part-gpu" class="part" data-sound="gpu">
+                    <rect x="75" y="380" width="250" height="80" fill="#457b9d" rx="5" class="part-body"/>
+                    <g class="particle-system">
+                        <!-- JS will generate particles here -->
+                    </g>
+                    <text x="200" y="425" class="part-label">GPU</text>
+                </g>
+                
+                <!-- Group for Storage -->
+                 <g id="part-storage" class="part" data-sound="storage">
+                    <rect x="280" y="500" width="100" height="40" fill="#457b9d" rx="5" class="part-body"/>
+                    <path class="connector-line" id="line-storage" d="M 280 520 H 200 C 150 520, 150 300, 200 300"/>
+                     <circle class="data-packet" r="5" fill="#e63946"><animateMotion dur="3s" begin="0s" repeatCount="indefinite"><mpath xlink:href="#line-storage"/></animateMotion></circle>
+                     <text x="330" y="490" class="part-label">SSD</text>
+                </g>
+            </svg>
+        </div>
+
+        <div id="scrolly-text">
+             <section class="step" data-target="part-cpu">
+                <h2>The Heart: CPU</h2>
+                <p>The Central Processing Unit is the heartbeat of the machine. It pulses with foundational rhythm, executing the core instructions that give life to every other component.</p>
+            </section>
+            <section class="step" data-target="part-ram">
+                <h2>The Workspace: RAM</h2>
+                <p>Random Access Memory is the chaotic, lightning-fast workspace. Data zips in and out, held temporarily for active tasks. It's the ephemeral thought process of the system.</p>
+            </section>
+             <section class="step" data-target="part-gpu">
+                <h2>The Dream Engine: GPU</h2>
+                <p>The Graphics Processing Unit is a parallel mind, a dream engine. It takes simple instructions and explodes them into millions of points of light and color, rendering entire worlds out of pure data.</p>
+            </section>
+             <section class="step" data-target="part-storage">
+                <h2>The Archive: Storage</h2>
+                <p>This is the system's memory, the permanent archive. Data isn't just used here; it's etched into being, a slow and deliberate process of recording history for future recall.</p>
+            </section>
+            <section class="step final-step">
+                <h2>The Symphony</h2>
+                <p>No single part is the computer. The magic lives in the connections—the constant, flowing symphony of data and electricity, transforming a silent blueprint into a living, thinking machine.</p>
+            </section>
+        </div>
+        
+    </main>
+
+    <footer class="page-footer">
+        <p>A PKC Project: The Living Blueprint.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

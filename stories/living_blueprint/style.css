@@ -1,0 +1,44 @@
+/* style.css for The Living Blueprint (vFinal) */
+:root {
+    --bg-color: #07101b; --text-color: #a8dadc; --header-color: #f1faee; --board-color: #0c2036; --part-color: #2a415a; --part-active-color: #a8dadc; --line-color: #e63946;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; }
+#parallax-background { /* ... same as before ... */ }
+@keyframes scroll-bg { /* ... same as before ... */ }
+.page-header, .page-footer { /* ... same as before ... */ }
+#scrolly-container { display: flex; max-width: 1200px; margin: 0 auto; position: relative; }
+#scrolly-graphic { width: 55%; position: sticky; top: 10vh; height: 80vh; align-self: flex-start; }
+#scrolly-text { width: 45%; padding: 0 2rem; }
+.step { min-height: 80vh; margin-bottom: 20vh; padding: 1.5rem; background: #0c2036a1; backdrop-filter: blur(5px); border-radius: 8px; border-left: 3px solid var(--part-color); transition: border-color 0.5s ease, background 0.5s ease; }
+.step.is-active-step { border-color: var(--line-color); background: #1d3557e6; }
+.step h2 { color: var(--header-color); }
+.final-step { min-height: 30vh; margin-bottom: 50vh; }
+#motherboard-svg { width: 100%; height: 100%; overflow: visible; }
+#bg-traces { stroke: var(--part-color); stroke-width: 0.5; fill: none; opacity: 0.3; }
+#motherboard-svg .part-label { pointer-events: none; fill: var(--header-color); text-anchor: middle; font-size: 16px; font-weight: bold; }
+#motherboard-svg .part { transition: filter 0.5s ease; }
+#motherboard-svg .part-body { transition: fill 0.4s ease; }
+#motherboard-svg .connector-line { stroke: var(--line-color); stroke-width: 1; fill: none; stroke-dasharray: 200; stroke-dashoffset: 200; transition: stroke-dashoffset 1s ease 0.2s; }
+#motherboard-svg .part.is-active .connector-line { stroke-dashoffset: 0; }
+
+/* --- CPU Animations --- */
+.power-pulse { transform-origin: center; transition: opacity 0.5s; opacity: 0; }
+#part-cpu.is-active .power-pulse { animation: pulse 4s ease-in-out infinite; opacity: 1; }
+@keyframes pulse { 0% { transform: scale(0); opacity: 0; } 50% { opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+
+/* --- RAM Animations --- */
+.ram-fill { transition: height 0.3s ease-in-out; }
+#part-ram.is-active .ram-fill:nth-of-type(1) { height: 114px; transition-delay: 0.2s; }
+#part-ram.is-active .ram-fill:nth-of-type(2) { height: 80px; transition-delay: 0.3s; }
+
+/* --- GPU Particle System --- */
+.particle { fill: var(--part-active-color); transition: opacity 0.5s; opacity: 0; animation: move-particle linear infinite; }
+#part-gpu.is-active .particle { opacity: 1; }
+@keyframes move-particle { 100% { transform: translate(var(--tx), var(--ty)); opacity: 0; } }
+
+/* --- Storage Animations --- */
+.data-packet { opacity: 0; animation-play-state: paused; }
+#part-storage.is-active .data-packet { opacity: 1; animation-play-state: running; }
+
+@media (max-width: 768px) { /* ... same responsive styles ... */ }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Endless Dungeon: Shadow of the Minotaur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>The Endless Dungeon</h1>
+        <p>Find the exit (>) before the Minotaur (M) finds you. Use the Arrow Keys to move.</p>
+    </header>
+
+    <main class="game-container">
+        <svg id="dungeon-svg" width="800" height="480"></svg>
+        
+        <div id="game-controls">
+            <button id="start-button">Generate New Dungeon</button>
+        </div>
+
+        <!-- Barista's Note: Added messages for both win and lose conditions -->
+        <div id="win-message" class="game-message hidden">You Escaped!</div>
+        <div id="lose-message" class="game-message hidden">Caught by the Minotaur!</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

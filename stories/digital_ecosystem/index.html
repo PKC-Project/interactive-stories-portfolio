@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Ecosystem: A Pocket Pond</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container">
+        <header class="project-header">
+            <h1>The Digital Ecosystem</h1>
+            <p>Click to add algae. Use the controls to pause or reset the simulation. Can you find a balance, or will one species dominate?</p>
+        </header>
+
+        <!-- Barista's Note: The canvas is now smaller for a more focused, performant experience. -->
+        <svg id="pond-canvas" width="600" height="400"></svg>
+        
+        <!-- Barista's Note: Added a control panel for the user. -->
+        <div class="controls">
+            <button id="toggle-button">Stop</button>
+            <button id="reset-button">Reset</button>
+        </div>
+
+    </main>
+    
+    <footer class="app-footer">
+        <p>A PKC Project demonstrating dynamic systems and emergent behavior.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

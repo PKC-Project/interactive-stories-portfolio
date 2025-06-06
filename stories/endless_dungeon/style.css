@@ -1,0 +1,94 @@
+/* style.css for The Endless Dungeon */
+
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --wall-color: #333;
+    --floor-color: #555;
+    --player-color: #ffd700; /* Gold */
+    --exit-color: #00bfff;   /* DeepSkyBlue */
+    --minotaur-color: #e63946; /* Red */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.game-container {
+    position: relative;
+    display: inline-block; /* Shrink to fit the SVG */
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#dungeon-svg {
+    display: block;
+    background-color: #000;
+}
+
+/* Tile and Entity Styles */
+.wall { fill: var(--wall-color); }
+.floor { fill: var(--floor-color); }
+
+.entity {
+    font-size: 14px; /* Adjust size based on TILE_SIZE in JS */
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none; /* Make text non-interactive */
+}
+#player { fill: var(--player-color); }
+#exit { fill: var(--exit-color); }
+#minotaur { fill: var(--minotaur-color); }
+
+
+/* Controls and Messages */
+#game-controls {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#start-button {
+    background-color: var(--floor-color);
+    color: var(--text-color);
+    border: 2px solid var(--wall-color);
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#start-button:hover {
+    background-color: #666;
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    font-size: 2.5rem;
+    text-align: center;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}

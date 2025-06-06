@@ -1,0 +1,54 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Living Blueprint"
+    PKC Project - A polished final thumbnail
+    -->
+
+    <defs>
+        <!-- A gradient for the background to give it depth -->
+        <radialGradient id="bg-glow" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#2a415a" />
+            <stop offset="100%" stop-color="#0c2036" />
+        </radialGradient>
+        <!-- A glow filter for the active elements -->
+        <filter id="neon-glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect width="400" height="225" fill="url(#bg-glow)" />
+
+    <!-- Stylized, inactive circuit traces for texture -->
+    <path d="M 0 80 H 150 V 160 H 250 V 80 H 400 M 0 150 H 180 M 400 120 H 220" 
+          stroke="#457b9d" stroke-width="0.5" fill="none" opacity="0.2" />
+
+    <!-- The Components -->
+    <g id="parts" fill="#2a415a" stroke="#457b9d" stroke-width="1.5">
+        <!-- GPU -->
+        <rect x="120" y="160" width="160" height="40" rx="3" />
+        <!-- RAM -->
+        <rect x="160" y="25" width="20" height="60" rx="2" />
+        <rect x="190" y="25" width="20" height="60" rx="2" />
+        <!-- Storage -->
+        <rect x="300" y="100" width="60" height="25" rx="2" />
+    </g>
+
+    <!-- The Active CPU as the centerpiece -->
+    <g id="active-cpu" filter="url(#neon-glow)">
+        <!-- The glowing power lines -->
+        <path d="M 185 105 V 90 M 200 135 V 155 M 215 105 V 90 M 250 120 H 295" 
+              stroke="#e63946" stroke-width="2" fill="none" />
+        <!-- The glowing CPU body -->
+        <rect x="180" y="100" width="40" height="40" fill="#a8dadc" stroke="#f1faee" stroke-width="2" rx="3" />
+    </g>
+
+    <!-- CPU Label -->
+    <text x="200" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="14" fill="#0c2036" text-anchor="middle" font-weight="bold">CPU</text>
+
+</svg>
