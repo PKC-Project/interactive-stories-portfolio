@@ -1,0 +1,47 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The House of Worth"
+    PKC Project - An elegant, historical, and interactive theme
+    -->
+
+    <defs>
+        <radialGradient id="spotlight" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="rgba(241, 196, 15, 0.3)"/>
+            <stop offset="100%" stop-color="rgba(241, 196, 15, 0)"/>
+        </radialGradient>
+        <pattern id="damask-thumb" width="80" height="80" patternUnits="userSpaceOnUse">
+             <path d="M50 2c-11.8 0-22.9 5.4-30 15.8-2.8 4-5 8.7-6.5 13.8-1.5 5.1-2.2 10.6-2.2 16.2 0 11.8 5.4 22.9 15.8 30 4 2.8 8.7 5 13.8 6.5 5.1 1.5 10.6 2.2 16.2 2.2s11.1-0.7 16.2-2.2c5.1-1.5 9.8-3.7 13.8-6.5 10.3-7.1 15.8-18.2 15.8-30 0-5.6-0.7-11.1-2.2-16.2 -1.5-5.1-3.7-9.8-6.5-13.8C72.9 7.4 61.8 2 50 2zM50 7c9.5 0 18.2 3.8 24.5 10.9 2.2 2.5 4 5.5 5.2 8.7 1.2 3.2 1.8 6.7 1.8 10.1 0 9.5-3.8 18.2-10.9 24.5 -2.5 2.2-5.5 4-8.7 5.2 -3.2 1.2-6.7 1.8-10.1 1.8s-7-0.6-10.1-1.8c-3.2-1.2-6.3-3-8.7-5.2C16.8 68.2 13 59.5 13 50c0-3.4 0.6-7 1.8-10.1 1.2-3.2 3-6.3 5.2-8.7C25.3 10.8 34.1 7 43.6 7h6.4z" fill="#2c3e50" fill-opacity="0.2"/>
+        </pattern>
+    </defs>
+
+    <!-- Background: Salon Wall -->
+    <rect width="400" height="225" fill="#34495e"/>
+    <rect width="400" height="225" fill="url(#damask-thumb)"/>
+    <rect width="400" height="225" fill="url(#spotlight)"/>
+
+    <!-- Mannequin with Gown -->
+    <g id="mannequin" transform="translate(130, 10)">
+        <!-- Stand -->
+        <rect x="68" y="20" width="4" height="180" fill="#1c2833"/>
+        <path d="M50 200 H 90 L 85 205 H 55 Z" fill="#1c2833"/>
+        <!-- Gown -->
+        <g fill="#c28d9f">
+            <path d="M70,25 C60,45 80,45 70,25 L55,25 L35,60 C30,100 20,150 0,200 L140,200 C120,150 110,100 105,60 L85,25 Z"/>
+            <path d="M70,25 C60,45 80,45 70,25" stroke="rgba(0,0,0,0.2)" stroke-width="1" fill="none"/>
+        </g>
+    </g>
+
+    <!-- Designer's Tools -->
+    <g id="tools" transform="translate(250, 140)">
+        <!-- Swatch Book -->
+        <rect width="100" height="60" fill="#5d4037" rx="3"/>
+        <rect x="5" y="5" width="25" height="20" fill="#f1eadd"/>
+        <rect x="35" y="5" width="25" height="20" fill="#9cb4d4"/>
+        <rect x="5" y="30" width="25" height="20" fill="#c28d9f"/>
+        <!-- Measuring Tape -->
+        <path d="M0,50 C20,30 80,70 120,50" stroke="#f1c40f" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Title -->
+    <text x="20" y="35" font-family="Playfair Display, serif" font-size="24" fill="#f1c40f" font-weight="bold">The House of Worth</text>
+</svg>

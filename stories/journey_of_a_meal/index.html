@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey of a Meal: A Story of Sustainable Food</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="story-container">
+        <!-- SCENE 1: The Choice (The Plate) -->
+        <section id="scene-1" class="scene active">
+            <div class="scene-content">
+                <h2>What does your ideal meal look like?</h2>
+                <p>Drag ingredients to your plate to compose your meal.</p>
+                <div id="plate-area">
+                    <div id="plate" class="drop-zone"></div>
+                </div>
+                <div id="ingredient-options"></div>
+                <button id="scene-1-next" class="next-button hidden">See the Story of this Meal →</button>
+            </div>
+        </section>
+
+        <!-- SCENE 2: The Origin (The Farm) -->
+        <section id="scene-2" class="scene">
+            <div class="scene-content">
+                <h2>Every meal begins with a choice, long before the kitchen.</h2>
+                <p>Let's see where your ingredients came from.</p>
+                <div id="farm-split-screen">
+                    <div class="farm-side" id="sustainable-farm">
+                        <h3>Local, Sustainable Farm</h3>
+                        <div class="farm-land"></div>
+                    </div>
+                    <div class="farm-side" id="conventional-farm">
+                        <h3>Global, Conventional Farm</h3>
+                        <div class="farm-land"></div>
+                    </div>
+                </div>
+                <button class="next-button" onclick="goToScene(3)">Trace their Journey →</button>
+            </div>
+        </section>
+
+        <!-- SCENE 3: The Journey (The Market) -->
+        <section id="scene-3" class="scene">
+            <div class="scene-content">
+                <h2>From the farm to the fork, every mile matters.</h2>
+                <p>The carbon footprint of your plate is measured in "food miles."</p>
+                <div id="map-container">
+                    <svg id="world-map" viewBox="0 0 1000 500"></svg>
+                    <div id="food-miles-counter">Food Miles: <strong>0</strong> km</div>
+                </div>
+                <button class="next-button" onclick="goToScene(4)">Consider the Consequences →</button>
+            </div>
+        </section>
+
+        <!-- SCENE 4: The Consequence (The Waste) -->
+        <section id="scene-4" class="scene">
+            <div class="scene-content">
+                <h2>The journey to the plate is only half the story.</h2>
+                <p>Globally, 1/3 of all food is wasted. How much of this meal will be lost?</p>
+                <div id="waste-area">
+                    <div id="final-plate"></div>
+                    <div id="waste-bin">
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,3V4H4V6H5V19C5,20.1 5.9,21 7,21H17C18.1,21 19,20.1 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"></path></svg>
+                    </div>
+                </div>
+                <div class="slider-container">
+                    <!-- BARISTA'S NOTE: Added a visible percentage display -->
+                    <span id="waste-percentage">0%</span>
+                    <input type="range" id="waste-slider" min="0" max="100" value="0">
+                </div>
+                <button class="next-button" onclick="goToScene(5)">Write a Better Story →</button>
+            </div>
+        </section>
+
+        <!-- SCENE 5: The Action (The Invitation) -->
+        <section id="scene-5" class="scene">
+            <div class="scene-content">
+                <h2>Our choices create the story of our food. Now, you can help write a better one.</h2>
+                <p>Get involved with organizations promoting sustainable gastronomy worldwide.</p>
+                <div id="action-cards">
+                    <div class="action-card" data-action="recipe">
+                        <h3>Share a Recipe</h3>
+                        <p>Contribute a sustainable recipe to a global food project.</p>
+                    </div>
+                    <div class="action-card" data-action="poster">
+                        <h3>Design a Poster</h3>
+                        <p>Create a powerful visual message for your local community.</p>
+                    </div>
+                    <div class="action-card" data-action="statement">
+                        <h3>Share Your Story</h3>
+                        <p>Share your insights and practices on sustainable eating.</p>
+                    </div>
+                    <div class="action-card" data-action="volunteer">
+                        <h3>Volunteer Locally</h3>
+                        <p>Find and support local farms or food banks in your area.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

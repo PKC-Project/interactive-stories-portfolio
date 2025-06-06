@@ -1,0 +1,57 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Architect's Blueprint"
+    PKC Project - Inspired by Frank Lloyd Wright's style
+    -->
+    
+    <defs>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#d4e6f1" />
+            <stop offset="100%" stop-color="#f5f5f5" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect width="400" height="225" fill="url(#sky-grad)" />
+
+    <!-- Stylized Landscape -->
+    <path d="M 0 225 L 0 180 C 100 150, 250 200, 400 160 L 400 225 Z" fill="#b8c8a0"/>
+    <path d="M 300 160 L 305 100 L 295 100 Z" fill="#6d4c41" opacity="0.7"/>
+    <circle cx="300" cy="90" r="25" fill="#81c784" opacity="0.8"/>
+    
+    <!-- The House -->
+    <g id="house" transform="translate(0, 20)">
+        <!-- Main Structure -->
+        <path d="M 50 205 L 50 160 L 300 160 V 205 Z" fill="#c5bca8"/>
+        <rect x="25" y="150" width="300" height="10" fill="#a1887f"/>
+        
+        <!-- Hearth -->
+        <rect x="160" y="155" width="20" height="30" fill="url(#stone-texture, #a1a1a1)" />
+        <rect x="163" y="170" width="14" height="15" fill="#e67e22" filter="url(#glow)"/>
+        
+        <!-- Windows with Art Glass pattern -->
+        <g id="windows">
+             <rect x="60" y="160" width="90" height="25" fill="#aed6f1" fill-opacity="0.8"/>
+             <path d="M 105 160 V 185 M 60 172.5 H 150" stroke="#5d4037" stroke-width="1" opacity="0.6"/>
+             <rect x="190" y="160" width="100" height="25" fill="#aed6f1" fill-opacity="0.8"/>
+             <path d="M 240 160 V 185 M 190 172.5 H 290" stroke="#5d4037" stroke-width="1" opacity="0.6"/>
+        </g>
+    </g>
+
+    <!-- Blueprint Grid Overlay -->
+    <g id="grid" stroke="#2980b9" stroke-width="0.5" opacity="0.3">
+        <path d="M 0 50 H 400 M 0 100 H 400 M 0 150 H 400 M 0 200 H 400" />
+        <path d="M 50 0 V 225 M 100 0 V 225 M 150 0 V 225 M 200 0 V 225 M 250 0 V 225 M 300 0 V 225 M 350 0 V 225" />
+    </g>
+    
+    <!-- Title Text -->
+    <text x="20" y="35" font-family="Georgia, serif" font-size="20" fill="#5d4037" font-weight="bold">The Architect's Blueprint</text>
+
+</svg>

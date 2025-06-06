@@ -1,0 +1,124 @@
+/* style.css for The Journey of a Meal (Universal Template v1.1) */
+:root {
+    --bg-color: #f4f1e9;
+    --text-color: #3a3a3a;
+    --heading-color: #2c4a3b;
+    --accent-color: #d46c4e;
+    --sustainable-color: #5a8b5a;
+    --conventional-color: #b85c5c;
+    --plate-color: #e8e8e8;
+    
+    font-family: 'Raleway', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+#story-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    transition: filter 1s ease-in-out;
+}
+.scene {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+.scene.active { opacity: 1; visibility: visible; }
+.scene-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+    animation: fadeInDown 1s both;
+}
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+h2 { font-family: 'Playfair Display', serif; color: var(--heading-color); font-size: 2.5rem; margin-bottom: 1rem; }
+p { font-size: 1.1rem; line-height: 1.6; }
+.next-button {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.3s;
+}
+.next-button:hover { transform: translateY(-2px); background-color: #c05c3e; }
+.next-button.hidden { opacity: 0; pointer-events: none; }
+
+/* --- Scene 1: Plate --- */
+#plate-area { display: flex; justify-content: center; margin: 2rem 0; }
+#plate {
+    width: 300px; height: 300px;
+    background-color: var(--plate-color);
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+}
+#plate.highlight { border-color: var(--accent-color); transform: scale(1.02); }
+.ingredient-icon { width: 60px; height: 60px; cursor: grab; transition: transform 0.2s; user-select: none; }
+.ingredient-icon.on-plate { position: absolute; cursor: default; }
+.ingredient-icon.dragging { transform: scale(1.2); opacity: 0.7; z-index: 10; }
+#ingredient-options { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+
+/* --- Scene 2: Farm --- */
+#farm-split-screen { display: flex; gap: 2rem; margin-top: 2rem; }
+.farm-side { flex: 1; padding: 1.5rem; border-radius: 10px; transition: background-color 0.5s; }
+#sustainable-farm { background-color: #d4e6d4; border: 2px solid var(--sustainable-color); }
+#conventional-farm { background-color: #e6d4d4; border: 2px solid var(--conventional-color); }
+.farm-side h3 { color: var(--heading-color); }
+.farm-land { height: 150px; position: relative; }
+.farm-land .ingredient-icon { position: absolute; bottom: 0; animation: grow 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; transform-origin: bottom center; }
+@keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* --- Scene 3: Map --- */
+#map-container { position: relative; background-color: #a8d5e2; border-radius: 10px; padding: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+#world-map { width: 100%; height: auto; max-height: 450px; }
+#world-map .land { fill: #f4f1e9; stroke: #c5b8a5; stroke-width: 0.5; }
+#world-map .home-base { fill: var(--sustainable-color) !important; filter: drop-shadow(0 0 5px white); }
+.travel-line { fill: none; stroke-linecap: round; animation: drawLine 2s ease-out forwards; }
+@keyframes drawLine { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+#food-miles-counter { font-size: 1.5rem; margin-top: 1rem; color: var(--heading-color); }
+
+/* --- Scene 4: Waste (Corrected Logic) --- */
+#waste-area { display: flex; justify-content: center; align-items: center; gap: 3rem; margin: 2rem 0; }
+#final-plate { width: 300px; height: 300px; position: relative; background-color: var(--plate-color); border-radius: 50%; }
+#final-plate .ingredient-icon {
+    transform: scale(1) translateY(0);
+    filter: grayscale(0) opacity(1);
+    transition: transform 0.5s ease, filter 0.5s ease;
+    /* Apply transformations based on the --waste-amount variable from JS */
+    transform: scale(calc(1 - var(--waste-amount, 0) * 0.7)) translateY(calc(var(--waste-amount, 0) * 40px));
+    filter: grayscale(var(--waste-amount, 0)) opacity(calc(1 - var(--waste-amount, 0) * 0.7));
+}
+#waste-bin { font-size: 80px; color: #888; transition: color 0.5s, transform 0.5s; }
+#waste-bin.active { color: var(--conventional-color); transform: scale(1.1); }
+.slider-container { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 1rem; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto;}
+#waste-percentage { font-size: 1.2rem; font-weight: 500; color: var(--heading-color); background: rgba(255,255,255,0.7); padding: 0.2rem 0.6rem; border-radius: 5px; }
+#waste-slider { width: 100%; }
+
+/* --- Scene 5: Action --- */
+#action-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.action-card { background-color: #fff; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+.action-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: var(--accent-color); }
+.action-card h3 { color: var(--accent-color); margin-bottom: 0.5rem; }

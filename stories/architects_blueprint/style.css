@@ -1,0 +1,130 @@
+/* style.css for The Architect's Blueprint (vFinal - Polished) */
+
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #3e2723;
+    --header-color: #5d4037;
+    --tooltip-bg: rgba(253, 246, 227, 0.95);
+    --tooltip-border: #8d6e63;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+#project-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+#project-header h1 { color: var(--header-color); font-size: 2.5rem; }
+
+#blueprint-container {
+    background: #e0e0e0;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#house-svg .hotspot { cursor: pointer; transition: filter 0.3s ease; }
+#house-svg .hotspot:hover { filter: brightness(1.1) drop-shadow(0 0 5px white); }
+
+
+/*
+   BARISTA'S NOTE: THE FINAL FIX IS HERE
+   By reducing padding, font-size, and line-height slightly, 
+   we ensure all text content fits within the fixed-height tooltip box.
+*/
+.tooltip-body {
+    background-color: var(--tooltip-bg);
+    border: 2px solid var(--tooltip-border);
+    border-radius: 8px;
+    padding: 0.8rem; /* Reduced from 1rem */
+    font-size: 13px; /* Reduced from 14px */
+    line-height: 1.4;  /* Reduced from 1.5 */
+    height: 100%;     /* Ensures the div fills the foreignObject */
+    display: flex;    /* Enables flexbox for alignment */
+    flex-direction: column; /* Stacks title and text vertically */
+}
+.tooltip-body h3 {
+    margin: 0 0 0.4rem 0; /* Adjusted margin */
+    color: var(--header-color);
+    flex-shrink: 0; /* Prevents the title from shrinking */
+}
+.tooltip-body p {
+    margin: 0;
+    flex-grow: 1; /* Allows paragraph to use remaining space */
+}
+
+
+/* --- Refined Animations --- */
+#tree-leaves {
+    transform-origin: 655px 350px; /* Base of the tree */
+    animation: sway 12s ease-in-out infinite alternate;
+}
+@keyframes sway { to { transform: rotate(1.5deg) translateX(5px); } }
+
+#sun { animation: day-cycle 90s linear infinite; }
+@keyframes day-cycle {
+    0%, 100% { transform: translate(50px, 20px); }
+    50% { transform: translate(-700px, 0px); }
+}
+
+#hearth-fire {
+    transform-origin: center bottom;
+    animation: flicker 0.3s ease-in-out infinite alternate;
+}
+@keyframes flicker { to { transform: scale(1.1, 0.95); fill: #f39c12;} }
+
+.hearth-radiate-line {
+    stroke: #f39c12;
+    stroke-width: 2.5;
+    fill: none;
+    opacity: 0.7;
+    stroke-dasharray: 200;
+    animation: draw-and-fade 1.5s ease-out;
+}
+
+.sight-line {
+    stroke: #2980b9;
+    stroke-width: 1.5;
+    stroke-dasharray: 4 4;
+    animation: draw-and-fade 1.5s ease-out;
+}
+
+@keyframes draw-and-fade {
+    0%   { stroke-dashoffset: 200; }
+    70%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.old-wall {
+    fill: #000;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 5 5;
+    animation: pop-in-out 1.5s ease;
+}
+@keyframes pop-in-out {
+    0% { transform: scale(0.9); opacity: 0; }
+    30%, 70% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(0.9); opacity: 0; }
+}
+
+.foundation-root {
+    stroke: #8d6e63;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 100;
+    animation: draw-and-fade 1.5s ease-out;
+}

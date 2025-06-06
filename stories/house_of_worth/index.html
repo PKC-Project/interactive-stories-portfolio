@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The House of Worth: Birth of an Empire</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="app-container">
+        <!-- The experience unfolds here -->
+        <div id="salon-background"></div>
+
+        <!-- ACT 1: THE COLLECTION -->
+        <section id="act-1" class="act active">
+            <div class="narrative-box">
+                <h1>The Salon</h1>
+                <p>Paris, 1872. You have an appointment at 7 rue de la Paix. Charles Frederick Worth presents his new "collection" on live models—a revolutionary idea. Which silhouette captures your imagination?</p>
+            </div>
+            <div id="collection-stage">
+                <div class="silhouette-choice" data-choice="princess">Princess Line</div>
+                <div class="silhouette-choice" data-choice="polonaise">Polonaise</div>
+                <div class="silhouette-choice" data-choice="evening">Evening Gown</div>
+            </div>
+        </section>
+
+        <!-- ACT 2: CUSTOMIZATION -->
+        <section id="act-2" class="act">
+            <div class="narrative-box">
+                <h1 id="gown-title">Your Selection</h1>
+                <p id="gown-description">Now, the genius of the House is revealed: customization. Every detail can be tailored to your desire.</p>
+            </div>
+            <div id="designer-station">
+                <div id="gown-display">
+                    <svg id="gown-svg" viewBox="0 0 300 500"></svg>
+                </div>
+                <div id="swatch-book">
+                    <!-- JS will populate swatches here -->
+                </div>
+            </div>
+            <button id="finalize-button" class="action-button">Finalize Creation</button>
+        </section>
+
+        <!-- ACT 3: THE LEGACY -->
+        <section id="act-3" class="act">
+             <div id="final-gown-display">
+                <!-- Final Gown SVG will be injected here -->
+            </div>
+            <div class="narrative-box final-narrative">
+                <h1>Magnifique!</h1>
+                <p>By signing his work and creating collections, Worth invented "Haute Couture" and built an empire of style. Your unique creation is a part of this legacy.</p>
+                <div id="signature">
+                    <!-- SVG Signature will animate here -->
+                </div>
+                <a href="https://www.metmuseum.org/toah/hd/wrth/hd_wrth.htm" target="_blank" class="action-button">Explore a Real Collection</a>
+                <button id="restart-button" class="action-button secondary">Design Another</button>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Poet's Verse: The Raven" (v2 - Polished)
+    PKC Project - A complete scene with dynamic lighting and texture.
+    -->
+
+    <defs>
+        <!-- Filters and Gradients -->
+        <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <radialGradient id="lamp-light-grad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffebcd" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#ffebcd" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Textures -->
+        <pattern id="wood-texture" patternUnits="userSpaceOnUse" width="80" height="80" patternTransform="rotate(45)">
+            <path d="M 0,10 H 80 M 0,30 H 80 M 0,50 H 80 M 0,70 H 80" stroke="#3e2723" stroke-width="1" opacity="0.3"/>
+        </pattern>
+        <pattern id="wallpaper-texture" patternUnits="userSpaceOnUse" width="20" height="20">
+            <path d="M 10 0 V 20 M 0 10 H 20" stroke="#1d1d21" stroke-width="1" opacity="0.5"/>
+        </pattern>
+    </defs>
+
+    <!-- Background: Wallpaper and Desk -->
+    <rect width="400" height="225" fill="#0a0a0c" />
+    <rect width="400" height="225" fill="url(#wallpaper-texture)" />
+    <rect id="desk" y="150" width="400" height="75" fill="#5d4037" />
+    <rect id="desk-texture" y="150" width="400" height="75" fill="url(#wood-texture)" />
+
+    <!-- The Lamp: The source of all light -->
+    <g id="lamp" transform="translate(50, 110)">
+        <path d="M 15 40 L 25 40 L 20 20 Z" fill="#495057"/>
+        <rect x="10" y="40" width="20" height="5" fill="#343a40" rx="1"/>
+        <circle cx="20" cy="15" r="15" fill="#fdebd0"/>
+        <!-- The cast light -->
+        <circle cx="20" cy="15" r="150" fill="url(#lamp-light-grad)" />
+    </g>
+
+    <!-- The Manuscript Scroll -->
+    <g transform="translate(120, 140)">
+        <path d="M 0,10 C 10,20 10,60 0,70 L 250,70 C 240,60 240,20 250,10 Z" 
+              fill="#f3e5ab" stroke="#d3c7ab" stroke-width="0.5"/>
+        <text x="20" y="45" font-family="EB Garamond, serif" font-size="14" fill="#3e2723" font-style="italic">
+            ...and my soul from out that shadow...
+        </text>
+    </g>
+
+    <!-- The Bust and Raven, casting a shadow -->
+    <g transform="translate(280, 95)">
+        <!-- The Shadow -->
+        <path d="M 20,55 L -50,80 L 40,80 Z" fill="black" opacity="0.4" transform="rotate(10)"/>
+        <!-- The Bust -->
+        <path d="M 15,25 L 5,55 L 45,55 L 35,25 Z" fill="#95a5a6"/>
+        <!-- The Raven -->
+        <path d="M 25,25 C 40,10 25,-15 10,5 C -5,25 10,40 25,25 L 15,60 L 22,58 Z" fill="#111"/>
+    </g>
+
+    <!-- The Quill -->
+    <g transform="translate(100, 120) rotate(-15)">
+        <path d="M 0,0 L 150,15 L 145,20 L -5,5 Z" fill="#e0e0e6"/>
+        <path d="M 148,16 L 160,10" stroke="#e0e0e6" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+</svg>

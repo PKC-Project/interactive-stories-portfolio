@@ -1,0 +1,131 @@
+/* style.css for The Poet's Verse (vFinal) */
+:root {
+    --bg-color: #0a0a0c;
+    --manuscript-bg: #1d1d21;
+    --text-color: #a9a9b3;
+    --header-color: #e0e0e6;
+    --highlight-color: #e63946;
+    --raven-color: #000;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'EB Garamond', 'Times New Roman', serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- Start Overlay --- */
+#start-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+    transition: opacity 1s ease-in-out;
+}
+.start-content {
+    color: var(--header-color);
+    animation: fadeIn 2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.start-content h1 { font-size: 4rem; }
+.start-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+#start-button {
+    background: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#start-button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* --- Main Layout --- */
+#scrolly-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+#scrolly-container {
+    display: flex;
+    opacity: 0; /* Initially hidden, JS will fade it in */
+}
+#visual-pane {
+    width: 50vw;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+#chamber-svg { width: 100%; height: 100%; }
+#manuscript-pane {
+    width: 50vw;
+    background: var(--manuscript-bg);
+    padding: 3rem;
+    border-left: 1px solid #333;
+}
+.poem-header { text-align: center; margin-bottom: 3rem; color: var(--header-color); }
+.poem-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+.poem-header p { font-style: italic; font-size: 1.2rem; }
+.stanza {
+    padding: 2rem 0;
+    border-bottom: 1px solid #333;
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
+}
+.stanza.is-active { opacity: 1; }
+.stanza p { font-size: 1.2rem; line-height: 1.7; }
+.highlight-word { font-style: italic; color: #ccc; }
+.highlight-word-evil { font-weight: bold; color: var(--highlight-color); text-shadow: 0 0 5px var(--highlight-color); }
+
+/* --- Polished Visuals & Animations --- */
+.svg-element { transition: opacity 1.5s ease, transform 1.5s ease; }
+#bust-group, #raven { opacity: 0; }
+#shadow {
+    transform-origin: 200px 400px;
+    transform: scale(0);
+    opacity: 0.5;
+    fill: black;
+    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+#lamplight {
+    transform-origin: center;
+    transition: all 2s ease-in-out;
+    fill: url(#lamplight-grad);
+}
+#floor { fill: #34495e; }
+#back-wall { fill: #2c3e50; }
+#bust { fill: #7f8c8d; }
+
+.fly-in { animation: flyIn 2s ease-out forwards; }
+@keyframes flyIn {
+    from { transform: translate(200px, -200px) scale(0.2); }
+    to { transform: translate(0, 0) scale(1); }
+}
+
+.eye-glow { animation: eyeGlow 4s ease-in-out infinite; }
+@keyframes eyeGlow {
+    0%, 100% { r: 0; }
+    50% { r: 2.5; filter: drop-shadow(0 0 3px red); }
+}
+
+#shadow.creeping { animation: creep 20s ease-in-out infinite alternate; }
+@keyframes creep {
+    from { transform: scale(var(--shadow-scale, 0)) skewX(-5deg); }
+    to { transform: scale(var(--shadow-scale, 0)) skewX(5deg); }
+}
+
+#chamber-svg.is-glitching { animation: glitch 1.5s steps(3, end) infinite; }
+@keyframes glitch {
+    0%, 100% { transform: none; filter: none; }
+    33% { transform: skewX(-3deg) translateX(-10px); filter: saturate(0.5); }
+    66% { transform: skewX(3deg) translateX(10px); filter: brightness(0.8); }
+}

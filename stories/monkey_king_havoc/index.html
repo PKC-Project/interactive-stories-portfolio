@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An animated, audio-visual scroll-based story of the Monkey King's rebellion, created using the PKC framework.">
+    <title>The Monkey King's Heavenly Havoc: A Living Scroll</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- The Start Overlay remains crucial for enabling audio reliably -->
+    <div id="start-overlay">
+        <div class="start-content">
+            <h1>The Monkey King's Heavenly Havoc</h1>
+            <p>An Animated Scroll</p>
+            <button id="start-button">Unfurl the Legend</button>
+        </div>
+    </div>
+
+    <main id="story-container" class="hidden">
+        <aside id="visual-stage">
+            <svg id="scene-svg" viewBox="0 0 500 800" aria-hidden="true">
+                <!-- All visual elements will be dynamically rendered here -->
+            </svg>
+        </aside>
+
+        <article id="narrative-scroll">
+            <header class="story-header">
+                <h1>The Monkey King's Heavenly Havoc</h1>
+                <p>An interactive legend from 'Journey to the West'.</p>
+                <div class="scroll-prompt">Scroll to Begin</div>
+            </header>
+
+            <section class="story-beat" data-trigger="act1_mountain">
+                <h2>A King is Born</h2>
+                <p>From a stone egg on the magnificent Flower-Fruit Mountain, a monkey of immense power is born. Through his skill and cunning, he becomes their handsome Monkey King, Sun Wukong.</p>
+            </section>
+            
+            <section class="story-beat" data-trigger="act1_heaven">
+                <h2>A Minor Post</h2>
+                <p>His power becomes known to the Heavens. The Jade Emperor, seeking to control him, offers him a position. But the title—"Keeper of the Heavenly Horses"—is a grand insult.</p>
+            </section>
+            
+            <section class="story-beat" data-trigger="act1_havoc">
+                <h2>An Act of Defiance</h2>
+                <p>Enraged, Sun Wukong unleashes the Celestial Horses and smashes the stables, abandoning his post and declaring his own, much grander title: "Great Sage, Equal of Heaven."</p>
+            </section>
+            
+            <section class="story-beat" data-trigger="act2_peaches">
+                <h2>The Forbidden Fruit</h2>
+                <p>He is made guardian of the Peaches of Immortality. But when the Queen Mother fails to invite him to her grand banquet, he decides to sample the fruits of his labor... and gain their power for himself.</p>
+            </section>
+            
+            <section class="story-beat" data-trigger="act3_duel">
+                <h2>The Heavenly Duel</h2>
+                <p>His crimes known, the Heavenly Army is sent to capture him. The great deity Nezha confronts the Monkey King, who is now surging with the power of stolen immortality.</p>
+            </section>
+            
+            <section class="story-beat final-beat" data-trigger="end">
+                <h2>A Legend is Forged</h2>
+                <p>Not even the entire Heavenly Host can subdue the rebel king. His defiance shakes the foundations of Heaven, and his story will be told for ten thousand years.</p>
+            </section>
+            
+        </article>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

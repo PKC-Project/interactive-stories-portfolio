@@ -1,0 +1,58 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Journey of a Meal"
+    PKC Project - A universal template version
+    -->
+
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#d4e6d4" /> <!-- Sustainable Green -->
+            <stop offset="100%" stop-color="#e6d4d4" /> <!-- Conventional Red-ish -->
+        </linearGradient>
+        <filter id="drop-shadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dx="1" dy="2"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Background Gradient -->
+    <rect width="400" height="225" fill="url(#bg-grad)" />
+
+    <!-- The Journey Line -->
+    <g filter="url(#drop-shadow)">
+        <path d="M 20,112.5 C 100,200 250,-50 380,112.5" 
+              stroke="#f4f1e9" stroke-width="10" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Elements along the journey -->
+    <g id="elements" text-anchor="middle" font-family="sans-serif" font-weight="bold">
+        <!-- Start: The Farm (Sustainable) -->
+        <g transform="translate(20, 112.5) scale(0.5) translate(-50, -50)">
+            <path d="M50,10 L60,90 L40,90 Z" fill="#fca311"/>
+            <path d="M50,10 C40,20 45,5 50,10" fill="#5a8b5a" stroke="#2c4a3b" stroke-width="4"/>
+            <path d="M50,10 C60,20 55,5 50,10" fill="#5a8b5a" stroke="#2c4a3b" stroke-width="4"/>
+        </g>
+        <text x="20" y="155" fill="#2c4a3b" font-size="14">The Farm</text>
+
+        <!-- Middle: The Globe (The Journey) -->
+        <g transform="translate(200, 60) scale(0.5) translate(-50, -50)">
+            <circle cx="50" cy="50" r="45" fill="#a8d5e2"/>
+            <path d="M30,60 Q50,70 70,60 Q60,40 50,20 Q40,40 30,60 Z" fill="#f4f1e9"/>
+        </g>
+        <text x="200" y="125" fill="#3a3a3a" font-size="14">The Market</text>
+
+        <!-- End: The Plate (The Choice) -->
+        <g transform="translate(380, 112.5) scale(0.5) translate(-50, -50)">
+            <circle cx="50" cy="50" r="48" fill="#e8e8e8" stroke="#ccc" stroke-width="4"/>
+            <g transform="translate(15, 20)">
+                 <path d="M45,20 C0,30 10,80 45,95 C80,80 90,30 45,20 Z" fill="#e63946"/>
+                 <path d="M45,20 Q55,10 60,5 L55,25 Z" fill="#5a8b5a" stroke="#2c4a3b" stroke-width="4"/>
+            </g>
+        </g>
+        <text x="380" y="155" fill="#b85c5c" font-size="14">The Plate</text>
+    </g>
+</svg>

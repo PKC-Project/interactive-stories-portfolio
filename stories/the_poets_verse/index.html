@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive audio-visual exploration of Edgar Allan Poe's 'The Raven', where the atmosphere changes as you scroll.">
+    <title>The Poet's Verse: The Raven</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- This overlay forces the user interaction needed to enable audio reliably. -->
+    <div id="start-overlay">
+        <div class="start-content">
+            <h1>The Raven</h1>
+            <p>An interactive audio-visual experience.</p>
+            <button id="start-button">Begin</button>
+        </div>
+    </div>
+
+    <!-- The main container is hidden until the user clicks "Begin". -->
+    <main id="scrolly-container" class="hidden">
+        
+        <!-- The visual pane is an <aside> as it's complementary to the main text. -->
+        <aside id="visual-pane">
+            <!-- The SVG is hidden from screen readers as it's purely decorative. -->
+            <svg id="chamber-svg" viewBox="0 0 400 600" aria-hidden="true">
+                <defs>
+                    <filter id="glow-filter">
+                        <feGaussianBlur stdDeviation="5" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                    <radialGradient id="lamplight-grad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+
+                <!-- Room with perspective -->
+                <polygon id="floor" points="0,600 150,400 250,400 400,600" />
+                <polygon id="back-wall" points="150,400 250,400 250,100 150,100" />
+                
+                <!-- The Bust and Raven -->
+                <g id="bust-group" class="svg-element">
+                    <path id="bust" d="M190,150 L180,180 L220,180 L210,150 Z" />
+                    <!-- Raven will be added here by JS -->
+                </g>
+
+                <!-- The Shadow -->
+                <path id="shadow" class="svg-element" d="M150,400 C200,420 200,420 250,400 L250,600 L150,600 Z" />
+
+                <!-- The Lamplight (The source of all light) -->
+                <circle id="lamplight" cx="80" cy="350" r="150" />
+            </svg>
+        </aside>
+
+        <!-- The manuscript is an <article> as it's the primary, self-contained content. -->
+        <article id="manuscript-pane">
+            <header class="poem-header">
+                <h1>The Raven</h1>
+                <p>by Edgar Allan Poe</p>
+            </header>
+            
+            <section class="stanza" data-trigger="start">
+                <p>Once upon a midnight dreary, while I pondered, weak and weary,</p>
+                <p>Over many a quaint and curious volume of forgotten lore—</p>
+                <p>While I nodded, nearly napping, suddenly there came a tapping,</p>
+                <p>As of some one gently rapping, rapping at my chamber door.</p>
+                <p>“’Tis some visitor,” I muttered, “tapping at my chamber door—</p>
+                <p>Only this and nothing more.”</p>
+            </section>
+            
+            <section class="stanza" data-trigger="ember">
+                 <p>Ah, distinctly I remember it was in the bleak December;</p>
+                <p>And each separate <span class="highlight-word">dying ember</span> wrought its ghost upon the floor.</p>
+                <p>Eagerly I wished the morrow;—vainly I had sought to borrow</p>
+                <p>From my books surcease of sorrow—sorrow for the lost Lenore—</p>
+                <p>For the rare and radiant maiden whom the angels name Lenore—</p>
+                <p>Nameless here for evermore.</p>
+            </section>
+
+             <section class="stanza" data-trigger="terrors">
+                <p>And the silken, sad, uncertain rustling of each purple curtain</p>
+                <p>Thrilled me—filled me with fantastic <span class="highlight-word">terrors</span> never felt before;</p>
+                <p>So that now, to still the beating of my heart, I stood repeating</p>
+                <p>“’Tis some visitor entreating entrance at my chamber door—</p>
+                <p>Some late visitor entreating entrance at my chamber door;—</p>
+                <p>This it is and nothing more.”</p>
+            </section>
+            
+            <section class="stanza" data-trigger="darkness">
+                 <p>Presently my soul grew stronger; hesitating then no longer,</p>
+                <p>“Sir,” said I, “or Madam, truly your forgiveness I implore;</p>
+                <p>But the fact is I was napping, and so faintly you came rapping,</p>
+                <p>And so gently you came tapping, tapping at my chamber door,</p>
+                <p>That I scarce was sure I heard you”—here I opened wide the door;—</p>
+                <p><span class="highlight-word">Darkness</span> there and nothing more.</p>
+            </section>
+
+             <section class="stanza" data-trigger="raven_enter">
+                <p>Open here I flung the shutter, when, with many a flirt and flutter,</p>
+                <p>In there stepped a stately <span class="highlight-word">Raven</span> of the saintly days of yore;</p>
+                <p>Not the least obeisance made he; not a minute stopped or stayed he;</p>
+                <p>But, with mien of lord or lady, perched above my chamber door—</p>
+                <p>Perched upon a bust of Pallas just above my chamber door—</p>
+                <p>Perched, and sat, and nothing more.</p>
+            </section>
+
+             <section class="stanza" data-trigger="nevermore_1">
+                 <p>But the Raven, sitting lonely on the placid bust, spoke only</p>
+                <p>That one word, as if his soul in that one word he did outpour.</p>
+                <p>Nothing farther then he uttered—not a feather then he fluttered—</p>
+                <p>Till I scarcely more than muttered “Other friends have flown before—</p>
+                <p>On the morrow he will leave me, as my Hopes have flown before.”</p>
+                <p>Then the bird said “<span class="highlight-word-evil">Nevermore</span>.”</p>
+            </section>
+            
+             <section class="stanza" data-trigger="shadow_grow">
+                 <p>“Be that word our sign of parting, bird or fiend!” I shrieked, upstarting—</p>
+                <p>“Get thee back into the tempest and the Night’s Plutonian shore!</p>
+                <p>Leave no black plume as a token of that lie thy soul hath spoken!</p>
+                <p>Leave my loneliness unbroken!—quit the bust above my door!</p>
+                <p>Take thy beak from out my heart, and take thy form from off my door!”</p>
+                <p>Quoth the Raven “<span class="highlight-word-evil">Nevermore</span>.”</p>
+            </section>
+
+            <section class="stanza final-stanza" data-trigger="end">
+                <p>And the Raven, never flitting, still is sitting, still is sitting</p>
+                <p>On the pallid bust of Pallas just above my chamber door;</p>
+                <p>And his eyes have all the seeming of a demon’s that is dreaming,</p>
+                <p>And the lamp-light o’er him streaming throws his shadow on the floor;</p>
+                <p>And my soul from out that <span class="highlight-word">shadow</span> that lies floating on the floor</p>
+                <p>Shall be lifted—<span class="highlight-word-evil">nevermore</span>!</p>
+            </section>
+        </article>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

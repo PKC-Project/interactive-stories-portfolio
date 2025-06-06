@@ -1,0 +1,76 @@
+/* style.css for The Monkey King's Heavenly Havoc (Performance Version) */
+
+:root {
+    --bg-color: #1a1e23;
+    --scroll-bg: #f3f1e9;
+    --text-color: #3d3531;
+    --header-color: #2a2522;
+    --accent-color: #d94a38; /* Cinnabar Red */
+    --border-color: #dcd8ca;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: var(--bg-color); color: var(--text-color); font-family: 'ZCOOL XiaoWei', serif; margin: 0; overflow-x: hidden; }
+
+/* --- Start Overlay --- */
+#start-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg-color); display: flex; justify-content: center;
+    align-items: center; text-align: center; z-index: 100; transition: opacity 1s ease-in-out;
+}
+.start-content { color: var(--header-color); animation: fadeIn 2s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.start-content h1 { font-size: 3.5rem; }
+.start-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+#start-button {
+    background: transparent; border: 2px solid var(--border-color); color: var(--border-color);
+    padding: 1rem 3rem; font-size: 1.2rem; cursor: pointer; transition: all 0.3s;
+}
+#start-button:hover { background-color: var(--border-color); color: var(--bg-color); }
+
+/* --- Main Layout --- */
+#story-container.hidden { opacity: 0; pointer-events: none; }
+#story-container { display: flex; opacity: 0; }
+#visual-stage { width: 55vw; height: 100vh; position: sticky; top: 0; left: 0; background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 70%); }
+#scene-svg { width: 100%; height: 100%; }
+#narrative-scroll { width: 45vw; background: var(--scroll-bg); padding: 4rem 3rem; border-left: 2px solid var(--border-color); box-shadow: -10px 0px 20px rgba(0,0,0,0.5); }
+
+/* --- Text and Headers --- */
+.story-header { text-align: center; margin-bottom: 5rem; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.story-header h1 { font-size: 3.5rem; color: var(--header-color); margin-bottom: 1rem; }
+.scroll-prompt { margin-top: 3rem; font-weight: bold; color: var(--accent-color); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+.story-beat { padding: 2rem 0; margin-bottom: 60vh; border-top: 1px solid var(--border-color); opacity: 0.4; transition: opacity 0.5s ease-in-out; }
+.story-beat.is-active { opacity: 1; }
+.story-beat h2 { font-size: 2rem; color: var(--header-color); margin-bottom: 1rem; }
+.story-beat p { font-size: 1.2rem; line-height: 1.8; }
+.final-beat { margin-bottom: 50vh; }
+
+/* --- SVG Element Styling & Animations --- */
+.svg-element { transition: opacity 1.5s ease-in-out, transform 2s ease-in-out; transform-origin: center; }
+.wukong-aura { fill: var(--accent-color); opacity: 0; transition: opacity 1s; filter: url(#mist); }
+.wukong-aura.active { opacity: 0.8; animation: powerGlow 3s ease-in-out infinite alternate; }
+@keyframes powerGlow { from { transform: scale(0.8); } to { transform: scale(1.2); } }
+
+.heavenly-gate.smashed { animation: gateSmash 0.5s ease-in-out; }
+@keyframes gateSmash {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px) rotate(-2deg); }
+    50% { transform: translateX(10px) rotate(2deg); }
+    75% { transform: translateX(-5px) rotate(-1deg); }
+}
+
+.peach { animation: fallAndFade 3s ease-in forwards; }
+@keyframes fallAndFade {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(100px); opacity: 0; }
+}
+
+.attack-blast {
+    fill: #f1c40f;
+    animation: blast 1.5s ease-out forwards;
+}
+@keyframes blast {
+    from { transform: translate(0, 0) scale(0.5); opacity: 1; }
+    to { transform: translate(-150px, 150px) scale(1); opacity: 0; }
+}

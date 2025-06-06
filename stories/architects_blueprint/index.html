@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architect's Blueprint: A Wright-Inspired Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="app-container">
+        <header id="project-header">
+            <h1>The Architect's Blueprint</h1>
+            <p>An interactive exploration of a Frank Lloyd Wright-inspired home. Click on key elements to uncover the principles of Organic Architecture.</p>
+        </header>
+
+        <div id="blueprint-container">
+            <svg id="house-svg" viewBox="0 0 800 500">
+                <!-- SVG Definitions -->
+                <defs>
+                    <pattern id="wood-grain" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(45)">
+                        <path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" stroke="#8d6e63" stroke-width="0.5"/>
+                    </pattern>
+                    <pattern id="stone-texture" patternUnits="userSpaceOnUse" width="20" height="20">
+                        <rect width="20" height="20" fill="#a1a1a1"/>
+                        <circle cx="5" cy="5" r="2" fill="#888"/><circle cx="15" cy="15" r="3" fill="#777"/>
+                    </pattern>
+                    <!-- BARISTA'S NOTE: New Art Glass pattern for the windows -->
+                    <pattern id="art-glass" patternUnits="userSpaceOnUse" width="40" height="60" >
+                       <rect width="40" height="60" fill="#aed6f1" fill-opacity="0.6"/>
+                       <path d="M 20 0 V 60 M 0 30 H 40" stroke="#5d4037" stroke-width="1.5" opacity="0.5"/>
+                       <rect x="15" y="25" width="10" height="10" fill="#fdebd0" opacity="0.7"/>
+                    </pattern>
+                </defs>
+
+                <!-- Environment -->
+                <rect id="sky" x="0" y="0" width="800" height="350" fill="#d4e6f1"/>
+                <circle id="sun" cx="700" cy="100" r="30" fill="#fdebd0"/>
+                <path id="landscape" d="M -50 450 C 150 300, 300 500, 550 350 L 850 500 L -50 500 Z" fill="#b8c8a0"/>
+                <path id="tree" d="M 650 350 L 660 200 L 640 200 Z" fill="#6d4c41"/>
+                <circle id="tree-leaves" cx="650" cy="180" r="50" fill="#81c784"/>
+
+                <!-- House Structure -->
+                <g id="hotspot-foundation" class="hotspot">
+                    <path id="foundation" d="M 100 450 L 500 450 L 500 340 L 100 340 Z" fill="#c5bca8"/>
+                </g>
+                <rect id="interior-floor" x="100" y="330" width="400" height="10" fill="#bcaaa4"/>
+                
+                <!-- BARISTA'S NOTE: Added decorative wood slats for texture -->
+                <g id="wall-details" fill="#a1887f" opacity="0.3">
+                    <rect x="115" y="290" width="4" height="40"/><rect x="125" y="290" width="4" height="40"/><rect x="135" y="290" width="4" height="40"/>
+                    <rect x="465" y="290" width="4" height="40"/><rect x="475" y="290" width="4" height="40"/><rect x="485" y="290" width="4" height="40"/>
+                </g>
+                <path id="main-structure-walls" d="M110 330 V 220 M 490 330 V 220" stroke="#eee" stroke-width="4"/>
+                
+                <g id="hotspot-hearth" class="hotspot">
+                    <rect id="hearth-body" x="280" y="230" width="40" height="100" fill="url(#stone-texture)"/>
+                    <!-- Added a mantelpiece -->
+                    <rect id="hearth-mantel" x="270" y="290" width="60" height="8" fill="#5d4037" />
+                    <rect id="hearth-fire" x="285" y="305" width="30" height="25" fill="#e67e22"/>
+                    <path id="chimney" d="M 280 230 L 300 150 L 320 230 Z" fill="#a1a1a1"/>
+                </g>
+
+                <g id="hotspot-roof" class="hotspot">
+                    <rect id="main-roof" x="50" y="210" width="500" height="20" fill="#a1887f"/>
+                    <rect id="wood-beams" x="110" y="220" width="380" height="10" fill="url(#wood-grain)"/>
+                </g>
+
+                <g id="hotspot-windows" class="hotspot">
+                    <!-- BARISTA'S NOTE: Now using the beautiful Art Glass pattern -->
+                    <rect id="windows-band" x="110" y="230" width="380" height="60" fill="url(#art-glass)"/>
+                </g>
+                
+                <g id="hotspot-open-plan" class="hotspot">
+                     <rect id="open-plan-area" x="110" y="230" width="380" height="110" fill="transparent"/>
+                </g>
+
+                <!-- Interior Details with added rug -->
+                <rect id="rug" x="120" y="330" width="360" height="60" fill="#a1887f" opacity="0.5" rx="5"/>
+                <rect id="furniture-1" x="130" y="300" width="100" height="30" fill="#8d6e63" rx="3"/>
+                <rect id="furniture-2" x="350" y="300" width="120" height="30" fill="#8d6e63" rx="3"/>
+
+                <g id="animation-layer"></g>
+
+                <!-- Tooltip for explanations -->
+                <foreignObject id="tooltip" width="250" height="150" style="visibility: hidden; pointer-events: none;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="tooltip-body">
+                        <h3 id="tooltip-title"></h3>
+                        <p id="tooltip-text"></p>
+                    </div>
+                </foreignObject>
+            </svg>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
