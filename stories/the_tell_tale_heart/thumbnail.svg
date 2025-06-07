@@ -1,0 +1,61 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Tell-Tale Heart" (v2 with Integrated Warning)
+    PKC Project - A surreal, psychological, and unsettling theme.
+    -->
+
+    <defs>
+        <filter id="floor-shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.7"/>
+        </filter>
+        <radialGradient id="eye-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff"/>
+            <stop offset="60%" stop-color="#aed6f1"/>
+            <stop offset="100%" stop-color="#4e8a9e"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect width="400" height="225" fill="#1a1a1a" />
+
+    <!-- Floorboards with a crack -->
+    <g id="floorboards" transform="skewY(-10) translate(0, 20)">
+        <path d="M -20,50 H 420" stroke="#3e2723" stroke-width="60"/>
+        <path d="M -20,110 H 420" stroke="#5d4037" stroke-width="60"/>
+        <path d="M -20,170 H 420" stroke="#3e2723" stroke-width="60"/>
+        
+        <!-- The Crack -->
+        <path d="M 100,0 L 120,110 L 280,110 L 300,225" 
+              fill="black" filter="url(#floor-shadow)"/>
+        <path d="M 105,0 L 125,110 L 275,110 L 295,225" 
+              stroke="#000" stroke-width="4" fill="none" />
+    </g>
+
+    <!-- The Eye peering from the crack -->
+    <g id="the-eye" transform="translate(200, 112.5)">
+        <circle r="20" fill="url(#eye-glow)" />
+        <circle r="10" fill="#2c3e50" />
+        <circle r="4" fill="white" opacity="0.8"/>
+    </g>
+    
+    <!-- Pulsing Heartbeat Visualizer -->
+    <g id="heartbeat-rings" transform="translate(200, 112.5)" stroke="#e63946" stroke-width="2" fill="none" opacity="0.6">
+        <circle r="30" transform-origin="center">
+            <animate attributeName="r" values="30;40;30" dur="0.8s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.6;0;0.6" dur="0.8s" repeatCount="indefinite" />
+        </circle>
+         <circle r="30" transform-origin="center">
+            <animate attributeName="r" values="30;50;30" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.6;0;0.6" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+        </circle>
+    </g>
+
+    <!-- BARISTA'S NOTE: New, integrated content warning banner -->
+    <g id="warning-banner" transform="translate(10, 195)">
+        <rect width="240" height="20" fill="black" opacity="0.8"/>
+        <text x="120" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+              font-size="10" fill="#ffd700" text-anchor="middle" font-weight="bold" letter-spacing="0.5">
+                CONTENT WARNING: PSYCHOLOGICAL THEMES
+        </text>
+    </g>
+</svg>

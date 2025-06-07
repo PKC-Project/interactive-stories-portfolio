@@ -1,0 +1,96 @@
+/* style.css for The Dream Weaver */
+
+:root {
+    --mouse-x: 0.5; /* Normalized mouse X (0 to 1) */
+    --mouse-y: 0.5; /* Normalized mouse Y (0 to 1) */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1e23;
+    overflow: hidden;
+    height: 100vh;
+    cursor: crosshair;
+}
+
+#dream-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    /* The interactive "weaving" filter */
+    filter: 
+        hue-rotate(calc((var(--mouse-x) - 0.5) * 180deg)) 
+        saturate(calc(var(--mouse-y) * 1.5 + 0.5));
+    transition: filter 0.5s ease-out;
+}
+
+/* This is the core magic for each layer */
+.dream-layer {
+    position: absolute;
+    border-radius: 50%; /* Soft, organic shapes */
+    
+    /* This makes the colors blend together luminously */
+    mix-blend-mode: screen; 
+    
+    will-change: transform;
+    animation: drift linear infinite, fadeIn 1s ease-out;
+}
+
+/* Simple animation to make the layers move gently */
+@keyframes drift {
+    0% { transform: translate(var(--tx-start), var(--ty-start)) rotate(0deg); }
+    100% { transform: translate(var(--tx-end), var(--ty-end)) rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* UI Overlay styling */
+#ui-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Quicksand', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+#reset-prompt {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* The "frosted glass" effect */
+    background-color: rgba(29, 29, 33, 0.5);
+    backdrop-filter: blur(10px) saturate(0);
+    
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#reset-prompt.visible {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}

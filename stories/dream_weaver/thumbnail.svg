@@ -1,0 +1,40 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Dream Weaver"
+    PKC Project - Abstract, luminous, and creative.
+    -->
+    <defs>
+        <filter id="dream-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <linearGradient id="grad1" gradientTransform="rotate(45)">
+            <stop offset="0%" stop-color="#8338ec"/>
+            <stop offset="100%" stop-color="#3a86ff" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="grad2" gradientTransform="rotate(120)">
+            <stop offset="0%" stop-color="#ff006e"/>
+            <stop offset="100%" stop-color="#ffbe0b" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="grad3" gradientTransform="rotate(-30)">
+            <stop offset="0%" stop-color="#4cc9f0"/>
+            <stop offset="100%" stop-color="#72efdd" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="225" fill="#1a1e23"/>
+
+    <!-- The blended, glowing dream layers -->
+    <g mix-blend-mode="screen" filter="url(#dream-glow)">
+        <ellipse cx="100" cy="150" rx="150" ry="100" fill="url(#grad1)" transform="rotate(-20 100 150)"/>
+        <ellipse cx="300" cy="100" rx="120" ry="180" fill="url(#grad2)" transform="rotate(25 300 100)"/>
+        <ellipse cx="200" cy="112" rx="180" ry="120" fill="url(#grad3)" />
+    </g>
+    
+    <!-- Title Text -->
+    <text x="20" y="205" font-family="Quicksand, sans-serif" font-size="24" fill="white" font-weight="500">The Dream Weaver</text>
+</svg>

@@ -1,0 +1,103 @@
+/* style.css for The Digital Lava Lamp (Final Synthesis Version) */
+
+:root {
+    --liquid-color: #0d1b2a;
+    --blob-color-1: #ff4800; /* Vibrant Orange */
+    --blob-color-2: #c90076; /* Magenta */
+    --glow-color: #ff9100;
+
+    /* CSS variables driven by JS for interaction */
+    --mouse-x: 0.5;
+    --mouse-y: 0.5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { overflow: hidden; height: 100vh; background-color: #000; cursor: none; }
+
+#lava-lamp {
+    width: 100%;
+    height: 100%;
+    background-color: var(--liquid-color);
+    position: relative;
+    
+    /* The interactive "weaving" filter is back! */
+    filter: 
+        hue-rotate(calc((var(--mouse-x) - 0.5) * -180deg)) 
+        saturate(calc(var(--mouse-y) * 1.2 + 0.8));
+    transition: filter 0.5s ease-out;
+}
+
+/* Starlight background effect */
+#lava-lamp::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    animation: pan-stars 120s linear infinite;
+}
+@keyframes pan-stars { from { transform: translate(0, 0); } to { transform: translate(-100px, -100px); } }
+
+#lamp-glass {
+    width: 100%;
+    height: 100%;
+    /* The core gooey effect */
+    filter: blur(2vw) contrast(30);
+    background-image: radial-gradient(circle at 50% 110%, var(--glow-color), transparent 40%);
+    background-color: var(--liquid-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.lava-blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 1; /* Opacity is handled by the parent's blend */
+    will-change: transform;
+    animation: riseAndFall linear infinite;
+}
+
+@keyframes riseAndFall {
+    0% { transform: translateY(110vh) scale(0.8); }
+    40% { transform: scale(1.1); }
+    50% { transform: translateY(-10vh) scale(1); }
+    90% { transform: scale(0.9); }
+    100% { transform: translateY(110vh) scale(0.8); }
+}
+
+/* UI Overlay */
+#ui-overlay {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 2rem;
+    font-family: 'Quicksand', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+/* Add a custom cursor for a polished feel */
+body::after {
+    content: '';
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: calc(var(--mouse-y) * 100vh);
+    left: calc(var(--mouse-x) * 100vw);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s;
+}
+body:active::after {
+    width: 30px;
+    height: 30px;
+}

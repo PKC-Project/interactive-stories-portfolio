@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tell-Tale Heart: An Anatomy of Madness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-overlay">
+        <div class="start-content">
+            <h1>The Tell-Tale Heart</h1>
+            <p>An Interactive Study of Obsession</p>
+            <button id="start-button">Enter the Chamber</button>
+        </div>
+    </div>
+
+    <main id="app-container" class="hidden">
+        <div id="narrative-text">
+            <!-- Text content will be injected by JS -->
+        </div>
+        
+        <div id="scene-container">
+            <svg id="room-svg" viewBox="0 0 800 600">
+                <defs>
+                    <!-- Filters for visual effects -->
+                    <filter id="displacement-filter">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="turbulence"/>
+                        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+                    </filter>
+                    <!-- The new, softer lantern mask -->
+                    <filter id="soft-edge-filter">
+                         <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+                    </filter>
+                    <mask id="lantern-mask">
+                        <rect width="100%" height="100%" fill="black" />
+                        <circle id="lantern-light" cx="400" cy="300" r="150" fill="white" filter="url(#soft-edge-filter)" />
+                    </mask>
+                </defs>
+
+                <!-- The "real" room, viewed through the lantern mask -->
+                <g id="room-scenery" mask="url(#lantern-mask)">
+                    <!-- The new floorboards with perspective -->
+                    <g id="floorboards" filter="url(#displacement-filter)">
+                         <path d="M0,600 L300,350 H500 L800,600 Z" fill="#5d4037"/>
+                         <line x1="308" y1="350" x2="40"  y2="600" stroke="#3e2723" stroke-width="2" />
+                         <line x1="348" y1="350" x2="160" y2="600" stroke="#3e2723" stroke-width="2" />
+                         <line x1="388" y1="350" x2="280" y2="600" stroke="#3e2723" stroke-width="2" />
+                         <line x1="428" y1="350" x2="400" y2="600" stroke="#3e2723" stroke-width="2" />
+                         <line x1="468" y1="350" x2="520" y2="600" stroke="#3e2723" stroke-width="2" />
+                         <line x1="492" y1="350" x2="640" y2="600" stroke="#3e2723" stroke-width="2" />
+                         <line x1="492" y1="350" x2="760" y2="600" stroke="#3e2723" stroke-width="2" />
+                    </g>
+                    <!-- Back Wall -->
+                    <path d="M300,350 H500 V100 H300 Z" fill="#2c3e50" />
+
+                    <!-- The new, detailed Grandfather Clock -->
+                    <g id="clock" transform="translate(680, 180)">
+                        <rect width="80" height="220" fill="#3e2723" rx="5"/>
+                        <rect x="5" y="5" width="70" height="70" fill="#212121"/>
+                        <circle cx="40" cy="40" r="25" fill="#f5f5dc"/>
+                        <rect x="38" y="40" width="4" height="20" fill="black"/>
+                        <circle cx="40" cy="150" r="12" fill="#f1c40f"/>
+                    </g>
+
+                    <!-- The new, detailed Bookshelf -->
+                    <g id="bookshelf" transform="translate(50, 150)">
+                        <rect width="100" height="300" fill="#3e2723"/>
+                        <rect x="10" y="10" width="80" height="20" fill="#795548"/>
+                        <rect x="10" y="40" width="80" height="20" fill="#a1887f"/>
+                        <rect x="10" y="70" width="80" height="20" fill="#5d4037"/>
+                        <rect x="10" y="100" width="80" height="20" fill="#6d4c41"/>
+                        <rect x="10" y="130" width="80" height="20" fill="#4e342e"/>
+                    </g>
+
+                    <!-- The new, detailed Four-Poster Bed -->
+                    <g id="bed" transform="translate(275, 380)">
+                        <rect width="250" height="150" fill="#1c2833"/>
+                        <rect x="0" y="-150" width="10" height="150" fill="#2c3e50"/>
+                        <rect x="240" y="-150" width="10" height="150" fill="#2c3e50"/>
+                        <rect x="0" y="-160" width="250" height="10" fill="#2c3e50"/>
+                        <!-- The Old Man -->
+                        <g id="old-man" transform="translate(125, 40)">
+                            <path d="M-80,0 Q0,-20 80,0 L 70,20 Q0,0 -70,20 Z" fill="#7f8c8d"/>
+                            <circle id="the-eye-location" cx="-30" cy="0" r="10" fill="transparent"/>
+                        </g>
+                    </g>
+                </g>
+                
+                <!-- The Vulture Eye overlay, initially hidden -->
+                <rect id="eye-overlay" width="100%" height="100%" fill="#aed6f1" opacity="0"/>
+            </svg>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dream Weaver</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- The main container where all "dream layers" will be added -->
+    <main id="dream-canvas"></main>
+
+    <!-- UI Overlay for instructions and reset -->
+    <div id="ui-overlay">
+        <div class="instructions">
+            <p>Click to conjure a dream layer.</p>
+            <p>Move your mouse to weave the colors.</p>
+            <p>Hold SPACE to reset.</p>
+        </div>
+        <div id="reset-prompt" class="hidden">
+            <p>Release to begin a new dream.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
