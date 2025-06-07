@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Astra Leech: A Cosmic Tango</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="game-canvas"></canvas>
+    
+    <div id="ui-container" class="hidden">
+        <div id="score-ui">
+            <span class="label">Energy Harvested</span>
+            <div id="score">0</div>
+        </div>
+    </div>
+
+    <div id="start-screen">
+        <h1>Astra Leech</h1>
+        <p>A Cosmic Tango</p>
+        <button id="start-button">Begin the Dance</button>
+    </div>
+
+    <div id="game-over-screen" class="hidden">
+        <h1>The Dance is Over</h1>
+        <p>Final Energy: <span id="final-score">0</span></p>
+        <button id="restart-button">Dance Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

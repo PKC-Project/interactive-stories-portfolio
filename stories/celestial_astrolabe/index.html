@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Celestial Astrolabe: A Star Trail Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="sky-canvas"></canvas>
+
+    <div id="controls-panel">
+        <header>
+            <h1>The Celestial Astrolabe</h1>
+            <p>Craft a long-exposure photograph of the night sky.</p>
+        </header>
+
+        <div class="control-group">
+            <label for="exposure-slider">Exposure Time (seconds)</label>
+            <input type="range" id="exposure-slider" min="1" max="20" value="10" step="1">
+            <span id="exposure-value">10s</span>
+        </div>
+        
+        <div class="control-group">
+            <label for="density-slider">Star Density</label>
+            <input type="range" id="density-slider" min="500" max="5000" value="2000" step="100">
+            <span id="density-value">2000 stars</span>
+        </div>
+
+        <button id="expose-button">Expose Sky</button>
+        <p id="status-text"></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

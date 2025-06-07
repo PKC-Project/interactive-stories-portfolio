@@ -1,0 +1,73 @@
+/* style.css for The Celestial Astrolabe (vFinal - Polished) */
+:root {
+    --panel-bg: #1a1e23;
+    --text-color: #ecf0f1;
+    --border-color: #34495e;
+    --accent-color: #3498db;
+    /* New colors for the light leak effect */
+    --leak-color-1: hsla(280, 50%, 30%, 0.3);
+    --leak-color-2: hsla(10, 60%, 40%, 0.3);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background-color: #000;
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#sky-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #00000a;
+}
+
+/* BARISTA'S NOTE: The new, atmospheric light leak effect */
+#sky-canvas::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image:
+        radial-gradient(ellipse at 10% 90%, var(--leak-color-1) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 10%, var(--leak-color-2) 0%, transparent 40%);
+    animation: leak-flicker 15s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+@keyframes leak-flicker { to { opacity: 0.5; transform: scale(1.1); } }
+
+#controls-panel {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(26, 30, 35, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+header h1 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 0.25rem; }
+header p { font-size: 0.9rem; opacity: 0.8; }
+.control-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.control-group label { font-weight: bold; font-size: 0.9rem; }
+.control-group span { font-weight: normal; opacity: 0.7; }
+input[type="range"] { width: 100%; }
+#expose-button {
+    background-color: var(--accent-color); color: white;
+    border: none; padding: 0.75rem; font-size: 1rem;
+    font-weight: bold; border-radius: 5px; cursor: pointer;
+    transition: background-color 0.2s;
+}
+#expose-button:hover { background-color: #5dade2; }
+#expose-button:disabled { background-color: #555; cursor: not-allowed; }
+#status-text { min-height: 1.2em; font-style: italic; opacity: 0.8; }
+@media (max-width: 600px) { #controls-panel { width: calc(100% - 40px); bottom: 20px; top: auto; } }
