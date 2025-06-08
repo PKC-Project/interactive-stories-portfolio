@@ -1,0 +1,177 @@
+/* --- The Calm Stream: Complete Stylesheet --- */
+
+/* --- 1. General Setup & Theming Variables --- */
+:root {
+    --color-bg-start: #05080d;
+    --color-bg-main: #0b192f;
+    --color-text: rgba(220, 220, 240, 0.7);
+    
+    /* These colors are placeholders and will be overridden by JavaScript */
+    /* for a new, randomized theme each session. */
+    --color-dot: #dbe8f5;
+    --color-blob: #3a6a8f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--color-bg-start);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    color: var(--color-text);
+    transition: background-color 5s ease-in-out;
+}
+
+
+/* --- 2. Phase & Screen Management --- */
+.phase-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease-in-out, visibility 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.phase-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- 3. Setup Screen Styles (Phase 1) --- */
+#setup-screen .content {
+    max-width: 500px;
+    padding: 20px;
+}
+
+#setup-screen h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+#setup-screen p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.duration-btn, #restart-btn {
+    background: none;
+    border: 1px solid var(--color-text);
+    color: var(--color-text);
+    padding: 12px 25px;
+    margin: 8px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.duration-btn:hover, #restart-btn:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg-start);
+}
+
+
+/* --- 4. Meditation Screen Visuals --- */
+#meditation-screen {
+    z-index: 10;
+}
+
+/* The Central Focus Dot (Arrival & Breath Focus) */
+#focus-dot {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-dot);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Start centered and small, ready for JS control */
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 20px 5px var(--color-dot);
+    opacity: 0;
+    /* This makes all JS-driven changes smooth, especially for the breath sync */
+    transition: transform 4s cubic-bezier(0.45, 0.05, 0.55, 0.95), 
+                opacity 3s ease-in-out, 
+                background-color 1s, 
+                box-shadow 1s;
+    z-index: 20;
+}
+
+/* The Ambient Background Bubbles (Breath Focus) */
+#metaball-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /* The key trick for the lava-lamp effect */
+    filter: blur(40px) contrast(30);
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+    z-index: 1;
+}
+
+.blob {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-blob);
+    border-radius: 50%;
+    transition: background-color 1s; /* For smooth color change */
+}
+
+/* Initial positions for the blobs */
+.blob:nth-child(1) { top: 20%; left: 20%; }
+.blob:nth-child(2) { top: 60%; left: 30%; }
+.blob:nth-child(3) { top: 30%; left: 70%; }
+.blob:nth-child(4) { top: 70%; left: 80%; }
+
+/* The Particle System Canvas (Body Scan) */
+#particle-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    z-index: 5;
+}
+
+
+/* --- 5. Guide Text and End Screen Styles --- */
+
+/* The main text guide, positioned at the bottom */
+#guide-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    position: absolute;
+    /* Positions the text 20% from the bottom of the viewport */
+    bottom: 20vh; 
+    left: 0; right: 0; /* Ensures it stays centered horizontally */
+    z-index: 30;
+}
+
+/* The final screen */
+#end-screen {
+    z-index: 40;
+}
+#end-text {
+    opacity: 1; /* Make it visible by default on this screen */
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+#restart-btn {
+    margin-top: 2rem;
+}

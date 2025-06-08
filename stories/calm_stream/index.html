@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Calm Stream</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Phase 1: Setup Screen -->
+    <div id="setup-screen" class="phase-container active">
+        <div class="content">
+            <h1>The Calm Stream</h1>
+            <p>Select a duration to begin your practice.</p>
+            <div id="duration-choices">
+                <button class="duration-btn" data-duration="180">3 minutes</button>
+                <button class="duration-btn" data-duration="300">5 minutes</button>
+                <button class="duration-btn" data-duration="600">10 minutes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Main Meditation Experience -->
+    <div id="meditation-screen" class="phase-container">
+        <!-- Ambient background visuals -->
+        <div id="metaball-container">
+            <div class="blob"></div><div class="blob"></div><div class="blob"></div><div class="blob"></div>
+        </div>
+        <!-- Visual for Body Scan phase -->
+        <canvas id="particle-canvas"></canvas>
+
+        <!-- Central focus point -->
+        <div id="focus-dot"></div>
+        
+        <!-- Guide text, positioned at the bottom -->
+        <p id="guide-text"></p>
+    </div>
+    
+    <!-- Final screen -->
+    <div id="end-screen" class="phase-container">
+        <div class="content">
+            <p id="end-text"></p>
+            <button id="restart-btn">Practice Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
