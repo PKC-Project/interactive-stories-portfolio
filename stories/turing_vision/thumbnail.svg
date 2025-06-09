@@ -1,0 +1,24 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail Design 2: The Turing Tape Heart
+    Metaphor: The logical machine at the "heart" of modern computation and AI.
+    -->
+    <defs>
+        <clipPath id="heart-clip"><path d="M200,80 C180,60 140,70 140,110 C140,150 200,190 200,190 C200,190 260,150 260,110 C260,70 220,60 200,80 Z" /></clipPath>
+    </defs>
+    <!-- Background -->
+    <rect width="400" height="225" fill="#f5f5f5" />
+    <!-- Heart shape (for outline) -->
+    <path d="M200,80 C180,60 140,70 140,110 C140,150 200,190 200,190 C200,190 260,150 260,110 C260,70 220,60 200,80 Z" stroke="#34495e" stroke-width="3" fill="none"/>
+    <!-- Turing Tape clipped inside the heart -->
+    <g clip-path="url(#heart-clip)">
+        <g id="tape" transform="translate(60, 110)">
+            <rect width="280" height="40" fill="white" stroke="#bdc3c7"/>
+            <text font-family="monospace" font-size="24" fill="#2c3e50" x="15" y="28">01000001 01001001</text> <!-- Binary for "A I" -->
+            <g id="sprocket-holes" fill="#bdc3c7">
+                <circle cx="20" cy="10" r="3"/><circle cx="50" cy="10" r="3"/><circle cx="80" cy="10" r="3"/><circle cx="110" cy="10" r="3"/><circle cx="140" cy="10" r="3"/><circle cx="170" cy="10" r="3"/><circle cx="200" cy="10" r="3"/><circle cx="230" cy="10" r="3"/><circle cx="260" cy="10" r="3"/>
+                <circle cx="20" cy="30" r="3"/><circle cx="50" cy="30" r="3"/><circle cx="80" cy="30" r="3"/><circle cx="110" cy="30" r="3"/><circle cx="140" cy="30" r="3"/><circle cx="170" cy="30" r="3"/><circle cx="200" cy="30" r="3"/><circle cx="230" cy="30" r="3"/><circle cx="260" cy="30" r="3"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,56 @@
+:root {
+    --bg-color: #f4f4f0;
+    --text-color: #333;
+    --accent-color-nature: #2a6f44;
+    --accent-color-tech: #2c3e50;
+    --font-header: 'Merriweather', serif;
+    --font-body: 'Lato', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #e9e9e4; font-family: var(--font-body); }
+
+#entry-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f4f4f0; display: flex; justify-content: center; align-items: center; z-index: 100; transition: opacity 1s, visibility 1s; }
+#enter-btn { background: none; border: 1px solid var(--text-color); color: var(--text-color); font-size: 1.2rem; padding: 1rem 2rem; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+#enter-btn:hover { background-color: var(--text-color); color: var(--bg-color); }
+
+#story-container { display: flex; max-width: 1600px; margin: auto; }
+#narrative-pane { width: 45%; padding: 3rem 4rem; color: var(--text-color); background-color: var(--bg-color); }
+#narrative-pane h1 { font-family: var(--font-header); font-size: 3.5rem; margin-bottom: 0; }
+#narrative-pane header p { font-style: italic; font-size: 1.2rem; margin-top: 0; color: #666; }
+.story-step { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.3; transition: opacity 0.4s ease-out; }
+.story-step.active { opacity: 1; }
+.story-step h2 { font-family: var(--font-header); font-size: 2.2rem; color: var(--accent-color-nature); }
+.story-step[data-step="auto"] h2, .story-step[data-step="bibliothek"] h2, .story-step[data-step="fernsehturm"] h2 { color: var(--accent-color-tech); }
+.story-step p { font-size: 1.1rem; line-height: 1.8; }
+.story-step em { font-style: italic; color: #555; }
+
+#visual-pane { width: 55%; position: sticky; top: 0; height: 100vh; background-color: #d1d1c9; overflow: hidden; }
+#stuttgart-canvas { width: 100%; height: 100%; }
+
+/* --- NLD Result: High-Technique Visual Styles --- */
+.visual-layer {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+.visible { opacity: 1; }
+
+.car-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-in 4s ease-out forwards;
+}
+@keyframes draw-in { to { stroke-dashoffset: 0; } }
+
+.library-light {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.library-light.on { opacity: 1; }
+
+.city-light {
+    animation: twinkle 4s infinite ease-in-out;
+}
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}

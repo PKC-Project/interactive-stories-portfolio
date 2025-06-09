@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seurat's Sunday Dot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main id="story-container">
+        <div id="visual-pane">
+            <svg id="painting-canvas" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <filter id="canvas-texture">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="turbulence"/>
+                        <feDisplacementMap in="SourceGraphic" scale="1.5" in2="turbulence"/>
+                    </filter>
+                    <!-- NLD Result: Define invisible shapes to clip the dot clusters -->
+                    <clipPath id="clip-woman">
+                        <path d="M600,150 C580,200 590,350 610,400 L690,400 C710,350 700,200 680,150 A 40 40 0 0 0 600,150 Z" />
+                    </clipPath>
+                    <clipPath id="clip-man">
+                        <path d="M150,200 L140,400 L230,400 L220,200 A 30 30 0 0 0 150,200 Z" />
+                    </clipPath>
+                </defs>
+                <rect id="canvas-bg" width="800" height="600" fill="#f4f1e9" filter="url(#canvas-texture)" />
+                <g id="art-layers"></g>
+            </svg>
+        </div>
+
+        <div id="narrative-pane">
+            <header>
+                <h1>Seurat's Sunday Dot</h1>
+                <p>The Science of Seeing</p>
+            </header>
+            
+            <section class="story-step" data-step="theory">
+                <h2>A New Way of Seeing</h2>
+                <p>In the late 19th century, painters mixed pigments on a palette. Georges Seurat, a methodical and scientific artist, believed this created "muddy" colors. He theorized that he could achieve more vibrant, luminous hues by placing tiny, unmixed dots of pure color side-by-side, allowing the viewer's own eye to optically blend them from a distance.</p>
+            </section>
+            
+            <section class="story-step" data-step="riverbank">
+                <h2>The Canvas Comes Alive</h2>
+                <p>His masterpiece, "A Sunday Afternoon on the Island of La Grande Jatte," begins. The foundation is laid not with broad strokes, but with thousands of individual points of color. The grass is a mix of greens and yellows; the river, a collection of blues.</p>
+            </section>
+            
+            <section class="story-step" data-step="shadows">
+                <h2>The Color of Shadow</h2>
+                <p>Seurat's most revolutionary idea was in painting shadows. Instead of using gray or black, he used the complementary color. For a sunlit yellow-green lawn, the shadows are composed of blues and oranges. This contrast makes the light seem even brighter. Hover over a shadow to see its hidden colors.</p>
+            </section>
+
+            <section class="story-step" data-step="figures">
+                <h2>Peopling the Park</h2>
+                <p>Slowly, the iconic figures emerge from the haze of dots. Each person is a complex arrangement of color and form, built dot by dot—the stately woman with her parasol, the lounging men, the child in white, and even a curious monkey on a leash.</p>
+            </section>
+
+            <section class="story-step" data-step="masterpiece">
+                <h2>The Final Masterpiece</h2>
+                <p>As the final dots are placed, the scene coalesces. The result is not a static image, but one that seems to vibrate with light and air. Seurat's methodical, scientific process created one of art's most enduring and lively scenes, a technique that would become known as Pointillism.</p>
+            </section>
+            
+            <footer>
+                <p>An interactive journey by the PKC Framework.</p>
+            </footer>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

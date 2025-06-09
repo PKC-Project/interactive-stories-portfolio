@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debussy's Dream: Painting with Sound</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="entry-overlay">
+        <button id="enter-btn">Enter the Dream</button>
+    </div>
+
+    <main id="story-container">
+        <div id="visual-pane">
+            <svg id="painting-canvas" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <!-- NLD Result: More advanced filters for higher fidelity visuals -->
+                    <filter id="luminous-glow">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+                    </filter>
+                    <filter id="water-distortion-filter">
+                        <!-- Using feTurbulence to create a noise map -->
+                        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="3" seed="2" result="turbulence"/>
+                        <!-- Using the noise map to displace the pixels of the input graphic -->
+                        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+                    </filter>
+                    <radialGradient id="moon-gradient">
+                        <stop offset="0%" stop-color="#f5f5f5" />
+                        <stop offset="100%" stop-color="#a2c4e8" />
+                    </radialGradient>
+                </defs>
+                <g id="art-layers"></g>
+            </svg>
+        </div>
+
+        <div id="narrative-pane">
+            <header>
+                <h1>Debussy's Dream</h1>
+                <p>Painting with Sound</p>
+            </header>
+            
+            <section class="story-step" data-step="theory">
+                <h2>The Pleasure of Sensation</h2>
+                <p>Claude Debussy sought to free music from rigid structure. He was not interested in following rules, but in creating a "pleasure," a "sensation." His music was a rebellion, prioritizing mood and texture over traditional development.</p>
+            </section>
+            
+            <section class="story-step" data-step="melody">
+                <h2>Painting with Moonlight</h2>
+                <p>With the opening of his iconic <em>Clair de lune</em>, the scene is set. Debussy used harmony as a form of color, creating shades and tints of sound, much like an Impressionist painter applying dabs of paint to a canvas.</p>
+            </section>
+            
+            <section class="story-step" data-step="arpeggios">
+                <h2>The Water's Reflection</h2>
+                <p>The music shifts. Rippling arpeggios create a sense of movement, like moonlight shimmering on the surface of water. Debussy's use of "non-functional" harmony creates a floating, dreamlike ambiguity, freeing the listener from the expectation of a clear path.</p>
+            </section>
+
+            <section class="story-step" data-step="atmosphere">
+                <h2>A Drifting Mist</h2>
+                <p>The music is about suggestion, not statement. Like a landscape painter, Debussy creates an atmosphere and leaves the details to the listener's imagination. Soft layers of sound drift like mist, partially obscuring the musical landscape.</p>
+            </section>
+
+            <section class="story-step" data-step="coda">
+                <h2>Fading to Silence</h2>
+                <p>As the final, quiet chords sound, the dream fades. The experience dissolves back into the silence from which it emerged, leaving behind not a story told, but a feeling felt—the true essence of musical Impressionism.</p>
+            </section>
+            
+            <footer><p>An interactive journey by the PKC Framework.</p></footer>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

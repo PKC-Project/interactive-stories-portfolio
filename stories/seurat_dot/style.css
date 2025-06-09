@@ -1,0 +1,45 @@
+:root {
+    --bg-color: #f4f1e9;
+    --text-color: #3d352e;
+    --font-header: 'Playfair Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #e9e5db; font-family: var(--font-body); }
+
+#story-container { display: flex; max-width: 1600px; margin: auto; }
+#narrative-pane { width: 40%; padding: 3rem 4rem; color: var(--text-color); }
+#narrative-pane h1 { font-family: var(--font-header); font-size: 3.5rem; margin-bottom: 0.5rem; }
+#narrative-pane header p { font-style: italic; font-size: 1.2rem; margin-top: 0; }
+.story-step { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.3; transition: opacity 0.4s ease-out; }
+.story-step.active { opacity: 1; }
+.story-step h2 { font-family: var(--font-header); font-size: 2.2rem; }
+.story-step p { font-size: 1.2rem; line-height: 1.8; }
+
+#visual-pane { width: 60%; position: sticky; top: 0; height: 100vh; display: flex; justify-content: center; align-items: center; }
+#painting-canvas { width: 90%; height: 90%; border-radius: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+/* NLD Result: Improved dot appearance animation */
+.art-dot {
+    opacity: 0;
+    transform-origin: center center;
+    animation: dot-appear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes dot-appear {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* NLD Result: Improved final shimmer animation */
+.final-shimmer {
+    animation: shimmer 3s infinite ease-in-out;
+}
+@keyframes shimmer {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+}
+
+#shadow-group:hover .art-dot {
+    transform: scale(2.5);
+    transition: transform 0.3s ease-out;
+}

@@ -1,0 +1,29 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail Design 3: The Glimpse of a Dream
+    Metaphor: Viewing the scene through a dreamlike aperture, emphasizing a fleeting impression.
+    -->
+    <defs>
+        <filter id="soft-edge-glow"><feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#a2c4e8" flood-opacity="0.5"/></filter>
+        <clipPath id="glimpse-shape">
+            <path d="M 50,112.5 C 50,50 150,20 200,50 S 350,80 350,112.5 S 250,205 200,175 S 50,175 50,112.5 Z" />
+        </clipPath>
+    </defs>
+    
+    <!-- Dark, simple background -->
+    <rect width="400" height="225" fill="#0a1420" />
+    
+    <!-- The frame/shape itself, with a glow -->
+    <path d="M 50,112.5 C 50,50 150,20 200,50 S 350,80 350,112.5 S 250,205 200,175 S 50,175 50,112.5 Z" fill="none" filter="url(#soft-edge-glow)" />
+
+    <!-- The scene, clipped inside the shape -->
+    <g clip-path="url(#glimpse-shape)">
+        <rect width="400" height="225" fill="#1e3a5f"/>
+        <!-- Stars -->
+        <g fill="white" opacity="0.7">
+            <circle cx="100" cy="60" r="1.5"/><circle cx="280" cy="80" r="1"/><circle cx="200" cy="150" r="1.2"/>
+        </g>
+        <!-- Moon -->
+        <circle cx="200" cy="90" r="30" fill="#f5f5f5" opacity="0.8"/>
+    </g>
+</svg>

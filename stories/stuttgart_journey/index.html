@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stuttgart: Between Forest and Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="entry-overlay">
+        <button id="enter-btn">Begin the Journey</button>
+    </div>
+
+    <main id="story-container">
+        <div id="visual-pane">
+            <svg id="stuttgart-canvas" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <filter id="glow-filter"><feGaussianBlur stdDeviation="5" /></filter>
+                </defs>
+                <g id="art-layers">
+                    <!-- Dynamic, layered visuals will be rendered here by JavaScript -->
+                </g>
+            </svg>
+        </div>
+
+        <div id="narrative-pane">
+            <header>
+                <h1>Stuttgart</h1>
+                <p>Zwischen Wald und Zukunft</p>
+            </header>
+            
+            <section class="story-step" data-step="forest">
+                <h2>Der Wald</h2>
+                <p>Welcome to Stuttgart. Before you see the city, you must understand its cradle: the forest. The city lives within a green cauldron—<em>der Kessel</em>—forever tied to the nature that surrounds it.</p>
+            </section>
+            
+            <section class="story-step" data-step="schlossplatz">
+                <h2>Das Herz der Stadt</h2>
+                <p>At the city's heart, centuries meet. Here, the stern history of the Old Castle stands across from the sleek modernism of the art museum. A local might greet you with a warm <em>"Grüß Gott!"</em></p>
+            </section>
+            
+            <section class="story-step" data-step="auto">
+                <h2>Der Motor der Zukunft</h2>
+                <p>This valley is the engine room of the automobile. The precision of Porsche and Mercedes-Benz was born from the local 'Tüftler' spirit—a culture of obsessive inventors who live by the motto: <em>"Schaffe, schaffe, Häusle baue."</em></p>
+            </section>
+
+            <section class="story-step" data-step="bibliothek">
+                <h2>Die Kathedrale des Wissens</h2>
+                <p>But the future here is not just metal. It is knowledge. The city library stands as a perfect cube—austere on the outside, but holding a vibrant, illuminated heart of books and ideas within.</p>
+            </section>
+
+            <section class="story-step" data-step="fernsehturm">
+                <h2>Der Überblick</h2>
+                <p>From the Fernsehturm, the world's first television tower, you see it all at once. Not a city versus a forest, but a city held by a forest. A future built on a foundation of nature. <em>Auf Wiedersehen, Stuttgart.</em></p>
+            </section>
+            
+            <footer><p>An interactive journey by the PKC Framework.</p></footer>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

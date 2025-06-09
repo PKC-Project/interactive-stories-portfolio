@@ -1,0 +1,46 @@
+:root {
+    --bg-color: #0a1420;
+    --text-color: #b0c4de;
+    --font-header: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #060c13; font-family: var(--font-body); }
+
+#entry-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #060c13; display: flex; justify-content: center; align-items: center;
+    z-index: 100; transition: opacity 1s ease-out, visibility 1s;
+}
+#enter-btn {
+    background: none; border: 1px solid var(--text-color); color: var(--text-color);
+    font-size: 1.2rem; padding: 1rem 2rem; border-radius: 5px;
+    cursor: pointer; transition: background-color 0.3s, color 0.3s;
+}
+#enter-btn:hover { background-color: var(--text-color); color: var(--bg-color); }
+
+#story-container { display: flex; max-width: 1600px; margin: auto; }
+#narrative-pane { width: 40%; padding: 3rem 4rem; color: var(--text-color); }
+#narrative-pane h1 { font-family: var(--font-header); font-size: 3.5rem; margin-bottom: 0.5rem; color: #fff; }
+#narrative-pane header p { font-style: italic; font-size: 1.2rem; margin-top: 0; }
+.story-step { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.3; transition: opacity 0.4s ease-out; }
+.story-step.active { opacity: 1; }
+.story-step h2 { font-family: var(--font-header); font-size: 2.2rem; color: #fff; }
+.story-step p { font-size: 1.1rem; line-height: 1.8; }
+
+#visual-pane { width: 60%; position: sticky; top: 0; height: 100vh; }
+#painting-canvas { width: 100%; height: 100%; background-color: var(--bg-color); }
+
+/* NLD Result: Styles for the new visual elements */
+.visual-layer { opacity: 0; transition: opacity 4s ease-in-out; }
+.visual-layer.visible { opacity: 1; }
+
+.star { fill: #fff; animation: twinkle 5s infinite ease-in-out; }
+@keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+
+/* The new volumetric mist particles */
+.mist-particle {
+    fill: #b0c4de;
+    mix-blend-mode: screen;
+    filter: blur(15px); /* Heavy blur to make them soft and cloud-like */
+}

@@ -1,0 +1,38 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "Stuttgart: Forest & Future"
+    Metaphor: The TV Tower bridging the gap between nature and technology.
+    -->
+    <defs>
+        <clipPath id="left-half"><rect x="0" y="0" width="200" height="225"/></clipPath>
+        <clipPath id="right-half"><rect x="200" y="0" width="200" height="225"/></clipPath>
+        <filter id="forest-texture"><feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="1" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2"/></filter>
+    </defs>
+
+    <!-- Left Side: Nature -->
+    <g clip-path="url(#left-half)">
+        <rect width="200" height="225" fill="#1e4d2b"/>
+        <g opacity="0.4" filter="url(#forest-texture)">
+            <circle cx="50" cy="80" r="100" fill="#2a6f44"/>
+            <circle cx="180" cy="150" r="120" fill="#358659"/>
+        </g>
+    </g>
+
+    <!-- Right Side: Technology -->
+    <g clip-path="url(#right-half)">
+        <rect x="200" y="0" width="200" height="225" fill="#2c3e50"/>
+        <g stroke="#7f8c8d" stroke-width="1.5" opacity="0.7">
+            <path d="M250 0 v225 M300 0 v225 M350 0 v225"/>
+            <path d="M200 50 h200 M200 100 h200 M200 150 h200"/>
+            <circle cx="250" cy="50" r="3" fill="#95a5a6"/>
+            <circle cx="300" cy="150" r="3" fill="#95a5a6"/>
+        </g>
+    </g>
+
+    <!-- Central Element: The Fernsehturm (TV Tower) -->
+    <g fill="#ecf0f1" style="filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));">
+        <path d="M 198 225 L 198 50 L 202 50 L 202 225 Z" />
+        <rect x="190" y="50" width="20" height="30" rx="5"/>
+        <path d="M 199 50 L 199 20 L 201 20 L 201 50 Z" />
+    </g>
+</svg>

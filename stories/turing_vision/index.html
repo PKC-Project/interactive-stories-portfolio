@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing's Vision: The Universal Machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="entry-overlay"><button id="enter-btn">Begin Simulation</button></div>
+    <main id="story-container">
+        <div id="visual-pane">
+            <!-- All visuals are now dynamically generated in these containers -->
+            <div id="act-theory" class="visual-act"></div>
+            <div id="act-application" class="visual-act"></div>
+            <div id="act-legacy" class="visual-act"></div>
+            <div id="act-coda" class="visual-act"></div>
+        </div>
+
+        <div id="narrative-pane">
+            <header><h1>Turing's Vision</h1><p>The Universal Machine</p></header>
+            <section class="story-step" data-step="theory"><h2>The Abstract Machine</h2><p>Before computers were circuits, they were an idea. In 1936, a young Alan Turing imagined a machine... not of gears, but of pure logic. An infinite tape, a simple head. Read, write, move. With these rules, it could compute anything computable.</p></section>
+            <section class="story-step" data-step="application"><h2>The Codebreakers' War</h2><p>This abstract idea became a weapon. During WWII, Turing's insights were key to designing the electromechanical "Bombe" machines that sought patterns in chaos, breaking the 'unbreakable' Enigma code and turning the tide of the war.</p></section>
+            <section class="story-step" data-step="legacy"><h2>The Imitation Game</h2><p>Having proven a machine could calculate, Turing asked a more profound question: Can a machine <em>think</em>? His "Imitation Game," now the Turing Test, became the foundational thought experiment of artificial intelligence.</p></section>
+            <section class="story-step" data-step="coda"><h2>The Universal Machine</h2><p>Turing's vision of a single machine that could perform any task if given the right instructions is the ancestor of every computer, every phone... and the code that is bringing this story to life for you right now.</p></section>
+            <footer><p>An interactive journey by the PKC Framework.</p></footer>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
