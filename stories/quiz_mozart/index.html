@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mozart Conundrum: An Audio Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="quiz-container">
+        <div id="quiz-card">
+            
+            <!-- FRONT OF THE CARD (The Question) -->
+            <div id="quiz-front">
+                <header id="quiz-header">
+                    <h1>The Mozart Conundrum</h1>
+                    <div id="progress-bar-container"><div id="progress-bar"></div></div>
+                    <div id="score-display">Score: 0</div>
+                </header>
+                <main id="question-area">
+                    <h2 id="question-prompt"></h2>
+                    <div id="stimulus-container">
+                        <!-- Player cards will be injected here -->
+                    </div>
+                </main>
+                <footer id="answer-area">
+                    <!-- Answer buttons will be injected here -->
+                </footer>
+            </div>
+
+            <!-- BACK OF THE CARD (The Feedback) -->
+            <div id="feedback-back">
+                <h2 id="feedback-title">
+                    <span id="feedback-icon"></span>
+                    <span id="feedback-title-text"></span>
+                </h2>
+                <p id="feedback-text"></p>
+                <button id="next-question-btn">Next</button>
+            </div>
+
+        </div>
+
+        <!-- The results screen, hidden initially -->
+        <div id="results-screen" class="hidden">
+            <h2>Quiz Complete!</h2>
+            <p>Your Final Score:</p>
+            <h3 id="final-score"></h3>
+            <div class="results-summary">
+                <h4>Key Concepts Reviewed:</h4>
+                <ul>
+                    <li>Composer Stylistic Signatures</li>
+                    <li>Musical Cadences & Resolution</li>
+                    <li>Classical Era Instrumentation</li>
+                </ul>
+            </div>
+            <button id="restart-quiz-btn">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Hidden SVG Asset Library for Icons -->
+    <div id="svg-asset-library" style="display: none;">
+        <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+        <svg id="icon-harpsichord" viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11zM6 7h12v2H6zm0 4h12v2H6z"></path><path d="M8 19h8v2H8z"></path></svg>
+        <svg id="icon-piano" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H4V5h16v14zM5 7h14v5H5zm1 1h2v3H6zm3 0h2v3H9zm3 0h2v3h-2zm3 0h2v3h-2z"></path></svg>
+        <svg id="icon-synth" viewBox="0 0 24 24"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7 16H5v-4h2v4zm4 0H9v-4h2v4zm4 0h-2v-4h2v4zm4-2h-2v-2h2v2zm0-2h-2V8h2v2z"></path></svg>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

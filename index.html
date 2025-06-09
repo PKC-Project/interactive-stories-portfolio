@@ -3,736 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Journeys: Animated Stories</title>
+    <title>Interactive Journeys: A Library of Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="portfolio-header">
         <h1>Interactive Journeys</h1>
-        <p class="subtitle">Step into animated stories where art and music come alive!</p>
+        <p class="subtitle">A library of animated stories where art, science, and play come alive.</p>
     </header>
 
-    <main class="gallery-container">
-        <section class="story-gallery">
+    <main class="library-container">
 
-            <!-- Story Card for Van Gogh -->
-            <article class="story-card">
-                <a href="stories/van_g/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/van_g/thumbnail.svg" alt="Van Gogh Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Vincent's Canvas</h2>
-                    <p class="story-description">Experience the vibrant world and poignant life of Vincent van Gogh. An interactive tale told through color, sound, and motion.</p>
-                </a>
-            </article>
+        <!-- Pillar 1: The Athenaeum of Arts & Humanities -->
+        <section class="pillar">
+            <h2 class="pillar-title">The Athenaeum of Arts & Humanities</h2>
 
-            <!-- Story Card for Mozart -->
-            <article class="story-card">
-                <a href="stories/amadeus_m/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/amadeus_m/thumbnail.svg" alt="Mozart Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Mozart's Melody</h2>
-                    <p class="story-description">Uncover the genius of Wolfgang Amadeus Mozart, from child prodigy to timeless master, in this interactive musical journey.</p>
-                </a>
-            </article>
+            <div class="collection">
+                <h3 class="collection-title">The Master Painters</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/van_g/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/van_g/thumbnail.svg" alt="Van Gogh Story" class="story-thumbnail"></div><h4 class="story-title">Vincent's Canvas</h4><p class="story-description">Experience the vibrant world and poignant life of Vincent van Gogh.</p></a></article>
+                    <article class="story-card"><a href="stories/frida_kahlo/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/frida_kahlo/thumbnail.svg" alt="Frida Kahlo Story" class="story-thumbnail"></div><h4 class="story-title">Frida's Colors</h4><p class="story-description">Delve into the vibrant, symbolic, and deeply personal world of Frida Kahlo.</p></a></article>
+                    <article class="story-card"><a href="stories/leonardo_da_vinci/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/leonardo_da_vinci/thumbnail.svg" alt="Leonardo da Vinci Story" class="story-thumbnail"></div><h4 class="story-title">Leonardo's Mind</h4><p class="story-description">Explore the boundless curiosity and breathtaking genius of Leonardo da Vinci.</p></a></article>
+                </div>
+            </div>
 
-            <!-- Story Card for Frida Kahlo -->
-            <article class="story-card">
-                <a href="stories/frida_kahlo/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/frida_kahlo/thumbnail.svg" alt="Frida Kahlo Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Frida's Colors</h2>
-                    <p class="story-description">Delve into the vibrant, symbolic, and deeply personal world of Frida Kahlo. An interactive story of pain, passion, and art.</p>
-                </a>
-            </article>
+            <div class="collection">
+                <h3 class="collection-title">The Great Composers</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/amadeus_m/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/amadeus_m/thumbnail.svg" alt="Mozart Story" class="story-thumbnail"></div><h4 class="story-title">Mozart's Melody</h4><p class="story-description">Uncover the genius of Wolfgang Amadeus Mozart in this interactive musical journey.</p></a></article>
+                    <article class="story-card"><a href="stories/beethoven/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/beethoven/thumbnail.svg" alt="Beethoven Story" class="story-thumbnail"></div><h4 class="story-title">Beethoven's Echo</h4><p class="story-description">Journey through the powerful emotions and indomitable spirit of Ludwig van Beethoven.</p></a></article>
+                    <article class="story-card"><a href="stories/bach/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/bach/thumbnail.svg" alt="J.S. Bach Story" class="story-thumbnail"></div><h4 class="story-title">Bach's Architecture</h4><p class="story-description">Discover the intricate structures of Johann Sebastian Bach's timeless masterpieces.</p></a></article>
+                </div>
+            </div>
 
-            <!-- Story Card for Beethoven -->
-            <article class="story-card">
-                <a href="stories/beethoven/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/beethoven/thumbnail.svg" alt="Beethoven Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Beethoven's Echo</h2>
-                    <p class="story-description">Journey through the powerful emotions, groundbreaking compositions, and indomitable spirit of Ludwig van Beethoven.</p>
-                </a>
-            </article>
+            <div class="collection">
+                <h3 class="collection-title">The Visionaries of Design</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/spire_of_gotham/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/spire_of_gotham/thumbnail.svg" alt="The Spire of Gotham" class="story-thumbnail"></div><h4 class="story-title">The Spire of Gotham</h4><p class="story-description">Ascend an interactive Art Deco skyscraper in this vertical scrollytelling journey.</p></a></article>
+                    <article class="story-card"><a href="stories/architects_blueprint/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/architects_blueprint/thumbnail.svg" alt="The Architect's Blueprint" class="story-thumbnail"></div><h4 class="story-title">The Architect's Blueprint</h4><p class="story-description">Explore a "living blueprint" of a Frank Lloyd Wright-inspired home.</p></a></article>
+                    <article class="story-card"><a href="stories/house_of_worth/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/house_of_worth/thumbnail.svg" alt="The House of Worth" class="story-thumbnail"></div><h4 class="story-title">The House of Worth</h4><p class="story-description">Step into the 19th-century Parisian salon of the father of haute couture.</p></a></article>
+                    <article class="story-card"><a href="stories/clockwork_heart/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/clockwork_heart/thumbnail.svg" alt="The Clockwork Heart" class="story-thumbnail"></div><h4 class="story-title">The Clockwork Heart</h4><p class="story-description">Explore the beautiful, intricate world of a mechanical watch in this "living blueprint".</p></a></article>
+                </div>
+            </div>
 
-            <!-- Story Card for Leonardo da Vinci -->
-            <article class="story-card">
-                <a href="stories/leonardo_da_vinci/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/leonardo_da_vinci/thumbnail.svg" alt="Leonardo da Vinci Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Leonardo's Mind</h2>
-                    <p class="story-description">Explore the boundless curiosity and breathtaking genius of Leonardo da Vinci, the ultimate Renaissance polymath.</p>
-                </a>
-            </article>
+            <div class="collection">
+                <h3 class="collection-title">The Literary & Cinematic Worlds</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/the_poets_verse/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/the_poets_verse/thumbnail.svg" alt="The Poet's Verse" class="story-thumbnail"></div><h4 class="story-title">The Poet's Verse</h4><p class="story-description">A narrated journey into Edgar Allan Poe's "The Raven."</p></a></article>
+                    <article class="story-card"><a href="stories/the_tell_tale_heart/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/the_tell_tale_heart/thumbnail.svg" alt="The Tell-Tale Heart" class="story-thumbnail"></div><h4 class="story-title">The Tell-Tale Heart</h4><p class="story-description">Experience Poe's classic tale of madness through interactive sound and visuals.</p></a></article>
+                    <article class="story-card"><a href="stories/ronins_resolve/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/ronins_resolve/thumbnail.svg" alt="The Ronin's Resolve" class="story-thumbnail"></div><h4 class="story-title">The Ronin's Resolve</h4><p class="story-description">An atmospheric homage to the cinematic language of Akira Kurosawa.</p></a></article>
+                    <article class="story-card"><a href="stories/platos_cave/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/platos_cave/thumbnail.svg" alt="Plato's Cave" class="story-thumbnail"></div><h4 class="story-title">Plato's Cave: An Allegory Unbound</h4><p class="story-description">Experience Plato's foundational allegory in a new light.</p></a></article>
+                </div>
+            </div>
 
-            <!-- Story Card for Bach -->
-            <article class="story-card">
-                <a href="stories/bach/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/bach/thumbnail.svg" alt="J.S. Bach Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Bach's Architecture</h2>
-                    <p class="story-description">Discover the intricate structures and profound spirituality of Johann Sebastian Bach's timeless Baroque masterpieces.</p>
-                </a>
-            </article>
+            <div class="collection">
+                <h3 class="collection-title">The Folktale Trove</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/monkey_king_havoc/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/monkey_king_havoc/thumbnail.svg" alt="The Monkey King's Havoc" class="story-thumbnail"></div><h4 class="story-title">The Monkey King's Havoc</h4><p class="story-description">A cinematic scroll telling the legend of Sun Wukong.</p></a></article>
+                    <article class="story-card"><a href="stories/dia_de_muertos/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/dia_de_muertos/thumbnail.svg" alt="Día de Muertos" class="story-thumbnail"></div><h4 class="story-title">Día de Muertos: A Celebration</h4><p class="story-description">Discover the vibrant traditions of Mexico's Day of the Dead.</p></a></article>
+                    <article class="story-card"><a href="stories/anansi_wisdom/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/anansi_wisdom/thumbnail.svg" alt="Anansi and Wisdom's Pot" class="story-thumbnail"></div><h4 class="story-title">Anansi and Wisdom's Pot</h4><p class="story-description">Join Anansi the spider in this interactive West African folktale.</p></a></article>
+                    <article class="story-card"><a href="stories/momotaro/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/momotaro/thumbnail.svg" alt="Momotarō" class="story-thumbnail"></div><h4 class="story-title">Momotarō: The Peach Boy</h4><p class="story-description">Follow the legendary Peach Boy on an epic quest in this Japanese folktale.</p></a></article>
+                </div>
+            </div>
 
-            <!-- Story Card for the Painter Quiz -->
-            <article class="story-card">
-                <a href="stories/quiz_painters/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/quiz_painters/thumbnail.svg" alt="Painter Quiz Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Canvas Queries Quiz</h2>
-                    <p class="story-description">Test your eye for detail! Identify painters, styles, and iconic elements in this visual quiz on art masters.</p>
-                </a>
-            </article>
+            <div class="collection">
+                <h3 class="collection-title">The Digital Cookbook</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/cuscinetti_croccanti/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/cuscinetti_croccanti/thumbnail.svg" alt="Cuscinetti Croccanti" class="story-thumbnail"></div><h4 class="story-title">Cuscinetti Croccanti</h4><p class="story-description">Embark on a culinary journey to Sicily with this interactive recipe.</p></a></article>
+                    <article class="story-card"><a href="stories/aglio_e_olio_recipe/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/aglio_e_olio_recipe/thumbnail.svg" alt="Spaghetti Aglio e Olio" class="story-thumbnail"></div><h4 class="story-title">Classic Spaghetti Aglio e Olio</h4><p class="story-description">Learn to make this simple Italian pasta dish with our interactive guide.</p></a></article>
+                </div>
+            </div>
 
-            <!-- Story Card for the Musician Quiz -->
-            <article class="story-card">
-                <a href="stories/quiz_musicians/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/quiz_musicians/thumbnail.svg" alt="Musician Quiz Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Composer's Conundrum</h2>
-                    <p class="story-description">Tune your ears! Identify composers, styles, and famous musical ideas in this interactive audio quiz.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for the Land Animal Quiz -->
-            <article class="story-card">
-                <a href="stories/quiz_land_animals/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/quiz_land_animals/thumbnail.svg" alt="Land Animal Quiz Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Land Animal Safari</h2>
-                    <p class="story-description">How well do you know your land animals? Test your knowledge with sounds, visuals, and fun facts!</p>
-                </a>
-            </article>
-
-            <!-- NEW Story Card for PONG -->
-            <article class="story-card">
-                <a href="stories/pong/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/pong/thumbnail.svg" alt="PONG Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">PONG: The Digital Duel</h2>
-                    <p class="story-description">Relive the dawn of video games! Learn about the iconic PONG and play a simplified version of this arcade classic.</p>
-                </a>
-            </article>
-
-            <!-- NEW Story Card for SPACE INVADERS -->
-            <article class="story-card">
-                <a href="stories/space_invaders/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- Make sure you have stories/space_invaders/thumbnail.svg -->
-                        <img src="stories/space_invaders/thumbnail.svg" alt="Space Invaders Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Space Invaders: First Contact</h2>
-                    <p class="story-description">Defend Earth from the relentless alien horde! Explore the history and play a snippet of this legendary arcade shooter.</p>
-                </a>
-            </article>
-
-            <!-- NEW Story Card for The Crystal of Eldoria -->
-            <article class="story-card">
-                <a href="stories/crystal_of_eldoria/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- Make sure you have stories/crystal_of_eldoria/thumbnail.svg -->
-                        <img src="stories/crystal_of_eldoria/thumbnail.svg" alt="The Crystal of Eldoria Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The Crystal of Eldoria</h2>
-                    <p class="story-description">Embark on an interactive fantasy quest! Your choices, wit, and courage will determine the fate of your village. Multiple paths and endings await.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Marie Curie -->
-            <article class="story-card">
-                <a href="stories/marie_curie/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/marie_curie/thumbnail.svg" alt="Marie Curie Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Curie's Radiant Quest</h2>
-                    <p class="story-description">Uncover the groundbreaking discoveries of Marie Curie in this interactive story of perseverance and scientific brilliance.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Galileo -->
-            <article class="story-card">
-                <a href="stories/galileo_messenger/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/galileo_messenger/thumbnail.svg" alt="Galileo Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Galileo's Starry Messenger</h2>
-                    <p class="story-description">Peer through Galileo's telescope and witness the discoveries that reshaped our understanding of the cosmos.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Darwin -->
-            <article class="story-card">
-                <a href="stories/darwin_voyage/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/darwin_voyage/thumbnail.svg" alt="Darwin Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Darwin's Voyage</h2>
-                    <p class="story-description">Sail with Charles Darwin on the HMS Beagle and uncover the observations that led to the theory of evolution by natural selection.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Día de Muertos -->
-            <article class="story-card">
-                <a href="stories/dia_de_muertos/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/dia_de_muertos/thumbnail.svg" alt="Día de Muertos Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Día de Muertos: A Celebration</h2>
-                    <p class="story-description">Discover the vibrant traditions of Mexico's Day of the Dead, a colorful tribute to life and memory. (Bilingual phrases included!)</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Anansi -->
-            <article class="story-card">
-                <a href="stories/anansi_wisdom/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/anansi_wisdom/thumbnail.svg" alt="Anansi Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Anansi and Wisdom's Pot</h2>
-                    <p class="story-description">Join Anansi the spider in this interactive folktale as he tries to gather all the world's wisdom for himself!</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Momotarō -->
-            <article class="story-card">
-                <a href="stories/momotaro/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This will use the thumbnail.svg you place in stories/momotaro/ -->
-                        <img src="stories/momotaro/thumbnail.svg" alt="Momotarō Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Momotarō: The Peach Boy's Journey</h2>
-                    <p class="story-description">Follow the legendary Peach Boy and his animal companions on an epic quest to Ogre Island in this interactive Japanese folktale.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Simpsons Couch Gag Generator -->
-            <article class="story-card">
-                <a href="stories/simpsons_couch_gag/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/simpsons_couch_gag/ -->
-                        <img src="stories/simpsons_couch_gag/thumbnail.svg" alt="Simpsons Couch Gag Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Simpsons Couch Gag Generator</h2>
-                    <p class="story-description">D'oh! Click to see the Simpsons family in a variety of classic and new couch gags, all generated on the fly!</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Spaghetti Aglio e Olio Recipe -->
-            <article class="story-card">
-                <a href="stories/aglio_e_olio_recipe/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/aglio_e_olio_recipe/ -->
-                        <img src="stories/aglio_e_olio_recipe/thumbnail.svg" alt="Spaghetti Aglio e Olio Recipe Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Classic Spaghetti Aglio e Olio</h2>
-                    <p class="story-description">Learn to make this simple yet delicious Italian pasta dish with our interactive, step-by-step guide. Buon Appetito!</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Shanghai -->
-            <article class="story-card">
-                <a href="stories/shanghai_glimpse/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/shanghai_glimpse/ -->
-                        <img src="stories/shanghai_glimpse/thumbnail.svg" alt="Shanghai Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">A Glimpse of Shanghai (上海掠影)</h2>
-                    <p class="story-description">Journey through the vibrant city of Shanghai, from the historic Bund to futuristic Pudong and traditional Yu Garden, in this interactive exploration.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for The Power of Pi -->
-            <article class="story-card">
-                <a href="stories/power_of_pi/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/power_of_pi/ -->
-                        <img src="stories/power_of_pi/thumbnail.svg" alt="The Power of Pi Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The Power of Pi (π): Circles Unraveled</h2>
-                    <p class="story-description">An interactive journey to understand the magic of Pi, from diameters and circumferences to the area of a circle, with fun animations!</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Newton's Gravity -->
-            <article class="story-card">
-                <a href="stories/newtons_gravity/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/newtons_gravity/ -->
-                        <img src="stories/newtons_gravity/thumbnail.svg" alt="Newton's Gravity Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The Dance of Gravity</h2>
-                    <p class="story-description">Unravel the mysteries of gravity with Isaac Newton, from falling apples to orbiting moons, in this interactive physics adventure.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Molecule Builders -->
-            <article class="story-card">
-                <a href="stories/molecule_builder/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/molecule_builder/ -->
-                        <img src="stories/molecule_builder/thumbnail.svg" alt="Molecule Builders Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Molecule Builders: Chemical Bonds</h2>
-                    <p class="story-description">Discover the tiny building blocks of matter! Interactively build simple molecules like water and carbon dioxide and learn about atoms.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for LingoLeap: Idioms -->
-            <article class="story-card">
-                <a href="stories/lingo_leap_idioms/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This uses the thumbnail.svg you created in stories/lingo_leap_idioms/ -->
-                        <img src="stories/lingo_leap_idioms/thumbnail.svg" alt="LingoLeap Idioms Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">LingoLeap: Idiom Explorer</h2>
-                    <p class="story-description">Dive into the quirky world of English idioms! Discover their literal and figurative meanings through fun, interactive visuals and sounds.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Metaphor Maze -->
-            <article class="story-card">
-                <a href="stories/metaphor_maze/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/metaphor_maze/thumbnail.svg" alt="Metaphor Maze Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Metaphor Maze: Unveiling Meanings</h2>
-                    <p class="story-description">Explore common English metaphors like "Argument is War" and "Time is Money" through interactive visuals and animations.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Blockchain Explained -->
-            <article class="story-card">
-                <a href="stories/blockchain_explained/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/blockchain_explained/thumbnail.svg" alt="Blockchain Explained Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Blockchain: The Trust Chain</h2>
-                    <p class="story-description">Unravel the mystery of blockchain technology through interactive visuals and simple explanations. Discover blocks, hashes, and decentralization!</p>
-                </a>
-            </article>
-
-            <!-- NEW Story Card for Lingua Francas -->
-            <article class="story-card">
-                <a href="stories/lingua_francas/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/lingua_francas/thumbnail.svg" alt="Lingua Francas Course Intro" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Lingua Francas: Languages of Connection</h2>
-                    <p class="story-description">Explore the fascinating world of Lingua Francas – the bridge languages that connect people across cultures and time, even in the digital age!</p>
-                </a>
-            </article>
-
-            <!-- NEW Story Card for Models of Grammar -->
-            <article class="story-card">
-                <a href="stories/models_of_grammar/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/models_of_grammar/thumbnail.svg" alt="Models of Grammar Course Intro" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Models of Grammar: Unraveling Language</h2>
-                    <p class="story-description">Dive into the theories that explain how language works! Explore different grammatical models and their unique approaches to structure.</p>
-                </a>
-            </article>
-
-            <!-- NEW Story Card for Second Language Acquisition (SLA) -->
-            <article class="story-card">
-                <a href="stories/sla_learning/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- Make sure you have stories/sla_learning/thumbnail.svg -->
-                        <img src="stories/sla_learning/thumbnail.svg" alt="Second Language Acquisition Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The L2 Journey: Unlocking SLA</h2>
-                    <p class="story-description">Explore the fascinating science of how we learn new languages. Journey through major theories and factors in Second Language Acquisition.</p>
-                </a>
-            </article>
-
-			<!-- Story Card for The Digital Crane -->
-            <article class="story-card">
-                <a href="stories/digital_crane/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This will use the thumbnail.svg you place in stories/digital_crane/ -->
-                        <img src="stories/digital_crane/thumbnail.svg" alt="The Digital Crane Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The Digital Crane</h2>
-                    <p class="story-description">Learn the timeless art of origami. An interactive, step-by-step guide to folding a paper crane, brought to life with animated folds and sound.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for Melody Maker -->
-            <article class="story-card">
-                <a href="stories/melody_maker/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This will use the thumbnail.svg you place in stories/melody_maker/ -->
-                        <img src="stories/melody_maker/thumbnail.svg" alt="Melody Maker Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">Melody Maker</h2>
-                    <p class="story-description">Become a composer. Click the grid to create looping melodies, change tempo, and swap instruments in this interactive music sequencer.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for The Algorithmic Easel -->
-            <article class="story-card">
-                <a href="stories/algorithmic_easel/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <!-- This will use the thumbnail.svg you place in stories/algorithmic_easel/ -->
-                        <img src="stories/algorithmic_easel/thumbnail.svg" alt="The Algorithmic Easel Story" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The Algorithmic Easel</h2>
-                    <p class="story-description">Become a creative director. Guide a generative artist to create unique, abstract paintings by choosing styles, colors, and complexity.</p>
-                </a>
-            </article>
-
-            <!-- Story Card for The World's Orchestra -->
-            <article class="story-card">
-                <a href="stories/worlds_orchestra/index.html" class="story-link">
-                    <div class="thumbnail-container">
-                        <img src="stories/worlds_orchestra/thumbnail.svg" alt="The World's Orchestra Story Thumbnail" class="story-thumbnail">
-                    </div>
-                    <h2 class="story-title">The World's Orchestra</h2>
-                    <p class="story-description">Listen to our changing climate. Drag the timeline to hear decades of global temperature data transformed into a symphony.</p>
-                </a>
-            </article>
-
-			<!-- Story Card for The Digital Ecosystem -->
-			<article class="story-card">
-				<a href="stories/digital_ecosystem/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/digital_ecosystem/thumbnail.svg" alt="Digital Ecosystem Simulation Thumbnail" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Digital Ecosystem</h2>
-					<p class="story-description">Observe and influence a pocket pond. Click to add algae and watch as the laws of nature unfold. Can you create a stable world, or will it fall to boom and bust?</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Myth Maker's Compendium -->
-			<article class="story-card">
-				<a href="stories/myth_maker/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/myth_maker/thumbnail.svg" alt="The Myth Maker's Compendium Thumbnail" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Myth Maker's Compendium</h2>
-					<p class="story-description">Become a co-author of legend. You provide the hero, treasure, and beast—we'll weave your words into a unique, illustrated myth with twists, styles, and sounds.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Living Blueprint -->
-			<article class="story-card">
-				<a href="stories/living_blueprint/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/living_blueprint/thumbnail.svg" alt="The Living Blueprint interactive infographic" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Living Blueprint</h2>
-					<p class="story-description">An immersive "scrollytelling" journey into a computer's core. Awaken each component with your scroll and experience a symphony of light and sound as the machine comes to life.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Endless Dungeon -->
-			<article class="story-card">
-				<a href="stories/endless_dungeon/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/endless_dungeon/thumbnail.svg" alt="The Endless Dungeon Game Thumbnail" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Endless Dungeon</h2>
-					<p class="story-description">Navigate a new, procedurally generated labyrinth every time you play. Find the exit, but beware: a relentless Minotaur hunts you through the corridors, moving every time you do.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for Newton's Sandbox -->
-			<article class="story-card">
-				<a href="stories/newtons_sandbox/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/newtons_sandbox/thumbnail.svg" alt="Newton's Sandbox orbital mechanics simulation" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">Newton's Sandbox</h2>
-					<p class="story-description">Become the architect of your own solar system. Launch planets and stars, and watch as their gravitational interactions unfold in a real-time physics simulation. Create stable orbits or beautiful chaos.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Poet's Verse -->
-			<article class="story-card">
-				<a href="stories/the_poets_verse/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/the_poets_verse/thumbnail.svg" alt="The Poet's Verse: The Raven interactive experience" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Poet's Verse</h2>
-					<p class="story-description">A narrated, atmospheric journey into Edgar Allan Poe's "The Raven." Scroll through the living manuscript as the chamber's visuals and sounds shift to mirror the narrator's descent into madness.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Ronin's Resolve -->
-			<article class="story-card">
-				<a href="stories/ronins_resolve/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/ronins_resolve/thumbnail.svg" alt="The Ronin's Resolve Kurosawa Homage Thumbnail" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Ronin's Resolve</h2>
-					<p class="story-description">An atmospheric, programmatic short film paying homage to the cinematic language of Akira Kurosawa. Witness a lone samurai's standoff against the elements in a world of high-contrast visuals and percussive tension.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Monkey King's Heavenly Havoc -->
-			<article class="story-card">
-				<a href="stories/monkey_king_havoc/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/monkey_king_havoc/thumbnail.svg" alt="The Monkey King's Heavenly Havoc animated scroll" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Monkey King's Havoc</h2>
-					<p class="story-description">A cinematic, animated scroll telling the legend of Sun Wukong. Watch as a story from 'Journey to the West' unfolds before you in a living ink wash painting, with a dynamic, operatic score.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Architect's Blueprint -->
-			<article class="story-card">
-				<a href="stories/architects_blueprint/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/architects_blueprint/thumbnail.svg" alt="The Architect's Blueprint interactive explainer" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Architect's Blueprint</h2>
-					<p class="story-description">Explore a "living blueprint" of a Frank Lloyd Wright-inspired home. Click on key elements to uncover the core principles of Organic Architecture through beautiful, interactive animations and sound.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The House of Worth -->
-			<article class="story-card">
-				<a href="stories/house_of_worth/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/house_of_worth/thumbnail.svg" alt="The House of Worth interactive fashion story" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The House of Worth</h2>
-					<p class="story-description">Step into the 19th-century Parisian salon of Charles Frederick Worth, the father of haute couture. View his revolutionary collection and design your own bespoke gown in this elegant, interactive story.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Journey of a Meal -->
-			<article class="story-card">
-				<a href="stories/journey_of_a_meal/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/journey_of_a_meal/thumbnail.svg" alt="The Journey of a Meal interactive story" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Journey of a Meal</h2>
-					<p class="story-description">An interactive story about the hidden life of our food. Compose a meal, trace its path from farm to plate, and see the true cost of your choices in a beautiful, audio-visual narrative about sustainability.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Tell-Tale Heart (with concise warning) -->
-			<article class="story-card">
-				<a href="stories/the_tell_tale_heart/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg with the integrated warning -->
-						<img src="stories/the_tell_tale_heart/thumbnail.svg" alt="The Tell-Tale Heart interactive experience thumbnail" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Tell-Tale Heart</h2>
-					<p class="story-description">
-						<strong>Warning: Contains mature psychological themes.</strong>
-						Experience Poe's classic tale as the world warps and distorts to mirror the narrator's sanity, told through interactive sound and visuals.
-					</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Dream Weaver -->
-			<article class="story-card">
-				<a href="stories/dream_weaver/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/dream_weaver/thumbnail.svg" alt="The Dream Weaver interactive art generator" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Dream Weaver</h2>
-					<p class="story-description">An interactive generative art piece. Click to conjure layers of flowing light and move your mouse to weave them into a unique, luminous dreamscape of color and sound.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Digital Lava Lamp -->
-			<article class="story-card">
-				<a href="stories/digital_lava_lamp/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/digital_lava_lamp/thumbnail.svg" alt="The Digital Lava Lamp interactive experience" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Digital Lava Lamp</h2>
-					<p class="story-description">A mesmerizing, interactive lava lamp. Click to inject new blobs of glowing lava and watch them merge and flow in an endless, calming dance of color, light, and ambient sound.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for Astra Leech -->
-			<article class="story-card">
-				<a href="stories/astra_leech/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/astra_leech/thumbnail.svg" alt="Astra Leech interactive game thumbnail" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">Astra Leech</h2>
-					<p class="story-description">Engage in a celestial dance of risk and reward. Pilot your fragile ship and graze the edge of a living nebula to harvest energy, but be warned: direct contact with its core is fatal.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Celestial Astrolabe -->
-			<article class="story-card">
-				<a href="stories/celestial_astrolabe/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<!-- This will use the thumbnail.svg you just created -->
-						<img src="stories/celestial_astrolabe/thumbnail.svg" alt="The Celestial Astrolabe star trail generator" class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Celestial Astrolabe</h2>
-					<p class="story-description">Become a celestial photographer. Set your exposure time and star density to generate unique, beautiful long-exposure images of star trails, all accompanied by a serene, generative musical score.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Calm Stream -->
-			<article class="story-card">
-				<a href="stories/calm_stream/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/calm_stream/thumbnail.svg" alt="Thumbnail for The Calm Stream, showing a glowing central dot with soft, blurred background shapes." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Calm Stream</h2>
-					<p class="story-description">A guided multisensory journey for relaxation. Follow the central light with your breath as a generative soundscape and evolving visuals guide you through stages of focus, awareness, and deep calm.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Digital Roji -->
-			<article class="story-card">
-				<a href="stories/digital_roji/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/digital_roji/thumbnail.svg" alt="Thumbnail for The Digital Roji, showing a raked zen garden with stones and flowing lines in the sand." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Digital Roji</h2>
-					<p class="story-description">Shape your own tranquil space in this interactive Zen garden. Use a selection of rakes to create flowing patterns in the sand, and carefully place stones to complete your composition. Responsive audio and visual feedback create a calming, meditative experience.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Spire of Gotham -->
-			<article class="story-card">
-				<a href="stories/spire_of_gotham/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/spire_of_gotham/thumbnail.svg" alt="Thumbnail for The Spire of Gotham, showing a tall Art Deco spire against a dark sky." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Spire of Gotham</h2>
-					<p class="story-description">Ascend an interactive Art Deco skyscraper in this vertical scrollytelling journey. Explore the style's core principles—from symmetrical geometry and rich materials in the lobby to the dramatic, setback spire that pierces the sky. A multisensory experience powered by generative visuals and procedural audio.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Lexicon's Journey -->
-			<article class="story-card">
-				<a href="stories/lexicons_journey/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/lexicons_journey/thumbnail.svg" alt="Thumbnail for The Lexicon's Journey, showing the word 'Captain' peeling back to reveal its older forms." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Lexicon's Journey</h2>
-					<p class="story-description">Uncover the secret history of a word in this interactive etymological timeline. Journey from modern English to its ancient Latin root, watching the word transform at each stage. Every era is a unique, multisensory experience, cashing out deep linguistic knowledge with generative visuals and procedural audio.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for Plato's Cave: An Allegory Unbound -->
-			<article class="story-card">
-				<a href="stories/platos_cave/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/platos_cave/thumbnail.svg" alt="Thumbnail for Plato's Cave, showing a view from inside a dark cave looking out into a bright, sunny world." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">Plato's Cave: An Allegory Unbound</h2>
-					<p class="story-description">Experience Plato's foundational allegory in a new light. Journey from a prison of shadows to the blinding truth of the sun in this interactive "scrollytelling" narrative. A philosophical exploration brought to life with generative visuals and procedural audio.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Captain's Log -->
-			<article class="story-card">
-				<a href="stories/captains_log/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/captains_log/thumbnail.svg" alt="Thumbnail for The Captain's Log, showing a retro sci-fi computer screen." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Captain's Log</h2>
-					<p class="story-description">Take the captain's chair. Generate unique, classic sci-fi log entries with a single click. Each entry is a new combination of planets, aliens, and cosmic threats, complete with procedural audio-visual feedback from the ship's computer.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Weather Maker's Globe -->
-			<article class="story-card">
-				<a href="stories/weather_makers_globe/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/weather_makers_globe/thumbnail.svg" alt="Thumbnail for The Weather Maker's Globe, showing a planet split between a sunny side and a stormy side." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Weather Maker's Globe</h2>
-					<p class="story-description">Become a meteorologist in this interactive simulation. Adjust temperature, humidity, and pressure with sliders and watch as your world transforms in real-time with procedural clouds, rain, and snow.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Last Bastion -->
-			<article class="story-card">
-				<a href="stories/last_bastion/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/last_bastion/thumbnail.svg" alt="Thumbnail for The Last Bastion, a minimalist tower defense game." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Last Bastion</h2>
-					<p class="story-description">Defend your base against waves of geometric foes. Each game features a new, procedurally generated enemy path. Place Pulse Cannons and Cryo Spires, manage your resources, and hold out as long as you can in this minimalist arcade-style tower defense.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Alchemist's Kitchen -->
-			<article class="story-card">
-				<a href="stories/alchemists_kitchen/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/alchemists_kitchen/thumbnail.svg" alt="Thumbnail for The Alchemist's Kitchen, showing a magical flask with glowing particles." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Alchemist's Kitchen</h2>
-					<p class="story-description">Uncover the scientific magic behind how food gets its flavor. Combine base elements in your reaction vessel, apply alchemical heat, and watch the Maillard reaction create complex flavor compounds in this interactive chemistry simulation.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for The Clockwork Heart -->
-			<article class="story-card">
-				<a href="stories/clockwork_heart/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/clockwork_heart/thumbnail.svg" alt="Thumbnail for The Clockwork Heart, showing a close-up of intricate watch gears." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">The Clockwork Heart</h2>
-					<p class="story-description">Explore the beautiful, intricate world of a mechanical watch. This interactive "living blueprint" allows you to isolate and understand each core component—from the powerhouse mainspring to the regulating escapement—and see how they work in a perfect, time-keeping symphony.</p>
-				</a>
-			</article>
-
-			<!-- Story Card for Cuscinetti Croccanti -->
-			<article class="story-card">
-				<a href="stories/cuscinetti_croccanti/index.html" class="story-link">
-					<div class="thumbnail-container">
-						<img src="stories/cuscinetti_croccanti/thumbnail.svg" alt="Thumbnail for Cuscinetti Croccanti, showing a plate of golden-brown pastries." class="story-thumbnail">
-					</div>
-					<h2 class="story-title">Cuscinetti Croccanti</h2>
-					<p class="story-description">Embark on a culinary journey to Sicily with this interactive recipe. Follow each step, from kneading the dough to the golden fry, brought to life with satisfying animations and procedural cooking sounds. Create your own "sweet symphony"!</p>
-				</a>
-			</article>
-
-			<!-- Placeholder for future stories -->
-			<article class="story-card placeholder">
-                <a href="#" class="story-link" style="pointer-events: none; cursor: default;">
-                    <div class="thumbnail-container">
-                        <div class="thumbnail-placeholder">More Journeys Coming Soon...</div>
-                    </div>
-                    <h2 class="story-title">A New Adventure Awaits</h2>
-                    <p class="story-description">Stay tuned for more interactive stories exploring fascinating worlds and inspiring lives!</p>
-                </a>
-            </article>
-
+            <div class="collection">
+                <h3 class="collection-title">Travelogues</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/shanghai_glimpse/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/shanghai_glimpse/thumbnail.svg" alt="A Glimpse of Shanghai" class="story-thumbnail"></div><h4 class="story-title">A Glimpse of Shanghai</h4><p class="story-description">Journey through the vibrant city of Shanghai, from the Bund to Pudong.</p></a></article>
+                    <article class="story-card"><a href="stories/journey_of_a_meal/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/journey_of_a_meal/thumbnail.svg" alt="The Journey of a Meal" class="story-thumbnail"></div><h4 class="story-title">The Journey of a Meal</h4><p class="story-description">An interactive story about the hidden life of our food and sustainability.</p></a></article>
+                </div>
+            </div>
         </section>
+
+        <!-- Pillar 2: The Lyceum of Knowledge & Discovery -->
+        <section class="pillar">
+            <h2 class="pillar-title">The Lyceum of Knowledge & Discovery</h2>
+            
+            <div class="collection">
+                <h3 class="collection-title">Pioneers of Science</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/marie_curie/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/marie_curie/thumbnail.svg" alt="Marie Curie" class="story-thumbnail"></div><h4 class="story-title">Curie's Radiant Quest</h4><p class="story-description">Uncover the discoveries of Marie Curie in this story of scientific brilliance.</p></a></article>
+                    <article class="story-card"><a href="stories/galileo_messenger/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/galileo_messenger/thumbnail.svg" alt="Galileo" class="story-thumbnail"></div><h4 class="story-title">Galileo's Starry Messenger</h4><p class="story-description">Peer through Galileo's telescope and witness discoveries that reshaped the cosmos.</p></a></article>
+                    <article class="story-card"><a href="stories/darwin_voyage/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/darwin_voyage/thumbnail.svg" alt="Darwin" class="story-thumbnail"></div><h4 class="story-title">Darwin's Voyage</h4><p class="story-description">Sail with Charles Darwin and uncover the theory of evolution.</p></a></article>
+                    <article class="story-card"><a href="stories/newtons_gravity/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/newtons_gravity/thumbnail.svg" alt="Newton's Gravity" class="story-thumbnail"></div><h4 class="story-title">The Dance of Gravity</h4><p class="story-description">Unravel the mysteries of gravity with Isaac Newton.</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">The Building Blocks of a Universe</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/molecule_builder/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/molecule_builder/thumbnail.svg" alt="Molecule Builders" class="story-thumbnail"></div><h4 class="story-title">Molecule Builders</h4><p class="story-description">Discover the tiny building blocks of matter by creating simple molecules.</p></a></article>
+                    <article class="story-card"><a href="stories/power_of_pi/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/power_of_pi/thumbnail.svg" alt="The Power of Pi" class="story-thumbnail"></div><h4 class="story-title">The Power of Pi (π)</h4><p class="story-description">An interactive journey to understand the magic of Pi.</p></a></article>
+                    <article class="story-card"><a href="stories/living_blueprint/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/living_blueprint/thumbnail.svg" alt="The Living Blueprint" class="story-thumbnail"></div><h4 class="story-title">The Living Blueprint</h4><p class="story-description">A "scrollytelling" journey into a computer's core.</p></a></article>
+                    <article class="story-card"><a href="stories/blockchain_explained/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/blockchain_explained/thumbnail.svg" alt="Blockchain Explained" class="story-thumbnail"></div><h4 class="story-title">Blockchain: The Trust Chain</h4><p class="story-description">Unravel the mystery of blockchain technology with interactive visuals.</p></a></article>
+                    <article class="story-card"><a href="stories/worlds_orchestra/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/worlds_orchestra/thumbnail.svg" alt="The World's Orchestra" class="story-thumbnail"></div><h4 class="story-title">The World's Orchestra</h4><p class="story-description">Listen to our changing climate through a symphony of data.</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">The Lexicon Lab (Linguistics)</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/lexicons_journey/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/lexicons_journey/thumbnail.svg" alt="The Lexicon's Journey" class="story-thumbnail"></div><h4 class="story-title">The Lexicon's Journey</h4><p class="story-description">Uncover the secret history of a word in this interactive etymological timeline.</p></a></article>
+                    <article class="story-card"><a href="stories/lingua_francas/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/lingua_francas/thumbnail.svg" alt="Lingua Francas" class="story-thumbnail"></div><h4 class="story-title">Lingua Francas</h4><p class="story-description">Explore the bridge languages that connect people across cultures.</p></a></article>
+                    <article class="story-card"><a href="stories/models_of_grammar/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/models_of_grammar/thumbnail.svg" alt="Models of Grammar" class="story-thumbnail"></div><h4 class="story-title">Models of Grammar</h4><p class="story-description">Dive into the theories that explain how language works.</p></a></article>
+                    <article class="story-card"><a href="stories/sla_learning/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/sla_learning/thumbnail.svg" alt="The L2 Journey" class="story-thumbnail"></div><h4 class="story-title">The L2 Journey</h4><p class="story-description">Explore the science of how we learn new languages.</p></a></article>
+                    <article class="story-card"><a href="stories/lingo_leap_idioms/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/lingo_leap_idioms/thumbnail.svg" alt="LingoLeap Idioms" class="story-thumbnail"></div><h4 class="story-title">LingoLeap: Idiom Explorer</h4><p class="story-description">Dive into the quirky world of English idioms.</p></a></article>
+                    <article class="story-card"><a href="stories/metaphor_maze/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/metaphor_maze/thumbnail.svg" alt="Metaphor Maze" class="story-thumbnail"></div><h4 class="story-title">Metaphor Maze</h4><p class="story-description">Explore how metaphors structure our thoughts.</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">Interactive Quizzes</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/quiz_painters/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/quiz_painters/thumbnail.svg" alt="Painter Quiz" class="story-thumbnail"></div><h4 class="story-title">Canvas Queries Quiz</h4><p class="story-description">Test your eye for detail on art masters.</p></a></article>
+                    <article class="story-card"><a href="stories/quiz_musicians/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/quiz_musicians/thumbnail.svg" alt="Musician Quiz" class="story-thumbnail"></div><h4 class="story-title">Composer's Conundrum</h4><p class="story-description">Tune your ears for this interactive audio quiz.</p></a></article>
+                    <article class="story-card"><a href="stories/quiz_land_animals/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/quiz_land_animals/thumbnail.svg" alt="Land Animal Quiz" class="story-thumbnail"></div><h4 class="story-title">Land Animal Safari</h4><p class="story-description">Test your knowledge with sounds, visuals, and fun facts!</p></a></article>
+					<article class="story-card"><a href="stories/quiz_van_gogh/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/quiz_van_gogh/thumbnail.svg" alt="Thumbnail for The van Gogh Gauntlet Quiz, showing a question mark painted in his style." class="story-thumbnail"></div><h4 class="story-title">The van Gogh Gauntlet</h4><p class="story-description">Test your artistic eye! This interactive quiz challenges your knowledge of Vincent van Gogh's work through a series of unique visual puzzles.</p></a></article>
+					<article class="story-card"><a href="stories/quiz_mozart/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/quiz_mozart/thumbnail.svg" alt="Thumbnail for The Mozart Conundrum Quiz, showing three panels representing different musical styles." class="story-thumbnail"></div><h4 class="story-title">The Mozart Conundrum</h4><p class="story-description">Test your musical ear! This interactive audio quiz challenges you to identify musical styles, instruments, and concepts from the Classical era.</p></a></article>
+					<article class="story-card"><a href="stories/quiz_gotham/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/quiz_gotham/thumbnail.svg" alt="Thumbnail for The Gotham Gauntlet, showing panels representing Art Deco design concepts." class="story-thumbnail"></div><h4 class="story-title">The Gotham Gauntlet</h4><p class="story-description">Put your knowledge of the Art Deco style to the test! This examination challenges you to identify the visual and sonic signatures of the Jazz Age.</p></a></article>
+					<!-- Placeholder for future quizzes --><article class="story-card placeholder"><a href="#" class="story-link" style="pointer-events: none; cursor: default;"><div class="thumbnail-container"><div class="thumbnail-placeholder">New Challenge Coming Soon...</div></div><h4 class="story-title">A New Challenge Awaits</h4><p class="story-description">Our quizmasters are crafting new puzzles to test your expertise. Prepare to put your knowledge to the test in another fascinating subject!</p></a></article>				</div>
+            </div>
+        </section>
+
+        <!-- Pillar 3: The Pavilion of Play & Creation -->
+        <section class="pillar">
+            <h2 class="pillar-title">The Pavilion of Play & Creation</h2>
+            
+            <div class="collection">
+                <h3 class="collection-title">The Arcade</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/last_bastion/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/last_bastion/thumbnail.svg" alt="The Last Bastion" class="story-thumbnail"></div><h4 class="story-title">The Last Bastion</h4><p class="story-description">Defend your base in this minimalist arcade-style tower defense.</p></a></article>
+                    <article class="story-card"><a href="stories/astra_leech/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/astra_leech/thumbnail.svg" alt="Astra Leech" class="story-thumbnail"></div><h4 class="story-title">Astra Leech</h4><p class="story-description">Engage in a celestial dance of risk and reward.</p></a></article>
+                    <article class="story-card"><a href="stories/space_invaders/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/space_invaders/thumbnail.svg" alt="Space Invaders" class="story-thumbnail"></div><h4 class="story-title">Space Invaders: First Contact</h4><p class="story-description">Defend Earth from the relentless alien horde!</p></a></article>
+                    <article class="story-card"><a href="stories/pong/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/pong/thumbnail.svg" alt="PONG" class="story-thumbnail"></div><h4 class="story-title">PONG: The Digital Duel</h4><p class="story-description">Relive the dawn of video games with this arcade classic.</p></a></article>
+                    <article class="story-card"><a href="stories/endless_dungeon/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/endless_dungeon/thumbnail.svg" alt="The Endless Dungeon" class="story-thumbnail"></div><h4 class="story-title">The Endless Dungeon</h4><p class="story-description">Navigate a new, procedurally generated labyrinth every time you play.</p></a></article>
+                    <article class="story-card"><a href="stories/crystal_of_eldoria/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/crystal_of_eldoria/thumbnail.svg" alt="The Crystal of Eldoria" class="story-thumbnail"></div><h4 class="story-title">The Crystal of Eldoria</h4><p class="story-description">Embark on an interactive fantasy quest!</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">The Creator's Workshop</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/algorithmic_easel/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/algorithmic_easel/thumbnail.svg" alt="The Algorithmic Easel" class="story-thumbnail"></div><h4 class="story-title">The Algorithmic Easel</h4><p class="story-description">Guide a generative artist to create unique, abstract paintings.</p></a></article>
+                    <article class="story-card"><a href="stories/celestial_astrolabe/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/celestial_astrolabe/thumbnail.svg" alt="The Celestial Astrolabe" class="story-thumbnail"></div><h4 class="story-title">The Celestial Astrolabe</h4><p class="story-description">Become a celestial photographer and generate beautiful star trail images.</p></a></article>
+                    <article class="story-card"><a href="stories/melody_maker/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/melody_maker/thumbnail.svg" alt="Melody Maker" class="story-thumbnail"></div><h4 class="story-title">Melody Maker</h4><p class="story-description">Click the grid to create looping melodies in this interactive music sequencer.</p></a></article>
+                    <article class="story-card"><a href="stories/digital_crane/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/digital_crane/thumbnail.svg" alt="The Digital Crane" class="story-thumbnail"></div><h4 class="story-title">The Digital Crane</h4><p class="story-description">Learn the timeless art of origami with an interactive, step-by-step guide.</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">The Sandbox</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/newtons_sandbox/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/newtons_sandbox/thumbnail.svg" alt="Newton's Sandbox" class="story-thumbnail"></div><h4 class="story-title">Newton's Sandbox</h4><p class="story-description">Become the architect of your own solar system in a real-time physics simulation.</p></a></article>
+                    <article class="story-card"><a href="stories/digital_ecosystem/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/digital_ecosystem/thumbnail.svg" alt="The Digital Ecosystem" class="story-thumbnail"></div><h4 class="story-title">The Digital Ecosystem</h4><p class="story-description">Observe and influence a pocket pond and watch the laws of nature unfold.</p></a></article>
+                    <article class="story-card"><a href="stories/weather_makers_globe/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/weather_makers_globe/thumbnail.svg" alt="The Weather Maker's Globe" class="story-thumbnail"></div><h4 class="story-title">The Weather Maker's Globe</h4><p class="story-description">Adjust climate sliders and watch your world transform in real-time.</p></a></article>
+                    <article class="story-card"><a href="stories/alchemists_kitchen/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/alchemists_kitchen/thumbnail.svg" alt="The Alchemist's Kitchen" class="story-thumbnail"></div><h4 class="story-title">The Alchemist's Kitchen</h4><p class="story-description">Uncover the scientific magic behind how food gets its flavor.</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">The Reflective Garden</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/calm_stream/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/calm_stream/thumbnail.svg" alt="The Calm Stream" class="story-thumbnail"></div><h4 class="story-title">The Calm Stream</h4><p class="story-description">A guided multisensory journey for relaxation and breathwork.</p></a></article>
+                    <article class="story-card"><a href="stories/digital_roji/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/digital_roji/thumbnail.svg" alt="The Digital Roji" class="story-thumbnail"></div><h4 class="story-title">The Digital Roji</h4><p class="story-description">Shape your own tranquil space in this interactive Zen garden.</p></a></article>
+                    <article class="story-card"><a href="stories/digital_lava_lamp/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/digital_lava_lamp/thumbnail.svg" alt="The Digital Lava Lamp" class="story-thumbnail"></div><h4 class="story-title">The Digital Lava Lamp</h4><p class="story-description">A mesmerizing, interactive lava lamp for passive relaxation.</p></a></article>
+                    <article class="story-card"><a href="stories/dream_weaver/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/dream_weaver/thumbnail.svg" alt="The Dream Weaver" class="story-thumbnail"></div><h4 class="story-title">The Dream Weaver</h4><p class="story-description">Weave a unique, luminous dreamscape of color and sound.</p></a></article>
+                </div>
+            </div>
+
+            <div class="collection">
+                <h3 class="collection-title">The Generative Toy Chest</h3>
+                <div class="story-carousel">
+                    <article class="story-card"><a href="stories/captains_log/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/captains_log/thumbnail.svg" alt="The Captain's Log" class="story-thumbnail"></div><h4 class="story-title">The Captain's Log</h4><p class="story-description">Generate unique, classic sci-fi log entries with a single click.</p></a></article>
+                    <article class="story-card"><a href="stories/myth_maker/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/myth_maker/thumbnail.svg" alt="The Myth Maker's Compendium" class="story-thumbnail"></div><h4 class="story-title">The Myth Maker's Compendium</h4><p class="story-description">Become a co-author of legend by providing the hero, treasure, and beast.</p></a></article>
+                    <article class="story-card"><a href="stories/simpsons_couch_gag/index.html" class="story-link"><div class="thumbnail-container"><img src="stories/simpsons_couch_gag/thumbnail.svg" alt="Simpsons Couch Gag Generator" class="story-thumbnail"></div><h4 class="story-title">Simpsons Couch Gag Generator</h4><p class="story-description">Click to see the Simpsons family in a variety of classic and new couch gags.</p></a></article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Placeholder for more pillars -->
+        <section class="pillar">
+            <div class="collection">
+                <div class="story-carousel">
+                    <article class="story-card placeholder">
+                        <a href="#" class="story-link" style="pointer-events: none; cursor: default;">
+                            <div class="thumbnail-container">
+                                <div class="thumbnail-placeholder">More Journeys Coming Soon...</div>
+                            </div>
+                            <h4 class="story-title">A New Adventure Awaits</h4>
+                            <p class="story-description">Our workshop is always buzzing. New experiences are just over the horizon!</p>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="portfolio-footer">
-        <p>© 2025 PKC_Project. All rights reserved. Created with a sprinkle of code and imagination.</p>
+        <p>© 2025 PKC_Project. All rights reserved. Created with a symphony of code and imagination.</p>
     </footer>
 
     <script src="script.js"></script>

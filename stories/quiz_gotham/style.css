@@ -1,0 +1,94 @@
+:root {
+    --bg-color: #fdfaf6;
+    --text-color: #3d352e;
+    --border-color: #dcd3c9;
+    /* NLD Result: Update the accent color to match the Gotham/Art Deco theme */
+    --accent-color: #c09f52; /* A burnished gold */
+    --accent-color-dark: #8c743d;
+    --correct-color: #107c10;
+    --incorrect-color: #d13438;
+    --font-header: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* --- Base Styles --- */
+* { box-sizing: border-box; }
+body { margin: 0; background-color: var(--bg-color); font-family: var(--font-body); color: var(--text-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 2rem; }
+#quiz-container { width: 100%; max-width: 800px; text-align: center; }
+
+/* --- Card Flip Mechanics --- */
+#quiz-card { position: relative; perspective: 1500px; min-height: 550px; }
+#quiz-front, #feedback-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 2rem; display: flex; flex-direction: column;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    background-color: #fff;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="n" x="0" y="0"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="10" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23n)" opacity="0.03"/></svg>');
+}
+#feedback-back { transform: rotateY(180deg); justify-content: center; align-items: center; text-align: center; }
+#quiz-card.is-flipped #quiz-front { transform: rotateY(-180deg); }
+#quiz-card.is-flipped #feedback-back { transform: rotateY(0deg); }
+
+/* --- Header & Progress --- */
+#quiz-header { margin-bottom: 1rem; }
+h1 { font-family: var(--font-header); margin: 0 0 1.5rem; color: #1e272e; font-size: 2.5rem; }
+#progress-bar-container { width: 100%; height: 8px; background-color: #eee; border-radius: 4px; margin-bottom: 0.5rem; overflow: hidden; }
+#progress-bar { width: 0%; height: 100%; background-color: var(--accent-color); border-radius: 4px; transition: width 0.4s ease-in-out; }
+#score-display { font-weight: bold; }
+.score-pop { animation: scorePop 0.3s ease-out; }
+@keyframes scorePop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+/* --- Question & Answer Area --- */
+#question-area { flex-grow: 1; display: flex; flex-direction: column; }
+#question-prompt { font-size: 1.5rem; font-weight: 400; line-height: 1.5; margin: 1rem 0; animation: fadeInUp 0.5s ease-out; }
+#stimulus-container { display: flex; flex: 1; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem; animation: fadeInUp 0.6s ease-out; }
+#answer-area { min-height: 80px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1rem; animation: fadeInUp 0.7s ease-out; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- NLD Result: Styles for Visual & Audio Players --- */
+.visual-panel, .audio-player, .color-swatch {
+    border: 2px solid var(--border-color); border-radius: 10px; cursor: pointer;
+    transition: all 0.2s ease-out; padding: 1rem; text-align: center;
+}
+.visual-panel:hover, .audio-player:hover, .color-swatch:hover {
+    transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    border-color: var(--accent-color);
+}
+.play-btn-icon { width: 24px; height: 24px; fill: var(--text-color); margin-bottom: 0.5rem; }
+.playing {
+    border-color: var(--accent-color);
+    animation: pulseGlow 1.5s infinite;
+}
+@keyframes pulseGlow { 0% { box-shadow: 0 0 5px rgba(192, 159, 82, 0.2); } 50% { box-shadow: 0 0 20px rgba(192, 159, 82, 0.5); } 100% { box-shadow: 0 0 5px rgba(192, 159, 82, 0.2); } }
+.visual-panel svg, .color-swatch svg {
+    width: 100%; height: auto; max-height: 150px;
+}
+.color-swatch { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* --- Feedback States --- */
+.answer-btn.correct-answer, .visual-panel.correct-answer { background-color: #f0fff0; border-color: var(--correct-color) !important; }
+.answer-btn.incorrect-answer, .visual-panel.incorrect-answer { background-color: #fff0f0; border-color: var(--incorrect-color) !important; }
+.disabled-option { opacity: 0.5; pointer-events: none; }
+
+/* --- Feedback Panel & Results Screen --- */
+#feedback-title { font-family: var(--font-header); font-size: 2rem; margin: 0; display: flex; align-items: center; gap: 0.75rem; }
+#feedback-icon { width: 32px; height: 32px; }
+#feedback-title.correct #feedback-icon { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23107c10"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>'); }
+#feedback-title.incorrect #feedback-icon { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d13438"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>'); }
+#feedback-text { font-size: 1.1rem; line-height: 1.7; max-width: 80%; margin: 1.5rem 0; }
+#next-question-btn, #restart-quiz-btn, .answer-btn {
+    background: var(--accent-color-dark); border: none; color: white;
+    padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 10px; cursor: pointer;
+    transition: all 0.2s;
+}
+#next-question-btn:hover, #restart-quiz-btn:hover, .answer-btn:hover { background-color: #594a28; }
+#results-screen { display: none; }
+#results-screen.active { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; background: #fff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInResult 0.5s; }
+#final-score { font-size: 3rem; color: var(--accent-color); margin: 0.5rem 0 1rem; }
+.results-summary { background: #fafafa; border-radius: 10px; padding: 1rem; margin: 1rem 0 2rem; text-align: left; border: 1px solid var(--border-color);}
+.results-summary h4 { margin: 0 0 0.5rem; font-family: var(--font-header); }
+.results-summary ul { margin: 0; padding-left: 20px; }
+.hidden { display: none !important; }
+@keyframes fadeInResult { from { opacity: 0; transform: scale(0.95); } }

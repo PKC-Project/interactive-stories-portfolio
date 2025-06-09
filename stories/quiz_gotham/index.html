@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gotham Gauntlet: An Art Deco Examination</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="quiz-container">
+        <div id="quiz-card">
+            
+            <!-- FRONT OF THE CARD (The Question) -->
+            <div id="quiz-front">
+                <header id="quiz-header">
+                    <!-- NLD Result: Update the title -->
+                    <h1>The Gotham Gauntlet</h1>
+                    <div id="progress-bar-container"><div id="progress-bar"></div></div>
+                    <div id="score-display">Score: 0</div>
+                </header>
+                <main id="question-area">
+                    <h2 id="question-prompt"></h2>
+                    <div id="stimulus-container">
+                        <!-- Visuals, audio players, or color swatches will be injected here -->
+                    </div>
+                </main>
+                <footer id="answer-area">
+                    <!-- Answer buttons will be injected here -->
+                </footer>
+            </div>
+
+            <!-- BACK OF THE CARD (The Feedback) -->
+            <div id="feedback-back">
+                <h2 id="feedback-title">
+                    <span id="feedback-icon"></span>
+                    <span id="feedback-title-text"></span>
+                </h2>
+                <p id="feedback-text"></p>
+                <button id="next-question-btn">Next</button>
+            </div>
+
+        </div>
+
+        <!-- The results screen, hidden initially -->
+        <div id="results-screen" class="hidden">
+            <h2>Examination Complete!</h2>
+            <p>Your Final Score:</p>
+            <h3 id="final-score"></h3>
+            <div class="results-summary">
+                <h4>Key Concepts Reviewed:</h4>
+                <ul>
+                    <!-- NLD Result: Update the reviewed concepts -->
+                    <li>Art Deco Visual Motifs</li>
+                    <li>Jazz Age Sonic Atmosphere</li>
+                    <li>Art Deco Color Theory</li>
+                </ul>
+            </div>
+            <button id="restart-quiz-btn">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Hidden SVG Asset Library for Icons -->
+    <div id="svg-asset-library" style="display: none;">
+        <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+        <!-- NLD Result: Add new SVG icons for the color palette question -->
+        <svg id="icon-swatch" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-1.39-1.54-2.3-3.48-2.3-5.49s.91-3.95 2.3-5.49c.24-.27.39-.62.39-1.01C13.5 3.67 12.83 3 12 3zm0 2.5c2.97 0 5.45 2.16 6.13 5-.68 2.84-3.16 5-6.13 5C9.03 15.5 6.55 13.34 5.87 10.5 6.55 7.66 9.03 5.5 12 5.5z"></path></svg>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

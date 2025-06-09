@@ -1,20 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Portfolio Hub Initialized.");
 
-    // You could add JavaScript here for:
-    // - Filtering stories by tags (if you add them later)
-    // - A simple slideshow if you have many stories
-    // - Dynamic loading of story data if you get more advanced
-    // For now, simple static links in HTML are fine.
+    console.log("Interactive Journeys Library Initialized.");
 
-    // Example: Add a little hover effect to cards using JS (though CSS is better for this)
-    const storyCards = document.querySelectorAll('.story-card');
-    storyCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            // You can add JS-driven hover effects here if needed
+    // --- Horizontal Drag-to-Scroll Functionality ---
+    // This adds a nice "grab and drag" feel to the carousels,
+    // improving the user experience on desktop.
+
+    const carousels = document.querySelectorAll('.story-carousel');
+
+    carousels.forEach(carousel => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            carousel.style.cursor = 'grabbing';
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
         });
-        card.addEventListener('mouseleave', () => {
-            // Reset effects
+
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+            carousel.style.cursor = 'grab';
         });
+
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+            carousel.style.cursor = 'grab';
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2; // The '2' is a scroll speed multiplier
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+
+        // Set initial cursor style
+        carousel.style.cursor = 'grab';
     });
+
+    // --- Future Enhancements Could Go Here ---
+    // For example, a "lazy loading" function for thumbnails if the
+    // library becomes very large, or animations for cards as they
+    // scroll into view. For now, the CSS handles the core experience.
+
 });

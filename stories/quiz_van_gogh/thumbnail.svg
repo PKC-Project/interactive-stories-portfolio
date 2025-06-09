@@ -1,0 +1,36 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "Canvas Queries Quiz"
+    Represents a quiz covering multiple painters and styles.
+    -->
+    <defs>
+        <filter id="v-impasto"><feTurbulence type="turbulence" baseFrequency="0.1" numOctaves="2"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+        <filter id="l-sfumato"><feGaussianBlur stdDeviation="2"/></filter>
+        <style>.q-text { font-family: Playfair Display, serif; font-weight: 900; font-size: 150px; fill: white; stroke: rgba(0,0,0,0.6); stroke-width: 3; stroke-linejoin: round; text-anchor: middle; }</style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="400" height="225" fill="#3a3a3a"/>
+
+    <!-- Triptych Panels -->
+    <g id="panels" transform="translate(20, 37.5)" style="filter: drop-shadow(2px 2px 5px #000a);">
+        <!-- Van Gogh Style Panel -->
+        <g id="panel-1">
+            <rect width="110" height="150" fill="#f0e68c"/>
+            <path d="M10 75 C 40 40, 70 110, 100 75" stroke="#0047AB" stroke-width="8" fill="none" filter="url(#v-impasto)"/>
+        </g>
+        <!-- Leonardo Style Panel -->
+        <g id="panel-2" transform="translate(125, 0)">
+            <rect width="110" height="150" fill="#4a2c2a"/>
+            <circle cx="55" cy="75" r="30" fill="#d3c5b2" filter="url(#l-sfumato)"/>
+        </g>
+        <!-- Cubist Style Panel -->
+        <g id="panel-3" transform="translate(250, 0)">
+            <rect width="110" height="150" fill="#b08968"/>
+            <path d="M55 20 L20 75 L55 130 L90 75 Z" fill="#eaddc7"/>
+        </g>
+    </g>
+
+    <!-- Question Mark Overlay -->
+    <text x="200" y="155" class="q-text">?</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Gotham Gauntlet" Quiz
+    Follows the triptych format to represent the quiz's visual and audio concepts.
+    -->
+    <defs>
+        <!-- A filter for a subtle texture, like aged metal or stone -->
+        <filter id="gotham-texture">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="4" result="turbulence"/>
+            <feColorMatrix in="turbulence" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.15 0" result="textured-alpha"/>
+            <feComposite in="SourceGraphic" in2="textured-alpha" operator="in"/>
+        </filter>
+        <!-- Shared style for the question mark overlay -->
+        <style>
+            .q-text { 
+                font-family: 'Playfair Display', serif; 
+                font-weight: 700; 
+                font-size: 150px; 
+                fill: #fdfaf6; 
+                stroke: rgba(0, 0, 0, 0.6); 
+                stroke-width: 3; 
+                stroke-linejoin: round; 
+                text-anchor: middle; 
+            }
+        </style>
+    </defs>
+
+    <!-- Background - A deep, deco-inspired navy blue -->
+    <rect width="400" height="225" fill="#1e272e"/>
+
+    <!-- Triptych Panels with a drop shadow for depth -->
+    <g id="panels" transform="translate(20, 37.5)" style="filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));">
+        
+        <!-- Panel 1: Visual Motif (Sunburst) -->
+        <g id="panel-1">
+            <rect width="110" height="150" fill="#2c3e50" filter="url(#gotham-texture)"/>
+            <g fill="none" stroke="#c09f52" stroke-width="4">
+                <path d="M55 75 L 15 25" />
+                <path d="M55 75 L 95 25" />
+                <path d="M55 75 L 15 125" />
+                <path d="M55 75 L 95 125" />
+                <path d="M55 75 L 55 25" />
+                <path d="M55 75 L 55 125" />
+            </g>
+        </g>
+        
+        <!-- Panel 2: Color Theory (Palette Swatches) -->
+        <g id="panel-2" transform="translate(125, 0)">
+            <rect width="110" height="150" fill="#464646"/>
+            <g transform="translate(15, 25)">
+                <rect width="35" height="45" fill="#ffd700" />
+                <rect y="60" width="35" height="45" fill="#009b7d" />
+                <rect x="50" width="35" height="45" fill="#000033" />
+                <rect x="50" y="60" width="35" height="45" fill="#ffc0cb" filter="url(#gotham-texture)"/>
+            </g>
+        </g>
+        
+        <!-- Panel 3: Sonic Signature (Saxophone) -->
+        <g id="panel-3" transform="translate(250, 0)">
+            <rect width="110" height="150" fill="#2c3e50" filter="url(#gotham-texture)"/>
+            <!-- Simplified Saxophone Icon -->
+            <path d="M 45 30 C 55 15, 80 20, 75 40 L 60 90 C 58 100, 40 125, 30 115 L 20 100 L 40 85 Z" fill="#c09f52"/>
+            <circle cx="70" cy="55" r="4" fill="#1e272e" />
+            <circle cx="65" cy="75" r="4" fill="#1e272e" />
+        </g>
+    </g>
+
+    <!-- Question Mark Overlay -->
+    <text x="200" y="155" class="q-text">?</text>
+</svg>
