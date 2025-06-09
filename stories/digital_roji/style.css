@@ -1,0 +1,114 @@
+:root {
+    --color-sand: #E0D6C8;
+    --color-stone: #686868;
+    --color-sand-highlight: hsla(38, 33%, 95%, 0.7);
+    --color-sand-shadow: hsla(38, 12%, 60%, 0.4);
+    --color-ui-icon: #e0e0e0;
+    --color-ui-bg: rgba(30, 30, 30, 0.5);
+    --color-ui-hover: rgba(50, 50, 50, 0.8);
+    --color-ui-active: var(--color-sand);
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    touch-action: none; /* Prevents scrolling on touch devices */
+}
+
+#garden-container {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+    max-width: 1200px;
+    max-height: 800px;
+    border: 15px solid #252525;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+#zen-garden-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1"/></svg>') 12 12, auto;
+}
+body.stone-mode #zen-garden-canvas {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.8)" stroke-width="1"/></svg>') 16 16, pointer;
+}
+
+/* Floating Toolbar */
+#toolbar {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background: var(--color-ui-bg);
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.3;
+}
+#toolbar:hover {
+    opacity: 1;
+}
+
+.tool-btn {
+    background: none; border: none; padding: 10px; margin: 5px 0;
+    cursor: pointer; border-radius: 5px;
+    transition: background-color 0.2s;
+    line-height: 0; /* Align SVG perfectly */
+}
+.tool-btn svg {
+    width: 24px; height: 24px;
+    stroke: var(--color-ui-icon);
+    fill: none; stroke-width: 1.5;
+    pointer-events: none; /* Make sure button receives the click */
+}
+.tool-btn:hover { background: var(--color-ui-hover); }
+.tool-btn.active { background: var(--color-ui-active); }
+.tool-btn.active svg { stroke: #333; }
+/* Special fill rules for the stone icon */
+#icon-stone { fill: var(--color-ui-icon); }
+.tool-btn[data-tool="stone"].active svg { fill: #333; }
+/* Special fill rules for the smooth icon */
+#icon-smooth path { fill: var(--color-ui-icon); stroke:none; }
+.tool-btn[data-tool="smooth"]:hover #icon-smooth path,
+.tool-btn[data-tool="smooth"]:active #icon-smooth path { fill: var(--color-ui-hover); }
+
+
+/* Placed Stones */
+#stones-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.stone {
+    position: absolute;
+    background-color: var(--color-stone);
+    border-radius: 50%;
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.4), 
+                inset -2px -2px 8px rgba(255,255,255,0.2),
+                2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Welcome Overlay */
+#welcome-overlay {
+    position: fixed;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-size: 2rem; font-weight: 300;
+    transition: opacity 1.5s 1s ease-out; /* Wait 1s before fading */
+    z-index: 100;
+}
+#welcome-overlay:not(.visible) {
+    opacity: 0; pointer-events: none;
+}

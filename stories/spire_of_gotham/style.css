@@ -1,0 +1,66 @@
+:root {
+    --brass-gold: #c8a97e;
+    --brass-dark: #8c6d46;
+    --marble-black: #1a1a1a;
+    --office-wood: #4a2c2a;
+    --spire-metal: #aab8c2;
+    --sky-dark: #1a1c2b;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #111; color: #e0e0e0; font-family: 'Poppins', sans-serif; font-weight: 300; }
+#journey-container { display: grid; grid-template-columns: 1fr 1fr; position: relative; }
+#visual-pane { position: sticky; top: 0; height: 100vh; background-color: var(--marble-black); transition: background-color 1s ease-in-out; }
+#skyscraper-svg { width: 100%; height: 100%; }
+
+/* --- Base SVG Styles --- */
+#lobby-view, #office-view, #spire-view, #sky-background { opacity: 0; transition: opacity 1.5s ease-in-out; }
+#lobby-floor { fill: url(#floor-pattern); }
+#elevator-frame { fill: var(--brass-dark); }
+.door-panel { fill: var(--brass-gold); }
+#frame-deco, #window-corners, .door-deco { fill: none; stroke: var(--brass-dark); stroke-width: 2; opacity: 0.7; }
+#elevator-dial .dial-metal { fill: var(--brass-dark); }
+#elevator-dial .dial-face { fill: var(--marble-black); }
+#elevator-dial-needle { stroke: var(--brass-gold); stroke-width: 3; transform-origin: 400px 115px; transform: rotate(-135deg); transition: transform 1.5s ease-in-out; }
+#elevator-dial .dial-text { font-family: 'Cinzel', serif; fill: var(--brass-gold); font-size: 10px; text-anchor: middle; letter-spacing: 1px; }
+#left-door, #right-door { transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1); }
+#office-wall { fill: var(--office-wood); }
+#window-frame { fill: none; stroke: var(--brass-dark); stroke-width: 20; }
+.parallax-layer-far, .parallax-layer-near { transition: transform 0.1s linear; }
+.spire-layer { fill: var(--spire-metal); }
+.spire-antenna { fill: none; stroke: var(--spire-metal); stroke-width: 2; }
+#spire-beacon { fill: #fff; opacity: 0; }
+#lightning-bolt { opacity: 0; }
+
+/* --- Animation States by Scene --- */
+#visual-pane.scene-initial #lobby-view,
+#visual-pane.scene-lobby-reveal #lobby-view,
+#visual-pane.scene-doors-open #lobby-view,
+#visual-pane.scene-ascent #lobby-view { opacity: 1; }
+
+#visual-pane.scene-ascent #elevator-dial-needle { transform: rotate(135deg); }
+#visual-pane.scene-doors-open #left-door { transform: translateX(-105%); }
+#visual-pane.scene-doors-open #right-door { transform: translateX(105%); }
+
+#visual-pane.scene-ascent #office-view,
+#visual-pane.scene-sky-view #office-view { opacity: 1; }
+
+#visual-pane.scene-spire-approach, #visual-pane.scene-lightning-strike, #visual-pane.scene-final-pulse { background-color: var(--sky-dark); }
+#visual-pane.scene-spire-approach #spire-view, #visual-pane.scene-spire-approach #sky-background,
+#visual-pane.scene-lightning-strike #spire-view, #visual-pane.scene-lightning-strike #sky-background,
+#visual-pane.scene-final-pulse #spire-view, #visual-pane.scene-final-pulse #sky-background { opacity: 1; }
+
+#visual-pane.scene-lightning-strike #lightning-bolt { animation: flash 0.5s ease-out; }
+@keyframes flash { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+#visual-pane.scene-final-pulse #spire-beacon { animation: pulse 2s ease-in-out; }
+@keyframes pulse { 0%, 100% { opacity: 0; } 50% { opacity: 1; filter: drop-shadow(0 0 30px #fff); } }
+
+/* --- Story & UI --- */
+#story-content { padding: 5vh 10%; max-width: 600px; margin-left: 5%; }
+.story-beat { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.story-beat h1, .story-beat h2 { font-family: 'Cinzel', serif; color: var(--brass-gold); }
+.story-beat h1 { font-size: 3rem; } .story-beat h2 { font-size: 2.2rem; margin-bottom: 0; }
+.story-beat p { font-size: 1.1rem; line-height: 1.8; }
+#audio-controls { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 50px; display: flex; align-items: center; backdrop-filter: blur(5px); z-index: 100; }
+#audio-controls p { margin: 0 10px 0 5px; font-size: 0.9rem; }
+#audio-toggle { background: none; border: 1px solid #fff; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; display: flex; justify-content: center; align-items: center; }
+#audio-toggle svg { width: 16px; height: 16px; fill: #fff; }

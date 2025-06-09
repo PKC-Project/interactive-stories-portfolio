@@ -1,0 +1,26 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "Plato's Cave" - Concept 2: The Source of Illusion
+    Focuses on the fire and the creation of the false reality.
+    -->
+    <defs>
+        <radialGradient id="fire-glow" cx="50%" cy="90%" r="90%">
+            <stop offset="0%" stop-color="rgba(255, 165, 0, 0.8)" />
+            <stop offset="100%" stop-color="rgba(255, 100, 0, 0)" />
+        </radialGradient>
+    </defs>
+
+    <!-- Dark Cave Background -->
+    <rect width="400" height="225" fill="#1a1a1a" />
+
+    <!-- The Cast Shadow on the far wall -->
+    <path d="M30,50 C 40,20 60,20 70,50 C 75,80 60,120 50,150 C 40,120 25,80 30,50 Z" 
+          fill="#000" opacity="0.6" transform="scale(1.5 2.0) translate(-10, -30) skewX(20)"/>
+
+    <!-- The Fire -->
+    <circle cx="200" cy="225" r="150" fill="url(#fire-glow)" />
+
+    <!-- Silhouette of the object and puppeteer -->
+    <path d="M200,120 C 190,90 210,90 200,120 C 205,140 195,140 200,120 Z M195 140 H205 V225 H195 Z" 
+          fill="#111" />
+</svg>

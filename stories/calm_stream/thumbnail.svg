@@ -1,44 +1,26 @@
 <svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
     <!-- 
-    Thumbnail for "The Calm Stream"
-    PKC Project - A minimalist and serene design for a guided meditation experience.
+    Thumbnail Design 3: The Focusing Lens
+    Metaphor: Clarity, mental focus, simplifying the mind.
     -->
-
     <defs>
-        <!-- A soft, deep blue background vignette to create depth -->
-        <radialGradient id="calm-gradient" cx="50%" cy="50%" r="70%">
-            <stop offset="0%" stop-color="#0b192f" />
-            <stop offset="100%" stop-color="#05080d" />
+        <radialGradient id="lens-gradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2a3b4f" />
+            <stop offset="100%" stop-color="#080c10" />
         </radialGradient>
-
-        <!-- A strong blur filter to create the soft, out-of-focus background blobs -->
-        <filter id="blob-blur">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
-        </filter>
-
-        <!-- A filter to give the central dot a soft, focused glow -->
-        <filter id="dot-glow">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-            <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-        </filter>
     </defs>
 
-    <!-- Background Layer -->
-    <rect width="400" height="225" fill="url(#calm-gradient)" />
+    <!-- Background -->
+    <rect width="400" height="225" fill="#080c10" />
 
-    <!-- Ambient Background Blobs -->
-    <!-- These are heavily blurred to create a soft, non-distracting texture -->
-    <g id="ambient-blobs" filter="url(#blob-blur)" opacity="0.6">
-        <circle cx="80" cy="70" r="60" fill="#2c5d8a" />
-        <circle cx="320" cy="180" r="80" fill="#1e496d" />
-        <circle cx="150" cy="190" r="70" fill="#4a7a9e" />
+    <!-- The Lens Rings -->
+    <g transform="translate(200, 112.5)" fill="none" stroke="#7d9ab8" stroke-width="1">
+        <!-- Each circle has a dash array to create gaps, rotated for variety -->
+        <circle r="40" stroke-dasharray="188.4 62.8" transform="rotate(15)" /> <!-- 75% on, 25% off -->
+        <circle r="65" stroke-dasharray="102.1 306.3" transform="rotate(-30)" opacity="0.7"/> <!-- 25% on -->
+        <circle r="90" stroke-dasharray="282.6 282.6" transform="rotate(45)" opacity="0.4"/> <!-- 50% on -->
     </g>
-
-    <!-- The Central Focus Dot -->
-    <!-- This is the sharp, central point of the composition -->
-    <circle cx="200" cy="112.5" r="8" fill="#dbe8f5" filter="url(#dot-glow)" />
-
+    
+    <!-- Central Soft Light -->
+    <circle cx="200" cy="112.5" r="30" fill="url(#lens-gradient)" />
 </svg>

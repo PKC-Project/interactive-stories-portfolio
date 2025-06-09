@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Alchemist's Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="simulation-container">
+        <div id="reaction-vessel">
+            <canvas id="reaction-canvas"></canvas>
+        </div>
+
+        <div id="control-panel">
+            <h1>The Alchemist's Kitchen</h1>
+            <p class="subtitle">An Interactive Maillard Reaction Simulation</p>
+            
+            <!-- NLD REFINEMENT: Add introductory context text -->
+            <p class="context">
+                Combine Sugars (white) and Amino Acids (yellow) with Alchemical Heat to create new Flavor Compounds! But be warned, too much heat will burn your ingredients.
+            </p>
+
+            <div class="stat-display">
+                <span class="stat-label">Flavor Compounds</span>
+                <span id="flavor-score" class="stat-value">0</span>
+            </div>
+
+            <div class="slider-group">
+                <label for="heat-slider">Alchemical Heat</label>
+                <input type="range" id="heat-slider" min="0" max="100" value="0">
+                <div class="slider-labels">
+                    <span>Cold</span>
+                    <span style="color: #ff9800;">Reaction Zone</span>
+                    <span style="color: #f44336;">Burn</span>
+                </div>
+            </div>
+            
+            <button id="reset-btn">Reset Experiment</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

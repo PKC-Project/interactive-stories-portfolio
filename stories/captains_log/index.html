@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain's Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="terminal-container">
+        <div class="scanline"></div>
+        
+        <header class="terminal-header">
+            <div class="header-item">U.S.S. ENTERPRISE NCC-1701</div>
+            <div class="header-item" id="stardate-display">STARDATE: 41153.7</div>
+        </header>
+
+        <main id="log-display-area">
+            <p id="log-text">Awaiting new log entry...</p>
+        </main>
+
+        <footer class="terminal-footer">
+            <button id="new-log-btn">NEW LOG ENTRY</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

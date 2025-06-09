@@ -1,0 +1,43 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Spire of Gotham"
+    PKC Project - A moody, atmospheric design capturing Art Deco verticality.
+    -->
+
+    <defs>
+        <!-- A filter to give the spire a subtle metallic glint -->
+        <filter id="spire-glint">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+            <feSpecularLighting in="blur" surfaceScale="3" specularConstant=".5" specularExponent="20" lighting-color="#ffffff" result="specOut">
+                <fePointLight x="-5000" y="-10000" z="20000"/>
+            </feSpecularLighting>
+            <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specular"/>
+            <feComposite in="SourceGraphic" in2="specular" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+        </filter>
+
+        <!-- A dark, stormy sky gradient -->
+        <radialGradient id="gotham-sky" cx="50%" cy="20%" r="80%">
+            <stop offset="0%" stop-color="#3a3d52" />
+            <stop offset="100%" stop-color="#1a1c2b" />
+        </radialGradient>
+    </defs>
+
+    <!-- Background Layer -->
+    <rect width="400" height="225" fill="url(#gotham-sky)" />
+
+    <!-- Stylized Spire -->
+    <!-- The main form, drawn from the bottom up to convey height -->
+    <g id="spire-icon" fill="#aab8c2" stroke="#1a1c2b" stroke-width="0.5" filter="url(#spire-glint)">
+        <!-- Base Setback -->
+        <path d="M160 225 L180 150 H220 L240 225 Z" />
+        <!-- Mid Setback -->
+        <path d="M185 150 L195 80 H205 L215 150 Z" />
+        <!-- Antenna Finial -->
+        <path d="M198 80 L200 40 L202 80 Z" />
+    </g>
+
+    <!-- Foreground framing, like looking up from another building -->
+    <path d="M0 225 L100 150 v75z" fill="#111" />
+    <path d="M400 225 L300 150 v75z" fill="#111" />
+
+</svg>

@@ -1,0 +1,50 @@
+:root {
+    --bg-color: #1a1c2b;
+    --grid-bg: #2a2d42;
+    --grid-line: #3a3d52;
+    --path-color: #4a4d62;
+    --ui-bg: #212335;
+    --text-color: #e0e0e0;
+    --accent-color: #87ceeb;
+    --pulse-tower: #f44336;
+    --cryo-tower: #03a9f4;
+    --enemy-color: #ffc107;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; background-color: var(--bg-color); color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
+}
+#game-container { display: flex; gap: 20px; align-items: flex-start; }
+#game-canvas {
+    background-color: var(--grid-bg); border: 2px solid var(--grid-line);
+    cursor: pointer;
+}
+#ui-panel {
+    background-color: var(--ui-bg); padding: 20px;
+    border-radius: 10px; width: 250px; text-align: center;
+}
+h1 { font-weight: 300; margin-top: 0; }
+h2 { font-weight: 300; margin-top: 20px; border-top: 1px solid var(--grid-line); padding-top: 20px; }
+.stats-group { display: flex; justify-content: space-around; margin: 20px 0; }
+.stat { display: flex; flex-direction: column; }
+.stat-label { font-size: 0.8rem; opacity: 0.7; }
+.stat-value { font-size: 1.5rem; font-weight: bold; }
+.tower-selection { display: flex; flex-direction: column; gap: 10px; }
+.tower-btn {
+    background: var(--grid-line); border: 1px solid var(--grid-line); color: var(--text-color);
+    padding: 10px; border-radius: 5px; cursor: pointer; text-align: left;
+    display: flex; flex-direction: column; transition: background-color 0.2s, border-color 0.2s;
+}
+.tower-btn.selected { border-color: var(--accent-color); background-color: #444766; }
+.tower-name { font-weight: bold; }
+.tower-cost { font-size: 0.8rem; opacity: 0.8; }
+#next-wave-btn, #restart-btn {
+    width: 100%; padding: 15px; margin-top: 20px;
+    background-color: var(--accent-color); color: var(--bg-color);
+    border: none; border-radius: 5px; font-size: 1rem; font-weight: bold;
+    cursor: pointer; transition: background-color 0.2s;
+}
+#next-wave-btn:hover { background-color: #a8e6ff; }
+.hidden { display: none; }

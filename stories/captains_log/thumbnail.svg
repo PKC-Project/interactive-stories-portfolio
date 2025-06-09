@@ -1,0 +1,28 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Captain's Log" - Concept 1: The Static Terminal
+    A direct, non-animated representation of the user interface.
+    -->
+    <defs>
+        <filter id="static-glow">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" />
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect width="400" height="225" fill="#0a0a0a" />
+
+    <!-- Simple UI Borders -->
+    <rect x="5" y="5" width="390" height="215" rx="5" fill="none" stroke="rgba(255, 196, 0, 0.2)" />
+
+    <!-- Log Entry Text -->
+    <g font-family="Roboto Mono, monospace" font-size="16" fill="#ffc400" filter="url(#static-glow)">
+        <text x="20" y="40">LOG :: U.S.S. ENTERPRISE</text>
+        <text x="280" y="40">STARDATE: 41153.7</text>
+        <line x1="20" y1="50" x2="380" y2="50" stroke="#ffc400" stroke-width="0.5" opacity="0.5"/>
+
+        <text x="20" y="80">Captain's log, supplemental.</text>
+        <text x="20" y="105">The Enterprise has arrived at a Class-M planet</text>
+        <text x="20" y="130">inhabited by a race of crystalline beings...█</text>
+    </g>
+</svg>

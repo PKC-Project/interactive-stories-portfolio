@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Spire of Gotham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="journey-container">
+        <div id="visual-pane">
+            <svg id="skyscraper-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <!-- NLD Result: Generate advanced SVG filters and detailed patterns -->
+                <defs>
+                    <filter id="metallic-sheen" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+                        <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" specularExponent="30" lighting-color="#f5f5f5" result="specularOut">
+                            <fePointLight x="-5000" y="-10000" z="20000"/>
+                        </feSpecularLighting>
+                        <feComposite in="specularOut" in2="SourceAlpha" operator="in" result="specularOut"/>
+                        <feComposite in="SourceGraphic" in2="specularOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+                    </filter>
+                    <pattern id="floor-pattern" patternUnits="userSpaceOnUse" width="100" height="100">
+                        <rect width="100" height="100" fill="var(--marble-black)" />
+                        <path d="M0 50 L50 100 L100 50 L50 0 Z" fill="none" stroke="var(--brass-dark)" stroke-width="1" />
+                        <circle cx="50" cy="50" r="10" fill="none" stroke="var(--brass-dark)" stroke-width="1" />
+                    </pattern>
+                </defs>
+
+                <!-- Act 3: Sky -->
+                <rect id="sky-background" width="100%" height="100%" fill="#1a1c2b" />
+                <g id="lightning-bolt">
+                    <path d="M400 0 L350 300 L450 300 L400 800" stroke="white" stroke-width="5" fill="none" />
+                </g>
+
+                <!-- Act 2: Office View -->
+                <g id="office-view">
+                    <rect id="office-wall" width="100%" height="100%" />
+                    <g id="city-skyline-bg" class="parallax-layer-far" transform="translate(0, 150)">
+                        <path d="M0 800 H800 V650 L750 630 L600 640 L500 600 L300 630 L100 620 L0 640Z" fill="#181818"/>
+                    </g>
+                    <g id="city-skyline-fg" class="parallax-layer-near" transform="translate(0, 100)">
+                        <path d="M0 800 H800 V600 L700 550 L650 600 L600 500 L500 580 L450 520 L350 600 L250 500 L150 590 L100 560 L0 600 Z" fill="#222" />
+                    </g>
+                    <path id="window-frame" d="M150,50 h500 v700 h-500 z M150,425 h500 M400,50 v700" />
+                    <path id="window-corners" d="M165,65 v20 h-20 M635,65 v20 h-20 M165,735 v-20 h-20 M635,735 v-20 h-20" />
+                </g>
+
+                <!-- Act 1: Lobby -->
+                <g id="lobby-view">
+                    <rect id="lobby-floor" width="100%" height="100%" fill="url(#floor-pattern)" />
+                    <g id="elevator-unit">
+                        <rect id="elevator-frame" x="240" y="150" width="320" height="500" />
+                        <path id="frame-deco" d="M240 150 L400 60 L560 150 M240 650 L400 740 L560 650" />
+                        <g id="elevator-dial">
+                            <circle cx="400" cy="115" r="40" class="dial-metal"/>
+                            <circle cx="400" cy="115" r="35" class="dial-face"/>
+                            <text class="dial-text" x="400" y="88">PENTHOUSE</text>
+                            <text class="dial-text" x="430" y="118">30</text>
+                            <text class="dial-text" x="370" y="118">1</text>
+                            <path id="elevator-dial-needle" d="M400 115 L375 115" />
+                        </g>
+                        <g id="left-door" filter="url(#metallic-sheen)">
+                            <rect x="250" y="160" width="150" height="480" class="door-panel" />
+                            <g class="door-deco"><path d="M325 220 L275 270 L325 320 L375 270Z" /><path d="M325 480 L275 530 L325 580 L375 530Z" /><path d="M255 165 h140 M265 175 l120 120 M275 185 l100 150 M285 195 l80 200" /></g>
+                        </g>
+                        <g id="right-door" filter="url(#metallic-sheen)">
+                            <rect x="400" y="160" width="150" height="480" class="door-panel" />
+                            <g class="door-deco"><path d="M475 220 L425 270 L475 320 L525 270Z" /><path d="M475 480 L425 530 L475 580 L525 530Z" /><path d="M545 165 h-140 M535 175 l-120 120 M525 185 l-100 150 M515 195 l-80 200" /></g>
+                        </g>
+                    </g>
+                </g>
+                
+                <!-- Act 3: Spire -->
+                <g id="spire-view" filter="url(#metallic-sheen)">
+                    <path d="M300,800 L340,300 H460 L500,800 Z" class="spire-layer"/>
+                    <path d="M350,300 L370,150 H430 L450,300 Z" class="spire-layer"/>
+                    <path d="M375,150 L390,50 H410 L425,150 Z" class="spire-layer"/>
+                    <path d="M370 220 L360 200 L370 180 M430 220 L440 200 L430 180" class="spire-antenna"/>
+                    <path d="M395 50 L400 30 L405 50" class="spire-layer"/>
+                    <circle id="spire-beacon" cx="400" cy="30" r="8" />
+                </g>
+            </svg>
+        </div>
+        <div id="story-content">
+            <!-- Full story content text sections from previous response -->
+            <section class="story-beat" data-scene="initial"> <h1>The Spire of Gotham</h1> <p>An interactive exploration of Art Deco architecture, a style defined by luxury, geometry, and a profound faith in technological progress. We will ascend a monument built in this image, from its foundation to its peak.</p> </section> <section class="story-beat" data-scene="lobby-reveal"> <h2>The Foundation: Material & Symmetry</h2> <p>Art Deco design emphasizes rich, exotic materials. Here in the Grand Lobby, polished black terrazzo floors are inlaid with brass. The style rejects organic curves for bold, symmetrical geometry—a visual language of order and power.</p> </section> <section class="story-beat" data-scene="doors-open"> <p>The elevator doors are a canvas for classic Deco motifs. Symmetrical sunbursts and repeating chevrons evoke Egyptian and Aztec influences, reimagined through an industrial lens. The metallic sheen, a key feature, is achieved here with a procedural SVG filter simulating specular lighting.</p> </section> <section class="story-beat" data-scene="ascent"> <h2>The Ascent: Verticality & Perspective</h2> <p>Strong vertical lines are the hallmark of Art Deco skyscrapers, designed to draw the eye upward and emphasize height. As we ascend, a parallax effect simulates the changing perspective, with the distant city skyline moving slower than the window frame, creating a tangible sense of depth.</p> </section> <section class="story-beat" data-scene="sky-view"> <p>The higher floors were designed as exclusive retreats from the city below. The view becomes the primary decoration. The soundscape shifts from the city's hum to the sound of wind, programmatically generated and filtered to sound sharper and faster as our altitude increases.</p> </section> <section class="story-beat" data-scene="spire-approach"> <h2>The Apex: Form & The Elements</h2> <p>The spire, or "crown," is the building's dramatic conclusion. Art Deco spires often use setbacks—receding, stacked layers—to create a ziggurat-like effect that enhances the illusion of height and culminates in a single, dramatic point.</p> </section> <section class="story-beat" data-scene="lightning-strike"> <p>The spire was not just decorative; it was a functional lightning rod, a symbol of man taming nature. Here, a CSS animation and a procedural "thunder crack" sound, generated with filtered noise, simulate the raw power of the elements meeting the pinnacle of human engineering.</p> </section> <section class="story-beat" data-scene="final-pulse"> <p>The final beacon represents the era's fascination with electricity and light. A final, pulsing animation, synchronized with a resonant audio chord, serves as the building's triumphant response to the storm—a testament to the enduring power of its design.</p> </section>
+        </div>
+    </main>
+
+    <div id="audio-controls"> <p>Sound</p> <button id="audio-toggle" class="muted" title="Toggle Sound"></button> </div>
+    <script src="script.js"></script>
+</body>
+</html>

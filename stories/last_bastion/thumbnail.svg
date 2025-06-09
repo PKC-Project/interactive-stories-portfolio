@@ -1,0 +1,30 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Last Bastion" - Concept 2: The Action Snapshot
+    Focuses on the tower mechanics in a frozen moment of gameplay.
+    -->
+
+    <!-- Background Grid -->
+    <rect width="400" height="225" fill="#2a2d42" />
+    <path d="M-10,157.5 H410" fill="none" stroke="#4a4d62" stroke-width="20" />
+    <path d="M200,-10 V235" fill="none" stroke="#4a4d62" stroke-width="20" />
+
+    <!-- Cryo Spire in action -->
+    <g id="cryo-spire-group">
+        <polygon points="120,80 110,100 130,100" fill="#03a9f4" stroke="#0288d1" stroke-width="2"/>
+        <circle cx="120" cy="90" r="60" fill="rgba(3, 169, 244, 0.2)" stroke="rgba(179, 229, 252, 0.5)" stroke-width="1.5" />
+    </g>
+
+    <!-- Pulse Cannon in action -->
+    <g id="pulse-cannon-group">
+        <circle cx="280" cy="80" r="10" fill="#f44336" stroke="#bf362b" stroke-width="2"/>
+        <line x1="280" y1="80" x2="200" y2="157.5" stroke="white" stroke-width="2.5" />
+        <circle cx="200" cy="157.5" r="5" fill="white" style="filter: drop-shadow(0 0 3px white);" />
+    </g>
+    
+    <!-- Enemies on the path -->
+    <g fill="#ffc107">
+        <polygon points="90,150 90,165 105,157.5" />
+        <polygon points="200,100 207.5,115 192.5,115" transform="rotate(90 200 115)"/>
+    </g>
+</svg>

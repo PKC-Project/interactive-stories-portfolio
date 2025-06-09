@@ -1,3 +1,17 @@
+/**
+ * The Calm Stream - Complete Functional Script
+ * 
+ * This script orchestrates the entire guided meditation experience.
+ * It manages the UI state, generates all procedural audio and visuals,
+ * and controls the multi-stage timeline of the practice.
+ * 
+ * Features:
+ * - State-driven application flow.
+ * - Advanced Web Audio API for natural soundscapes (wind, water).
+ * - Hybrid visual engine (CSS for blobs, Canvas for particles).
+ * - Async/await for a clean, readable timeline.
+ * - Randomized color themes for replayability.
+ */
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. DOM Element Selection ---
@@ -17,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. State Management ---
     const config = { duration: 0 };
-    let audio; // Will hold AudioEngine instance
-    let particles; // Will hold ParticleSystem instance
-    let blobAnimationId; // To control the blob animation loop
+    let audio;
+    let particles;
+    let blobAnimationId;
+    let isRunning = false; // Prevents multiple sessions from starting simultaneously
 
     // --- 3. Helper Functions ---
     const wait = ms => new Promise(res => setTimeout(res, ms));
@@ -47,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const arrival = 20;
         const conclusion = 20;
         const practiceTime = totalSeconds - arrival - conclusion;
-        // Ensure practice time doesn't go negative on short durations
         const safePracticeTime = Math.max(0, practiceTime);
         return {
             arrival: arrival * 1000,
@@ -63,17 +77,23 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             this.ctx = new (window.AudioContext || window.webkitAudioContext)();
             this.nodes = {};
+            this.whiteNoiseBuffer = this._createWhiteNoiseBuffer();
         }
 
-        resume() {
-            if (this.ctx.state === 'suspended') {
-                this.ctx.resume();
+        resume() { if (this.ctx.state === 'suspended') this.ctx.resume(); }
+
+        _createWhiteNoiseBuffer() {
+            const bufferSize = 2 * this.ctx.sampleRate;
+            const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+            const output = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
             }
+            return buffer;
         }
-        
+
         _createChime() {
-            const osc = this.ctx.createOscillator();
-            const gain = this.ctx.createGain();
+            const osc = this.ctx.createOscillator(), gain = this.ctx.createGain();
             osc.type = 'sine';
             osc.frequency.setValueAtTime(523.25, this.ctx.currentTime);
             gain.gain.setValueAtTime(0, this.ctx.currentTime);
@@ -84,66 +104,89 @@ document.addEventListener('DOMContentLoaded', () => {
             osc.stop(this.ctx.currentTime + 3.5);
         }
 
-        _startNode(name, type, freq, initialGain) {
-            const osc = this.ctx.createOscillator();
-            const gain = this.ctx.createGain();
-            const filter = this.ctx.createBiquadFilter();
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-            filter.type = 'lowpass';
-            filter.frequency.value = 400; // Start with a muted sound
+        _createDrip() {
+            const osc = this.ctx.createOscillator(), gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(600 + Math.random() * 200, this.ctx.currentTime);
             gain.gain.setValueAtTime(0, this.ctx.currentTime);
-            gain.gain.linearRampToValueAtTime(initialGain, this.ctx.currentTime + 8);
-            osc.connect(filter).connect(gain).connect(this.ctx.destination);
-            osc.start();
-            this.nodes[name] = { osc, gain, filter, baseGain: initialGain };
+            gain.gain.linearRampToValueAtTime(0.05, this.ctx.currentTime + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 1);
+            osc.connect(gain).connect(this.nodes.masterGain);
+            osc.start(this.ctx.currentTime);
+            osc.stop(this.ctx.currentTime + 1);
+        }
+
+        _createRustle(panValue = 0) {
+            const source = this.ctx.createBufferSource(), gain = this.ctx.createGain(), filter = this.ctx.createBiquadFilter(), panner = this.ctx.createStereoPanner();
+            source.buffer = this.whiteNoiseBuffer;
+            source.loop = true;
+            filter.type = 'bandpass'; filter.frequency.value = 3000; filter.Q.value = 20;
+            panner.pan.setValueAtTime(panValue, this.ctx.currentTime);
+            gain.gain.setValueAtTime(0, this.ctx.currentTime);
+            gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 1.5);
+            source.connect(filter).connect(gain).connect(panner).connect(this.nodes.masterGain);
+            source.start(this.ctx.currentTime);
+            source.stop(this.ctx.currentTime + 1.5);
         }
 
         start(phase) {
             if (phase === 'arrival') {
+                this.nodes.masterGain = this.ctx.createGain();
+                this.nodes.masterGain.connect(this.ctx.destination);
                 this._createChime();
-                this._startNode('drone_sine', 'sine', 80, 0.04);
-                this._startNode('drone_saw', 'sawtooth', 80.1, 0.01);
-            } else if (phase === 'scan') {
-                this.nodes.shimmerInterval = setInterval(() => {
-                    const shimmerOsc = this.ctx.createOscillator(), shimmerGain = this.ctx.createGain();
-                    shimmerOsc.type = 'triangle';
-                    shimmerOsc.frequency.setValueAtTime(1200 + Math.random() * 200, this.ctx.currentTime);
-                    shimmerGain.gain.setValueAtTime(0, this.ctx.currentTime);
-                    shimmerGain.gain.linearRampToValueAtTime(0.015, this.ctx.currentTime + 0.05);
-                    shimmerGain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 1);
-                    shimmerOsc.connect(shimmerGain).connect(this.ctx.destination);
-                    shimmerOsc.start(this.ctx.currentTime);
-                    shimmerOsc.stop(this.ctx.currentTime + 1);
-                }, 400);
+                const windSource = this.ctx.createBufferSource(), windFilter = this.ctx.createBiquadFilter(), windGain = this.ctx.createGain();
+                windSource.buffer = this.whiteNoiseBuffer; windSource.loop = true;
+                windFilter.type = 'lowpass'; windFilter.frequency.value = 200;
+                windGain.gain.setValueAtTime(0, this.ctx.currentTime);
+                windGain.gain.linearRampToValueAtTime(0.3, this.ctx.currentTime + 8);
+                windSource.connect(windFilter).connect(windGain).connect(this.nodes.masterGain);
+                windSource.start();
+                this.nodes.wind = { source: windSource, filter: windFilter, gain: windGain, baseGain: 0.3 };
+            } else if (phase === 'cadence') {
+                const streamSource = this.ctx.createBufferSource(), streamFilter = this.ctx.createBiquadFilter(), streamGain = this.ctx.createGain();
+                streamSource.buffer = this.whiteNoiseBuffer; streamSource.loop = true;
+                streamFilter.type = 'bandpass'; streamFilter.frequency.value = 1500; streamFilter.Q.value = 5;
+                streamGain.gain.setValueAtTime(0, this.ctx.currentTime);
+                streamGain.gain.linearRampToValueAtTime(0.02, this.ctx.currentTime + 5);
+                streamSource.connect(streamFilter).connect(streamGain).connect(this.nodes.masterGain);
+                streamSource.start();
+                this.nodes.stream = { source: streamSource, gain: streamGain };
+                this.nodes.dripInterval = setInterval(() => this._createDrip(), 2500 + Math.random() * 2000);
             }
         }
 
         updateBreath(state) {
-            [this.nodes.drone_sine, this.nodes.drone_saw].forEach(node => {
-                if (!node) return;
-                let filterFreq, gain;
-                if (state === 'inhale' || state === 'hold') {
-                    filterFreq = 1000; // Brighter sound
-                    gain = node.baseGain * 1.5;
-                } else { // exhale
-                    filterFreq = 400; // Muted sound
-                    gain = node.baseGain;
-                }
-                node.filter.frequency.linearRampToValueAtTime(filterFreq, this.ctx.currentTime + 4);
-                node.gain.gain.linearRampToValueAtTime(gain, this.ctx.currentTime + 4);
-            });
+            const wind = this.nodes.wind;
+            if (!wind) return;
+            let filterFreq, gain;
+            if (state === 'inhale' || state === 'hold') {
+                filterFreq = 500; gain = wind.baseGain * 1.5;
+            } else {
+                filterFreq = 200; gain = wind.baseGain;
+            }
+            wind.filter.frequency.linearRampToValueAtTime(filterFreq, this.ctx.currentTime + 4);
+            wind.gain.gain.linearRampToValueAtTime(gain, this.ctx.currentTime + 4);
+        }
+
+        triggerScanSound(part) {
+            const panMap = { feet: 0, hands: Math.random() > 0.5 ? 0.7 : -0.7, head: 0 };
+            this._createRustle(panMap[part]);
         }
 
         stop(phase) {
-            if (phase === 'scan' && this.nodes.shimmerInterval) {
-                clearInterval(this.nodes.shimmerInterval);
+            if (phase === 'cadence') {
+                if (this.nodes.dripInterval) clearInterval(this.nodes.dripInterval);
+                if (this.nodes.stream) {
+                    this.nodes.stream.gain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 5);
+                    setTimeout(() => this.nodes.stream.source.stop(), 5000);
+                }
             } else if (phase === 'conclusion') {
-                Object.values(this.nodes).forEach(node => {
-                    if (node && node.gain) node.gain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 10);
-                });
+                if (this.nodes.masterGain) {
+                    this.nodes.masterGain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 10);
+                }
                 setTimeout(() => {
-                    Object.values(this.nodes).forEach(node => node?.osc?.stop());
+                    this.nodes.wind?.source.stop();
                     this.nodes = {};
                 }, 10000);
                 setTimeout(() => this._createChime(), 12000);
@@ -152,71 +195,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     class ParticleSystem {
-        constructor(canvas) {
-            this.canvas = canvas;
-            this.ctx = canvas.getContext('2d');
-            this.particles = [];
-            this.animationFrameId = null;
-            window.addEventListener('resize', () => this.resize());
-        }
-        resize() {
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight;
-        }
-        init(count = 500) {
-            this.resize();
-            this.particles = [];
-            for (let i = 0; i < count; i++) {
-                this.particles.push({
-                    x: Math.random() * this.canvas.width, y: Math.random() * this.canvas.height,
-                    vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2,
-                    radius: Math.random() * 1.5 + 0.5,
-                    alpha: 0, targetAlpha: Math.random() * 0.4 + 0.1, glow: 0
-                });
-            }
-        }
-        start() {
-            if (!this.animationFrameId) this.animate();
-        }
-        stop() {
-            cancelAnimationFrame(this.animationFrameId);
-            this.animationFrameId = null;
-        }
-        animate() {
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.particles.forEach(p => {
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
-                if (p.alpha < p.targetAlpha) p.alpha += 0.01;
-                if (p.glow > 0) p.glow -= 0.02;
-                this.ctx.beginPath(); this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                this.ctx.fillStyle = `rgba(219, 232, 245, ${p.alpha + p.glow})`;
-                this.ctx.fill();
-            });
-            this.animationFrameId = requestAnimationFrame(() => this.animate());
-        }
-        highlightRegion(region) {
-            const regions = {
-                feet: { y: this.canvas.height * 0.85, r: this.canvas.height * 0.15 },
-                hands: { y: this.canvas.height * 0.5, r: this.canvas.height * 0.15 },
-                head: { y: this.canvas.height * 0.2, r: this.canvas.height * 0.15 }
-            };
-            const r = regions[region];
-            this.particles.forEach(p => {
-                const dist = Math.abs(p.y - r.y);
-                if (dist < r.r) p.glow = Math.min(1, p.glow + 0.5);
-            });
-        }
+        constructor(canvas) { this.canvas = canvas; this.ctx = canvas.getContext('2d'); this.particles = []; this.animationFrameId = null; window.addEventListener('resize', () => this.resize()); }
+        resize() { this.canvas.width = window.innerWidth; this.canvas.height = window.innerHeight; }
+        init(count = 500) { this.resize(); this.particles = []; for (let i = 0; i < count; i++) { this.particles.push({ x: Math.random() * this.canvas.width, y: Math.random() * this.canvas.height, vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2, radius: Math.random() * 1.5 + 0.5, alpha: 0, targetAlpha: Math.random() * 0.4 + 0.1, glow: 0 }); } }
+        start() { if (!this.animationFrameId) this.animate(); }
+        stop() { cancelAnimationFrame(this.animationFrameId); this.animationFrameId = null; }
+        animate() { this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); this.particles.forEach(p => { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1; if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1; if (p.alpha < p.targetAlpha) p.alpha += 0.01; if (p.glow > 0) p.glow -= 0.02; this.ctx.beginPath(); this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); this.ctx.fillStyle = `rgba(219, 232, 245, ${p.alpha + p.glow})`; this.ctx.fill(); }); this.animationFrameId = requestAnimationFrame(() => this.animate()); }
+        highlightRegion(region) { const regions = { feet: { y: this.canvas.height * 0.85, r: this.canvas.height * 0.15 }, hands: { y: this.canvas.height * 0.5, r: this.canvas.height * 0.15 }, head: { y: this.canvas.height * 0.2, r: this.canvas.height * 0.15 } }; const r = regions[region]; this.particles.forEach(p => { const dist = Math.abs(p.y - r.y); if (dist < r.r) p.glow = Math.min(1, p.glow + 0.5); }); }
     }
 
     function updateDotVisual(state) {
         let scale, opacity;
-        if (state === 'inhale' || state === 'hold') {
-            scale = 2.5; opacity = 1;
-        } else { // exhale
-            scale = 1; opacity = 0.7;
-        }
+        if (state === 'inhale' || state === 'hold') { scale = 2.5; opacity = 1; } else { scale = 1; opacity = 0.7; }
         elements.focusDot.style.transform = `translate(-50%, -50%) scale(${scale})`;
         elements.focusDot.style.opacity = opacity;
     }
@@ -237,10 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
         audio = new AudioEngine();
         particles = new ParticleSystem(elements.particleCanvas);
         audio.resume();
-
         document.documentElement.style.setProperty('--color-dot', generateCalmColor());
         document.documentElement.style.setProperty('--color-blob', generateCalmColor());
-
         const timings = calculateTimings(config.duration);
         switchPhaseContainer(elements.meditationScreen);
         document.body.style.backgroundColor = 'var(--color-bg-main)';
@@ -256,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // STAGE 2: Breath Focus (Cadence)
         elements.metaballContainer.style.opacity = 0.5;
         animateBlobs();
+        audio.start('cadence');
         const breathCycles = Math.floor(timings.cadence / 14000);
         for (let i = 0; i < breathCycles; i++) {
             await updateText("Breathe In...", 1000);
@@ -271,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.metaballContainer.style.opacity = 0;
         cancelAnimationFrame(blobAnimationId);
         elements.particleCanvas.style.opacity = 1;
-        audio.start('scan'); // Using 'scan' to start the shimmer
+        audio.stop('cadence');
         particles.init();
         particles.start();
         await updateText("Now, bring your awareness inward.", 3000);
@@ -284,14 +273,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const scanDuration = (timings.scan - 6000) / scanPoints.length;
         for (const point of scanPoints) {
             await updateText(point.text, 2000);
+            audio.triggerScanSound(point.part);
             particles.highlightRegion(point.part);
-            await wait(scanDuration - 2000);
+            await wait(Math.max(0, scanDuration - 2000));
         }
 
         // STAGE 4: Return
         elements.particleCanvas.style.opacity = 0;
         await updateText("", 1000);
-        audio.stop('scan');
         audio.stop('conclusion');
         particles.stop();
         await updateText("The practice is now complete.", 3000);
@@ -307,12 +296,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function init() {
         elements.durationBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                if (isRunning) return;
+                isRunning = true;
                 config.duration = parseInt(btn.dataset.duration);
                 runExperience();
             });
         });
 
         elements.restartBtn.addEventListener('click', () => {
+            isRunning = false; // Allow a new session to start
             switchPhaseContainer(elements.setupScreen);
         });
     }

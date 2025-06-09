@@ -1,0 +1,50 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Alchemist's Kitchen"
+    PKC Project - An enchanting, mysterious theme blending science and alchemy.
+    -->
+
+    <defs>
+        <radialGradient id="flask-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(42, 45, 66, 0)" />
+            <stop offset="70%" stop-color="rgba(42, 45, 66, 0.8)" />
+            <stop offset="100%" stop-color="#2a2d42" />
+        </radialGradient>
+        <filter id="element-glow">
+            <feGaussianBlur stdDeviation="1.5" />
+        </filter>
+    </defs>
+
+    <!-- Dark, moody background -->
+    <rect width="400" height="225" fill="#1a1c2b" />
+    
+    <!-- The Alchemical Flame -->
+    <g id="flame" opacity="0.8">
+        <path d="M150 225 C 180 180, 220 180, 250 225" fill="#f44336" />
+        <path d="M160 225 C 185 190, 215 190, 240 225" fill="#ff9800" />
+        <path d="M175 225 C 190 200, 210 200, 225 225" fill="#ffeb3b" />
+    </g>
+    
+    <!-- The Reaction Vessel (Flask) -->
+    <g id="flask">
+        <circle cx="200" cy="125" r="90" fill="url(#flask-glow)" />
+        <path d="M110 125 C 105 50, 295 50, 290 125" fill="none" stroke="#4a4d62" stroke-width="8" />
+        <path d="M180 50 h40" stroke="#4a4d62" stroke-width="8" />
+    </g>
+
+    <!-- The Particles inside the flask -->
+    <g id="particles" filter="url(#element-glow)" transform="translate(200, 125)">
+        <!-- Sugars (Hexagons) -->
+        <g fill="white">
+            <polygon points="0,10 -8.66,5 -8.66,-5 0,-10 8.66,-5 8.66,5" transform="translate(-30, -20) scale(0.8)"/>
+            <polygon points="0,10 -8.66,5 -8.66,-5 0,-10 8.66,-5 8.66,5" transform="translate(40, 20) scale(0.7) rotate(20)"/>
+            <polygon points="0,10 -8.66,5 -8.66,-5 0,-10 8.66,-5 8.66,5" transform="translate(10, 30) scale(0.9) rotate(-15)"/>
+        </g>
+        <!-- Amino Acids (Triangles) -->
+        <g fill="#ffeb3b">
+            <polygon points="0,-10 8.66,5 -8.66,5" transform="translate(20, -30) scale(1)"/>
+            <polygon points="0,-10 8.66,5 -8.66,5" transform="translate(-40, 10) scale(0.8) rotate(30)"/>
+            <polygon points="0,-10 8.66,5 -8.66,5" transform="translate(0, 0) scale(0.9) rotate(50)"/>
+        </g>
+    </g>
+</svg>

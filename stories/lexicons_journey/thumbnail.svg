@@ -1,0 +1,46 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Lexicon's Journey"
+    PKC Project - A layered, historical theme representing etymological discovery.
+    -->
+
+    <defs>
+        <!-- A filter to create a subtle, rough texture for stone/parchment -->
+        <filter id="texture">
+            <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="2" result="noise"/>
+            <feDiffuseLighting in="noise" lighting-color="#d3d3d3" surfaceScale="1">
+                <feDistantLight azimuth="45" elevation="30"/>
+            </feDiffuseLighting>
+        </filter>
+    </defs>
+
+    <!-- Base Background -->
+    <rect width="400" height="225" fill="#1a1c2b" />
+
+    <!-- Layer 3: Latin (Stone) -->
+    <g id="latin-layer" opacity="0.5">
+        <rect width="400" height="225" fill="#4a4a4a" />
+        <rect width="400" height="225" filter="url(#texture)" opacity="0.1" />
+        <text x="200" y="150" font-family="Cinzel, serif" font-size="24" fill="#a0a0a0" text-anchor="middle">CAPITANEUS</text>
+    </g>
+
+    <!-- Layer 2: Middle English (Parchment) -->
+    <g id="middle-english-layer" opacity="0.8">
+        <path d="M0 0 H400 V225 H0 V150 C 50 180, 150 120, 200 150 S 300 200, 400 180 V0 Z" fill="#c3b091" style="filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.4));" />
+        <rect width="400" height="225" filter="url(#texture)" opacity="0.05" clip-path="url(#middle-english-clip)" />
+        <text x="200" y="100" font-family="Cinzel, serif" font-size="32" fill="#3a2a1a" text-anchor="middle">Capitayn</text>
+    </g>
+
+    <!-- Layer 1: Modern English (Clean) -->
+    <g id="modern-english-layer">
+        <path d="M0 0 H400 V120 C 350 100, 250 140, 200 110 S 50 80, 0 100 Z" fill="#1a1c2b" style="filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));" />
+        <text x="200" y="65" font-family="Poppins, sans-serif" font-weight="600" font-size="48" fill="#e0e0e0" text-anchor="middle">Captain</text>
+    </g>
+
+    <!-- Define clip-path for texture -->
+    <defs>
+        <clipPath id="middle-english-clip">
+            <path d="M0 0 H400 V225 H0 V150 C 50 180, 150 120, 200 150 S 300 200, 400 180 V0 Z" />
+        </clipPath>
+    </defs>
+</svg>

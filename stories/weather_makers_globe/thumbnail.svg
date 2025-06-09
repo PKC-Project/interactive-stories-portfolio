@@ -1,0 +1,51 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Weather Maker's Globe"
+    PKC Project - A clean, graphic design showing cause-and-effect in a weather simulation.
+    -->
+
+    <defs>
+        <!-- Clip paths to create the split-screen effect on the globe -->
+        <clipPath id="clip-left-half">
+            <rect x="0" y="0" width="200" height="225" />
+        </clipPath>
+        <clipPath id="clip-right-half">
+            <rect x="200" y="0" width="200" height="225" />
+        </clipPath>
+        <!-- A soft shadow for the globe -->
+        <filter id="globe-shadow">
+            <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.4"/>
+        </filter>
+    </defs>
+
+    <!-- Dark background to make the globe pop -->
+    <rect width="400" height="225" fill="#1a1c2b" />
+    
+    <!-- The Globe Group -->
+    <g id="globe-group" transform="translate(100, 20)" filter="url(#globe-shadow)">
+        <!-- Left (Sunny) Half -->
+        <g clip-path="url(#clip-left-half)">
+            <circle cx="100" cy="102.5" r="80" fill="#6c92a6" />
+            <path d="M50,40 C 20,60 40,120 72,160 C 90,180 140,160 160,120 C 180,80 140,60 100,50 Z" fill="#9db16c" />
+            <circle cx="50" cy="50" r="15" fill="#ffeb3b" opacity="0.9" />
+        </g>
+        
+        <!-- Right (Stormy) Half -->
+        <g clip-path="url(#clip-right-half)">
+            <circle cx="100" cy="102.5" r="80" fill="#4a6e82" />
+            <path d="M50,40 C 20,60 40,120 72,160 C 90,180 140,160 160,120 C 180,80 140,60 100,50 Z" fill="#6a8a5b" />
+            <!-- Clouds -->
+            <g fill="rgba(200, 205, 210, 0.8)">
+                <circle cx="150" cy="60" r="20" />
+                <circle cx="170" cy="70" r="25" />
+                <circle cx="130" cy="75" r="22" />
+            </g>
+            <!-- Rain -->
+            <g stroke="rgba(135, 206, 235, 0.7)" stroke-width="1.5" stroke-linecap="round">
+                <line x1="140" y1="90" x2="135" y2="100" />
+                <line x1="160" y1="95" x2="155" y2="105" />
+                <line x1="180" y1="92" x2="175" y2="102" />
+            </g>
+        </g>
+    </g>
+</svg>

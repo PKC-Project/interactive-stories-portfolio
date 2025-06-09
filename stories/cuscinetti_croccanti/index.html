@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuscinetti Croccanti: A Sweet Symphony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main id="recipe-container">
+        <div id="visual-pane">
+            <svg id="kitchen-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="wood-texture" patternUnits="userSpaceOnUse" width="200" height="200">
+                        <image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Q0YjM5OCIvPjxwYXRoIGQ9Ik0wLDUwIEM1MCwzMCAxNTAsNzAgMjAwLDUwIiBzdHJva2U9IiNhODhlNzYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wLDE1MCBDNTAsMTMwIDE1MCwxNzAgMjAwLDE1MCIgc3Ryb2tlPSIjYTg4ZTc2IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=" x="0" y="0" width="200" height="200"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#wood-texture)" />
+                
+                <g id="mise-en-place-view">
+                    <g class="ingredient" id="flour" transform="translate(200, 250)" data-tooltip="Flour: The foundation, creating the structure of our dough.">
+                        <path d="M-60,-80 L-50,50 L50,50 L60,-80 Z" fill="#eaddc7"/><text x="0" y="-20" class="svg-text">FLOUR</text>
+                    </g>
+                    <g class="ingredient" id="butter" transform="translate(600, 250)" data-tooltip="Butter: Provides richness and helps create flaky layers.">
+                        <rect x="-60" y="-25" width="120" height="50" fill="#f9f5d9"/><text x="0" y="10" class="svg-text">BUTTER</text>
+                    </g>
+                    <g class="ingredient" id="ricotta" transform="translate(400, 600)" data-tooltip="Ricotta: A fresh, creamy cheese for the sweet filling.">
+                        <path d="M-50,50 L50,50 L40,-50 L-40,-50 Z" fill="#f0f0f0"/><text x="0" y="10" class="svg-text">RICOTTA</text>
+                    </g>
+                    <circle id="mise-bowl" cx="400" cy="400" r="150" fill="#d0d0d0" stroke="#b0b0b0" stroke-width="5"/>
+                </g>
+
+                <g id="dough-view">
+                    <circle id="mixing-bowl" cx="400" cy="400" r="150" fill="#e0e0e0"/>
+                    <path id="dough-shape" d="M400,400 m-100,0 a100,80 0 1,0 200,0 a100,80 0 1,0 -200,0" fill="#f9f5d9"/>
+                </g>
+
+                <g id="frying-view">
+                    <circle cx="400" cy="400" r="180" fill="#333"/>
+                    <circle cx="400" cy="400" r="170" fill="#f9f5d9" id="frying-oil"/>
+                    <g id="frying-pastry">
+                        <path d="M400,350 L480,400 L400,450 L320,400 Z" fill="#f5eeda"/>
+                    </g>
+                </g>
+                
+                <g id="final-view">
+                    <ellipse cx="400" cy="430" rx="200" ry="100" fill="#fff" style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));"/>
+                    <g id="plated-pastries"></g>
+                </g>
+            </svg>
+            <div id="tooltip"></div>
+        </div>
+
+        <div id="story-content">
+            <section class="story-beat" data-scene="intro">
+                <h1>Cuscinetti Croccanti</h1>
+                <h2>A Sweet Symphony</h2>
+                <p>An interactive journey into a classic Sicilian pastry. "Cuscinetti Croccanti," or Crispy Little Cushions, are a delight of texture and taste. Let's begin our culinary exploration.</p>
+            </section>
+            <section class="story-beat" data-scene="mise">
+                <h3>Mise en Place</h3>
+                <p id="mise-text">Like any great work, we begin with preparation. Our key ingredients are simple but essential. Click the button to gather them.</p>
+                <button class="action-btn" id="gather-btn">Gather Ingredients</button>
+            </section>
+            <section class="story-beat" data-scene="dough">
+                <h3>The Dough</h3>
+                <p>The magic starts by combining flour and butter. The process of kneading develops gluten, creating an elastic dough. This elasticity will form thousands of tiny, flaky layers when fried, giving the pastry its signature crispiness.</p>
+                <button class="action-btn" id="knead-btn">Knead the Dough</button>
+            </section>
+            <section class="story-beat" data-scene="frying">
+                <h3>The Alchemy of Frying</h3>
+                <p>Now, the transformation. The prepared dough is dropped into hot oil. This is where the "croccante" is born. The intense heat flash-cooks the dough, causing it to puff up and turn a beautiful, deep golden-brown.</p>
+                <p class="instruction">The pastry is frying...</p>
+            </section>
+            <section class="story-beat" data-scene="final">
+                <h3>The Final Touch</h3>
+                <p>After frying, the crispy cushions are filled with the sweet ricotta cream. A final, generous dusting of powdered sugar completes the masterpiece. Served warm, they are a bite of Sicilian tradition.</p>
+                <button class="action-btn" id="dust-btn">Dust with Sugar</button>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

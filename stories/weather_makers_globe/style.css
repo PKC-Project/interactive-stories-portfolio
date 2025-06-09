@@ -1,0 +1,92 @@
+:root {
+    --bg-color: #1a1c2b;
+    --panel-bg: #2a2d42;
+    --text-color: #e0e0e0;
+    --accent-color: #87ceeb;
+    --continent-color: #8b7d6b;
+    --continent-snow-color: #f0f4f7;
+    --ocean-color: #3a7a9e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#simulation-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+#globe {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+#map-svg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+/* NLD REFINEMENT: Add smooth transition for snow cover */
+#continent {
+    fill: var(--continent-color);
+    transition: fill 1s ease-in-out;
+}
+
+#precipitation-canvas, #cloud-canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+#control-panel {
+    background-color: var(--panel-bg);
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+h2 {
+    text-align: center; margin-top: 0;
+    font-weight: 300; letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.slider-group { margin-bottom: 25px; }
+.slider-group label { display: block; margin-bottom: 10px; font-weight: 600; }
+
+input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 5px; background: rgba(0,0,0,0.3);
+    border-radius: 5px; outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 20px; height: 20px; background: var(--accent-color);
+    border-radius: 50%; cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+    width: 20px; height: 20px; background: var(--accent-color);
+    border-radius: 50%; cursor: pointer;
+}
+
+.slider-labels {
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; opacity: 0.7; margin-top: 5px;
+}

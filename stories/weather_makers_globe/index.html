@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weather Maker's Globe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="simulation-container">
+        <div id="globe">
+            <!-- The base map SVG -->
+            <svg id="map-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="ocean-gradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="80%" stop-color="#3a7a9e" />
+                        <stop offset="100%" stop-color="#2a5d8a" />
+                    </radialGradient>
+                </defs>
+                <circle cx="250" cy="250" r="250" fill="url(#ocean-gradient)" />
+                <path id="continent" d="M150,100 C 50,150 100,300 180,400 C 250,450 350,400 400,300 C 450,200 350,150 250,120 C 200,90 180,80 150,100 Z" />
+            </svg>
+            
+            <!-- Canvases for weather effects, layered on top -->
+            <canvas id="precipitation-canvas"></canvas>
+            <canvas id="cloud-canvas"></canvas>
+        </div>
+
+        <div id="control-panel">
+            <h2>Weather Controls</h2>
+            <div class="slider-group">
+                <label for="temp-slider">Temperature</label>
+                <input type="range" id="temp-slider" min="0" max="100" value="50">
+                <div class="slider-labels"><span>Cold</span><span>Hot</span></div>
+            </div>
+            <div class="slider-group">
+                <label for="humidity-slider">Humidity</label>
+                <input type="range" id="humidity-slider" min="0" max="100" value="50">
+                <div class="slider-labels"><span>Dry</span><span>Humid</span></div>
+            </div>
+            <div class="slider-group">
+                <label for="pressure-slider">Pressure</label>
+                <input type="range" id="pressure-slider" min="0" max="100" value="50">
+                <div class="slider-labels"><span>Low</span><span>High</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

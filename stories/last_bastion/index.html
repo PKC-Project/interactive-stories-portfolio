@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Bastion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="ui-panel">
+            <h1>The Last Bastion</h1>
+            <div class="stats-group">
+                <div class="stat">
+                    <span class="stat-label">Bastion Health</span>
+                    <span id="health-display" class="stat-value">20</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Essence</span>
+                    <span id="essence-display" class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Wave</span>
+                    <span id="wave-display" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="tower-selection">
+                <h2>Build Defenses</h2>
+                <button class="tower-btn" data-tower-type="pulse" data-cost="100">
+                    <span class="tower-name">Pulse Cannon</span>
+                    <span class="tower-cost">100 Essence</span>
+                </button>
+                <button class="tower-btn" data-tower-type="cryo" data-cost="75">
+                    <span class="tower-name">Cryo Spire</span>
+                    <span class="tower-cost">75 Essence</span>
+                </button>
+            </div>
+            
+            <button id="next-wave-btn">Start Next Wave</button>
+            
+            <div id="game-over-panel" class="hidden">
+                <h2>GAME OVER</h2>
+                <button id="restart-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

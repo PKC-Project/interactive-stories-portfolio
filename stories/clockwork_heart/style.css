@@ -1,0 +1,48 @@
+:root {
+    --bg-color: #2c3e50;
+    --panel-bg: #34495e;
+    --text-color: #ecf0f1;
+    --accent-color: #f1c40f;
+    --component-highlight-opacity: 1;
+    --component-fade-opacity: 0.15;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: var(--bg-color); color: var(--text-color); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+#workbench-container { display: flex; gap: 30px; align-items: center; }
+#watch-movement { width: 600px; height: 600px; background: #222; border-radius: 10px; box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.3); }
+#movement-svg { width: 100%; height: 100%; }
+
+/* Component Isolation Styling */
+.watch-component { opacity: var(--component-highlight-opacity); transition: opacity 0.5s ease-in-out; }
+#movement-svg.isolate-mainspring #gear-train,
+#movement-svg.isolate-mainspring #escapement-assembly,
+#movement-svg.isolate-geartrain #escapement-assembly,
+#movement-svg.isolate-escapement #mainspring-assembly,
+#movement-svg.isolate-escapement #gear-train {
+    opacity: var(--component-fade-opacity);
+}
+
+/* NLD REFINEMENT: Corrected animations to spin components on their own axes */
+#movement-svg.isolate-mainspring #mainspring-coil { opacity: 1; animation: uncoil-spring 10s linear infinite; }
+@keyframes uncoil-spring { from { stroke-dasharray: 0 100; } to { stroke-dasharray: 100 0; } }
+
+#movement-svg.isolate-mainspring #mainspring-barrel-group { animation: rotate-self 20s linear infinite; }
+#center-wheel-group { animation: rotate-self 60s linear infinite; }
+#third-wheel-group { animation: rotate-self 10s linear infinite reverse; }
+#fourth-wheel-group { animation: rotate-self 1s linear infinite; }
+
+@keyframes rotate-self {
+    from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+}
+
+/* Control Panel Styling (Unchanged) */
+#control-panel { background-color: var(--panel-bg); padding: 20px 30px; border-radius: 10px; width: 350px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+h1 { font-weight: 300; margin-top: 0; letter-spacing: 1px; color: var(--accent-color); }
+.subtitle { font-size: 0.9rem; opacity: 0.7; margin: -10px 0 20px; }
+#component-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.component-btn { background: #4a6179; border: 1px solid #5c7a99; color: var(--text-color); padding: 12px; border-radius: 5px; cursor: pointer; text-align: left; transition: background-color 0.2s, border-color 0.2s; }
+.component-btn:hover { background-color: #5c7a99; }
+.component-btn.active { background-color: var(--accent-color); color: #2c3e50; border-color: var(--accent-color); font-weight: bold; }
+#info-panel { background: rgba(0,0,0,0.2); border-radius: 5px; padding: 15px; min-height: 120px; }
+#component-title { margin: 0 0 10px; font-size: 1.3rem; }
+#component-description { font-size: 0.9rem; line-height: 1.6; margin: 0; }

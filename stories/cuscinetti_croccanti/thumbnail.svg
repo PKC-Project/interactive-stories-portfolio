@@ -1,0 +1,44 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "Cuscinetti Croccanti: A Sweet Symphony"
+    PKC Project - A warm, delicious, and inviting culinary theme.
+    -->
+    <defs>
+        <filter id="pastry-shadow">
+            <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+        </filter>
+        <radialGradient id="plate-gradient" cx="50%" cy="50%" r="50%">
+            <stop offset="80%" stop-color="#ffffff" />
+            <stop offset="100%" stop-color="#e8e8e8" />
+        </radialGradient>
+    </defs>
+
+    <!-- Background: A warm, wooden tabletop -->
+    <rect width="400" height="225" fill="#d4b398" />
+    <rect width="400" height="225" fill="url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ0cmFuc3BhcmVudCIvPjxwYXRoIGQ9Ik0wIDI1IEw1MCAyNSIgc3Ryb2tlPSJyZ2JhKDAsMCwwLDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=)" />
+
+    <!-- The Plate -->
+    <circle cx="200" cy="112.5" r="100" fill="url(#plate-gradient)" style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));" />
+    <circle cx="200" cy="112.5" r="95" fill="none" stroke="#d0d0d0" stroke-width="1" />
+
+    <!-- The Pile of Pastries -->
+    <g id="pastries" filter="url(#pastry-shadow)">
+        <!-- Base Layer -->
+        <path d="M180,130 L220,155 L180,180 L140,155 Z" fill="#a1662f" transform="rotate(-10 180 155)"/>
+        <path d="M220,130 L260,155 L220,180 L180,155 Z" fill="#b1763f" transform="rotate(5 220 155)"/>
+        <!-- Mid Layer -->
+        <path d="M160,100 L200,125 L160,150 L120,125 Z" fill="#b1763f" transform="rotate(15 160 125)"/>
+        <path d="M200,100 L240,125 L200,150 L160,125 Z" fill="#a1662f" />
+        <path d="M240,100 L280,125 L240,150 L200,125 Z" fill="#b1763f" transform="rotate(-15 240 125)"/>
+        <!-- Top Layer -->
+        <path d="M180,80 L220,105 L180,130 L140,105 Z" fill="#a1662f" transform="rotate(-5 180 105)"/>
+        <path d="M220,80 L260,105 L220,130 L180,105 Z" fill="#b1763f" transform="rotate(10 220 105)"/>
+    </g>
+
+    <!-- Powdered Sugar Dusting -->
+    <g fill="rgba(255,255,255,0.8)">
+        <circle cx="200" cy="100" r="1.5" /><circle cx="230" cy="115" r="1" />
+        <circle cx="170" cy="125" r="1.2" /><circle cx="210" cy="140" r="1" />
+        <circle cx="150" cy="150" r="1.5" /><circle cx="250" cy="130" r="1.2" />
+    </g>
+</svg>

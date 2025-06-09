@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Clockwork Heart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="workbench-container">
+        <div id="watch-movement">
+            <svg id="movement-svg" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <filter id="component-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feDropShadow dx="0.5" dy="0.5" stdDeviation="0.5" flood-color="#000" flood-opacity="0.4"/>
+                    </filter>
+                    <radialGradient id="brass-gradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+                        <stop offset="0%" stop-color="#f0e68c" /><stop offset="100%" stop-color="#c8a97e" />
+                    </radialGradient>
+                    <radialGradient id="steel-gradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+                        <stop offset="0%" stop-color="#e0e0e0" /><stop offset="100%" stop-color="#a0a0a0" />
+                    </radialGradient>
+                </defs>
+
+                <!-- Base Plate -->
+                <circle cx="0" cy="0" r="95" fill="#333" />
+
+                <!-- NLD REFINEMENT: Each component system is now a single, correctly positioned group -->
+                <g id="component-layer" filter="url(#component-shadow)">
+                    
+                    <!-- Mainspring Barrel -->
+                    <g id="mainspring-assembly" class="watch-component" transform="translate(-50, 0)">
+                        <g id="mainspring-barrel-group">
+                            <circle r="30" fill="url(#brass-gradient)" />
+                            <path id="mainspring-coil" d="M0,0 C15,0 15,15 0,15 C-15,15 -15,0 0,0" stroke="#777" stroke-width="2" fill="none" opacity="0"/>
+                            <circle r="5" fill="#555" />
+                        </g>
+                    </g>
+
+                    <!-- Gear Train -->
+                    <g id="gear-train" class="watch-component">
+                        <g id="center-wheel-group" transform="translate(0, 0)">
+                            <circle r="25" fill="url(#brass-gradient)" /><circle r="3" fill="#555" />
+                        </g>
+                        <g id="third-wheel-group" transform="translate(30, 30)">
+                            <circle r="20" fill="url(#brass-gradient)" /><circle r="2.5" fill="#555" />
+                        </g>
+                        <g id="fourth-wheel-group" transform="translate(50, -20)">
+                            <circle r="18" fill="url(#brass-gradient)" /><circle r="2" fill="#555" />
+                        </g>
+                    </g>
+
+                    <!-- Escapement Assembly -->
+                    <g id="escapement-assembly" class="watch-component" transform="translate(58, -5)">
+                         <g id="escape-wheel-group" transform="translate(12, 5)">
+                            <circle r="15" fill="url(#steel-gradient)" />
+                        </g>
+                        <g id="pallet-fork-group" transform="translate(-3, 25)">
+                            <path d="M0,0 L-10,-10 L-10,-15 L10,-15 L10,-10 Z M-5,-15 L0,-20 L5,-15" fill="url(#steel-gradient)" />
+                            <circle cx="-10" cy="-12.5" r="1.5" fill="red" /><circle cx="10" cy="-12.5" r="1.5" fill="red" />
+                        </g>
+                        <g id="balance-wheel-assembly" transform="translate(12, -25)">
+                            <circle r="20" fill="none" stroke="url(#brass-gradient)" stroke-width="3" />
+                            <path d="M0,-18 V18 M-18,0 H18 M-12.7,-12.7 L12.7,12.7 M-12.7,12.7 L12.7,-12.7" stroke="#c8a97e" stroke-width="1"/>
+                        </g>
+                    </g>
+
+                </g>
+            </svg>
+        </div>
+        <div id="control-panel">
+            <h1>The Clockwork Heart</h1>
+            <p class="subtitle">Anatomy of a Mechanical Watch</p>
+            <div id="component-list">
+                <button class="component-btn active" data-component="all">Full Movement</button>
+                <button class="component-btn" data-component="mainspring">Mainspring & Barrel</button>
+                <button class="component-btn" data-component="geartrain">Gear Train</button>
+                <button class="component-btn" data-component="escapement">Escapement Assembly</button>
+            </div>
+            <div id="info-panel">
+                <h2 id="component-title">Full Movement</h2>
+                <p id="component-description">The assembled mechanical watch movement, a marvel of miniature engineering, precisely measures the passage of time through a symphony of interconnected parts.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

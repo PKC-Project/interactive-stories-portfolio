@@ -1,0 +1,37 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Clockwork Heart"
+    PKC Project - A precise, elegant, and technical design showcasing mechanical beauty.
+    -->
+    <defs>
+        <filter id="watch-shadow">
+            <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.5"/>
+        </filter>
+        <radialGradient id="brass-thumb" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f0e68c" /><stop offset="100%" stop-color="#c8a97e" />
+        </radialGradient>
+        <radialGradient id="steel-thumb" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e0e0e0" /><stop offset="100%" stop-color="#a0a0a0" />
+        </radialGradient>
+    </defs>
+
+    <!-- Dark, textured background -->
+    <rect width="400" height="225" fill="#2c3e50" />
+    
+    <!-- Large background gear elements to suggest a larger mechanism -->
+    <circle cx="50" cy="180" r="80" fill="#34495e" />
+    <circle cx="350" cy="50" r="120" fill="#34495e" />
+    
+    <!-- The Escapement Assembly - The visual centerpiece -->
+    <g id="escapement" transform="translate(200, 112.5)" filter="url(#watch-shadow)">
+        <!-- Escape Wheel -->
+        <circle r="40" fill="url(#steel-thumb)" />
+        <!-- Pallet Fork -->
+        <path d="M-15,-45 L-35,-65 L-35,-75 L-15,-75 Z" fill="url(#steel-thumb)" transform="rotate(15)"/>
+        <path d="M15,-45 L35,-65 L35,-75 L15,-75 Z" fill="url(#steel-thumb)" transform="rotate(-15)"/>
+        <!-- Balance Wheel -->
+        <circle r="70" fill="none" stroke="url(#brass-thumb)" stroke-width="8" />
+        <path d="M0,-66 V66 M-66,0 H66" stroke="#c8a97e" stroke-width="2" />
+        <circle cx="0" cy="55" r="5" fill="blue" /> <!-- Impulse Jewel -->
+    </g>
+</svg>

@@ -1,0 +1,85 @@
+:root {
+    --font-main: 'Poppins', sans-serif;
+    --font-serif: 'EB Garamond', serif;
+    --text-light: #dcdcdc;
+    --text-dark: #333;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #000; color: var(--text-light); font-family: var(--font-main); font-weight: 300; }
+#journey-container { display: grid; grid-template-columns: 1fr 1fr; position: relative; }
+#visual-pane { position: sticky; top: 0; height: 100vh; background-color: #000; }
+#allegory-svg { width: 100%; height: 100%; }
+
+/* SVG Element Base Styles */
+#cave-interior-view, #ascent-view, #blinding-sun, #real-world-view {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+#prisoner-silhouette {
+    transform-origin: 0px 20px; /* Pivot point at the 'feet' of the path */
+    transition: transform 1.5s ease-in-out, fill 1.5s;
+}
+#prisoner-silhouette .body { fill: #000; }
+#prisoner-silhouette .manacle { fill: #333; }
+#prisoner-silhouette .chain { fill: none; stroke: #333; stroke-width: 2; }
+
+/* --- Animation States by Scene (with Polished Prisoner) --- */
+/* Stage 1: Cave */
+#visual-pane.scene-cave #cave-interior-view { opacity: 1; }
+#visual-pane.scene-cave #prisoner-silhouette {
+    transform: translate(400px, 680px) scale(3) skewX(-10deg);
+}
+#visual-pane.scene-cave #fire, #visual-pane.scene-cave #shadows {
+    animation: fire-flicker-anim 3s infinite ease-in-out;
+}
+@keyframes fire-flicker-anim {
+    0%   { filter: url(#flicker-1); opacity: 0.8; transform: scale(1); }
+    50%  { filter: url(#flicker-2); opacity: 1;   transform: scale(1.05, 0.95); }
+    100% { filter: url(#flicker-1); opacity: 0.8; transform: scale(1); }
+}
+
+/* Stage 2: Release */
+#visual-pane.scene-release #cave-interior-view { opacity: 1; }
+#visual-pane.scene-release #prisoner-silhouette {
+    transform: translate(400px, 680px) scale(3) rotateY(180deg) skewX(20deg);
+}
+#visual-pane.scene-release #prisoner-silhouette .chain { display: none; }
+#visual-pane.scene-release #shadows { opacity: 0.1; transition: opacity 1s; }
+
+/* Stage 3: Ascent */
+#visual-pane.scene-ascent #ascent-view { opacity: 1; }
+#visual-pane.scene-ascent #prisoner-silhouette {
+    transform: translate(400px, 400px) scale(1.5) rotate(15deg);
+}
+#visual-pane.scene-ascent #prisoner-silhouette .body { fill: #fff; }
+#visual-pane.scene-ascent #prisoner-silhouette .manacle,
+#visual-pane.scene-ascent #prisoner-silhouette .chain { display: none; }
+
+/* Stage 4: Sun */
+#visual-pane.scene-sun #blinding-sun { opacity: 1; }
+#visual-pane.scene-sun #prisoner-silhouette {
+    transform: translate(400px, 700px) scale(2.5) skewX(-30deg);
+}
+#visual-pane.scene-sun #prisoner-silhouette .body { fill: #ccc; }
+#visual-pane.scene-sun #prisoner-silhouette .manacle,
+#visual-pane.scene-sun #prisoner-silhouette .chain { display: none; }
+
+/* Stage 5: Real World */
+#visual-pane.scene-real-world #real-world-view { opacity: 1; }
+#visual-pane.scene-real-world #blinding-sun { opacity: 0; transition-duration: 3s; }
+#visual-pane.scene-real-world #prisoner-silhouette {
+    transform: translate(380px, 570px) scale(3);
+}
+#visual-pane.scene-real-world #prisoner-silhouette .body { fill: #444; }
+#visual-pane.scene-real-world #prisoner-silhouette .manacle,
+#visual-pane.scene-real-world #prisoner-silhouette .chain { display: none; }
+
+/* --- Story Content & UI --- */
+#story-content { padding: 5vh 10%; max-width: 600px; margin-left: 5%; }
+.story-beat { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.story-beat h2 { font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 1rem; }
+.story-beat p { font-size: 1.1rem; line-height: 1.8; font-style: italic; }
+#audio-controls { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+#audio-toggle { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.5); width: 44px; height: 44px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; transition: background-color 0.2s; }
+#audio-toggle:hover { background: rgba(255,255,255,0.2); }
+#audio-toggle svg { width: 20px; height: 20px; fill: #fff; }

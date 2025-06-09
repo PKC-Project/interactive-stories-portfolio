@@ -1,0 +1,141 @@
+:root {
+    /* Modern English */
+    --bg-modern: #1a1c2b;
+    --text-modern: #e0e0e0;
+    --font-modern: 'Poppins', sans-serif;
+
+    /* NLD REFINEMENT: Generate a darker, more readable parchment theme */
+    --bg-parchment: #c3b091; /* Darker, aged tan color */
+    --text-parchment: #2a2010; /* Near-black for high contrast */
+    --font-parchment: 'Cinzel', serif;
+
+    /* Old French */
+    --bg-tapestry: #5a1a1a;
+    --text-tapestry: #f0d0b0;
+    --font-tapestry: 'Cinzel', serif;
+
+    /* Latin */
+    --bg-stone: #4a4a4a;
+    --text-stone: #dcdcdc;
+    --font-latin: 'Cinzel', serif;
+
+    /* Proto-Indo-European */
+    --bg-nebula-1: #0d0d1a;
+    --bg-nebula-2: #1a0d1a;
+    --text-nebula: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-modern);
+    color: var(--text-modern);
+    background-color: var(--bg-modern);
+    transition: background-color 1.5s ease-in-out, background-image 1.5s ease-in-out;
+    overflow: hidden;
+}
+
+#journey-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- Word Display --- */
+#word-display {
+    perspective: 800px;
+    margin-bottom: 2rem;
+}
+
+#word-text {
+    font-size: 6rem;
+    font-weight: 600;
+    margin: 0;
+    transition: color 1.5s, font-family 1.5s, text-shadow 1.5s;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* --- Info Panel --- */
+#info-panel {
+    max-width: 600px;
+    height: 150px;
+    margin-bottom: 2rem;
+    transition: color 1.5s;
+}
+
+#era-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+}
+
+#era-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Navigation --- */
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- Era-Specific Styles --- */
+
+/* NLD REFINEMENT: Apply new parchment theme and procedural texture */
+body.middle-english {
+    background-color: var(--bg-parchment);
+    /* This data-uri SVG generates a subtle, fibrous noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='parchment'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.827 0 0 0 0 0.69 0 0 0 0 0.569 0 0 0 0.15 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23parchment)'/%3E%3C/svg%3E");
+}
+body.middle-english .nav-btn {
+    border-color: var(--text-parchment);
+    color: var(--text-parchment);
+}
+body.middle-english .nav-btn:hover {
+    background-color: var(--text-parchment);
+    color: var(--bg-parchment);
+}
+
+
+body.old-french { background-color: var(--bg-tapestry); }
+body.latin { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiM0YT RhNGEiLz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbnoikiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg=='); }
+body.pie {
+    background: radial-gradient(circle, var(--bg-nebula-2), var(--bg-nebula-1));
+    animation: nebula-swirl 20s infinite linear;
+}
+
+@keyframes nebula-swirl {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+}

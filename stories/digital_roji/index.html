@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>The Digital Roji - Zen Garden</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SVG icons for the toolbar -->
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <symbol id="icon-single" viewBox="0 0 24 24"><path d="M4 20l16-16"/></symbol>
+            <symbol id="icon-comb" viewBox="0 0 24 24"><g stroke-linecap="round"><path d="M4 20l16-16"/><path d="M7 17l13-13"/><path d="M10 14l10-10"/><path d="M13 11l7-7"/></g></symbol>
+            <symbol id="icon-stone" viewBox="0 0 24 24"><path d="M19.1 4.9C15.2 1 8.8 1 4.9 4.9S1 15.2 4.9 19.1 15.2 23 19.1 19.1c2.4-2.4 3.4-5.6 2.8-8.5-1.7 1.8-4.2 2.8-6.9 2.8-4.4 0-8-3.6-8-8 0-2.7 1-5.2 2.8-6.9-2.9.6-6.1 1.6-8.5 2.8z"/></symbol>
+            <symbol id="icon-smooth" viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 18V6h16v12H4z"/></symbol>
+        </defs>
+    </svg>
+
+    <!-- Main garden area -->
+    <div id="garden-container">
+        <!-- DOM elements for stones will be added here by JS -->
+        <div id="stones-container"></div> 
+        <canvas id="zen-garden-canvas"></canvas>
+    </div>
+
+    <!-- Floating UI Toolbar -->
+    <aside id="toolbar">
+        <button class="tool-btn active" data-tool="single" title="Single Tine">
+            <svg><use href="#icon-single"/></svg>
+        </button>
+        <button class="tool-btn" data-tool="comb" title="Comb Rake">
+            <svg><use href="#icon-comb"/></svg>
+        </button>
+        <button class="tool-btn" data-tool="stone" title="Place Stone (click on garden)">
+            <svg><use href="#icon-stone"/></svg>
+        </button>
+        <button class="tool-btn" data-tool="smooth" title="Smooth Sand">
+            <svg><use href="#icon-smooth"/></svg>
+        </button>
+    </aside>
+
+    <!-- Initial welcome message overlay -->
+    <div id="welcome-overlay" class="visible">
+        <p>Breathe. The garden awaits.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
