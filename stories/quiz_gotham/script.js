@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { svg: '<svg viewBox="0 0 100 100"><path d="M50,10 C90,10 90,90 50,90 C10,90 10,10 50,10 M30,30 C60,30 60,70 30,70" stroke="#8c743d" stroke-width="5" fill="none"/></svg>', feedback: 'This ornate scrollwork is typical of the Victorian or Damask style, which is much more detailed than the sleek Art Deco look.'}
                 ],
                 correctIndex: 0,
-                feedback: { correct: 'Precisely! The **Sunburst** motif, with its bold geometry and radiant symmetry, is a quintessential element of the Art Deco style.' }
+                feedback: { correct: 'Precisely! The <strong>Sunburst</strong> motif, with its bold geometry and radiant symmetry, is a quintessential element of the Art Deco style.' }
             }
         },
         {
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { label: 'Emerald Green', color: '#009b7d', feedback: 'Vibrant, rich jewel tones like emerald green and ruby red were frequently used as accent colors.'},
                 ],
                 correctIndex: 2,
-                feedback: { correct: "You have a keen eye! **Pastel Pink**, with its soft and gentle feel, is more associated with the Rococo or 1950s aesthetics. Art Deco favors bold, high-contrast, and luxurious colors."}
+                feedback: { correct: "You have a keen eye! <strong>Pastel Pink</strong>, with its soft and gentle feel, is more associated with the Rococo or 1950s aesthetics. Art Deco favors bold, high-contrast, and luxurious colors."}
             }
         },
         {
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      { label: 'Audio B', audio: { type: 'harpsichord', notes: [523.25, 493.88, 523.25, 440, 523.25], tempo: 0.25 }, feedback: "This complex sound is from a harpsichord, typical of the earlier Baroque period, not the Jazz Age." },
                 ],
                 correctIndex: 0,
-                feedback: { correct: "Exactly! The smooth, sophisticated, and rhythmic sounds of the **Jazz Age**, often featuring the saxophone, are the perfect sonic counterpart to the cool elegance of Art Deco." }
+                feedback: { correct: "Exactly! The smooth, sophisticated, and rhythmic sounds of the <strong>Jazz Age</strong>, often featuring the saxophone, are the perfect sonic counterpart to the cool elegance of Art Deco." }
             }
         }
     ];

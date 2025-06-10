@@ -1,0 +1,36 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "The Portal Gun"
+    Metaphor: The iconic portal, the gateway to infinite, chaotic possibilities.
+    -->
+    <defs>
+        <filter id="portal-glow">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="3" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
+            <feComposite in="blur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect width="400" height="225" fill="#0a1420"/>
+
+    <!-- The Portal -->
+    <g filter="url(#portal-glow)">
+        <ellipse cx="200" cy="112.5" rx="120" ry="80" fill="#88ff00"/>
+        <ellipse cx="200" cy="112.5" rx="100" ry="60" fill="#aaff55"/>
+    </g>
+
+    <!-- The Portal Gun -->
+    <g transform="translate(250, 150) rotate(-20)" style="filter: drop-shadow(2px 2px 5px #000);">
+        <rect x="-60" y="-15" width="120" height="30" fill="#d0d0d0" rx="5"/>
+        <rect x="60" y="-10" width="30" height="20" fill="#333"/>
+        <circle cx="-70" cy="0" r="10" fill="#333"/>
+        <rect x="-30" y="-25" width="60" height="10" fill="#555"/>
+        <circle cx="0" cy="-35" r="8" fill="#88ff00" stroke="white" stroke-width="2"/>
+    </g>
+</svg>

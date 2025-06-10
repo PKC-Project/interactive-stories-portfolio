@@ -1,0 +1,37 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail Design 1: The Neon Kanji
+    Metaphor: Traditional writing fused with futuristic, cyberpunk aesthetics.
+    -->
+    <defs>
+        <linearGradient id="wet-pavement" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2c3e50"/>
+            <stop offset="100%" stop-color="#1a2530"/>
+        </linearGradient>
+        <!-- A multi-stage filter to create a realistic neon glow -->
+        <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2"/>
+            <feMerge>
+                <feMergeNode in="blur1"/>
+                <feMergeNode in="blur2"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="225" fill="url(#wet-pavement)"/>
+
+    <!-- Kanji Text for "Tokyo" -->
+    <text x="50%" y="55%"
+          font-family="Noto Serif JP, serif"
+          font-weight="900"
+          font-size="120"
+          fill="#ff00ff"
+          stroke="#ff99ff"
+          stroke-width="1.5"
+          text-anchor="middle"
+          filter="url(#neon-glow)"
+    >東京</text>
+</svg>

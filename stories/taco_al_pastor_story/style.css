@@ -1,0 +1,56 @@
+:root {
+    --bg-color: #fdfaf6;
+    --text-color: #3d352e;
+    --font-header: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    /* Theme Colors */
+    --color-ottoman: #a07c5b;
+    --color-voyage: #3498db;
+    --color-fusion: #e67e22;
+    --color-alchemy: #c0392b;
+    --color-icon: #27ae60;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #e8e2d8; font-family: var(--font-body); }
+
+#entry-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-color); display: flex; justify-content: center; align-items: center; z-index: 100; transition: opacity 1s, visibility 1s; }
+#enter-btn { background: none; border: 1px solid var(--text-color); color: var(--text-color); font-size: 1.2rem; padding: 1rem 2rem; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+#enter-btn:hover { background-color: var(--text-color); color: var(--bg-color); }
+
+#story-container { display: flex; max-width: 1600px; margin: auto; }
+#narrative-pane { width: 45%; padding: 3rem 4rem; color: var(--text-color); background-color: var(--bg-color); }
+#narrative-pane h1 { font-family: var(--font-header); font-size: 3.5rem; margin-bottom: 0; }
+#narrative-pane header p { font-style: italic; font-size: 1.2rem; margin-top: 0; color: #666; }
+.story-step { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.3; transition: opacity 0.4s ease-out; }
+.story-step.active { opacity: 1; }
+.story-step h2 { font-family: var(--font-header); font-size: 2.2rem; transition: color 1s; }
+.story-step[data-step="ottoman"].active h2 { color: var(--color-ottoman); }
+.story-step[data-step="voyage"].active h2 { color: var(--color-voyage); }
+.story-step[data-step="fusion"].active h2 { color: var(--color-fusion); }
+.story-step[data-step="alchemy"].active h2 { color: var(--color-alchemy); }
+.story-step[data-step="icon"].active h2 { color: var(--color-icon); }
+.story-step p { font-size: 1.1rem; line-height: 1.8; }
+.story-step em { font-style: italic; color: #555; }
+
+#visual-pane { width: 55%; position: sticky; top: 0; height: 100vh; overflow: hidden; }
+#story-canvas { width: 100%; height: 100%; }
+
+/* High-Technique Styles */
+.visual-layer { opacity: 0; transition: opacity 1.5s ease-in-out; }
+.visible { opacity: 1; }
+
+#voyage-line { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: sail 5s ease-in-out forwards; }
+@keyframes sail { to { stroke-dashoffset: 0; } }
+
+#trompo-path { transition: fill 2s ease-in-out 1s; } /* Delayed color change for alchemy */
+
+/* FIX: New animation for the swirling adobo marinade */
+.swirl-path {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: swirl 2.5s ease-out forwards;
+}
+@keyframes swirl {
+    50% { stroke-dashoffset: 0; opacity: 0.8; }
+    100% { stroke-dashoffset: -500; opacity: 0; }
+}

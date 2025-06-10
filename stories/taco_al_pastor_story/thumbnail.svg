@@ -1,0 +1,45 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+    Thumbnail for "Taco Al Pastor: The Spinning World"
+    A visual journey showing the transformation of the Shawarma spit into the Trompo al Pastor.
+    -->
+    <defs>
+        <linearGradient id="left-bg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#a07c5b"/>
+            <stop offset="100%" stop-color="#d3a375"/>
+        </linearGradient>
+        <linearGradient id="right-bg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#c0392b"/>
+            <stop offset="100%" stop-color="#e74c3c"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Backgrounds -->
+    <rect width="200" height="225" fill="url(#left-bg)"/>
+    <rect x="200" width="200" height="225" fill="url(#right-bg)"/>
+
+    <!-- Left Side: Ottoman/Levant Scene -->
+    <g id="levant-scene">
+        <!-- Arch -->
+        <path d="M 50,225 V 100 A 50 50 0 0 1 150 100 V 225" fill="none" stroke="#6d4c41" stroke-width="8"/>
+        <!-- Shawarma Spit -->
+        <g transform="translate(100, 112.5)">
+            <path d="M 0,-60 C 25,-60 25,60 0,60 C -25,60 -25,-60 0,-60 Z" fill="#b08968"/>
+        </g>
+    </g>
+
+    <!-- Right Side: Mexico Scene -->
+    <g id="mexico-scene">
+        <!-- Pyramid -->
+        <path d="M 250,225 L 300,150 L 350,225 Z" fill="#e67e22"/>
+        <!-- Trompo al Pastor -->
+        <g transform="translate(300, 112.5)">
+            <path d="M 0,-60 C 25,-60 25,60 0,60 C -25,60 -25,-60 0,-60 Z" fill="#d84315"/>
+            <path d="M 0,-80 C 10,-80 10,-60 0,-60 C -10,-60 -10,-80 0,-80 Z" fill="#f1c40f"/>
+        </g>
+    </g>
+
+    <!-- Transition Line -->
+    <path d="M150, 20 C 250, 80 150, 140 250, 200" fill="none" stroke="white" stroke-width="3" stroke-dasharray="5 5"/>
+
+</svg>

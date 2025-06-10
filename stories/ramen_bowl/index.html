@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ramen Bowl: A Culinary Meditation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="recipe-container">
+        <header id="recipe-header">
+            <h1>The Ramen Bowl</h1>
+            <p>A Culinary Meditation</p>
+        </header>
+
+        <main id="steps-container">
+            <!-- Step 1: The Broth -->
+            <section id="step-broth" class="recipe-step">
+                <div class="instructions"><h2>The Foundation: <em>Dashi</em></h2><p>A great ramen begins with its soul: the broth. We start with <em>dashi</em>, the essence of umami. Drag the ingredients into the pot.</p></div>
+                <div class="interaction-area">
+                    <div id="pot-container"><svg id="pot-svg" viewBox="0 0 200 200"><path d="M10 50 H 190 V 180 A 90 90 0 0 1 10 180 Z" fill="#455a64"/><rect id="water" x="15" y="55" width="170" height="120" fill="#b0c4de"/><g id="steam-container"></g></svg></div>
+                    <div id="ingredients-container"><div id="kombu" class="ingredient" draggable="true">Kombu</div><div id="katsuobushi" class="ingredient" draggable="true">Katsuobushi</div></div>
+                </div>
+            </section>
+
+            <!-- Step 2: The Noodles -->
+            <section id="step-noodles" class="recipe-step">
+                <div class="instructions"><h2>The Heart: <em>Men</em></h2><p>Next, the noodles. The perfect ramen noodle has a firm, satisfying chew, achieved through careful kneading and cutting.</p></div>
+                <div class="interaction-area">
+                    <svg id="noodle-svg" viewBox="0 0 200 200">
+                        <g id="noodle-visual-group"><circle id="dough-ball" cx="100" cy="100" r="50" fill="#f5e6c4"/></g>
+                    </svg>
+                    <div id="noodle-buttons"><button id="knead-btn">Knead</button><button id="cut-btn" class="hidden">Cut</button></div>
+                </div>
+            </section>
+
+            <!-- Step 3: The Toppings -->
+            <section id="step-toppings" class="recipe-step">
+                <div class="instructions"><h2>The Jewels: <em>Gu</em></h2><p>The toppings are the jewels of the bowl. Drag each one to create your perfect arrangement.</p></div>
+                <div class="interaction-area">
+                    <div id="ramen-bowl-container"><div id="ramen-bowl"></div></div>
+                    <div id="toppings-source"><div id="chashu" class="topping" draggable="true"></div><div id="ajitama" class="topping" draggable="true"></div><div id="negi" class="topping" draggable="true"></div></div>
+                </div>
+            </section>
+
+            <!-- Step 4: The Assembly -->
+            <section id="step-assembly" class="recipe-step">
+                <div class="instructions"><h2>The Assembly</h2><p>Now, we bring it all together to create the final masterpiece.</p></div>
+                <div class="interaction-area">
+                    <div id="final-bowl-container">
+                        <svg id="final-bowl-svg" viewBox="0 0 300 300">
+                            <defs>
+                                <clipPath id="bowl-clip"><circle cx="150" cy="150" r="130"/></clipPath>
+                            </defs>
+                            <circle cx="150" cy="150" r="140" fill="#263238"/>
+                            <circle cx="150" cy="150" r="130" fill="#fafafa"/>
+                            
+                            <g id="final-bowl-layers" clip-path="url(#bowl-clip)">
+                                <rect id="broth-fill" width="300" height="300" fill="#6d4c41"/>
+                                <!-- FIX: The noodle group now comes BEFORE the toppings group -->
+                                <g id="final-noodles-group"></g>
+                                <g id="final-toppings-group"></g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div id="assembly-buttons"><button id="broth-btn">Pour Broth</button><button id="noodles-btn" class="hidden">Add Noodles</button></div>
+                </div>
+            </section>
+
+            <!-- Step 5: The Appreciation -->
+            <section id="step-appreciation" class="recipe-step">
+                <div class="instructions final"><h2>Itadakimasu!</h2><p>Perfection. A meditation in a bowl. Before eating, it is customary to say, <em>"Itadakimasu"</em>—an expression of gratitude for the food and all who helped prepare it.</p></div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

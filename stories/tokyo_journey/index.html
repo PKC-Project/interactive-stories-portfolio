@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo: Echoes of the Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="entry-overlay"><button id="enter-btn">未来の響き</button></div>
+
+    <main id="story-container">
+        <div id="visual-pane">
+            <!-- FIX: The <svg> container is now permanently in the HTML -->
+            <svg id="tokyo-canvas" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                <!-- Visuals will be dynamically generated and appended here -->
+            </svg>
+        </div>
+
+        <div id="narrative-pane">
+            <header>
+                <h1>Tokyo</h1>
+                <p>未来の響き</p>
+            </header>
+            
+            <section class="story-step" data-step="akihabara">
+                <h2>The Electric Pulse</h2>
+                <p>Welcome to Tokyo. This is not just a city; it's a living organism, always in motion. Begin in Akihabara, where the pulse of innovation is electric. <em>"Yokoso Tokyo e!"</em></p>
+            </section>
+            
+            <section class="story-step" data-step="gyoen">
+                <h2>The Serene Island</h2>
+                <p>Amidst the chaos, islands of calm persist. The meticulous beauty of a Japanese garden, where every stone, every ripple, is an act of meditation. <em>"Shizuka desu ne."</em></p>
+            </section>
+            
+            <section class="story-step" data-step="shinkansen">
+                <h2>The Precision Pulse</h2>
+                <p>Precision. Efficiency. Speed. Tokyo moves with an almost impossible discipline. The Shinkansen, a symbol of its relentless progress, slices through the landscape with silent power. <em>"Itte rasshai!"</em></p>
+            </section>
+
+            <section class="story-step" data-step="asakusa">
+                <h2>The Cultural Layers</h2>
+                <p>Centuries of history hum beneath the neon glow. In Asakusa, the spirit of old Edo thrives, where ancient prayers and modern commerce coexist. <em>"Arigato gozaimasu."</em></p>
+            </section>
+
+            <section class="story-step" data-step="skytree">
+                <h2>The Tokyo View</h2>
+                <p>From above, Tokyo reveals its true nature: a symphony of precision and tradition, a quiet harmony within an overwhelming scale. A city that always feels like the future, yet echoes with the past. <em>"Sayonara, Tokyo."</em></p>
+            </section>
+            
+            <footer><p>An interactive journey by the PKC Framework.</p></footer>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

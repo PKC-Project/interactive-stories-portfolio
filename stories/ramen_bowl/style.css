@@ -1,0 +1,61 @@
+:root {
+    --bg-color: #f8f5f0;
+    --text-color: #3d352e;
+    --border-color: #dcd3c9;
+    --accent-color: #a1887f;
+    --font-header: 'Noto Serif JP', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #e8e2d8; font-family: var(--font-body); color: var(--text-color); }
+
+#recipe-container { max-width: 900px; margin: 2rem auto; background-color: var(--bg-color); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+#recipe-header { text-align: center; padding: 2rem; border-bottom: 1px solid var(--border-color); }
+#recipe-header h1 { font-family: var(--font-header); font-size: 2.5rem; margin: 0; }
+#recipe-header p { font-size: 1.2rem; margin: 0.5rem 0 0; font-style: italic; }
+
+.recipe-step { padding: 2rem; border-bottom: 1px solid var(--border-color); }
+.recipe-step:last-child { border-bottom: none; }
+.instructions h2 { font-family: var(--font-header); font-size: 1.8rem; }
+.instructions p { line-height: 1.7; }
+.instructions.final { text-align: center; }
+.interaction-area { display: flex; justify-content: space-around; align-items: center; min-height: 250px; margin-top: 1rem; }
+
+/* Step 1: Broth */
+#pot-container { width: 200px; height: 200px; }
+#pot-svg #water { transition: fill 0.5s; }
+.steam-particle { fill: #e0e0e0; animation: steam-rise 3s ease-out infinite; }
+@keyframes steam-rise { from { transform: translateY(0) scale(1); opacity: 0.7; } to { transform: translateY(-50px) scale(0.5); opacity: 0; } }
+#ingredients-container { display: flex; flex-direction: column; gap: 1rem; }
+.ingredient { padding: 1rem 2rem; border: 2px dashed var(--border-color); border-radius: 10px; cursor: grab; }
+
+/* Step 2: Noodles */
+#noodle-svg { width: 200px; height: 200px; }
+#dough-ball { transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.noodle-strand {
+    stroke: #f5e6c4; stroke-width: 4; stroke-linecap: round; fill: none;
+    opacity: 0;
+    animation: noodle-appear 0.5s forwards;
+}
+@keyframes noodle-appear { to { opacity: 1; } }
+#noodle-buttons button, #assembly-buttons button { background: var(--accent-color); border: none; color: white; padding: 0.8rem 1.5rem; font-size: 1rem; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+#noodle-buttons button:hover, #assembly-buttons button:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.hidden { display: none; }
+
+/* Step 3: Toppings */
+#ramen-bowl-container { width: 250px; height: 250px; }
+#ramen-bowl { width: 100%; height: 100%; background-color: #fafafa; border: 10px solid #263238; border-radius: 50%; position: relative; }
+#toppings-source { display: flex; gap: 1rem; }
+.topping { width: 60px; height: 60px; border: 2px dashed var(--border-color); border-radius: 50%; cursor: grab; background-size: contain; background-repeat: no-repeat; background-position: center; }
+#chashu { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="25" fill="%23d7ccc8" stroke="%238d6e63" stroke-width="3"/><path d="M20 45 C 40 40, 60 45, 80 50" fill="none" stroke="%23bf360c" stroke-width="4"/></svg>'); }
+#ajitama { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23fffde7"/><circle cx="50" cy="50" r="20" fill="%23ffab00"/></svg>'); }
+#negi { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="%234caf50" stroke-width="5" stroke-linecap="round"><path d="M20 80 L 80 20"/><path d="M30 90 L 90 30"/><path d="M40 100 L 100 40"/></g></svg>'); }
+.placed-topping { position: absolute; width: 60px; height: 60px; background-size: contain; transition: all 0.3s ease-out; }
+
+/* Step 4: Assembly */
+#final-bowl-container { width: 300px; height: 300px; }
+#broth-fill {
+    transform: translateY(100%);
+    transition: transform 1.5s ease-in-out;
+}
+#final-noodles-group { opacity: 0; transition: opacity 1s 0.5s; }
